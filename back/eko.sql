@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 23 Janvier 2023 à 12:46
+-- Généré le :  Lun 23 Janvier 2023 à 13:25
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `eko` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `eko`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `action`
+--
+
+CREATE TABLE `action` (
+  `id` int(11) NOT NULL,
+  `name` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `analytics`
+--
+
+CREATE TABLE `analytics` (
+  `id` int(11) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `product_id` int(11) NOT NULL,
+  `action_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -128,6 +153,19 @@ CREATE TABLE `user` (
 --
 
 --
+-- Index pour la table `action`
+--
+ALTER TABLE `action`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `analytics`
+--
+ALTER TABLE `analytics`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `product_id` (`product_id`,`action_id`,`user_id`);
+
+--
 -- Index pour la table `business`
 --
 ALTER TABLE `business`
@@ -179,6 +217,16 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour les tables exportées
 --
 
+--
+-- AUTO_INCREMENT pour la table `action`
+--
+ALTER TABLE `action`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `analytics`
+--
+ALTER TABLE `analytics`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `business`
 --
