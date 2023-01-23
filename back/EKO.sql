@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 23 Janvier 2023 à 14:05
+-- Généré le :  Lun 23 Janvier 2023 à 16:34
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -194,6 +194,7 @@ ALTER TABLE `labels`
 -- Index pour la table `parainnage`
 --
 ALTER TABLE `parainnage`
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `parain_id` (`parain_id`),
   ADD UNIQUE KEY `parainated_id` (`parainated_id`);
 
@@ -241,6 +242,11 @@ ALTER TABLE `business`
 -- AUTO_INCREMENT pour la table `labels`
 --
 ALTER TABLE `labels`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `parainnage`
+--
+ALTER TABLE `parainnage`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `product`
