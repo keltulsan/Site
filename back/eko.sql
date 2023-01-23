@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 23 Janvier 2023 à 13:25
+-- Généré le :  Lun 23 Janvier 2023 à 13:44
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -58,7 +58,12 @@ CREATE TABLE `business` (
   `name` varchar(100) NOT NULL,
   `activity` text NOT NULL,
   `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `email` varchar(100) NOT NULL,
+  `business_email` varchar(100) NOT NULL,
+  `business_phone` varchar(100) NOT NULL,
+  `business_password` varchar(100) NOT NULL,
+  `business_adress` varchar(100) NOT NULL,
+  `business_name` varchar(100) NOT NULL,
+  `business_banking_informations` varchar(100) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
