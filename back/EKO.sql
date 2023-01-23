@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 23 Janvier 2023 à 13:44
+-- Généré le :  Lun 23 Janvier 2023 à 14:05
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -114,7 +114,7 @@ CREATE TABLE `product` (
   `price` float NOT NULL,
   `seller_name` varchar(100) NOT NULL,
   `eko_score` float NOT NULL,
-  `labbel_name` varchar(100) NOT NULL
+  `label_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -202,7 +202,7 @@ ALTER TABLE `parainnage`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `labbel_name` (`labbel_name`);
+  ADD UNIQUE KEY `labbel_name` (`label_name`);
 
 --
 -- Index pour la table `product_label`
