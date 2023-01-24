@@ -56,8 +56,9 @@ var models = initModels(sequelize);
   app.post("/action/insert",jsonParser,(req,res) =>{
     (async () => {
       await sequelize.sync();
-      const body = await models.action.create({name:req.body.name});
-      res.json(body)
+      await models.action.create({name:req.body.name})
+      .then(result=>res.json(result))
+      .catch(err=>res.send(JSON.stringify(err.message)));
     })();
   });
 
@@ -98,11 +99,12 @@ var models = initModels(sequelize);
   app.post("/analytics/insert",jsonParser,(req,res) =>{
     (async () => {
       await sequelize.sync();
-      const body = await models.analytics.create({product_id:req.body.product_id,
+      await models.analytics.create({product_id:req.body.product_id,
       action_id:req.body.action_id,
       user_id:req.body.user_id
-    });
-      res.json(body)
+    })
+    .then(result=>res.json(result))
+    .catch(err=>res.send(JSON.stringify(err.message)));
     })();
   });
 
@@ -146,7 +148,7 @@ var models = initModels(sequelize);
   app.post("/business/insert",jsonParser,(req,res) =>{
     (async () => {
       await sequelize.sync();
-      const body = await models.business.create({name:req.body.name,
+      await models.business.create({name:req.body.name,
       activity:req.body.activity,
       business_email:req.body.business_email,
       business_phone:req.body.business_phone,
@@ -156,8 +158,9 @@ var models = initModels(sequelize);
       business_banking_informations:req.body.business_banking_informations,
       user_id:req.body.user_id
 
-    });
-      res.json(body)
+    })
+    .then(result=>res.json(result))
+    .catch(err=>res.send(JSON.stringify(err.message)));
     })();
   });
 
@@ -172,7 +175,7 @@ var models = initModels(sequelize);
   app.post("/business/update",jsonParser,(req,res) =>{
     (async () => {
       await sequelize.sync();
-      const body = await models.business.update({name:req.body.name,
+      await models.business.update({name:req.body.name,
         activity:req.body.activity,
         business_email:req.body.business_email,
         business_phone:req.body.business_phone,
@@ -185,8 +188,9 @@ var models = initModels(sequelize);
           where:{
             id:req.body.id
           }
-        });
-      res.json(body)
+        })
+        .then(result=>res.json(result))
+        .catch(err=>res.send(JSON.stringify(err.message)));
     })();
   });
 
@@ -206,9 +210,10 @@ var models = initModels(sequelize);
   app.post("/labels/insert",jsonParser,(req,res) =>{
     (async () => {
       await sequelize.sync();
-      const body = await models.business.create({label_name:req.body.name
-    });
-      res.json(body)
+      await models.business.create({label_name:req.body.name
+    })
+    .then(result=>res.json(result))
+    .catch(err=>res.send(JSON.stringify(err.message)));
     })();
   });
 
@@ -249,7 +254,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/user/insert",jsonParser,(req,res) =>{
   (async () => {
     await sequelize.sync();
-    const body = await models.user.create({
+    await models.user.create({
       name:req.body.name, 
       nickname:req.body.nickname, 
       mail:req.body.mail, 
@@ -265,8 +270,9 @@ app.post("/user/insert",jsonParser,(req,res) =>{
       admin:req.body.admin, 
       seller:req.body.seller, 
       envy_id:req.body.envy_id, 
-    });
-    res.json(body)
+    })
+    .then(result=>res.json(result))
+    .catch(err=>res.send(JSON.stringify(err.message)));
   })();
 });
 
@@ -326,15 +332,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/product/insert",jsonParser,(req,res) =>{
   (async () => {
     await sequelize.sync();
-    const body = await models.product.create({
+    await models.product.create({
       name:req.body.name, 
       quantity:req.body.quantity, 
       price:req.body.price, 
       seller_name:req.body.seller_name, 
       eko_score:req.body.eko_score, 
       label_name:req.body.label_name
-    });
-    res.json(body)
+    })
+    .then(result=>res.json(result))
+    .catch(err=>res.send(JSON.stringify(err.message)));
   })();
 });
 
@@ -386,11 +393,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/parainnage/insert",jsonParser,(req,res) =>{
   (async () => {
     await sequelize.sync();
-    const body = await models.parainnage.create({
+    await models.parainnage.create({
       parain_id:req.body.parain_id, 
       parainated_id:req.body.parainated_id
-    });
-    res.json(body)
+    })
+    .then(result=>res.json(result))
+    .catch(err=>res.send(JSON.stringify(err.message)));
   })();
 });
 
@@ -437,11 +445,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/envy_list/insert",jsonParser,(req,res) =>{
   (async () => {
     await sequelize.sync();
-    const body = await models.envy_list.create({
+    await models.envy_list.create({
       user_id:req.body.user_id, 
       product_id:req.body.product_id
-    });
-    res.json(body)
+    })
+    .then(result=>res.json(result))
+    .catch(err=>res.send(JSON.stringify(err.message)));
   })();
 });
 
@@ -488,11 +497,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/product_label/insert",jsonParser,(req,res) =>{
   (async () => {
     await sequelize.sync();
-    const body = await models.product_label.create({
+    await models.product_label.create({
       parain_id:req.body.parain_id, 
       parainated_id:req.body.parainated_id
-    });
-    res.json(body)
+    })
+    .then(result=>res.json(result))
+    .catch(err=>res.send(JSON.stringify(err.message)));
   })();
 });
 
