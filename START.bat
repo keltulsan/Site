@@ -1,2 +1,6 @@
-start "Backend" /d "./back/back_start.bat"
-start "Frontend" /d "./front/myapp/front_start.bat"
+
+cd ./front/myapp/
+start front_start.bat
+cd ../../back
+start back_start.bat
+cd ..
