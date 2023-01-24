@@ -20,3 +20,27 @@ app.get("/", function (req, res) {
 app.listen(port, function () {
   console.log(`App listening on port ${port}!`);
 });
+
+var initModels = require("./models/init-models");
+var models = initModels(sequelize);
+(async () => {
+    await sequelize.sync();
+    // Code here
+    const jane = await models.labels.create({label_name:"Pitié marche"});
+    console.log("Jane's auto-generated ID:", jane.id);
+    // const jane1 = await models.labels.create({label_name:"Pitié marche"});
+    // console.log("Jane's auto-generated ID:", jane1.id);
+  })();
+
+  app.get("/pokemon/list", function (req, res) {
+    //on se connecte à la DB MongoDB
+    (async () => {
+      await sequelize.sync();
+      // Code here
+      const jane1 = await models.labels.findAll({});
+      // const jane1 = await models.labels.create({label_name:"Pitié marche"});
+      // console.log("Jane's auto-generated ID:", jane1.id);
+      res.send(jane1)
+    })();
+    //premier test permettant de récupérer mes pokemons !
+    });
