@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 4444;
+const bodyParser = require('body-parser');
 const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize('eko', 'root', 'root', {
   host: 'localhost',
@@ -44,3 +45,15 @@ var models = initModels(sequelize);
     })();
     //premier test permettant de récupérer mes pokemons !
     });
+  
+  app.use(bodyParser.urlencoded({ extended: true })); 
+  const jsonParser = bodyParser.json();
+  app.post("/marcheforpity",jsonParser,(req,res) =>{
+    (async () => {
+      await sequelize.sync();
+      // Code here
+      const body = await models.labels.create({label_name:req.body.label_name});
+      // console.log("Jane's auto-generated ID:", jane1.id);
+      res.json(body)
+    })();
+  });
