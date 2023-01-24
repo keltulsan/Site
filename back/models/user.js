@@ -70,7 +70,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     envy_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
+      defaultValue: null,
       unique: "envy_id"
     }
   }, {
