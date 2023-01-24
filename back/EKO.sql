@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 23 Janvier 2023 à 16:34
+-- Généré le :  Mar 24 Janvier 2023 à 14:05
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -89,6 +89,36 @@ CREATE TABLE `labels` (
   `label_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `labels`
+--
+
+INSERT INTO `labels` (`id`, `label_name`) VALUES
+(1, 'Pitié marche'),
+(2, 'Pitié marche'),
+(3, 'Pitié marche'),
+(4, 'Pitié marche'),
+(5, 'Pitié marche'),
+(6, 'Pitié marche'),
+(7, 'Pitié marche'),
+(8, 'Pitié marche'),
+(9, 'Pitié marche'),
+(10, 'Pitié marche'),
+(11, 'Pitié marche'),
+(12, 'Pitié marche'),
+(13, 'Pitié marche'),
+(14, 'Pitié marche'),
+(15, 'Pitié marche'),
+(16, 'Pitié marche'),
+(17, 'Pitié marche'),
+(18, 'Pitié marche'),
+(19, 'Pitié marche'),
+(20, 'Pitié marche'),
+(21, 'Pitié marche'),
+(22, 'Pitié marche'),
+(23, 'Pitié marche'),
+(24, 'Pitié marche');
+
 -- --------------------------------------------------------
 
 --
@@ -150,7 +180,8 @@ CREATE TABLE `user` (
   `badges` varchar(100) NOT NULL,
   `admin` tinyint(1) NOT NULL DEFAULT '0',
   `seller` tinyint(1) NOT NULL DEFAULT '0',
-  `envy_id` int(11) NOT NULL
+  `eko_save` tinyint(1) NOT NULL DEFAULT '0',
+  `envy_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -242,22 +273,22 @@ ALTER TABLE `business`
 -- AUTO_INCREMENT pour la table `labels`
 --
 ALTER TABLE `labels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT pour la table `parainnage`
 --
 ALTER TABLE `parainnage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
