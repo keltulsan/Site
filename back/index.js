@@ -24,32 +24,6 @@ app.listen(port, function () {
 
 var initModels = require("./models/init-models");
 var models = initModels(sequelize);
-(async () => {
-  await sequelize.sync();
-  // Code here
-  const jane = await models.labels.create({ label_name: "Pitié marche" });
-  console.log("Jane's auto-generated ID:", jane.id);
-  // const jane1 = await models.labels.create({label_name:"Pitié marche"});
-  // console.log("Jane's auto-generated ID:", jane1.id);
-})();
-
-app.get("/pokemon/list", function (req, res) {
-  (async () => {
-    await sequelize.sync();
-    const jane1 = await models.labels.findAll({});
-    res.send(jane1)
-  })();
-});
-
-app.use(bodyParser.urlencoded({ extended: true }));
-const jsonParser = bodyParser.json();
-app.post("/marcheforpity", jsonParser, (req, res) => {
-  (async () => {
-    await sequelize.sync();
-    const body = await models.labels.create({ label_name: req.body.label_name });
-    res.json(body)
-  })();
-});
 
 // CRUD action
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -73,27 +47,30 @@ app.get("/action/list", function (req, res) {
 app.post("/action/update", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.action.update({ name: req.body.name },
+    await models.action.update({ name: req.body.name },
       {
         where: {
           id: req.body.id
         }
-      });
-    res.json(body)
+      })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
 
 app.post("/action/delete", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.action.destroy({
+    await models.action.destroy({
       where: {
         id: req.body.id
       }
-    });
-    res.json(body)
+    })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
+
 // CRUD analytics
 app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/analytics/insert", jsonParser, (req, res) => {
@@ -120,7 +97,7 @@ app.get("/analytics/list", function (req, res) {
 app.post("/analytics/update", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.analytics.update({
+    await models.analytics.update({
       product_id: req.body.product_id,
       action_id: req.body.action_id,
       user_id: req.body.user_id
@@ -129,20 +106,22 @@ app.post("/analytics/update", jsonParser, (req, res) => {
         where: {
           id: req.body.id
         }
-      });
-    res.json(body)
+      })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
 
 app.post("/analytics/delete", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.analytics.destroy({
+    await models.analytics.destroy({
       where: {
         id: req.body.id
       }
-    });
-    res.json(body)
+    })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
 
@@ -207,10 +186,12 @@ app.post("/business/delete", jsonParser, (req, res) => {
       where: {
         id: req.body.id
       }
-    });
-    res.json(body)
+    })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
+
 // CRUD labels
 app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/labels/insert", jsonParser, (req, res) => {
@@ -240,8 +221,9 @@ app.post("/labels/update", jsonParser, (req, res) => {
         where: {
           id: req.body.id
         }
-      });
-    res.json(body)
+      })
+      .then(result => res.json(result))
+      .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
 
@@ -252,10 +234,12 @@ app.post("/labels/delete", jsonParser, (req, res) => {
       where: {
         id: req.body.id
       }
-    });
-    res.json(body)
+    })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
+
 // CRUD user 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/user/insert", jsonParser, (req, res) => {
@@ -295,7 +279,7 @@ app.get("/user/list", function (req, res) {
 app.post("/user/update", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.user.update({
+    await models.user.update({
       name: req.body.name,
       nickname: req.body.nickname,
       mail: req.body.mail,
@@ -317,20 +301,22 @@ app.post("/user/update", jsonParser, (req, res) => {
         where: {
           id: req.body.id
         }
-      });
-    res.json(body)
+      })
+      .then(result => res.json(result))
+      .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
 
 app.post("/user/delete", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.user.destroy({
+    await models.user.destroy({
       where: {
         id: req.body.id
       }
-    });
-    res.json(body)
+    })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
 
@@ -366,7 +352,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/product/update", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.product.update({
+    await models.product.update({
       name: req.body.name,
       quantity: req.body.quantity,
       price: req.body.price,
@@ -378,8 +364,9 @@ app.post("/product/update", jsonParser, (req, res) => {
         where: {
           id: req.body.id
         }
-      });
-    res.json(body)
+      })
+      .then(result => res.json(result))
+      .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
 
@@ -387,12 +374,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/product/delete", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.product.destroy({
+    await models.product.destroy({
       where: {
         id: req.body.id
       }
-    });
-    res.json(body)
+    })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
 
@@ -423,7 +411,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/parainnage/update", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.parainnage.update({
+    await models.parainnage.update({
       parain_id: req.body.parain_id,
       parainated_id: req.body.parainated_id
     },
@@ -431,8 +419,9 @@ app.post("/parainnage/update", jsonParser, (req, res) => {
         where: {
           id: req.body.id
         }
-      });
-    res.json(body)
+      })
+      .then(result => res.json(result))
+      .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
 
@@ -440,12 +429,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/parainnage/delete", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.parainnage.destroy({
+    await models.parainnage.destroy({
       where: {
         id: req.body.id
       }
-    });
-    res.json(body)
+    })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
 // CRUD envy_list
@@ -475,15 +465,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/envy_list/update", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.envy_list.update({
+    await models.envy_list.update({
       product_id: req.body.product_id,
     },
       {
         where: {
           user_id: req.body.user_id
         }
-      });
-    res.json(body)
+      })
+      .then(result => res.json(result))
+      .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
 
@@ -491,13 +482,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/envy_list/delete", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.envy_list.destroy({
+    await models.envy_list.destroy({
       where: {
         user_id: req.body.user_id,
         product_id: req.body.product_id
       }
-    });
-    res.json(body)
+    })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
 // CRUD product_label
@@ -527,7 +519,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/product_label/update", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.product_label.update({
+    await models.product_label.update({
       product_id: req.body.product_id,
       labels_id: req.body.labels_id
     },
@@ -535,8 +527,9 @@ app.post("/product_label/update", jsonParser, (req, res) => {
         where: {
           product_id: req.body.product_id
         }
-      });
-    res.json(body)
+      })
+      .then(result => res.json(result))
+      .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
 
