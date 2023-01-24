@@ -273,6 +273,7 @@ app.post("/user/insert", jsonParser, (req, res) => {
       stay_connect: req.body.stay_connect,
       newsletter: req.body.newsletter,
       eko_experience: req.body.eko_experience,
+      eko_save: req.body.eko_save,
       badges: req.body.badges,
       admin: req.body.admin,
       seller: req.body.seller,
@@ -306,6 +307,7 @@ app.post("/user/update", jsonParser, (req, res) => {
       stay_connect: req.body.stay_connect,
       newsletter: req.body.newsletter,
       eko_experience: req.body.eko_experience,
+      eko_save: req.body.eko_save,
       badges: req.body.badges,
       admin: req.body.admin,
       seller: req.body.seller,
@@ -542,12 +544,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/product_label/delete", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.product_label.destroy({
+    await models.product_label.destroy({
       where: {
         product_id: req.body.product_id,
         labels_id: req.body.labels_id
       }
-    });
-    res.json(body)
+    })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
