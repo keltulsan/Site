@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const port = 4444;
 const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json;
 const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize('eko', 'root', 'root', {
   host: 'localhost',
