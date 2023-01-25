@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/action/insert", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    await models.action.create({ name: req.body.name })
+    await models.action.create({ name: req.body.name, link_name: req.body.link_name})
       .then(result => res.json(result))
       .catch(err => res.send(JSON.stringify(err.message)));
   })();
@@ -50,7 +50,7 @@ app.get("/action/list", function (req, res) {
 app.post("/action/update", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    await models.action.update({ name: req.body.name },
+    await models.action.update({ name: req.body.name , link_name: req.body.link_name},
       {
         where: {
           id: req.body.id
@@ -201,7 +201,8 @@ app.post("/labels/insert", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
     await models.labels.create({
-      label_name: req.body.name
+      label_name: req.body.name,
+      link_name: req.body.link_name
     })
       .then(result => res.json(result))
       .catch(err => res.send(JSON.stringify(err.message)));
@@ -219,7 +220,10 @@ app.get("/labels/list", function (req, res) {
 app.post("/labels/update", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.labels.update({ label_name: req.body.name },
+    const body = await models.labels.update({ 
+      label_name: req.body.name,
+      link_name: req.body.link_name 
+    },
       {
         where: {
           id: req.body.id
@@ -332,6 +336,7 @@ app.post("/product/insert", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.product.create({
       name: req.body.name,
+      link_name: req.body.link_name,
       quantity: req.body.quantity,
       price: req.body.price,
       seller_name: req.body.seller_name,
@@ -357,6 +362,7 @@ app.post("/product/update", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.product.update({
       name: req.body.name,
+      link_name: req.body.link_name,
       quantity: req.body.quantity,
       price: req.body.price,
       seller_name: req.body.seller_name,
@@ -395,7 +401,8 @@ app.post("/parainnage/insert", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.parainnage.create({
       parain_id: req.body.parain_id,
-      parainated_id: req.body.parainated_id
+      parainated_id: req.body.parainated_id,
+      link_name: req.body.link_name // [parain_id]_[parainated_id]
     })
       .then(result => res.json(result))
       .catch(err => res.send(JSON.stringify(err.message)));
@@ -416,7 +423,8 @@ app.post("/parainnage/update", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.parainnage.update({
       parain_id: req.body.parain_id,
-      parainated_id: req.body.parainated_id
+      parainated_id: req.body.parainated_id,
+      link_name: req.body.link_name // [parain_id]_[parainated_id]
     },
       {
         where: {

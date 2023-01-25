@@ -10,6 +10,10 @@ module.exports = function(sequelize, DataTypes) {
     label_name: {
       type: DataTypes.STRING(100),
       allowNull: false
+    },
+    link_name: {
+      type: DataTypes.STRING(100),
+      allowNull: false
     }
   }, {
     sequelize,

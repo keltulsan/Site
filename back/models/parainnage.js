@@ -15,6 +15,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
       unique: "parainated_id"
+    },
+    link_name: {
+      type: DataTypes.STRING(100),
+      allowNull: false
     }
   }, {
     sequelize,

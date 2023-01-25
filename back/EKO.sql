@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 25 Janvier 2023 à 15:23
+-- Généré le :  Mer 25 Janvier 2023 à 19:18
 -- Version du serveur :  5.7.11
--- Version de PHP :  7.0.3
+-- Version de PHP :  5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -30,7 +30,8 @@ USE `eko`;
 
 CREATE TABLE `action` (
   `id` int(11) NOT NULL,
-  `name` varchar(1000) NOT NULL
+  `name` varchar(1000) NOT NULL,
+  `link_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -86,29 +87,30 @@ CREATE TABLE `envy_list` (
 
 CREATE TABLE `labels` (
   `id` int(11) NOT NULL,
-  `label_name` varchar(100) NOT NULL
+  `label_name` varchar(100) NOT NULL,
+  `link_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `labels`
 --
 
-INSERT INTO `labels` (`id`, `label_name`) VALUES
-(1, 'Le meilleur des produits'),
-(2, 'Les nouveautés'),
-(3, 'Les offres'),
-(4, 'Mode et beauté'),
-(5, 'Informatique'),
-(6, 'Maison et bricolage'),
-(7, 'Electroménager'),
-(8, 'Livres et multimédia'),
-(9, 'Enfants'),
-(10, 'Sport'),
-(11, 'Auto-moto'),
-(12, 'Fournitures de bureau'),
-(13, 'Jardin et animalerie'),
-(14, 'Abonnement Eko-save'),
-(15, 'Produits recommandés pour vous');
+INSERT INTO `labels` (`id`, `label_name`, `link_name`) VALUES
+(1, 'Le meilleur des produits', 'le-meilleur-des-produits'),
+(2, 'Les nouveautés', 'les-nouveautes'),
+(3, 'Les offres', 'les-offres'),
+(4, 'Mode et beauté', 'mode-et-beaute'),
+(5, 'Informatique', 'informatique'),
+(6, 'Maison et bricolage', 'maison-et-bricolage'),
+(7, 'Electroménager', 'electromenager'),
+(8, 'Livres et multimédia', 'livres-et-multimedia'),
+(9, 'Enfants', 'enfants'),
+(10, 'Sport', 'sport'),
+(11, 'Auto-moto', 'auto-moto'),
+(12, 'Fournitures de bureau', 'fournitures-de-bureau'),
+(13, 'Jardin et animalerie', 'jardin-et-animalerie'),
+(14, 'Abonnement Eko-save', 'abonnement-eko-save'),
+(15, 'Produits recommandés pour vous', 'produits-recommandes-pour-vous');
 
 -- --------------------------------------------------------
 
@@ -119,7 +121,8 @@ INSERT INTO `labels` (`id`, `label_name`) VALUES
 CREATE TABLE `parainnage` (
   `id` int(11) NOT NULL,
   `parain_id` int(11) NOT NULL,
-  `parainated_id` int(11) NOT NULL
+  `parainated_id` int(11) NOT NULL,
+  `link_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -131,6 +134,7 @@ CREATE TABLE `parainnage` (
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
+  `link_name` varchar(100) NOT NULL,
   `quantity` int(11) NOT NULL,
   `price` float NOT NULL,
   `seller_name` varchar(100) NOT NULL,
@@ -264,9 +268,9 @@ ALTER TABLE `business`
 -- AUTO_INCREMENT pour la table `labels`
 --
 ALTER TABLE `labels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
--- AUTO_INCREMENT pour la table `parainnage`
+-- AUTO_INCREMENT pour la table `parainnage`a
 --
 ALTER TABLE `parainnage`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
