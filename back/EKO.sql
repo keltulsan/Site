@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 23 Janvier 2023 à 16:34
+-- Généré le :  Mer 25 Janvier 2023 à 15:23
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -89,6 +89,27 @@ CREATE TABLE `labels` (
   `label_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `labels`
+--
+
+INSERT INTO `labels` (`id`, `label_name`) VALUES
+(1, 'Le meilleur des produits'),
+(2, 'Les nouveautés'),
+(3, 'Les offres'),
+(4, 'Mode et beauté'),
+(5, 'Informatique'),
+(6, 'Maison et bricolage'),
+(7, 'Electroménager'),
+(8, 'Livres et multimédia'),
+(9, 'Enfants'),
+(10, 'Sport'),
+(11, 'Auto-moto'),
+(12, 'Fournitures de bureau'),
+(13, 'Jardin et animalerie'),
+(14, 'Abonnement Eko-save'),
+(15, 'Produits recommandés pour vous');
+
 -- --------------------------------------------------------
 
 --
@@ -150,7 +171,8 @@ CREATE TABLE `user` (
   `badges` varchar(100) NOT NULL,
   `admin` tinyint(1) NOT NULL DEFAULT '0',
   `seller` tinyint(1) NOT NULL DEFAULT '0',
-  `envy_id` int(11) NOT NULL
+  `eko_save` tinyint(1) NOT NULL DEFAULT '0',
+  `envy_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -242,22 +264,22 @@ ALTER TABLE `business`
 -- AUTO_INCREMENT pour la table `labels`
 --
 ALTER TABLE `labels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT pour la table `parainnage`
 --
 ALTER TABLE `parainnage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
