@@ -14,6 +14,10 @@ module.exports = function(sequelize, DataTypes) {
     link_name: {
       type: DataTypes.STRING(100),
       allowNull: false
+    },
+    img: {
+      type: DataTypes.STRING(1000),
+      allowNull: false,
     }
   }, {
     sequelize,
