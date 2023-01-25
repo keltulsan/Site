@@ -1,18 +1,19 @@
 import './App.css';
-import { Footer, Header } from './components/header-footer';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import { Header } from './components/header';
+import { Footer } from './components/footer';
 
 function App(props){
   return <Router>
       <Switch>
-        <Header />
         <Route path="/">
+          <Header />
+          <Footer />
         </Route>
-        <Footer />
       </Switch>
   </Router>
 }
