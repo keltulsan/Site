@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 23 Janvier 2023 à 16:34
+-- Généré le :  Mer 25 Janvier 2023 à 15:23
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -88,6 +88,27 @@ CREATE TABLE `labels` (
   `id` int(11) NOT NULL,
   `label_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `labels`
+--
+
+INSERT INTO `labels` (`id`, `label_name`) VALUES
+(1, 'Le meilleur des produits'),
+(2, 'Les nouveautés'),
+(3, 'Les offres'),
+(4, 'Mode et beauté'),
+(5, 'Informatique'),
+(6, 'Maison et bricolage'),
+(7, 'Electroménager'),
+(8, 'Livres et multimédia'),
+(9, 'Enfants'),
+(10, 'Sport'),
+(11, 'Auto-moto'),
+(12, 'Fournitures de bureau'),
+(13, 'Jardin et animalerie'),
+(14, 'Abonnement Eko-save'),
+(15, 'Produits recommandés pour vous');
 
 -- --------------------------------------------------------
 
@@ -242,7 +263,7 @@ ALTER TABLE `business`
 -- AUTO_INCREMENT pour la table `labels`
 --
 ALTER TABLE `labels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT pour la table `parainnage`
 --
