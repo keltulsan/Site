@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'Raleway-ExtraBold';
+    src: url("../fonts/Raleway-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: 'raleway-bold';
+    src: url("../fonts/raleway-bold.ttf") format("truetype");
+}
+@font-face {
+    font-family: 'Barlow-SemiBold';
+    src: url("../fonts/Barlow-SemiBold.ttf") format("truetype");
+}
+
+*{
+    $primaryColor1: #80C660;
+    $primaryColor2: #EF5656;
+    $primaryColor3: #367AB2;
+    $primaryColor4: #EEF0EF;
+    $primaryColor5: #222626;
+
+    $secondaryColor1: #E1FFD2;
+    $secondaryColor2: #FFD2D2;
+    $secondaryColor3: #D2E7FF;
+    $secondaryColor4: #EEF0EF;
+
+    $buttonsColor: #FFE553;
+
+    $titleFont: 'Raleway-ExtraBold';
+    $subtitleFont: 'raleway-bold';
+    $textFont: 'Barlow-SemiBold';
+
+    body{
+        div.navbar{
+            background-color: $primaryColor5;
+            p {
+                color: $primaryColor4;
+            }
+        }
+    }
+}
