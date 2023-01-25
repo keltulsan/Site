@@ -16,6 +16,7 @@ const getAllLabels = async () => {
 }
 
 export function Header() {
+    const [ isHover, setIsHover ] = useState([]);
     const [ labs, setLabs ] = useState([]);
     const [ labels, setLabels ] = useState([]);
     useEffect(() => {
@@ -27,16 +28,16 @@ export function Header() {
     useEffect(() => {
         if (labels.length > 0) {
             setLabs(labels.map(val => 
-                <li key={val["label_name"]}>{val["label_name"]}</li>
+                <li key={val["label_name"]}><Link to={"/"+val["label_name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}><p>{val["label_name"]}</p></Link></li>
             ))
         }
     },[labels]);
 
-    return <div className='navbar'>
+    return <div className='navbar' onMouseLeave={() => setIsHover(false)}>
         <div className='flex space-between'>
             <Link to='/'><img className='logo' src='./img/logo.png' alt='Logo de Eko'/></Link>
             <div className='flex align-center'>
-                <Link to='/categories'><p>Catégories</p></Link>
+                <Link to='/categories' onMouseEnter={() => setIsHover(true)}><p>Catégories</p></Link>
                 <Link to='/my-sellings'><p>Mes ventes</p></Link>
                 <Link to='/actus'><p>Actus</p></Link>
                 <Link to='/login'><p>Login</p></Link>
@@ -45,8 +46,8 @@ export function Header() {
             </div>
         </div>
         
-        <div><ul>
+        <div>{isHover && (<ul>
             {labs}
-        </ul></div>
+        </ul>)}</div>
     </div>
 }

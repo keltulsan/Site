@@ -105,10 +105,15 @@
 
             ul {
                 list-style-type: none;
+                margin: 0px;
+                margin-top: 20px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 10px;
 
-                li {
-                    color: $primaryColor4;
-                    font-family: $subtitleFont;
+                li p {
+                    font-size: 15px;
+                    text-align: center;
                 }
             }
         }
