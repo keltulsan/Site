@@ -1,5 +1,7 @@
+var cors = require('cors')
 const express = require("express");
 const app = express();
+app.use(cors())
 const port = 4444;
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json;
@@ -198,7 +200,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/labels/insert", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    await models.business.create({
+    await models.labels.create({
       label_name: req.body.name
     })
       .then(result => res.json(result))
@@ -209,7 +211,7 @@ app.post("/labels/insert", jsonParser, (req, res) => {
 app.get("/labels/list", function (req, res) {
   (async () => {
     await sequelize.sync();
-    const body = await models.business.findAll({});
+    const body = await models.labels.findAll({});
     res.send(body)
   })();
 });
@@ -217,7 +219,7 @@ app.get("/labels/list", function (req, res) {
 app.post("/labels/update", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.business.update({ label_name: req.body.name },
+    const body = await models.labels.update({ label_name: req.body.name },
       {
         where: {
           id: req.body.id
@@ -231,7 +233,7 @@ app.post("/labels/update", jsonParser, (req, res) => {
 app.post("/labels/delete", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.business.destroy({
+    const body = await models.labels.destroy({
       where: {
         id: req.body.id
       }
