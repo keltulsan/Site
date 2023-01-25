@@ -5,4 +5,4 @@ dev:
 - Ewen B.
 - Gianni C.
 - William G.
-- Kyllian K.
+- Kyllian T.

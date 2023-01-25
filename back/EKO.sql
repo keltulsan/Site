@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 24 Janvier 2023 à 14:05
+-- Généré le :  Mer 25 Janvier 2023 à 15:23
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -94,30 +94,21 @@ CREATE TABLE `labels` (
 --
 
 INSERT INTO `labels` (`id`, `label_name`) VALUES
-(1, 'Pitié marche'),
-(2, 'Pitié marche'),
-(3, 'Pitié marche'),
-(4, 'Pitié marche'),
-(5, 'Pitié marche'),
-(6, 'Pitié marche'),
-(7, 'Pitié marche'),
-(8, 'Pitié marche'),
-(9, 'Pitié marche'),
-(10, 'Pitié marche'),
-(11, 'Pitié marche'),
-(12, 'Pitié marche'),
-(13, 'Pitié marche'),
-(14, 'Pitié marche'),
-(15, 'Pitié marche'),
-(16, 'Pitié marche'),
-(17, 'Pitié marche'),
-(18, 'Pitié marche'),
-(19, 'Pitié marche'),
-(20, 'Pitié marche'),
-(21, 'Pitié marche'),
-(22, 'Pitié marche'),
-(23, 'Pitié marche'),
-(24, 'Pitié marche');
+(1, 'Le meilleur des produits'),
+(2, 'Les nouveautés'),
+(3, 'Les offres'),
+(4, 'Mode et beauté'),
+(5, 'Informatique'),
+(6, 'Maison et bricolage'),
+(7, 'Electroménager'),
+(8, 'Livres et multimédia'),
+(9, 'Enfants'),
+(10, 'Sport'),
+(11, 'Auto-moto'),
+(12, 'Fournitures de bureau'),
+(13, 'Jardin et animalerie'),
+(14, 'Abonnement Eko-save'),
+(15, 'Produits recommandés pour vous');
 
 -- --------------------------------------------------------
 
@@ -273,7 +264,7 @@ ALTER TABLE `business`
 -- AUTO_INCREMENT pour la table `labels`
 --
 ALTER TABLE `labels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT pour la table `parainnage`
 --
