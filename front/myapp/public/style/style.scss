@@ -1,40 +1,83 @@
 @font-face {
-    font-family: 'Raleway-ExtraBold';
+    font-family: "Raleway-ExtraBold";
     src: url("../fonts/Raleway-ExtraBold.ttf") format("truetype");
 }
 @font-face {
-    font-family: 'raleway-bold';
+    font-family: "raleway-bold";
     src: url("../fonts/raleway-bold.ttf") format("truetype");
 }
 @font-face {
-    font-family: 'Barlow-SemiBold';
+    font-family: "Barlow-SemiBold";
     src: url("../fonts/Barlow-SemiBold.ttf") format("truetype");
 }
 
-*{
-    $primaryColor1: #80C660;
-    $primaryColor2: #EF5656;
-    $primaryColor3: #367AB2;
-    $primaryColor4: #EEF0EF;
+* {
+    $primaryColor1: #80c660;
+    $primaryColor2: #ef5656;
+    $primaryColor3: #367ab2;
+    $primaryColor4: #eef0ef;
     $primaryColor5: #222626;
 
-    $secondaryColor1: #E1FFD2;
-    $secondaryColor2: #FFD2D2;
-    $secondaryColor3: #D2E7FF;
-    $secondaryColor4: #EEF0EF;
+    $secondaryColor1: #e1ffd2;
+    $secondaryColor2: #ffd2d2;
+    $secondaryColor3: #d2e7ff;
+    $secondaryColor4: #f1f1f1;
 
-    $buttonsColor: #FFE553;
+    $buttonsColor: #ffe553;
 
-    $titleFont: 'Raleway-ExtraBold';
-    $subtitleFont: 'raleway-bold';
-    $textFont: 'Barlow-SemiBold';
+    $titleFont: "Raleway-ExtraBold";
+    $subtitleFont: "raleway-bold";
+    $textFont: "Barlow-SemiBold";
 
-    body{
-        div.navbar{
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+
+    body {
+        div.navbar, div.footer {
+            position: sticky;
+            top: 0px;
+            padding: 10px;
+            width: 100vw;
             background-color: $primaryColor5;
-            p {
-                color: $primaryColor4;
+
+            img {
+                height: 50px;
             }
+
+            div {
+                align-items: center;
+                margin-left: 20px;
+                margin-right: 20px;
+                display: flex;
+                gap: 30px;
+
+                a {
+                    transition-duration: 0.2s;
+                    color: $primaryColor4;
+                    text-decoration: none;
+                    font-family: $subtitleFont;
+
+                    p {
+                        margin: 0px;
+                        font-size: 20px;
+                    }
+                }
+
+                a:hover {
+                    transition-duration: 0.2s;
+                    color: $secondaryColor4;
+                    text-decoration: underline;
+                }
+
+                img {
+                    height: 30px;
+                }
+            }
+        }
+
+        div.footer {
+            position: fixed;
+            bottom: 0px !important;
         }
     }
 }
