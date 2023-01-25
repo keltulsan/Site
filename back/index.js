@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/action/insert", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    await models.action.create({ name: req.body.name, link_name: req.body.link_name})
+    await models.action.create({ name: req.body.name, link_name: req.body.link_name, img: req.body.img})
       .then(result => res.json(result))
       .catch(err => res.send(JSON.stringify(err.message)));
   })();
@@ -50,7 +50,7 @@ app.get("/action/list", function (req, res) {
 app.post("/action/update", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    await models.action.update({ name: req.body.name , link_name: req.body.link_name},
+    await models.action.update({ name: req.body.name , link_name: req.body.link_name, img: req.body.img},
       {
         where: {
           id: req.body.id
@@ -135,6 +135,7 @@ app.post("/business/insert", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.business.create({
       name: req.body.name,
+      img: req.body.img,
       activity: req.body.activity,
       business_email: req.body.business_email,
       business_phone: req.body.business_phone,
@@ -163,6 +164,7 @@ app.post("/business/update", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.business.update({
       name: req.body.name,
+      img: req.body.img,
       activity: req.body.activity,
       business_email: req.body.business_email,
       business_phone: req.body.business_phone,
@@ -202,7 +204,8 @@ app.post("/labels/insert", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.labels.create({
       label_name: req.body.name,
-      link_name: req.body.link_name
+      link_name: req.body.link_name,
+      img: req.body.img
     })
       .then(result => res.json(result))
       .catch(err => res.send(JSON.stringify(err.message)));
@@ -222,7 +225,8 @@ app.post("/labels/update", jsonParser, (req, res) => {
     await sequelize.sync();
     const body = await models.labels.update({ 
       label_name: req.body.name,
-      link_name: req.body.link_name 
+      link_name: req.body.link_name,
+      img: req.body.img 
     },
       {
         where: {
@@ -254,6 +258,7 @@ app.post("/user/insert", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.user.create({
       name: req.body.name,
+      img: req.body.img,
       nickname: req.body.nickname,
       mail: req.body.mail,
       phone_number: req.body.phone_number,
@@ -288,6 +293,7 @@ app.post("/user/update", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.user.update({
       name: req.body.name,
+      img: req.body.img,
       nickname: req.body.nickname,
       mail: req.body.mail,
       phone_number: req.body.phone_number,
@@ -337,6 +343,7 @@ app.post("/product/insert", jsonParser, (req, res) => {
     await models.product.create({
       name: req.body.name,
       link_name: req.body.link_name,
+      img: req.body.img,
       quantity: req.body.quantity,
       price: req.body.price,
       seller_name: req.body.seller_name,
@@ -362,6 +369,7 @@ app.post("/product/update", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.product.update({
       name: req.body.name,
+      img: req.body.img,
       link_name: req.body.link_name,
       quantity: req.body.quantity,
       price: req.body.price,
