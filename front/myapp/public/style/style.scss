@@ -79,6 +79,7 @@
         }
 
         div.navbar {
+            display: block;
             position: sticky;
             top: 0px;
 
@@ -100,6 +101,15 @@
                 transition-duration: 0.2s;
                 color: $secondaryColor4;
                 text-decoration: underline;
+            }
+
+            ul {
+                list-style-type: none;
+
+                li {
+                    color: $primaryColor4;
+                    font-family: $subtitleFont;
+                }
             }
         }
 
