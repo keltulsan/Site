@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Collapse from '@mui/material/Collapse';
 
 const getAllLabels = async () => {
     const response = await fetch(
@@ -16,7 +17,7 @@ const getAllLabels = async () => {
 }
 
 export function Header() {
-    const [ isHover, setIsHover ] = useState([]);
+    const [ isHover, setIsHover ] = useState(false);
     const [ labs, setLabs ] = useState([]);
     const [ labels, setLabels ] = useState([]);
     useEffect(() => {
@@ -46,8 +47,8 @@ export function Header() {
             </div>
         </div>
         
-        <div>{isHover && (<ul>
+        <Collapse in={isHover}><div><ul>
             {labs}
-        </ul>)}</div>
+        </ul></div></Collapse>
     </div>
 }
