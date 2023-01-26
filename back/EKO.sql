@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 25 Janvier 2023 à 19:18
+-- Généré le :  Jeu 26 Janvier 2023 à 12:32
 -- Version du serveur :  5.7.11
--- Version de PHP :  5.6.18
+-- Version de PHP :  7.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,7 +31,8 @@ USE `eko`;
 CREATE TABLE `action` (
   `id` int(11) NOT NULL,
   `name` varchar(1000) NOT NULL,
-  `link_name` varchar(100) NOT NULL
+  `link_name` varchar(100) NOT NULL,
+  `img` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -57,6 +58,7 @@ CREATE TABLE `analytics` (
 CREATE TABLE `business` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
+  `img` varchar(1000) NOT NULL DEFAULT 'icons-user.jpg',
   `activity` text NOT NULL,
   `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `business_email` varchar(100) NOT NULL,
@@ -88,29 +90,30 @@ CREATE TABLE `envy_list` (
 CREATE TABLE `labels` (
   `id` int(11) NOT NULL,
   `label_name` varchar(100) NOT NULL,
-  `link_name` varchar(100) NOT NULL
+  `link_name` varchar(100) NOT NULL,
+  `img` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `labels`
 --
 
-INSERT INTO `labels` (`id`, `label_name`, `link_name`) VALUES
-(1, 'Le meilleur des produits', 'le-meilleur-des-produits'),
-(2, 'Les nouveautés', 'les-nouveautes'),
-(3, 'Les offres', 'les-offres'),
-(4, 'Mode et beauté', 'mode-et-beaute'),
-(5, 'Informatique', 'informatique'),
-(6, 'Maison et bricolage', 'maison-et-bricolage'),
-(7, 'Electroménager', 'electromenager'),
-(8, 'Livres et multimédia', 'livres-et-multimedia'),
-(9, 'Enfants', 'enfants'),
-(10, 'Sport', 'sport'),
-(11, 'Auto-moto', 'auto-moto'),
-(12, 'Fournitures de bureau', 'fournitures-de-bureau'),
-(13, 'Jardin et animalerie', 'jardin-et-animalerie'),
-(14, 'Abonnement Eko-save', 'abonnement-eko-save'),
-(15, 'Produits recommandés pour vous', 'produits-recommandes-pour-vous');
+INSERT INTO `labels` (`id`, `label_name`, `link_name`, `img`) VALUES
+(1, 'Le meilleur des produits', 'le-meilleur-des-produits', ''),
+(2, 'Les nouveautés', 'les-nouveautes', ''),
+(3, 'Les offres', 'les-offres', ''),
+(4, 'Mode et beauté', 'mode-et-beaute', ''),
+(5, 'Informatique', 'informatique', ''),
+(6, 'Maison et bricolage', 'maison-et-bricolage', ''),
+(7, 'Electroménager', 'electromenager', ''),
+(8, 'Livres et multimédia', 'livres-et-multimedia', ''),
+(9, 'Enfants', 'enfants', ''),
+(10, 'Sport', 'sport', ''),
+(11, 'Auto-moto', 'auto-moto', ''),
+(12, 'Fournitures de bureau', 'fournitures-de-bureau', ''),
+(13, 'Jardin et animalerie', 'jardin-et-animalerie', ''),
+(14, 'Abonnement Eko-save', 'abonnement-eko-save', ''),
+(15, 'Produits recommandés pour vous', 'produits-recommandes-pour-vous', '');
 
 -- --------------------------------------------------------
 
@@ -134,6 +137,7 @@ CREATE TABLE `parainnage` (
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
+  `img` varchar(1000) NOT NULL,
   `link_name` varchar(100) NOT NULL,
   `quantity` int(11) NOT NULL,
   `price` float NOT NULL,
@@ -162,6 +166,7 @@ CREATE TABLE `product_label` (
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
+  `img` varchar(1000) NOT NULL DEFAULT 'icons-user.jpg',
   `nickname` varchar(100) NOT NULL,
   `mail` varchar(100) NOT NULL,
   `phone_number` varchar(100) NOT NULL,
@@ -270,7 +275,7 @@ ALTER TABLE `business`
 ALTER TABLE `labels`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
--- AUTO_INCREMENT pour la table `parainnage`a
+-- AUTO_INCREMENT pour la table `parainnage`
 --
 ALTER TABLE `parainnage`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

@@ -71,7 +71,7 @@ module.exports = function(sequelize, DataTypes) {
     envy_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      defaultValue: "icons-user",
+      defaultValue: "icons-user.jpg",
       unique: "envy_id"
     }
   }, {
