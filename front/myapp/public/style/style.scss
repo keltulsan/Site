@@ -32,24 +32,36 @@
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
 
-    div.flex {
+    .flex {
         display: flex;
 
-        div.align-top {
+        .align-top {
             align-self: baseline;
         }
 
-        div.align-center {
+        .align-center {
             align-self: center;
         }
 
-        div.align-bot {
+        .align-bot {
             align-self: end;
         }
     }
 
-    div.flex.space-between {
+    .flex.space-around {
+        justify-content: space-around;
+    }
+    .flex.space-between {
         justify-content: space-between;
+    }
+    .flex.center {
+        justify-content: center;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
     }
 
     body {
@@ -76,12 +88,26 @@
                     height: 30px;
                 }
             }
+
+            div.mobile-menu {
+                a{
+                    p{
+                        text-align: center;
+                    }
+                }
+            }
+            
+            span.glyphicon {
+                color: $secondaryColor4;
+                font-size: 40px;
+            }
         }
 
         div.navbar {
             display: block;
             position: sticky;
             top: 0px;
+            border-radius: 0px 0px 5px 5px;
 
             div {
                 a {
@@ -107,18 +133,16 @@
                 list-style-type: none;
                 margin: 0px;
                 margin-top: 20px;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-gap: 10px;
+            }
 
-                li p {
-                    font-size: 15px;
-                    text-align: center;
-                }
+            div.MuiCollapse-root .little p {
+                font-size: 15px;
+                text-align: center;
             }
         }
 
         div.footer {
+            border-radius: 5px 5px 0px 0px;
             position: absolute;
             bottom: 0px;
 
@@ -150,4 +174,7 @@
             }
         }
     }
+}
+.MuiCollapse-wrapper.MuiCollapse-vertical.css-smkl36-MuiCollapse-wrapper {
+    margin: 0px;
 }

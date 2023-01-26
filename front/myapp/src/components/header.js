@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Collapse from '@mui/material/Collapse';
 
@@ -17,9 +17,26 @@ const getAllLabels = async () => {
 }
 
 export function Header() {
+    const [ menu, setMenu ] = useState(false);
     const [ isHover, setIsHover ] = useState(false);
+    const [ isHover2, setIsHover2 ] = useState(false);
     const [ labs, setLabs ] = useState([]);
     const [ labels, setLabels ] = useState([]);
+
+    const [dimensions, setDimensions] = React.useState({ 
+        height: window.innerHeight,
+        width: window.innerWidth
+        })
+    React.useEffect(() => {
+        function handleResize() {
+            setDimensions({
+            height: window.innerHeight,
+            width: window.innerWidth
+        })}
+    
+        window.addEventListener('resize', handleResize)
+    })
+
     useEffect(() => {
         const labelsFetched = getAllLabels();
         labelsFetched
@@ -32,23 +49,76 @@ export function Header() {
                 <li key={val["label_name"]}><Link to={"/"+val["label_name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}><p>{val["label_name"]}</p></Link></li>
             ))
         }
-    },[labels]);
+    },[labels, dimensions.width]);
 
-    return <div className='navbar' onMouseLeave={() => setIsHover(false)}>
+    return <div className='navbar' onMouseLeave={() => {
+        setIsHover(dimensions.width > 750 ? false : isHover)
+        setIsHover2(dimensions.width > 750 ? false : isHover2)
+    }}>
         <div className='flex space-between'>
-            <Link to='/'><img className='logo' src='./img/logo.png' alt='Logo de Eko'/></Link>
-            <div className='flex align-center'>
-                <Link to='/categories' onMouseEnter={() => setIsHover(true)}><p>Catégories</p></Link>
+            <Link to='/' onMouseEnter={() => {
+                setIsHover(false)
+                setIsHover2(false)
+            }}><img className='logo' src='./img/logo.png' alt='Logo de Eko'/></Link>
+            {dimensions.width > 750 && <div className='flex align-center'>
+                <Link to='/categories' onMouseEnter={() => {
+                    setIsHover(true)
+                    setIsHover2(false)
+                }}><p>Catégories</p></Link>
+                <Link to='/my-sellings' onMouseEnter={() => {
+                    setIsHover(false)
+                    setIsHover2(false)
+                }}><p>Mes ventes</p></Link>
+                <Link to='/actus' onMouseEnter={() => {
+                    setIsHover(false)
+                    setIsHover2(false)
+                }}><p>Actus</p></Link>
+                <Link to='/login' onMouseEnter={() => {
+                    setIsHover(false)
+                    setIsHover2(false)
+                }}><p>Login</p></Link>
+                {/* <Link to='/my-account' onMouseEnter={() => {
+                    setIsHover(false)
+                    setIsHover2(true)
+                }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link> */}
+                <Link to='/bag' onMouseEnter={() => {
+                    setIsHover(false)
+                    setIsHover2(false)
+                }}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko'/></Link>
+                <Link to='/research' onMouseEnter={() => {
+                    setIsHover(false)
+                    setIsHover2(false)
+                }}><img src='./img/search.png' alt='Logo de recherche de Eko'/></Link>
+            </div>}
+            {dimensions.width <= 750 && 
+                <span className="glyphicon glyphicon-list align-center" onClick={() => setMenu(!menu)}></span>
+            }
+        </div>
+
+        {dimensions.width <= 750 && <Collapse in={menu}><div className='mobile-menu'>
+                <Link to='' onClick={() => {
+                    setIsHover(!isHover)
+                    setIsHover2(false)
+                }}><p>Catégories</p></Link>
                 <Link to='/my-sellings'><p>Mes ventes</p></Link>
                 <Link to='/actus'><p>Actus</p></Link>
                 <Link to='/login'><p>Login</p></Link>
-                <Link to='/bag'><img src='./img/shopping-bag.png' alt='Logo du panier de Eko'/></Link>
-                <Link to='/research'><img src='./img/search.png' alt='Logo de recherche de Eko'/></Link>
-            </div>
-        </div>
-        
-        <Collapse in={isHover}><div><ul>
+                <div className='flex center'>
+                    {/* <Link to='' onClick={() => {
+                    setIsHover(false)
+                    setIsHover2(!isHover2)
+                }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link> */}
+                    <Link to='/bag'><img src='./img/shopping-bag.png' alt='Logo du panier de Eko'/></Link>
+                    <Link to='/research'><img src='./img/search.png' alt='Logo de recherche de Eko'/></Link>
+                </div>
+        </div></Collapse>}
+        <Collapse in={isHover}><ul className={dimensions.width > 750 ? 'grid little' : 'little'}>
             {labs}
-        </ul></div></Collapse>
+        </ul></Collapse>
+        <Collapse in={isHover2}><div className='little'>
+            <Link to='/account'><p>Mon compte</p></Link>
+            <Link to='/historique'><p>Historique</p></Link>
+            <Link to='/eko-save'><p>EKO Save</p></Link>
+            </div></Collapse>
     </div>
 }
