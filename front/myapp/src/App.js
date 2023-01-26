@@ -11,6 +11,8 @@ import { CGV } from './pages/CGV';
 import { CGR } from './pages/CGR';
 import { ML } from './pages/ML';
 import { EkoSave } from './pages/EKO-Save';
+import { ContactDetails } from './pages/ContactDetails';
+
 
 function App(props){
   return <Router>
@@ -18,7 +20,7 @@ function App(props){
         <Route path="/">
           <Header />
             <Route path="/">
-              <EkoSave />
+              <ContactDetails />
             </Route>
           <Footer />
         </Route>

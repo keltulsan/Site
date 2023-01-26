@@ -54,12 +54,36 @@
 
     .bouton{
         border-radius: 10px !important;
-        background-color: $secondaryColor1 !important;
+        background-color: $buttonsColor !important;
         font-family: $textFont ;
         padding-right: 3%;
         padding-left: 3%;
     }
 
+    h2.subTitle{
+        font-family: $subtitleFont ;
+        font-size: 25px;
+    }
+
+    .centerObject{
+        align-items: center;
+    }
+
+    .margin0{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .marginTop{
+        margin-top: 15px !important;
+    }
+    .marginTop2{
+        margin-top: 20px !important;
+    }
+
+    .littleSize{
+        font-size: 10px;
+    }
     div.flex {
         display: flex;
 
