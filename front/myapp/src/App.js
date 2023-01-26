@@ -1,5 +1,5 @@
-import Home from "./pages/Home";
-import Error404 from "./pages/404";
+import Home from "./pagesf/Home";
+import Error404 from "./pagesf/404";
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,28 +8,43 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import SignUp from "./pages/SignUp";
-import Login from "./pages/Login";
+import SignUp from "./pagesf/SignUp";
+import Login from "./pagesf/Login";
 
 function App(props){
   return <Router>
       <Switch>
-        <Route>
-        <Header />
-          <Route exact path="/">
+
+        <Route exact path="/home">
+          <Header />
             <Home />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/signup">
-            <SignUp />
-          </Route>
-          <Route exact path="*">
-            <Error404 />
-          </Route>
           <Footer />
         </Route>
+
+        <Route exact path="/login">
+          <Header />
+            <Login />
+          <Footer />
+        </Route>
+
+        <Route exact path="/signup">
+          <Header />
+            <SignUp />
+          <Footer />
+        </Route>
+
+        <Route exact path="/">
+          <Header />
+            <Home />
+          <Footer />
+        </Route>
+
+        <Route exact path="*">
+          <Header />
+          <Error404 />
+          <Footer />
+        </Route>
+        
       </Switch>
   </Router>
 }
