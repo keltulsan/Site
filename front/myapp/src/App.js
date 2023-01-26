@@ -1,5 +1,7 @@
 import Home from "./Pages/Home";
 import Error404 from "./Pages/404";
+import { Header } from './components/header';
+import { Footer } from './components/footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
@@ -11,6 +13,8 @@ import Login from "./Pages/Login";
 function App(props){
   return <Router>
       <Switch>
+        <Route>
+      <Header />
         <Route exact path="/">
           <Home />
         </Route>
@@ -22,6 +26,8 @@ function App(props){
         </Route>
         <Route exact path="*">
           <Error404 />
+        </Route>
+        <Footer />
         </Route>
       </Switch>
   </Router>

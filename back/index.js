@@ -1,7 +1,9 @@
+var cors = require('cors')
 const express = require("express");
 const app = express();
+app.use(cors())
 const port = 4444;
-const bodyParser = require('body-parser');  
+const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json;
 const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize('eko', 'root', 'root', {
@@ -31,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/action/insert", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    await models.action.create({ name: req.body.name })
+    await models.action.create({ name: req.body.name, link_name: req.body.link_name, img: req.body.img})
       .then(result => res.json(result))
       .catch(err => res.send(JSON.stringify(err.message)));
   })();
@@ -48,7 +50,7 @@ app.get("/action/list", function (req, res) {
 app.post("/action/update", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    await models.action.update({ name: req.body.name },
+    await models.action.update({ name: req.body.name , link_name: req.body.link_name, img: req.body.img},
       {
         where: {
           id: req.body.id
@@ -133,6 +135,7 @@ app.post("/business/insert", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.business.create({
       name: req.body.name,
+      img: req.body.img,
       activity: req.body.activity,
       business_email: req.body.business_email,
       business_phone: req.body.business_phone,
@@ -161,6 +164,7 @@ app.post("/business/update", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.business.update({
       name: req.body.name,
+      img: req.body.img,
       activity: req.body.activity,
       business_email: req.body.business_email,
       business_phone: req.body.business_phone,
@@ -198,8 +202,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/labels/insert", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    await models.business.create({
-      label_name: req.body.name
+    await models.labels.create({
+      label_name: req.body.name,
+      link_name: req.body.link_name,
+      img: req.body.img
     })
       .then(result => res.json(result))
       .catch(err => res.send(JSON.stringify(err.message)));
@@ -209,7 +215,7 @@ app.post("/labels/insert", jsonParser, (req, res) => {
 app.get("/labels/list", function (req, res) {
   (async () => {
     await sequelize.sync();
-    const body = await models.business.findAll({});
+    const body = await models.labels.findAll({});
     res.send(body)
   })();
 });
@@ -217,7 +223,11 @@ app.get("/labels/list", function (req, res) {
 app.post("/labels/update", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.business.update({ label_name: req.body.name },
+    const body = await models.labels.update({ 
+      label_name: req.body.name,
+      link_name: req.body.link_name,
+      img: req.body.img 
+    },
       {
         where: {
           id: req.body.id
@@ -231,7 +241,7 @@ app.post("/labels/update", jsonParser, (req, res) => {
 app.post("/labels/delete", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
-    const body = await models.business.destroy({
+    const body = await models.labels.destroy({
       where: {
         id: req.body.id
       }
@@ -248,10 +258,14 @@ app.post("/user/insert", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.user.create({
       name: req.body.name,
+      img: req.body.img,
       nickname: req.body.nickname,
       mail: req.body.mail,
       phone_number: req.body.phone_number,
       adress: req.body.adress,
+      apartment: req.body.apartment,
+      code_postal: req.body.code_postal,
+      city: req.body.city,
       password: req.body.password,
       banking_informations: req.body.banking_informations,
       acceptance_of_the_gtcu: req.body.acceptance_of_the_gtcu,
@@ -282,10 +296,14 @@ app.post("/user/update", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.user.update({
       name: req.body.name,
+      img: req.body.img,
       nickname: req.body.nickname,
       mail: req.body.mail,
       phone_number: req.body.phone_number,
       adress: req.body.adress,
+      apartment: req.body.apartment,
+      code_postal: req.body.code_postal,
+      city: req.body.city,
       password: req.body.password,
       banking_informations: req.body.banking_informations,
       acceptance_of_the_gtcu: req.body.acceptance_of_the_gtcu,
@@ -330,10 +348,13 @@ app.post("/product/insert", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.product.create({
       name: req.body.name,
+      link_name: req.body.link_name,
+      img: req.body.img,
       quantity: req.body.quantity,
       price: req.body.price,
       seller_name: req.body.seller_name,
       eko_score: req.body.eko_score,
+      desc: req.body.desc,
       label_name: req.body.label_name
     })
       .then(result => res.json(result))
@@ -355,10 +376,13 @@ app.post("/product/update", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.product.update({
       name: req.body.name,
+      img: req.body.img,
+      link_name: req.body.link_name,
       quantity: req.body.quantity,
       price: req.body.price,
       seller_name: req.body.seller_name,
       eko_score: req.body.eko_score,
+      desc: req.body.desc,
       label_name: req.body.label_name
     },
       {
@@ -393,7 +417,8 @@ app.post("/parainnage/insert", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.parainnage.create({
       parain_id: req.body.parain_id,
-      parainated_id: req.body.parainated_id
+      parainated_id: req.body.parainated_id,
+      link_name: req.body.link_name // [parain_id]_[parainated_id]
     })
       .then(result => res.json(result))
       .catch(err => res.send(JSON.stringify(err.message)));
@@ -414,7 +439,8 @@ app.post("/parainnage/update", jsonParser, (req, res) => {
     await sequelize.sync();
     await models.parainnage.update({
       parain_id: req.body.parain_id,
-      parainated_id: req.body.parainated_id
+      parainated_id: req.body.parainated_id,
+      link_name: req.body.link_name // [parain_id]_[parainated_id]
     },
       {
         where: {
@@ -542,6 +568,52 @@ app.post("/product_label/delete", jsonParser, (req, res) => {
       where: {
         product_id: req.body.product_id,
         labels_id: req.body.labels_id
+      }
+    })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
+  })();
+});
+
+// CRUD condition
+app.use(bodyParser.urlencoded({ extended: true }));
+app.post("/condition/insert", jsonParser, (req, res) => {
+  (async () => {
+    await sequelize.sync();
+    await models.condition.create({ name: req.body.name, link_name: req.body.link_name, desc: req.body.desc})
+      .then(result => res.json(result))
+      .catch(err => res.send(JSON.stringify(err.message)));
+  })();
+});
+
+app.get("/condition/list", function (req, res) {
+  (async () => {
+    await sequelize.sync();
+    const body = await models.desc.findAll({});
+    res.send(body)
+  })();
+});
+
+app.post("/condition/update", jsonParser, (req, res) => {
+  (async () => {
+    await sequelize.sync();
+    await models.condition.update({ name: req.body.name , link_name: req.body.link_name, desc: req.body.desc},
+      {
+        where: {
+          id: req.body.id
+        }
+      })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
+  })();
+});
+
+app.post("/condition/delete", jsonParser, (req, res) => {
+  (async () => {
+    await sequelize.sync();
+    await models.condition.destroy({
+      where: {
+        id: req.body.id
       }
     })
     .then(result => res.json(result))
