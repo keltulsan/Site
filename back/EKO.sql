@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 26 Janvier 2023 à 14:52
+-- Généré le :  Jeu 26 Janvier 2023 à 15:05
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -185,6 +185,9 @@ CREATE TABLE `user` (
   `mail` varchar(100) NOT NULL,
   `phone_number` varchar(100) NOT NULL,
   `adress` varchar(100) NOT NULL,
+  `apartment` varchar(100) DEFAULT NULL,
+  `code_postal` varchar(10) NOT NULL,
+  `city` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `banking_informations` varchar(200) DEFAULT NULL,
   `acceptance_of_the_gtcu` tinyint(1) NOT NULL DEFAULT '0',
