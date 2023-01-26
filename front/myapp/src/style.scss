@@ -1,0 +1,13 @@
+*{
+}
+
+$bgcolor: rgb(210, 241, 247);
+$textcolor: rgb(255, 7, 7);
+$fontsize: 18px;
+
+/* Use the variables */
+body {
+  background-color: $bgcolor;
+  color: $textcolor;
+  font-size: $fontsize;
+}                  
