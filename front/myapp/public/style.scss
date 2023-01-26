@@ -16,7 +16,6 @@
     margin-bottom: 5%;
 }
 
-
 .button{
 position: absolute;
 top: 50%;
@@ -30,6 +29,29 @@ top: 50%;
   border: none;
   cursor: pointer;
 }
+.bg{
+    background-image: url("cb2.png");
+    background-size: cover;
+    background-position: center;
+    }
 .Big_Button{
     position: relative;
+}
+
+.rowForm{
+    padding-bottom:5%;
+}
+.space h1{
+    font-size: 400%;
+    padding-top:10%;
+    padding-bottom:10%;
+    color: white;
+}
+
+.createAccount{
+    color: white;
+}
+
+.formBottom{
+    padding-bottom:15%;
 }

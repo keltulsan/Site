@@ -6,11 +6,19 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import SignUp from "./Pages/SignUp";
+import Login from "./Pages/Login";
 function App(props){
   return <Router>
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/signup">
+          <SignUp />
         </Route>
         <Route exact path="*">
           <Error404 />
