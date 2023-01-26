@@ -10,6 +10,7 @@ import { CGU } from './pages/CGU';
 import { CGV } from './pages/CGV';
 import { CGR } from './pages/CGR';
 import { ML } from './pages/ML';
+import { EkoSave } from './pages/EKO-Save';
 
 function App(props){
   return <Router>
@@ -17,7 +18,7 @@ function App(props){
         <Route path="/">
           <Header />
             <Route path="/">
-              <ML />
+              <EkoSave />
             </Route>
           <Footer />
         </Route>

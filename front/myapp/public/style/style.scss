@@ -38,11 +38,26 @@
     h1.top{
         margin-top: 3%;
     }
+    h1.eko{
+        font-size: 70px;
+    }
     p.text{
         font-family: $textFont ;
     }
     div.center{
         text-align: center;
+    }
+    div.btnSubscribe{
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .bouton{
+        border-radius: 10px !important;
+        background-color: $secondaryColor1 !important;
+        font-family: $textFont ;
+        padding-right: 3%;
+        padding-left: 3%;
     }
 
     div.flex {
@@ -63,7 +78,7 @@
 
     div.flex.space-between {
         justify-content: space-between;
-    }
+    }    
 
     body {
         div.navbar,
