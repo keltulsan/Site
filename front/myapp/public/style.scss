@@ -30,7 +30,7 @@ top: 50%;
   cursor: pointer;
 }
 .bg{
-    background-image: url("cb2.png");
+    background-image: url("Img/cb2.png");
     background-size: cover;
     background-position: center;
     }
@@ -41,10 +41,20 @@ top: 50%;
 .rowForm{
     padding-bottom:5%;
 }
+
+.rowForm2{
+    padding-bottom:4%;
+}
 .space h1{
     font-size: 400%;
     padding-top:10%;
     padding-bottom:10%;
+    color: white;
+}
+.space2 h1{
+    font-size: 400%;
+    padding-top:5%;
+    padding-bottom:7%;
     color: white;
 }
 
