@@ -35,6 +35,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.FLOAT,
       allowNull: false
     },
+    desc: {
+      type: DataTypes.TEXT(1000),
+      allowNull: true,
+      defaultValue: null
+    },
     label_name: {
       type: DataTypes.STRING(100),
       allowNull: false,
