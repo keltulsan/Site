@@ -1,9 +1,12 @@
 {
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "express": "^4.18.2",
     "mysql2": "^3.0.1",
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
+    "react-bootstrap": "^2.7.0",
+    "react-markdown": "^8.0.5",
     "sequelize": "^6.28.0",
     "sequelize-auto": "^0.8.8"
   },

@@ -27,6 +27,19 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(100),
       allowNull: false
     },
+    apartment: {
+      type: DataTypes.STRING(100),
+      allowNull: true, 
+      defaultValue: null
+    },
+    code_postal: {
+      type: DataTypes.STRING(10),
+      allowNull: false
+    },
+    city: {
+      type: DataTypes.STRING(100),
+      allowNull: false
+    },
     password: {
       type: DataTypes.STRING(100),
       allowNull: false

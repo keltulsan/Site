@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 26 Janvier 2023 à 12:32
+-- Généré le :  Jeu 26 Janvier 2023 à 15:05
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -68,6 +68,19 @@ CREATE TABLE `business` (
   `business_name` varchar(100) NOT NULL,
   `business_banking_informations` varchar(100) NOT NULL,
   `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `condition`
+--
+
+CREATE TABLE `condition` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `link_name` varchar(100) NOT NULL,
+  `desc` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -143,6 +156,7 @@ CREATE TABLE `product` (
   `price` float NOT NULL,
   `seller_name` varchar(100) NOT NULL,
   `eko_score` float NOT NULL,
+  `desc` text,
   `label_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -171,6 +185,9 @@ CREATE TABLE `user` (
   `mail` varchar(100) NOT NULL,
   `phone_number` varchar(100) NOT NULL,
   `adress` varchar(100) NOT NULL,
+  `apartment` varchar(100) DEFAULT NULL,
+  `code_postal` varchar(10) NOT NULL,
+  `city` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `banking_informations` varchar(200) DEFAULT NULL,
   `acceptance_of_the_gtcu` tinyint(1) NOT NULL DEFAULT '0',
@@ -207,6 +224,12 @@ ALTER TABLE `analytics`
 ALTER TABLE `business`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
+-- Index pour la table `condition`
+--
+ALTER TABLE `condition`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `envy_list`
@@ -268,6 +291,11 @@ ALTER TABLE `analytics`
 -- AUTO_INCREMENT pour la table `business`
 --
 ALTER TABLE `business`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `condition`
+--
+ALTER TABLE `condition`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `labels`

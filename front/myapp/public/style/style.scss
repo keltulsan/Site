@@ -32,6 +32,19 @@
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
 
+    h1.title{
+        font-family: $titleFont ;
+    }
+    h1.top{
+        margin-top: 3%;
+    }
+    p.text{
+        font-family: $textFont ;
+    }
+    div.center{
+        text-align: center;
+    }
+
     .flex {
         display: flex;
 
