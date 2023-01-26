@@ -20,6 +20,11 @@ function App(props){
             <Home />
           <Footer />
         </Route>
+        <Route exact path="/">
+          <Header />
+            <Home />
+          <Footer />
+        </Route>
 
         <Route exact path="/login">
           <Header />
@@ -30,12 +35,6 @@ function App(props){
         <Route exact path="/signup">
           <Header />
             <SignUp />
-          <Footer />
-        </Route>
-
-        <Route exact path="/">
-          <Header />
-            <Home />
           <Footer />
         </Route>
 

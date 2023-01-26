@@ -112,10 +112,10 @@ export function Header() {
                     <Link to='/research'><img src='./img/search.png' alt='Logo de recherche de Eko'/></Link>
                 </div>
         </div></Collapse>}
-        <Collapse in={isHover}><ul className={dimensions.width > 750 ? 'grid little' : 'little'}>
+        <Collapse in={isHover && (menu || dimensions.width > 750)}><ul className={dimensions.width > 750 ? 'grid little' : 'little'}>
             {labs}
         </ul></Collapse>
-        <Collapse in={isHover2}><div className='little'>
+        <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='little'>
             <Link to='/account'><p>Mon compte</p></Link>
             <Link to='/historique'><p>Historique</p></Link>
             <Link to='/eko-save'><p>EKO Save</p></Link>

@@ -1,45 +1,27 @@
-import icon_email from '../img/icon_email.png';
-import icon_password from '../img/icon_password.png';
-function Login(props){
-    return <div className="Background">
-        <div className="container">
-        <div className="row">
-        <div className="col-md-12 col-12">
-        <div className="bg">
+import { Link } from "react-router-dom";
 
-        <form>
-        <div className="space">
-        <h1>LOGIN</h1>
-        </div>
-        <div className="row rowForm">
-        <div className="col-5">
-        <img src={icon_email} alt="icon_email" className="col-1 offset-11"/>
-        </div>
-        <div className="col-7">
-        <input placeholder="Adresse E-mail" type="text" id="email"/>
-        </div>
-        </div>
-        <div className="row rowForm">
-        <div className="col-5">
-        <img src={icon_password} alt="icon_email" className="col-1 offset-11"/>
-        </div>
-        <div className="col-7">
-        <input placeholder="Mot de passe" type="text" id="password"/>
-        </div>
-        </div>
-        <div className="row rowForm">
-            <div className='col-2 offset-4'>
-                <a href="/signup" className="createAccount">Créer un compte</a>
+export default function Login(props){
+    return <form>
+        <div className="connect-background flex center vertical gap">
+            <h1 className='title'>LOGIN</h1>
+            <div className="flex center gap">
+                <img src='./img/icon_email.png' alt="icon_email" className="icon align-center"/>
+                <div className='align-center flex vertical gap-'>
+                    <input placeholder="Adresse email" type="text" id="email"/>
+                </div>
+            </div>
+            <div className="flex center gap">
+                <img src='./img/icon_password.png' alt="icon_email" className="icon align-center"/>
+                <div className='align-center flex vertical gap-'>
+                    <input className='align-center' placeholder="Mot de passe" type="text" id="password"/>
+                </div>
+            </div>
+            <div className="flex center gap create-account">
+                <Link to="/signup" className="createAccount">Créer un compte</Link>
+            </div>
+            <div className="center">
+                <input type="submit" value="Se connecter"/>
             </div>
         </div>
-        <div className="row formBottom">
-        <input className="col-2 offset-5 " type="submit" value="Se connecter"/>
-        </div>
-        </form>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
+    </form>
 }
-export default Login;

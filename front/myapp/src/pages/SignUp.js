@@ -1,55 +1,29 @@
-import icon_email from '../img/icon_email.png';
-import icon_password from '../img/icon_password.png';
-function Login(props){
-    return <div className="Background">
-        <div className="container">
-        <div className="row">
-        <div className="col-md-12 col-12">
-        <div className="bg">
+import { Link } from "react-router-dom";
 
-        <form>
-        <div className="space2">
-        <h1>SIGN UP</h1>
-        </div>
-        <div className="row ">
-        <div className="col-5">
-        <img src={icon_email} alt="icon_email" className="col-1 offset-11"/>
-        </div>
-        <div className="col-7">
-        <input placeholder="Nom d'utilisateur" type="text" id="username"/>
-        </div>
-        </div>
-        <div className="row rowForm2">
-        <div className="col-7 offset-5">
-        <input placeholder="Adresse E-mail" type="text" id="email"/>
-        </div>
-        </div>
-        <div className="row ">
-        <div className="col-5">
-        <img src={icon_password} alt="icon_email" className="col-1 offset-11"/>
-        </div>
-        <div className="col-7">
-        <input placeholder="Mot de passe" type="text" id="password"/>
-        </div>
-        </div>
-        <div className="row rowForm2">
-        <div className="col-7 offset-5">
-        <input placeholder="Confirmer mot de passe" type="text" id="email"/>
-        </div>
-        </div>
-        <div className="row rowForm2">
-            <div className='col-2 offset-4'>
-                <a href="/login" className="createAccount">Se connecter</a>
+export default function SignUp(props){
+    return <form>
+        <div className="signup-background flex center vertical gap">
+            <h1 className='title'>SIGN UP</h1>
+            <div className="flex center gap">
+                <img src='./img/icon_email.png' alt="icon_email" className="icon align-center"/>
+                <div className='align-center flex vertical gap-'>
+                    <input placeholder="Adresse email" type="text" id="email"/>
+                    <input placeholder="Comfirmer adresse email" type="text" id="email-confirm"/>
+                </div>
+            </div>
+            <div className="flex center gap">
+                <img src='./img/icon_password.png' alt="icon_email" className="icon align-center"/>
+                <div className='align-center flex vertical gap-'>
+                    <input placeholder="Mot de passe" type="text" id="password"/>
+                    <input placeholder="Comfirmer mot de passe" type="text" id="password-confirm"/>
+                </div>
+            </div>
+            <div className="flex center gap create-account">
+                <Link to="/login" className="createAccount">Se connecter</Link>
+            </div>
+            <div className="center">
+                <input type="submit" value="Créer un compte"/>
             </div>
         </div>
-        <div className="row formBottom">
-        <input className="col-2 offset-5 " type="submit" value="Créer un compte"/>
-        </div>
-        </form>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
+    </form>
 }
-export default Login;

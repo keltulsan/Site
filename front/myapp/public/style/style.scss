@@ -22,6 +22,7 @@
     $secondaryColor2: #ffd2d2;
     $secondaryColor3: #d2e7ff;
     $secondaryColor4: #f1f1f1;
+    $secondaryColor4: #667272;
 
     $buttonsColor: #ffe553;
 
@@ -29,55 +30,113 @@
     $subtitleFont: "raleway-bold";
     $textFont: "Barlow-SemiBold";
 
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
-
-    h1.title{
-        font-family: $titleFont ;
-    }
-    h1.top{
-        margin-top: 3%;
-    }
-    p.text{
-        font-family: $textFont ;
-    }
-    div.center{
-        text-align: center;
-    }
-
-    .flex {
-        display: flex;
-
-        .align-top {
-            align-self: baseline;
-        }
-
-        .align-center {
-            align-self: center;
-        }
-
-        .align-bot {
-            align-self: end;
-        }
-    }
-
-    .flex.space-around {
-        justify-content: space-around;
-    }
-    .flex.space-between {
-        justify-content: space-between;
-    }
-    .flex.center {
-        justify-content: center;
-    }
-
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 10px;
-    }
-
     body {
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
+
+        h1.title {
+            font-family: $titleFont;
+            text-align: center;
+            font-size: 50px;
+        }
+        h1.title.top {
+            margin-top: 30px;
+        }
+        p.text {
+            font-family: $textFont;
+        }
+        div.center {
+            text-align: center;
+        }
+        img.logo.half {
+            width: 30vw;
+        }
+        @media (min-width: 1000px) {
+            img.logo.half {
+                width: 10vw;
+            }
+        }
+
+        .flex {
+            display: flex;
+
+            .align-top {
+                align-self: baseline;
+            }
+
+            .align-center {
+                align-self: center;
+            }
+
+            .align-bot {
+                align-self: end;
+            }
+        }
+
+        .flex.space-around {
+            justify-content: space-around;
+        }
+        .flex.space-between {
+            justify-content: space-between;
+        }
+        .flex.center {
+            justify-content: center;
+        }
+        .flex.gap {
+            gap: 20px;
+        }
+        .flex.gap- {
+            gap: 5px;
+        }
+        .flex.vertical {
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="text"]:focus-visible,
+        input[type="text"]:hover {
+            font-family: $textFont;
+            color: $primaryColor5;
+            min-width: 200px;
+            width: fit-content;
+            height: fit-content;
+            outline: none;
+        }
+        input[type="text"]::placeholder,
+        input[type="text"]:focus-visible::placeholder,
+        input[type="text"]:hover::placeholder {
+            color: $secondaryColor5;
+        }
+
+
+        .icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+
+        div.connect-background,
+        div.signup-background {
+            padding-left: 50px;
+            padding-bottom: 50px;
+            margin-top: -75px;
+            height: 80vh;
+            background-image: url(../img/cb2.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .create-account,
+        .connection {
+            margin-right: 175px;
+        }
+
         div.navbar,
         div.footer {
             padding: 10px;
@@ -103,13 +162,13 @@
             }
 
             div.mobile-menu {
-                a{
-                    p{
+                a {
+                    p {
                         text-align: center;
                     }
                 }
             }
-            
+
             span.glyphicon {
                 color: $secondaryColor4;
                 font-size: 40px;
@@ -190,4 +249,50 @@
 }
 .MuiCollapse-wrapper.MuiCollapse-vertical.css-smkl36-MuiCollapse-wrapper {
     margin: 0px;
+}
+
+.container h2 {
+    margin-top: 2%;
+    font-size: 200%;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+}
+.bg {
+    background-image: url("Img/cb2.png");
+    background-size: cover;
+    background-position: center;
+}
+.Big_Button {
+    position: relative;
+}
+
+.rowForm {
+    padding-bottom: 5%;
+}
+
+.rowForm2 {
+    padding-bottom: 4%;
+}
+
+.createAccount {
+    color: white;
+}
+
+.formBottom {
+    padding-bottom: 15%;
 }
