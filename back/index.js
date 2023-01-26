@@ -348,6 +348,7 @@ app.post("/product/insert", jsonParser, (req, res) => {
       price: req.body.price,
       seller_name: req.body.seller_name,
       eko_score: req.body.eko_score,
+      desc: req.body.desc,
       label_name: req.body.label_name
     })
       .then(result => res.json(result))
@@ -375,6 +376,7 @@ app.post("/product/update", jsonParser, (req, res) => {
       price: req.body.price,
       seller_name: req.body.seller_name,
       eko_score: req.body.eko_score,
+      desc: req.body.desc,
       label_name: req.body.label_name
     },
       {
@@ -560,6 +562,52 @@ app.post("/product_label/delete", jsonParser, (req, res) => {
       where: {
         product_id: req.body.product_id,
         labels_id: req.body.labels_id
+      }
+    })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
+  })();
+});
+
+// CRUD condition
+app.use(bodyParser.urlencoded({ extended: true }));
+app.post("/condition/insert", jsonParser, (req, res) => {
+  (async () => {
+    await sequelize.sync();
+    await models.condition.create({ name: req.body.name, link_name: req.body.link_name, desc: req.body.desc})
+      .then(result => res.json(result))
+      .catch(err => res.send(JSON.stringify(err.message)));
+  })();
+});
+
+app.get("/condition/list", function (req, res) {
+  (async () => {
+    await sequelize.sync();
+    const body = await models.desc.findAll({});
+    res.send(body)
+  })();
+});
+
+app.post("/condition/update", jsonParser, (req, res) => {
+  (async () => {
+    await sequelize.sync();
+    await models.condition.update({ name: req.body.name , link_name: req.body.link_name, desc: req.body.desc},
+      {
+        where: {
+          id: req.body.id
+        }
+      })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
+  })();
+});
+
+app.post("/condition/delete", jsonParser, (req, res) => {
+  (async () => {
+    await sequelize.sync();
+    await models.condition.destroy({
+      where: {
+        id: req.body.id
       }
     })
     .then(result => res.json(result))
