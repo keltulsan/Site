@@ -1,14 +1,14 @@
-import logo from '../Img/Fichier 17.png';
-// import star from '../Img/Fichier 1.png';
-// import lil_star from '../Img/Fichier 2.png';
-// import red_triangle from '../Img/Fichier 9.png';
-// import blue_triangle from '../Img/Fichier 8.png';
-// import green_triangle from '../Img/Fichier 7.png';
-// import blue_thing from '../Img/Fichier 16.png';
-// import red_hashtag from '../Img/Fichier 13.png';
-// import lil_dots from '../Img/Fichier 15.png';
-// import green_hashtag from '../Img/Fichier 11.png';
-// import dot from '../Img/dot single 1.png';
+import logo from '../img/Fichier 17.png';
+// import star from '../img/Fichier 1.png';
+// import lil_star from '../img/Fichier 2.png';
+// import red_triangle from '../img/Fichier 9.png';
+// import blue_triangle from '../img/Fichier 8.png';
+// import green_triangle from '../img/Fichier 7.png';
+// import blue_thing from '../img/Fichier 16.png';
+// import red_hashtag from '../img/Fichier 13.png';
+// import lil_dots from '../img/Fichier 15.png';
+// import green_hashtag from '../img/Fichier 11.png';
+// import dot from '../img/dot single 1.png';
 function Home(props){
     return <div className="Background">
         <div className="container">

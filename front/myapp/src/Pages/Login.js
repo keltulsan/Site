@@ -1,5 +1,5 @@
-import icon_email from '../Img/icon_email.png';
-import icon_password from '../Img/icon_password.png';
+import icon_email from '../img/icon_email.png';
+import icon_password from '../img/icon_password.png';
 function Login(props){
     return <div className="Background">
         <div className="container">

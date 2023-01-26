@@ -1,4 +1,4 @@
-import red_square_bg from '../Img/cr2.png';
+import red_square_bg from '../img/cr2.png';
 import Button from 'react-bootstrap/Button';
 function Error404(props){
     return <div className="Background">
