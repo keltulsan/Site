@@ -45,7 +45,6 @@ function App(props){
         <Route exact path="/cgv" component={CGV} />
         <Route exact path="/cgr" component={CGR} />
         <Route exact path="/ml" component={ML} />
-    
 
         <Route exact path="*" component={Error404} />
         
