@@ -21,6 +21,8 @@ import { PayComplete } from './pages/Pay-Complete';
 import { ContactUs } from './pages/Contact-Us';
 import { ThxEmail } from './pages/Thx-Email';
 import Actus from './pages/Actus';
+import { UserPage } from './pages/UserPage';
+
 
 function App(props){
   return <div className="root flex space-between vertical">
@@ -35,6 +37,7 @@ function App(props){
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         
+        <Route exact path="/account-user" component={UserPage} />
         <Route exact path="/account" component={ContactDetails} />
         <Route exact path="/eko-save" component={EkoSave} />
 
