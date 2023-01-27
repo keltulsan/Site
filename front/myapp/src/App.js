@@ -22,6 +22,7 @@ import { ContactUs } from './pages/Contact-Us';
 import { ThxEmail } from './pages/Thx-Email';
 import Actus from './pages/Actus';
 import PayChoice from './pages/PaymentChoice';
+import {Stocks } from './pages/Stocks';
 
 function App(props){
   return <div className="root flex space-between vertical">
@@ -43,6 +44,8 @@ function App(props){
         <Route exact path="/payed-complete" component={PayComplete} />
 
         <Route exact path="/thx-email" component={ThxEmail} />
+
+        <Route exact path="/stocks" component={Stocks} />
 
         <Route exact path="/pay-choice" component={PayChoice} />
 

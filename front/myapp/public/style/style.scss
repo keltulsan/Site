@@ -30,6 +30,10 @@
     $subtitleFont: "raleway-bold";
     $textFont: "Barlow-SemiBold";
 
+    img.paypal{
+        width: 200px !important;
+    }
+
     .payCard{
         background-color: $primaryColor5;
         color: $primaryColor4;
@@ -47,6 +51,20 @@
         padding-right: 30px !important;
         border-radius: 10px;
     }
+
+
+        
+    .style-link{ 
+        text-decoration: none;
+        color: $primaryColor5;
+        font-family: $subtitleFont;
+        font-size: 20px;
+        }
+        a:hover{
+            text-decoration: underline;
+            color: $primaryColor5;
+    }
+
 
     body div#root {
         overflow-x: hidden;
