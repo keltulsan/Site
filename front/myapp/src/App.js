@@ -16,8 +16,9 @@ import { CGR } from "./pages/CGR";
 import { ML } from "./pages/ML";
 
 function App(props){
-  return <div className="root flex space-between vertical"><Header />
+  return <div className="root flex space-between vertical">
     <Router>
+      <Header />
       <Switch>
 
         <Route exact path="/home" component={Home} />
@@ -34,8 +35,9 @@ function App(props){
         <Route exact path="*" component={Error404} />
         
       </Switch>
+      <Footer />
     </Router>
-    <Footer /></div>
+    </div>
 }
 
 export default App
