@@ -1,3 +1,4 @@
+import AboutUs from './Pages/AboutUs';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -45,6 +46,7 @@ function App(props){
         <Route exact path="/cgv" component={CGV} />
         <Route exact path="/cgr" component={CGR} />
         <Route exact path="/ml" component={ML} />
+        <Route exact path="/about-us" component={AbouUs} />
 
         <Route exact path="*" component={Error404} />
         
