@@ -1,7 +1,3 @@
-import React from 'react'
-import ReactMarkdown from 'react-markdown'
-import ReactDom from 'react-dom'
-
 export function CGR(props) {
     return <div className="Background">
         <div className="container">

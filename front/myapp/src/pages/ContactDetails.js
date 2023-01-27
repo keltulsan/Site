@@ -1,13 +1,9 @@
-import React from 'react';
-import ReactMarkdown from 'react-markdown';
-import ReactDom from 'react-dom';
-
 export function ContactDetails(props) {
     return <div className="Background">
         <div className="container">
             <div className="row centerObject">
                 <div className="center">
-                    <h1 className="title top">Condition générale de vente</h1>
+                    <h1 className="title top">Mes coordonnées</h1>
                 </div>
                 <form>
                     <h2 className='subTitle row col-6 offset-md-3 col-sm-12 marginTop2 margin0'>Coordonnées</h2>
