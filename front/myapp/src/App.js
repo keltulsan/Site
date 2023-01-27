@@ -25,6 +25,7 @@ import PayChoice from './pages/PaymentChoice';
 import {Stocks } from './pages/Stocks';
 import { Sells } from './pages/Sells';
 import { EnvyList } from './pages/Envy-list';
+import { History } from './pages/History';
 
 function App(props){
   return <div className="root flex space-between vertical">
@@ -52,6 +53,8 @@ function App(props){
         <Route exact path="/envy-list" component={EnvyList} />
 
         <Route exact path="/pay-choice" component={PayChoice} />
+
+        <Route exact path="/history" component={History} />
 
         <Route exact path="/contact" component={ContactUs} />
         

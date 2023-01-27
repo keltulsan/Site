@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export function Stocks() {
     return <div className='container'>
-        <h1 className='title'> Mes stocks</h1>
+        <h1 className='title'> Mes stocks sur Eko</h1>
         <div className="flex gap-plus center">
             <div className="flex vertical">
                 <div className="flex gap box">
