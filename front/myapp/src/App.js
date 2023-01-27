@@ -1,4 +1,4 @@
-import AboutUs from './Pages/AboutUs';
+import AboutUs from './pages/AboutUs';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,6 +20,7 @@ import { EkoSave } from './pages/EKO-Save';
 import { PayComplete } from './pages/Pay-Complete';
 import { ContactUs } from './pages/Contact-Us';
 import { ThxEmail } from './pages/Thx-Email';
+import Actus from './pages/Actus';
 
 function App(props){
   return <div className="root flex space-between vertical">
@@ -29,12 +30,14 @@ function App(props){
 
         <Route exact path="/home" component={Home} />
         <Route exact path="/" component={Home} />
+        <Route exact path="/Actus" component={Actus} />
         
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         
         <Route exact path="/account" component={ContactDetails} />
         <Route exact path="/eko-save" component={EkoSave} />
+
 
         <Route exact path="/payed-complete" component={PayComplete} />
 
@@ -46,7 +49,7 @@ function App(props){
         <Route exact path="/cgv" component={CGV} />
         <Route exact path="/cgr" component={CGR} />
         <Route exact path="/ml" component={ML} />
-        <Route exact path="/about-us" component={AbouUs} />
+        <Route exact path="/about-us" component={AboutUs} />
 
         <Route exact path="*" component={Error404} />
         
