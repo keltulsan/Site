@@ -1,6 +1,4 @@
-import React from 'react'
-
-export function CGU() {
+export function CGU(props) {
     return <div className="Background">
         <div className="container">
             <div className="row">

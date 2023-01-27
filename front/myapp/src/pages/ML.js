@@ -1,6 +1,4 @@
-import React from 'react'
-
-export function ML() {
+export function ML(props) {
     return <div className="Background">
         <div className="container">
             <div className="row">

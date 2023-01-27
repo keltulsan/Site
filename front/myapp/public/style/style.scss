@@ -21,7 +21,7 @@
     $secondaryColor1: #e1ffd2;
     $secondaryColor2: #ffd2d2;
     $secondaryColor3: #d2e7ff;
-    $secondaryColor4: #f1f1f1;
+    $secondaryColor4: #ddd;
     $secondaryColor5: #667272;
 
     $buttonsColor: #ffe553;
@@ -38,6 +38,13 @@
         @for $i from 1 through 2 {
             h#{3 - $i}.title {
                 text-align: center;
+
+                &.left {
+                    text-align: start;
+                }
+                &.right {
+                    text-align: end;
+                }
 
                 &.top {
                     margin-top: 30px;
@@ -73,14 +80,17 @@
 
             .align-top {
                 align-self: baseline;
+                margin: 0px;
             }
 
             .align-center {
                 align-self: center;
+                margin: 0px;
             }
 
             .align-bot {
                 align-self: end;
+                margin: 0px;
             }
         }
 
@@ -99,6 +109,9 @@
         .flex.gap- {
             gap: 7px;
         }
+        .flex.gap-vw {
+            gap: 2.5vw;
+        }
         .flex.vertical {
             flex-direction: column;
         }
@@ -106,10 +119,12 @@
         .root {
             width: 100vw;
             min-height: 100vh;
+            gap: 50px;
 
             input[type="text"],
             input[type="text"]:focus-visible,
-            input[type="text"]:focus {
+            input[type="text"]:focus,
+            input[type="text"]:active {
                 font-family: $textFont;
                 color: $primaryColor5;
                 min-width: 200px;
@@ -119,8 +134,34 @@
                 border: none;
                 font-size: 12px;
 
+                &.background {
+                    background-color: $secondaryColor3;
+                }
+                &.my-account {
+                    padding: 10px 5px;
+                    min-width: unset;
+                    width: 100vw;
+                    &- {
+                        padding: 10px 5px;
+                        min-width: unset;
+                        width: 48.75vw;
+                    }
+                }
+                @media (min-width: 750px) {
+                    &.my-account {
+                        width: 30vw;
+                        &- {
+                            width: 13.75vw;
+                        }
+                    }
+                }
+
                 &::placeholder {
                     color: $secondaryColor5;
+                }
+
+                &:-webkit-autofill {
+                    -webkit-box-shadow: 0 0 0 30px $secondaryColor3 inset !important;
                 }
             }
 
@@ -130,9 +171,30 @@
                 color: $primaryColor5;
                 outline: none;
                 border: none;
-                font-size: 12px;
-                padding: 3px 10px;
+                font-size: 20px;
+                padding: 10px 25px;
                 border-radius: 10px;
+            }
+
+            input[type="checkbox"] {
+                appearance: none;
+                width: 20px;
+                height: 20px;
+                border-radius: 5px;
+                background-color: transparent;
+                border: 2px solid $primaryColor5 !important;
+                cursor: pointer;
+
+                &:checked:after {
+                    position: relative;
+                    top: -20px;
+                    font-family: $textFont;
+                    content: '\2713';
+                    display: inline-block;
+                    color: $primaryColor5;
+                    font-weight: bolder;
+                    font-size: 30px;
+                }
             }
 
             .icon {

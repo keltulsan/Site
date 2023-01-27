@@ -1,6 +1,4 @@
-import React from 'react'
-
-export function CGV() {
+export function CGV(props) {
     return <div className="Background">
         <div className="container">
             <div className="row">
