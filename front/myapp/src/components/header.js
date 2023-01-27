@@ -96,7 +96,7 @@ export function Header() {
         </div>
 
         {dimensions.width <= 750 && <Collapse in={menu}><div className='mobile-menu'>
-                <Link to='' onClick={() => {
+                <Link to='#' onClick={() => {
                     setIsHover(!isHover)
                     setIsHover2(false)
                 }}><p>Catégories</p></Link>
@@ -104,7 +104,7 @@ export function Header() {
                 <Link to='/actus'><p>Actus</p></Link>
                 <Link to='/login'><p>Login</p></Link>
                 <div className='flex center'>
-                    {/* <Link to='' onClick={() => {
+                    {/* <Link to='#' onClick={() => {
                     setIsHover(false)
                     setIsHover2(!isHover2)
                 }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link> */}

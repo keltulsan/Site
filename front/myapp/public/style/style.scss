@@ -22,7 +22,7 @@
     $secondaryColor2: #ffd2d2;
     $secondaryColor3: #d2e7ff;
     $secondaryColor4: #f1f1f1;
-    $secondaryColor4: #667272;
+    $secondaryColor5: #667272;
 
     $buttonsColor: #ffe553;
 
@@ -30,17 +30,27 @@
     $subtitleFont: "raleway-bold";
     $textFont: "Barlow-SemiBold";
 
-    body {
+    body div#root {
         padding: 0px 0px 0px 0px;
         margin: 0px 0px 0px 0px;
 
+        @for $i from 1 through 2 {
+            h#{3 - $i}.title {
+                text-align: center;
+
+                &.top {
+                    margin-top: 30px;
+                }
+            }
+        }
+
         h1.title {
             font-family: $titleFont;
-            text-align: center;
             font-size: 50px;
         }
-        h1.title.top {
-            margin-top: 30px;
+        h2.title {
+            font-family: $subtitleFont;
+            font-size: 30px;
         }
         p.text {
             font-family: $textFont;
@@ -86,7 +96,7 @@
             gap: 20px;
         }
         .flex.gap- {
-            gap: 5px;
+            gap: 7px;
         }
         .flex.vertical {
             flex-direction: column;
@@ -94,20 +104,31 @@
 
         input[type="text"],
         input[type="text"]:focus-visible,
-        input[type="text"]:hover {
+        input[type="text"]:focus {
             font-family: $textFont;
             color: $primaryColor5;
             min-width: 200px;
             width: fit-content;
             height: fit-content;
             outline: none;
-        }
-        input[type="text"]::placeholder,
-        input[type="text"]:focus-visible::placeholder,
-        input[type="text"]:hover::placeholder {
-            color: $secondaryColor5;
+            border: none;
+            font-size: 12px;
+
+            &::placeholder {
+                color: $secondaryColor5;
+            }
         }
 
+        input[type="submit"] {
+            font-family: $textFont;
+            background-color: $buttonsColor;
+            color: $primaryColor5;
+            outline: none;
+            border: none;
+            font-size: 12px;
+            padding: 3px 10px;
+            border-radius: 10px;
+        }
 
         .icon {
             width: 30px;
@@ -122,8 +143,6 @@
 
         div.connect-background,
         div.signup-background {
-            padding-left: 50px;
-            padding-bottom: 50px;
             margin-top: -75px;
             height: 80vh;
             background-image: url(../img/cb2.png);
@@ -135,6 +154,36 @@
         .create-account,
         .connection {
             margin-right: 175px;
+
+            a,
+            a:visited {
+                color: $primaryColor4;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .err-qcq {
+            margin-top: -75px;
+            height: 70vh;
+            background-image: url("../img/cr2.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            a {
+                color: $primaryColor4;
+                font-family: $subtitleFont;
+                font-size: 50px;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
 
         div.navbar,
@@ -183,10 +232,14 @@
 
             div {
                 a {
-                    transition-duration: 0.2s;
                     color: $primaryColor4;
                     text-decoration: none;
                     font-family: $subtitleFont;
+
+                    &:hover {
+                        color: $secondaryColor4;
+                        text-decoration: underline;
+                    }
 
                     p {
                         margin: 0px;
@@ -195,11 +248,6 @@
                 }
             }
 
-            a:hover {
-                transition-duration: 0.2s;
-                color: $secondaryColor4;
-                text-decoration: underline;
-            }
 
             ul {
                 list-style-type: none;
@@ -215,14 +263,11 @@
 
         div.footer {
             border-radius: 5px 5px 0px 0px;
-            position: absolute;
-            bottom: 0px;
 
             div {
                 div {
                     p {
                         margin: 0px;
-                        transition-duration: 0.2s;
                         font-family: $subtitleFont;
                         color: $primaryColor4;
 
@@ -236,9 +281,8 @@
                     p.little a {
                         font-size: 15px;
                     }
-
+                    
                     a:hover {
-                        transition-duration: 0.2s;
                         color: $secondaryColor4;
                         text-decoration: underline;
                     }

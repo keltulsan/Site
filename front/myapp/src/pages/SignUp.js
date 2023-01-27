@@ -18,8 +18,8 @@ export default function SignUp(props){
                     <input placeholder="Comfirmer mot de passe" type="text" id="password-confirm"/>
                 </div>
             </div>
-            <div className="flex center gap create-account">
-                <Link to="/login" className="createAccount">Se connecter</Link>
+            <div className="flex center gap connection">
+                <Link to="/login">Se connecter</Link>
             </div>
             <div className="center">
                 <input type="submit" value="Créer un compte"/>

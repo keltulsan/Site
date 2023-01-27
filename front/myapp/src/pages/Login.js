@@ -17,7 +17,7 @@ export default function Login(props){
                 </div>
             </div>
             <div className="flex center gap create-account">
-                <Link to="/signup" className="createAccount">Créer un compte</Link>
+                <Link to="/signup">Créer un compte</Link>
             </div>
             <div className="center">
                 <input type="submit" value="Se connecter"/>
