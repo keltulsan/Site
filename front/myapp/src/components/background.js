@@ -58,7 +58,7 @@ export default function Background(props) {
                 )
             }
         }
-    }, [imgs]);
+    });
 
     return <div 
         style={{
