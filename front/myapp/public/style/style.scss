@@ -79,45 +79,43 @@
         .flex {
             display: flex;
 
+            &.space-around {
+                justify-content: space-around;
+            }
+            &.space-between {
+                justify-content: space-between;
+            }
+            &.center {
+                justify-content: center;
+            }
+            &.gap {
+                gap: 20px;
+            }
+            &.gap- {
+                gap: 7px;
+            }
+            &.gap-plus {
+                gap: 200px;
+            }
+            &.gap-vw {
+                gap: 2.5vw;
+            }
+            &.vertical {
+                flex-direction: column;
+            }
+
             .align-top {
                 align-self: baseline;
                 margin: 0px;
             }
-
             .align-center {
                 align-self: center;
                 margin: 0px;
             }
-
             .align-bot {
                 align-self: end;
                 margin: 0px;
             }
-        }
-
-        .flex.space-around {
-            justify-content: space-around;
-        }
-        .flex.space-between {
-            justify-content: space-between;
-        }
-        .flex.center {
-            justify-content: center;
-        }
-        .flex.gap {
-            gap: 20px;
-        }
-        .flex.gap- {
-            gap: 7px;
-        }
-        .flex.gap-plus {
-            gap: 200px;
-        }
-        .flex.gap-vw {
-            gap: 2.5vw;
-        }
-        .flex.vertical {
-            flex-direction: column;
         }
 
         .root {
