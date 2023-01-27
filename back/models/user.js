@@ -11,6 +11,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(100),
       allowNull: false
     },
+    img: {
+      type: DataTypes.STRING(1000),
+      allowNull: false,
+      defaultValue: "icons-user.jpg"
+    },
     nickname: {
       type: DataTypes.STRING(100),
       allowNull: false
@@ -29,8 +34,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     apartment: {
       type: DataTypes.STRING(100),
-      allowNull: true, 
-      defaultValue: null
+      allowNull: true
     },
     code_postal: {
       type: DataTypes.STRING(10),
@@ -81,10 +85,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: 0
     },
+    eko_save: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: 0
+    },
     envy_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      defaultValue: "icons-user.jpg",
       unique: "envy_id"
     }
   }, {

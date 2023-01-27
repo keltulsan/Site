@@ -620,3 +620,48 @@ app.post("/condition/delete", jsonParser, (req, res) => {
     .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
+// CRUD faq
+app.use(bodyParser.urlencoded({ extended: true }));
+app.post("/faq/insert", jsonParser, (req, res) => {
+  (async () => {
+    await sequelize.sync();
+    await models.faq.create({ name: req.body.name, desc: req.body.desc})
+      .then(result => res.json(result))
+      .catch(err => res.send(JSON.stringify(err.message)));
+  })();
+});
+
+app.get("/faq/list", function (req, res) {
+  (async () => {
+    await sequelize.sync();
+    const body = await models.faq.findAll({});
+    res.send(body)
+  })();
+});
+
+app.post("/faq/update", jsonParser, (req, res) => {
+  (async () => {
+    await sequelize.sync();
+    await models.faq.update({ name: req.body.name ,desc: req.body.desc},
+      {
+        where: {
+          id: req.body.id
+        }
+      })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
+  })();
+});
+
+app.post("/faq/delete", jsonParser, (req, res) => {
+  (async () => {
+    await sequelize.sync();
+    await models.faq.destroy({
+      where: {
+        id: req.body.id
+      }
+    })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
+  })();
+});
