@@ -30,6 +30,24 @@
     $subtitleFont: "raleway-bold";
     $textFont: "Barlow-SemiBold";
 
+    .payCard{
+        background-color: $primaryColor5;
+        color: $primaryColor4;
+        width: 210px;
+        padding-right: 80px;
+        padding-left: 80px;
+        border-radius: 10px;
+    }
+    .box{
+        background-color: $secondaryColor4;
+        width: fit-content !important;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+        border-radius: 10px;
+    }
+
     body div#root {
         overflow-x: hidden;
         padding: 0px 0px 0px 0px;
