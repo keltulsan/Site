@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('action', {
+  return sequelize.define('condition', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -8,20 +8,20 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     name: {
-      type: DataTypes.STRING(1000),
+      type: DataTypes.STRING(100),
       allowNull: false
     },
     link_name: {
       type: DataTypes.STRING(100),
       allowNull: false
     },
-    img: {
-      type: DataTypes.STRING(1000),
+    desc: {
+      type: DataTypes.INTEGER,
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'action',
+    tableName: 'condition',
     timestamps: false,
     indexes: [
       {

@@ -2,7 +2,9 @@ var DataTypes = require("sequelize").DataTypes;
 var _action = require("./action");
 var _analytics = require("./analytics");
 var _business = require("./business");
+var _condition = require("./condition");
 var _envy_list = require("./envy_list");
+var _faq = require("./faq");
 var _labels = require("./labels");
 var _parainnage = require("./parainnage");
 var _product = require("./product");
@@ -13,7 +15,9 @@ function initModels(sequelize) {
   var action = _action(sequelize, DataTypes);
   var analytics = _analytics(sequelize, DataTypes);
   var business = _business(sequelize, DataTypes);
+  var condition = _condition(sequelize, DataTypes);
   var envy_list = _envy_list(sequelize, DataTypes);
+  var faq = _faq(sequelize, DataTypes);
   var labels = _labels(sequelize, DataTypes);
   var parainnage = _parainnage(sequelize, DataTypes);
   var product = _product(sequelize, DataTypes);
@@ -25,7 +29,9 @@ function initModels(sequelize) {
     action,
     analytics,
     business,
+    condition,
     envy_list,
+    faq,
     labels,
     parainnage,
     product,
