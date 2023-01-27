@@ -37,7 +37,18 @@
 
         @for $i from 1 through 2 {
             h#{3 - $i}.title {
+                color: $primaryColor5;
+                &.stroke {
+                    -webkit-text-stroke: 0.5px $primaryColor4;
+                }
                 text-align: center;
+
+                &.invert {
+                    color: $primaryColor4;
+                    &.stroke {
+                        -webkit-text-stroke: 0.5px $primaryColor5;
+                    }
+                }
 
                 &.left {
                     text-align: start;

@@ -1,11 +1,11 @@
 export function ContactDetails() {
     return <div className="flex vertical"><form className="align-center">
-        <h1 className="title">Mes coordonnées</h1>
+        <h1 className="title stroke">Mes coordonnées</h1>
         <div className="flex vertical gap center">
-            <h2 className='title top left'>Coordonnées</h2>
+            <h2 className='title top left stroke'>Coordonnées</h2>
             <input className='background my-account' placeholder="Adresse E-mail" type="text" id="email" />
 
-            <h2 className='title left'>Adresse de livraison</h2>
+            <h2 className='title left stroke'>Adresse de livraison</h2>
             <input className='background my-account' placeholder="Pays" type="text" id="pays" />
             <div className="flex gap-vw">
                 <input className='background my-account-' placeholder="Prénom" type="text" id="prenom" />
