@@ -22,7 +22,7 @@ export function ContactDetails() {
             
             {/* after */}
             <div className='align-top flex gap-'>
-                <input type="checkbox" className="align-center" />
+                <input type="checkbox" className="align-center" defaultChecked={true} />
                 <p className="text align-center">Sauvegarder mes coordonnées pour la prochaine fois</p>
             </div>
             <div>

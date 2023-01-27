@@ -123,7 +123,8 @@
 
             input[type="text"],
             input[type="text"]:focus-visible,
-            input[type="text"]:focus {
+            input[type="text"]:focus,
+            input[type="text"]:active {
                 font-family: $textFont;
                 color: $primaryColor5;
                 min-width: 200px;
@@ -139,24 +140,28 @@
                 &.my-account {
                     padding: 10px 5px;
                     min-width: unset;
-                    width: 80vw;
+                    width: 100vw;
                     &- {
                         padding: 10px 5px;
                         min-width: unset;
-                        width: 38.75vw;
+                        width: 48.75vw;
                     }
                 }
                 @media (min-width: 750px) {
                     &.my-account {
-                        width: 40vw;
+                        width: 30vw;
                         &- {
-                            width: 18.75vw;
+                            width: 13.75vw;
                         }
                     }
                 }
 
                 &::placeholder {
                     color: $secondaryColor5;
+                }
+
+                &:-webkit-autofill {
+                    -webkit-box-shadow: 0 0 0 30px $secondaryColor3 inset !important;
                 }
             }
 
@@ -169,6 +174,27 @@
                 font-size: 20px;
                 padding: 10px 25px;
                 border-radius: 10px;
+            }
+
+            input[type="checkbox"] {
+                appearance: none;
+                width: 20px;
+                height: 20px;
+                border-radius: 5px;
+                background-color: transparent;
+                border: 2px solid $primaryColor5 !important;
+                cursor: pointer;
+
+                &:checked:after {
+                    position: relative;
+                    top: -20px;
+                    font-family: $textFont;
+                    content: '\2713';
+                    display: inline-block;
+                    color: $primaryColor5;
+                    font-weight: bolder;
+                    font-size: 30px;
+                }
             }
 
             .icon {
