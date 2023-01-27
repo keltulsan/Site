@@ -24,6 +24,7 @@ import Actus from './pages/Actus';
 import PayChoice from './pages/PaymentChoice';
 import {Stocks } from './pages/Stocks';
 import { Sells } from './pages/Sells';
+import { EnvyList } from './pages/Envy-list';
 
 function App(props){
   return <div className="root flex space-between vertical">
@@ -48,6 +49,7 @@ function App(props){
 
         <Route exact path="/stocks" component={Stocks} />
         <Route exact path="/sells" component={Sells} />
+        <Route exact path="/envy-list" component={EnvyList} />
 
         <Route exact path="/pay-choice" component={PayChoice} />
 
