@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Error404 from "./pages/404";
-import SignUp from "./pages/SignUp";
-import Login from "./pages/Login";
+import SignUpPage from "./pages/SignUp";
+import LoginPage from "./pages/Login";
 import { CGU } from "./pages/CGU";
 import { CGV } from "./pages/CGV";
 import { CGR } from "./pages/CGR";
@@ -29,8 +29,8 @@ function App(props){
         <Route exact path="/home" component={Home} />
         <Route exact path="/" component={Home} />
         
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/signup" component={SignUpPage} />
         
         <Route exact path="/account" component={ContactDetails} />
         <Route exact path="/eko-save" component={EkoSave} />
