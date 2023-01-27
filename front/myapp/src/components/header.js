@@ -56,39 +56,21 @@ export function Header() {
         setIsHover2(dimensions.width > 750 ? false : isHover2)
     }}>
         <div className='flex space-between'>
-            <Link to='/' onMouseEnter={() => {
-                setIsHover(false)
-                setIsHover2(false)
-            }}><img className='logo' src='./img/logo.png' alt='Logo de Eko'/></Link>
+            <Link to='/'><img className='logo' src='./img/logo.png' alt='Logo de Eko'/></Link>
             {dimensions.width > 750 && <div className='flex align-center'>
                 <Link to='/categories' onMouseEnter={() => {
                     setIsHover(true)
                     setIsHover2(false)
                 }}><p>Catégories</p></Link>
-                <Link to='/my-sellings' onMouseEnter={() => {
-                    setIsHover(false)
-                    setIsHover2(false)
-                }}><p>Mes ventes</p></Link>
-                <Link to='/actus' onMouseEnter={() => {
-                    setIsHover(false)
-                    setIsHover2(false)
-                }}><p>Actus</p></Link>
-                {/* <Link to='/login' onMouseEnter={() => {
-                    setIsHover(false)
-                    setIsHover2(false)
-                }}><p>Login</p></Link> */}
-                <Link to='/my-account' onMouseEnter={() => {
+                <Link to='/my-sellings'><p>Mes ventes</p></Link>
+                <Link to='/actus'><p>Actus</p></Link>
+                {/* <Link to='/login'><p>Login</p></Link> */}
+                <Link to='/account' onMouseEnter={() => {
                     setIsHover(false)
                     setIsHover2(true)
                 }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link>
-                <Link to='/bag' onMouseEnter={() => {
-                    setIsHover(false)
-                    setIsHover2(false)
-                }}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko'/></Link>
-                <Link to='/research' onMouseEnter={() => {
-                    setIsHover(false)
-                    setIsHover2(false)
-                }}><img src='./img/search.png' alt='Logo de recherche de Eko'/></Link>
+                <Link to='/bag'><img src='./img/shopping-bag.png' alt='Logo du panier de Eko'/></Link>
+                <Link to='/research'><img src='./img/search.png' alt='Logo de recherche de Eko'/></Link>
             </div>}
             {dimensions.width <= 750 && 
                 <span className="glyphicon glyphicon-list align-center" onClick={() => setMenu(!menu)}></span>
