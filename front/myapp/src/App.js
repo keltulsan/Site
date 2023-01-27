@@ -15,6 +15,7 @@ import { CGV } from "./pages/CGV";
 import { CGR } from "./pages/CGR";
 import { ML } from "./pages/ML";
 import { ContactDetails } from "./pages/ContactDetails";
+import { EkoSave } from './pages/EKO-Save';
 
 function App(props){
   return <div className="root flex space-between vertical">
@@ -33,7 +34,8 @@ function App(props){
         <Route exact path="/cgr" component={CGR} />
         <Route exact path="/ml" component={ML} />
         
-        <Route exact path="/my-account" component={ContactDetails} />
+        <Route exact path="/account" component={ContactDetails} />
+        <Route exact path="/eko-save" component={EkoSave} />
 
         <Route exact path="*" component={Error404} />
         

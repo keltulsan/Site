@@ -73,14 +73,14 @@ export function Header() {
                     setIsHover(false)
                     setIsHover2(false)
                 }}><p>Actus</p></Link>
-                <Link to='/login' onMouseEnter={() => {
+                {/* <Link to='/login' onMouseEnter={() => {
                     setIsHover(false)
                     setIsHover2(false)
-                }}><p>Login</p></Link>
-                {/* <Link to='/my-account' onMouseEnter={() => {
+                }}><p>Login</p></Link> */}
+                <Link to='/my-account' onMouseEnter={() => {
                     setIsHover(false)
                     setIsHover2(true)
-                }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link> */}
+                }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link>
                 <Link to='/bag' onMouseEnter={() => {
                     setIsHover(false)
                     setIsHover2(false)
@@ -102,12 +102,12 @@ export function Header() {
                 }}><p>Catégories</p></Link>
                 <Link to='/my-sellings'><p>Mes ventes</p></Link>
                 <Link to='/actus'><p>Actus</p></Link>
-                <Link to='/login'><p>Login</p></Link>
+                {/* <Link to='/login'><p>Login</p></Link> */}
                 <div className='flex center'>
-                    {/* <Link to='#' onClick={() => {
+                    <Link to='#' onClick={() => {
                     setIsHover(false)
                     setIsHover2(!isHover2)
-                }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link> */}
+                }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link>
                     <Link to='/bag'><img src='./img/shopping-bag.png' alt='Logo du panier de Eko'/></Link>
                     <Link to='/research'><img src='./img/search.png' alt='Logo de recherche de Eko'/></Link>
                 </div>
