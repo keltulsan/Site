@@ -30,6 +30,11 @@
     $subtitleFont: "raleway-bold";
     $textFont: "Barlow-SemiBold";
 
+    div.background{
+        background-color: $secondaryColor3;
+        width: fit-content;
+    }
+
     body div#root {
         overflow-x: hidden;
         padding: 0px 0px 0px 0px;
