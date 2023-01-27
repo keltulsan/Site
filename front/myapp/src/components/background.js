@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function Background(props) {
+    const [imgsMap, setImgsMap] = useState([]);
     const [imgs, setImgs] = useState([]);
 
     const [dimensions, setDimensions] = React.useState({
@@ -29,6 +30,10 @@ export default function Background(props) {
             }
             setImgs([imgs, newImg])
         }
+
+        setImgsMap(imgs.map(val => 
+            <img src={val.dir} alt="Image du background d'Eko"/>
+        ))
     }, [imgs]);
     useEffect(() => {
         setImgs([])
