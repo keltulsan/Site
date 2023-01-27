@@ -18,6 +18,7 @@ import { ContactDetails } from "./pages/ContactDetails";
 import { EkoSave } from './pages/EKO-Save';
 import { PayComplete } from './pages/Pay-Complete';
 import { ContactUs } from './pages/Contact-Us';
+import { ThxEmail } from './pages/Thx-Email';
 
 function App(props){
   return <div className="root flex space-between vertical">
@@ -35,6 +36,8 @@ function App(props){
         <Route exact path="/eko-save" component={EkoSave} />
 
         <Route exact path="/payed-complete" component={PayComplete} />
+
+        <Route exact path="/thx-email" component={ThxEmail} />
 
         <Route exact path="/contact" component={ContactUs} />
         
