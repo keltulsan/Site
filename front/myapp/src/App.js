@@ -1,4 +1,5 @@
 import './App.css';
+import AboutUs from './Pages/AboutUs';
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,6 +13,9 @@ function App(props){
       <Switch>
         <Route path="/">
           <Header />
+          <Route path="/">
+            <AboutUs/>
+          </Route>
           <Footer />
         </Route>
       </Switch>
