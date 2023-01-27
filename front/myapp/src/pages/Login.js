@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Login(props){
+export default function Login(){
     return <form>
         <div className="connect-background flex center vertical gap">
             <h1 className='title'>LOGIN</h1>

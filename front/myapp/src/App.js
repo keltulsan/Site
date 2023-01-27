@@ -10,42 +10,32 @@ import {
 } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import { CGU } from "./pages/CGU";
+import { CGV } from "./pages/CGV";
+import { CGR } from "./pages/CGR";
+import { ML } from "./pages/ML";
 
 function App(props){
-  return <Router>
+  return <div className="root flex space-between vertical"><Header />
+    <Router>
       <Switch>
 
-        <Route exact path="/home">
-          <Header />
-            <Home />
-          <Footer />
-        </Route>
-        <Route exact path="/">
-          <Header />
-            <Home />
-          <Footer />
-        </Route>
-
-        <Route exact path="/login">
-          <Header />
-            <Login />
-          <Footer />
-        </Route>
-
-        <Route exact path="/signup">
-          <Header />
-            <SignUp />
-          <Footer />
-        </Route>
-
-        <Route exact path="*">
-          <Header />
-          <Error404 />
-          <Footer />
-        </Route>
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/" component={Home} />
+        
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={SignUp} />
+        
+        <Route exact path="/cgu" component={CGU} />
+        <Route exact path="/cgv" component={CGV} />
+        <Route exact path="/cgr" component={CGR} />
+        <Route exact path="/ml" component={ML} />
+        
+        <Route exact path="*" component={Error404} />
         
       </Switch>
-  </Router>
+    </Router>
+    <Footer /></div>
 }
 
 export default App

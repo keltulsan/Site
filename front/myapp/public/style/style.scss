@@ -31,6 +31,7 @@
     $textFont: "Barlow-SemiBold";
 
     body div#root {
+        overflow-x: hidden;
         padding: 0px 0px 0px 0px;
         margin: 0px 0px 0px 0px;
 
@@ -102,241 +103,200 @@
             flex-direction: column;
         }
 
-        input[type="text"],
-        input[type="text"]:focus-visible,
-        input[type="text"]:focus {
-            font-family: $textFont;
-            color: $primaryColor5;
-            min-width: 200px;
-            width: fit-content;
-            height: fit-content;
-            outline: none;
-            border: none;
-            font-size: 12px;
-
-            &::placeholder {
-                color: $secondaryColor5;
-            }
-        }
-
-        input[type="submit"] {
-            font-family: $textFont;
-            background-color: $buttonsColor;
-            color: $primaryColor5;
-            outline: none;
-            border: none;
-            font-size: 12px;
-            padding: 3px 10px;
-            border-radius: 10px;
-        }
-
-        .icon {
-            width: 30px;
-            height: 30px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 10px;
-        }
-
-        div.connect-background,
-        div.signup-background {
-            margin-top: -75px;
-            height: 80vh;
-            background-image: url(../img/cb2.png);
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        .create-account,
-        .connection {
-            margin-right: 175px;
-
-            a,
-            a:visited {
-                color: $primaryColor4;
-                text-decoration: none;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
-
-        .err-qcq {
-            margin-top: -75px;
-            height: 70vh;
-            background-image: url("../img/cr2.png");
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-
-            a {
-                color: $primaryColor4;
-                font-family: $subtitleFont;
-                font-size: 50px;
-                text-decoration: none;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
-
-        div.navbar,
-        div.footer {
-            padding: 10px;
+        .root {
             width: 100vw;
-            background-color: $primaryColor5;
-            height: fit-content;
+            min-height: 100vh;
 
-            img.logo {
-                height: 50px;
+            input[type="text"],
+            input[type="text"]:focus-visible,
+            input[type="text"]:focus {
+                font-family: $textFont;
+                color: $primaryColor5;
+                min-width: 200px;
+                width: fit-content;
+                height: fit-content;
+                outline: none;
+                border: none;
+                font-size: 12px;
+
+                &::placeholder {
+                    color: $secondaryColor5;
+                }
             }
 
-            div {
-                margin-left: 20px;
-                margin-right: 20px;
-                gap: 30px;
+            input[type="submit"] {
+                font-family: $textFont;
+                background-color: $buttonsColor;
+                color: $primaryColor5;
+                outline: none;
+                border: none;
+                font-size: 12px;
+                padding: 3px 10px;
+                border-radius: 10px;
+            }
+
+            .icon {
+                width: 30px;
+                height: 30px;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 10px;
+            }
+
+            div.connect-background,
+            div.signup-background {
+                margin-top: -75px;
+                height: 80vh;
+                background-image: url(../img/cb2.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            .create-account,
+            .connection {
+                margin-right: 175px;
+
+                a,
+                a:visited {
+                    color: $primaryColor4;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .err-qcq {
+                margin-top: -127px;
+                height: 70vh;
+                background-image: url("../img/cr2.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+
+                a {
+                    color: $primaryColor4;
+                    font-family: $subtitleFont;
+                    font-size: 50px;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .MuiCollapse-wrapper.MuiCollapse-vertical.css-smkl36-MuiCollapse-wrapper {
+                margin: 0px;
+            }
+
+            div.navbar,
+            div.footer {
+                padding: 10px;
+                width: 100vw;
+                background-color: $primaryColor5;
+                height: fit-content;
 
                 img.logo {
                     height: 50px;
                 }
-                img {
-                    height: 30px;
-                }
-            }
 
-            div.mobile-menu {
-                a {
-                    p {
-                        text-align: center;
-                    }
-                }
-            }
-
-            span.glyphicon {
-                color: $secondaryColor4;
-                font-size: 40px;
-            }
-        }
-
-        div.navbar {
-            display: block;
-            position: sticky;
-            top: 0px;
-            border-radius: 0px 0px 5px 5px;
-
-            div {
-                a {
-                    color: $primaryColor4;
-                    text-decoration: none;
-                    font-family: $subtitleFont;
-
-                    &:hover {
-                        color: $secondaryColor4;
-                        text-decoration: underline;
-                    }
-
-                    p {
-                        margin: 0px;
-                        font-size: 20px;
-                    }
-                }
-            }
-
-
-            ul {
-                list-style-type: none;
-                margin: 0px;
-                margin-top: 20px;
-            }
-
-            div.MuiCollapse-root .little p {
-                font-size: 15px;
-                text-align: center;
-            }
-        }
-
-        div.footer {
-            border-radius: 5px 5px 0px 0px;
-
-            div {
                 div {
-                    p {
-                        margin: 0px;
-                        font-family: $subtitleFont;
-                        color: $primaryColor4;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    gap: 30px;
 
-                        a {
-                            font-size: 20px;
-                            color: $primaryColor4;
-                            text-decoration: none;
+                    img.logo {
+                        height: 50px;
+                    }
+                    img {
+                        height: 30px;
+                    }
+                }
+
+                div.mobile-menu {
+                    a {
+                        p {
+                            text-align: center;
                         }
                     }
+                }
 
-                    p.little a {
-                        font-size: 15px;
+                span.glyphicon {
+                    color: $secondaryColor4;
+                    font-size: 40px;
+                }
+            }
+
+            div.navbar {
+                display: block;
+                position: sticky;
+                top: 0px;
+                border-radius: 0px 0px 0px 0px;
+
+                div {
+                    a {
+                        color: $primaryColor4;
+                        text-decoration: none;
+                        font-family: $subtitleFont;
+
+                        &:hover {
+                            color: $secondaryColor4;
+                            text-decoration: underline;
+                        }
+
+                        p {
+                            margin: 0px;
+                            font-size: 20px;
+                        }
                     }
-                    
-                    a:hover {
-                        color: $secondaryColor4;
-                        text-decoration: underline;
+                }
+
+                ul {
+                    list-style-type: none;
+                    margin: 0px;
+                    margin-top: 20px;
+                }
+
+                div.MuiCollapse-root .little p {
+                    font-size: 15px;
+                    text-align: center;
+                }
+            }
+
+            div.footer {
+                border-radius: 0px 0px 0px 0px;
+
+                div {
+                    div {
+                        p {
+                            margin: 0px;
+                            font-family: $subtitleFont;
+                            color: $primaryColor4;
+
+                            a {
+                                font-size: 20px;
+                                color: $primaryColor4;
+                                text-decoration: none;
+                            }
+                        }
+
+                        p.little a {
+                            font-size: 15px;
+                        }
+
+                        a:hover {
+                            color: $secondaryColor4;
+                            text-decoration: underline;
+                        }
                     }
                 }
             }
         }
     }
-}
-.MuiCollapse-wrapper.MuiCollapse-vertical.css-smkl36-MuiCollapse-wrapper {
-    margin: 0px;
-}
-
-.container h2 {
-    margin-top: 2%;
-    font-size: 200%;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 5%;
-}
-
-.button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #555;
-    color: white;
-    font-size: 16px;
-    padding: 12px 24px;
-    border: none;
-    cursor: pointer;
-}
-.bg {
-    background-image: url("Img/cb2.png");
-    background-size: cover;
-    background-position: center;
-}
-.Big_Button {
-    position: relative;
-}
-
-.rowForm {
-    padding-bottom: 5%;
-}
-
-.rowForm2 {
-    padding-bottom: 4%;
-}
-
-.createAccount {
-    color: white;
-}
-
-.formBottom {
-    padding-bottom: 15%;
 }
