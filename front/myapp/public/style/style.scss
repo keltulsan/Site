@@ -21,7 +21,7 @@
     $secondaryColor1: #e1ffd2;
     $secondaryColor2: #ffd2d2;
     $secondaryColor3: #d2e7ff;
-    $secondaryColor4: #f1f1f1;
+    $secondaryColor4: #ddd;
     $secondaryColor5: #667272;
 
     $buttonsColor: #ffe553;
@@ -38,6 +38,13 @@
         @for $i from 1 through 2 {
             h#{3 - $i}.title {
                 text-align: center;
+
+                &.left {
+                    text-align: start;
+                }
+                &.right {
+                    text-align: end;
+                }
 
                 &.top {
                     margin-top: 30px;
@@ -73,14 +80,17 @@
 
             .align-top {
                 align-self: baseline;
+                margin: 0px;
             }
 
             .align-center {
                 align-self: center;
+                margin: 0px;
             }
 
             .align-bot {
                 align-self: end;
+                margin: 0px;
             }
         }
 
@@ -99,6 +109,9 @@
         .flex.gap- {
             gap: 7px;
         }
+        .flex.gap-vw {
+            gap: 2.5vw;
+        }
         .flex.vertical {
             flex-direction: column;
         }
@@ -106,6 +119,7 @@
         .root {
             width: 100vw;
             min-height: 100vh;
+            gap: 50px;
 
             input[type="text"],
             input[type="text"]:focus-visible,
@@ -119,6 +133,28 @@
                 border: none;
                 font-size: 12px;
 
+                &.background {
+                    background-color: $secondaryColor3;
+                }
+                &.my-account {
+                    padding: 10px 5px;
+                    min-width: unset;
+                    width: 80vw;
+                    &- {
+                        padding: 10px 5px;
+                        min-width: unset;
+                        width: 38.75vw;
+                    }
+                }
+                @media (min-width: 750px) {
+                    &.my-account {
+                        width: 40vw;
+                        &- {
+                            width: 18.75vw;
+                        }
+                    }
+                }
+
                 &::placeholder {
                     color: $secondaryColor5;
                 }
@@ -130,8 +166,8 @@
                 color: $primaryColor5;
                 outline: none;
                 border: none;
-                font-size: 12px;
-                padding: 3px 10px;
+                font-size: 20px;
+                padding: 10px 25px;
                 border-radius: 10px;
             }
 
