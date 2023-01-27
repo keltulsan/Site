@@ -18,11 +18,11 @@ sequelize.authenticate().then(() => {
 var initModels = require("./models/init-models");
 var models = initModels(sequelize);
 (async () => {
-    await sequelize.sync();
+    await sequelize.sync({force: true});
     // Code here
-    const jane = await models.labels.create({label_name:"Pitié marche"});
-    console.log("Jane's auto-generated ID:", jane.id);
-    const jane1 = await models.labels.create({label_name:"Pitié marche"});
-    console.log("Jane's auto-generated ID:", jane1.id);
+    // const jane = await models.labels.create({label_name:"Pitié marche"});
+    // console.log("Jane's auto-generated ID:", jane.id);
+    // const jane1 = await models.labels.create({label_name:"Pitié marche"});
+    // console.log("Jane's auto-generated ID:", jane1.id);
   })();
 
