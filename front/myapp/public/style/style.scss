@@ -45,10 +45,6 @@
     .box{
         background-color: $secondaryColor4;
         width: fit-content !important;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        padding-left: 30px !important;
-        padding-right: 30px !important;
         border-radius: 10px;
     }
 
@@ -77,6 +73,19 @@
     .margin-top{
         margin-top: 80px;
     }
+
+    .margin-top-{
+        margin-top: 40px;
+    }
+
+    .default-size{
+        min-width: 100px;
+        min-height: 100px;
+        .full-width{
+            width: 100% !important;
+        }
+    }
+
 
 
     body div#root {
@@ -275,11 +284,6 @@
                 
             }
 
-            .icon-plus {
-                width: 60px;
-                height: 60px;
-            }
-
             .grid {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
@@ -287,10 +291,10 @@
             }
 
             .grid2{
-                    grid-template-columns: [first] 40px [line2] 50px [end];
-                    grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
-                    grid-gap: 15px;
-                }
+                display: grid;
+                grid-template-columns: 10% 80%;
+                grid-gap: 10% !important;
+            }
 
             div.connect-background,
             div.signup-background {
