@@ -11,7 +11,7 @@ export function Sells() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flexcenter">
-                    <p><Link className="style-link stroke" to="/">Modifier</Link> / <Link className="style-link stroke" to="/">Supprimer</Link></p>
+                    <p><Link className="style-link stroke" to="/">Modifier </Link> / <Link className="style-link stroke" to="/"> Supprimer</Link></p>
                 </div>
             </div>
             <div className="flex vertical">
@@ -21,7 +21,7 @@ export function Sells() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flex center">
-                    <p><Link className="style-link stroke" to="/">Modifier</Link> / <Link className="style-link stroke" to="/">Supprimer</Link></p>
+                    <p><Link className="style-link stroke" to="/">Modifier </Link> / <Link className="style-link stroke" to="/"> Supprimer</Link></p>
                 </div>
             </div>
             <div className="flex vertical">
@@ -31,7 +31,7 @@ export function Sells() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flex center">
-                    <p><Link className="style-link stroke" to="/">Modifier</Link> / <Link className="style-link stroke" to="/">Supprimer</Link></p>
+                    <p><Link className="style-link stroke" to="/">Modifier </Link> / <Link className="style-link stroke" to="/"> Supprimer</Link></p>
                 </div>
                 
             </div>
