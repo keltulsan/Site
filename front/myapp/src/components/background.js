@@ -84,7 +84,7 @@ export default function Background() {
                             style={{
                                 position: 'absolute',
                                 zIndex: -999,
-                                rotation: val.rot + 'deg',
+                                rotate: val.rot + 'deg',
                                 width: val.size.toString() + 'px',
                                 top: (val.pos_x + (val.size/2 * -(mousePos.y +1) + val.size/2 * -(scrollValue*75 +1)) / 5000).toString() + 'px',
                                 left: (val.pos_y + (val.size * -(mousePos.x +1)) / 5000).toString() + 'px'
