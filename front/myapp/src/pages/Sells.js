@@ -11,7 +11,7 @@ export function Sells() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flexcenter">
-                    <p><Link className="style-link" to="/">Modifier</Link> / <Link className="style-link" to="/">Supprimer</Link></p>
+                    <p><Link className="style-link stroke" to="/">Modifier</Link> / <Link className="style-link stroke" to="/">Supprimer</Link></p>
                 </div>
             </div>
             <div className="flex vertical">
@@ -21,7 +21,7 @@ export function Sells() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flex center">
-                    <p><Link className="style-link" to="/">Modifier</Link> / <Link className="style-link" to="/">Supprimer</Link></p>
+                    <p><Link className="style-link stroke" to="/">Modifier</Link> / <Link className="style-link stroke" to="/">Supprimer</Link></p>
                 </div>
             </div>
             <div className="flex vertical">
@@ -31,13 +31,13 @@ export function Sells() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flex center">
-                    <p><Link className="style-link" to="/">Modifier</Link> / <Link className="style-link" to="/">Supprimer</Link></p>
+                    <p><Link className="style-link stroke" to="/">Modifier</Link> / <Link className="style-link stroke" to="/">Supprimer</Link></p>
                 </div>
                 
             </div>
         </div>
         <div className="flex center margin-top">
-            <Link className="style-link-2" to="/"><h2 className="title border">Mes ventes</h2></Link>
+            <Link className="style-link-2" to="/"><h2 className="title border stroke">Mes ventes</h2></Link>
         </div>
         <div className="flex center margin-top">
         <Link className="style-link-2" to="/"><img className="align-center icon-plus" src='./img/bouton play.png' alt='Bouton lancement de vidéo explicative sur les ventes sur Eko' /></Link>

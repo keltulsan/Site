@@ -19,7 +19,7 @@ export default function SignUp(){
                 </div>
             </div>
             <div className="flex center gap connection">
-                <Link to="/login">Se connecter</Link>
+                <Link className="stroke" to="/login">Se connecter</Link>
             </div>
             <div className="center">
                 <input type="submit" value="Créer un compte"/>

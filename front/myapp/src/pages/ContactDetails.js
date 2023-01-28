@@ -1,11 +1,11 @@
 export function ContactDetails() {
     return <div className="flex vertical"><form className="align-center">
-        <h1 className="title stroke">Mes coordonnées</h1>
+        <h1 className="title stroke">Mes coordonnées sur Eko</h1>
         <div className="flex vertical gap center">
-            <h2 className='title top left'>Coordonnées</h2>
+            <h2 className='title top left stroke'>Coordonnées</h2>
             <input className='background my-account' placeholder="Adresse E-mail" type="text" id="email" />
 
-            <h2 className='title left'>Adresse de livraison</h2>
+            <h2 className='title left stroke'>Adresse de livraison</h2>
             <input className='background my-account' placeholder="Pays" type="text" id="pays" />
             <div className="flex gap-vw">
                 <input className='background my-account-' placeholder="Prénom" type="text" id="prenom" />
@@ -22,7 +22,7 @@ export function ContactDetails() {
             
             <div className='align-top flex gap-'>
                 <input type="checkbox" className="align-center" defaultChecked={true} />
-                <p className="text align-center">Sauvegarder mes coordonnées pour la prochaine fois</p>
+                <p className="text align-center stroke">Sauvegarder mes coordonnées pour la prochaine fois</p>
             </div>
             <div>
                 <input type="submit" value="Poursuivre vers l'achat" />
