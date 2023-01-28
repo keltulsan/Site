@@ -1,3 +1,4 @@
+import AboutUs from './pages/AboutUs';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,37 +18,48 @@ import { ML } from "./pages/ML";
 import { ContactDetails } from "./pages/ContactDetails";
 import { EkoSave } from './pages/EKO-Save';
 import { PayComplete } from './pages/Pay-Complete';
-import Background from './components/background';
+import { ContactUs } from './pages/Contact-Us';
+import { ThxEmail } from './pages/Thx-Email';
+import Actus from './pages/Actus';
+import { UserPage } from './pages/UserPage';
 
-export default function App(props){
-  return <>
-    <Background />
-    <div className="root flex space-between vertical">
-      <Router>
-        <Header />
-        <Switch>
 
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/" component={Home} />
-          
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
-          
-          <Route exact path="/account" component={ContactDetails} />
-          <Route exact path="/eko-save" component={EkoSave} />
+function App(props){
+  return <div className="root flex space-between vertical">
+    <Router>
+      <Header />
+      <Switch>
 
-          <Route exact path="/payed-complete" component={PayComplete} />
-          
-          <Route exact path="/cgu" component={CGU} />
-          <Route exact path="/cgv" component={CGV} />
-          <Route exact path="/cgr" component={CGR} />
-          <Route exact path="/ml" component={ML} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/Actus" component={Actus} />
+        
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={SignUp} />
+        
+        <Route exact path="/account-user" component={UserPage} />
+        <Route exact path="/account" component={ContactDetails} />
+        <Route exact path="/eko-save" component={EkoSave} />
 
-          <Route exact path="*" component={Error404} />
-          
-        </Switch>
-        <Footer />
-      </Router>
-      </div>
-    </>
+
+        <Route exact path="/payed-complete" component={PayComplete} />
+
+        <Route exact path="/thx-email" component={ThxEmail} />
+
+        <Route exact path="/contact" component={ContactUs} />
+        
+        <Route exact path="/cgu" component={CGU} />
+        <Route exact path="/cgv" component={CGV} />
+        <Route exact path="/cgr" component={CGR} />
+        <Route exact path="/ml" component={ML} />
+        <Route exact path="/about-us" component={AboutUs} />
+
+        <Route exact path="*" component={Error404} />
+        
+      </Switch>
+      <Footer />
+    </Router>
+    </div>
 }
+
+export default App;

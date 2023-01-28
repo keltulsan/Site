@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     img: {
       type: DataTypes.STRING(1000),
-      allowNull: false,
+      allowNull: true
     }
   }, {
     sequelize,
@@ -35,11 +35,3 @@ module.exports = function(sequelize, DataTypes) {
     ]
   });
 };
-
-// (async () => {
-//   await sequelize.sync({ force: true });
-//   // Code here
-//   const jane = labels.build({ label_name: "Jane" });
-//   await jane.save();
-//   console.log('Jane was saved to the database!');
-// })();

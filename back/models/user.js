@@ -11,6 +11,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(100),
       allowNull: false
     },
+    img: {
+      type: DataTypes.STRING(1000),
+      allowNull: false,
+      defaultValue: "icons-user.jpg"
+    },
     nickname: {
       type: DataTypes.STRING(100),
       allowNull: false
@@ -77,6 +82,11 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: 0
     },
     seller: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: 0
+    },
+    eko_save: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: 0

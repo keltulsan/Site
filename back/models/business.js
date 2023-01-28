@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     img: {
       type: DataTypes.STRING(1000),
-      allowNull: true,
+      allowNull: false,
       defaultValue: "icons-user.jpg"
     },
     activity: {

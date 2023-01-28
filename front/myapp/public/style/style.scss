@@ -62,6 +62,11 @@
                 }
             }
         }
+        
+
+        div.profils-account{
+            padding-top: 10%;
+        }
 
         h1.title {
             font-family: $titleFont;
@@ -137,7 +142,11 @@
             input[type="text"],
             input[type="text"]:focus-visible,
             input[type="text"]:focus,
-            input[type="text"]:active {
+            input[type="text"]:active,
+            textarea,
+            textarea:focus-visible,
+            textarea:focus,
+            textarea:active {
                 font-family: $textFont;
                 color: $primaryColor5;
                 min-width: 200px;

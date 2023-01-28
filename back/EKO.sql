@@ -17,9 +17,9 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `gweni2046036`
+-- Base de données :  `eko`
 --
-CREATE DATABASE IF NOT EXISTS `gweni2046036` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS `eko` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `gweni2046036`;
 
 -- --------------------------------------------------------
@@ -125,7 +125,7 @@ INSERT INTO `labels` (`id`, `label_name`, `link_name`, `img`) VALUES
 (11, 'Auto-moto', 'auto-moto', ''),
 (12, 'Fournitures de bureau', 'fournitures-de-bureau', ''),
 (13, 'Jardin et animalerie', 'jardin-et-animalerie', ''),
-(14, 'Abonnement gweni2046036-save', 'abonnement-gweni2046036-save', ''),
+(14, 'Abonnement Eko-save', 'abonnement-eko-save', ''),
 (15, 'Produits recommandés pour vous', 'produits-recommandes-pour-vous', '');
 
 -- --------------------------------------------------------
@@ -155,7 +155,7 @@ CREATE TABLE `product` (
   `quantity` int(11) NOT NULL,
   `price` float NOT NULL,
   `seller_name` varchar(100) NOT NULL,
-  `gweni2046036_score` float NOT NULL,
+  `eko_score` float NOT NULL,
   `desc` text,
   `label_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -193,11 +193,11 @@ CREATE TABLE `user` (
   `acceptance_of_the_gtcu` tinyint(1) NOT NULL DEFAULT '0',
   `stay_connect` tinyint(1) NOT NULL DEFAULT '0',
   `newsletter` tinyint(1) NOT NULL DEFAULT '0',
-  `gweni2046036_experience` float NOT NULL,
+  `eko_experience` float NOT NULL,
   `badges` varchar(100) NOT NULL,
   `admin` tinyint(1) NOT NULL DEFAULT '0',
   `seller` tinyint(1) NOT NULL DEFAULT '0',
-  `gweni2046036_save` tinyint(1) NOT NULL DEFAULT '0',
+  `eko_save` tinyint(1) NOT NULL DEFAULT '0',
   `envy_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
