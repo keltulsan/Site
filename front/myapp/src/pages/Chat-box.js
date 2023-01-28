@@ -1,4 +1,4 @@
-export default function ChatBox(){
+export default function Chatbox(){
     return <div className="container">
         <div className="flex center">
         <h1><img className="logo half" src='./img/logo.png' alt="Logo de Eko" /></h1>

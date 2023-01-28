@@ -33,9 +33,16 @@
     img.paypal{
         width: 200px !important;
     }
+    
+    .background-color-5{
+        background-color: $primaryColor5;
+    }
+
+    .background-color-4{
+        background-color: $secondaryColor4;
+    }
 
     .payCard{
-        background-color: $primaryColor5;
         color: $primaryColor4;
         width: 210px;
         padding-right: 80px;
@@ -43,7 +50,6 @@
         border-radius: 10px;
     }
     .box{
-        background-color: $secondaryColor4;
         width: fit-content !important;
         border-radius: 10px;
     }
@@ -322,6 +328,18 @@
                 display: grid;
                 grid-template-columns: 10% 80%;
                 grid-gap: 10% !important;
+            }
+
+            .grid3{
+                display: grid;
+                grid-template-columns: 10% 80%;
+                grid-gap: 45px !important;
+            }
+
+            .grid4{
+                display: grid;
+                grid-template-columns: 70% 30%;
+                grid-gap: 15px !important;
             }
 
             div.connect-background,

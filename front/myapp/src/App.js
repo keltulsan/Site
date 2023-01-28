@@ -49,7 +49,7 @@ function App(props){
 
         <Route exact path="/payed-complete" component={PayComplete} />
 
-        <Route exact path="/payed-complete" component={Articles} />
+        <Route exact path="/articles" component={Articles} />
 
         <Route exact path="/thx-email" component={ThxEmail} />
 
