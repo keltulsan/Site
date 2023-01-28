@@ -37,7 +37,7 @@ export function Stocks() {
             </div>
         </div>
         <div className="flex center margin-top">
-            <Link className="style-link-2" to="/"><h2 className="title border">Mes stocks</h2></Link>
+            <Link className="style-link-2" to="/"><h2 className="title border stroke background-button">Mes stocks</h2></Link>
         </div>
         <div className="flex center margin-top">
         <Link className="style-link-2" to="/"><img className="align-center icon-plus" src='./img/bouton play.png' alt='Bouton lancement de vidéo explicative sur les stocks sur Eko' /></Link>

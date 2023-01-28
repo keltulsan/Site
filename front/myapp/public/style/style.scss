@@ -46,6 +46,10 @@
         background-color: $secondaryColor4;
     }
 
+    .background-button:hover{
+        background-color: $buttonsColor;
+    }
+
     .payCard{
         color: $primaryColor4;
         width: 210px;
@@ -179,9 +183,6 @@
                 padding: 20px;
                 padding-right: 60px;
                 padding-left: 60px;
-            }
-            &:hover{
-                background-color: $buttonsColor;
             }
         }
 

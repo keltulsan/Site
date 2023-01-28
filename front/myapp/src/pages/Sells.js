@@ -37,7 +37,7 @@ export function Sells() {
             </div>
         </div>
         <div className="flex center margin-top">
-            <Link className="style-link-2" to="/"><h2 className="title border stroke">Mes ventes</h2></Link>
+            <Link className="style-link-2" to="/"><h2 className="title border stroke background-button">Mes ventes</h2></Link>
         </div>
         <div className="flex center margin-top">
         <Link className="style-link-2" to="/"><img className="align-center icon-plus" src='./img/bouton play.png' alt='Bouton lancement de vidéo explicative sur les ventes sur Eko' /></Link>
