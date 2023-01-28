@@ -235,6 +235,9 @@
         .flex.right {
             justify-content: end;
         }
+        .flex.left{
+            justify-content: flex-start;
+        }
         .flex.gap {
             gap: 20px;
         }
@@ -370,6 +373,12 @@
             .grid4{
                 display: grid;
                 grid-template-columns: 70% 30%;
+                grid-gap: 15px !important;
+            }
+
+            .grid5{
+                display: grid;
+                grid-template-columns: 60% 40%;
                 grid-gap: 15px !important;
             }
 

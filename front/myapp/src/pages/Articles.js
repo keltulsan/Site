@@ -1,14 +1,14 @@
 export function Articles() {
     return <div className='container'>
         <h1 className='title stroke'>Mes articles sur Eko</h1>
-        <div className="grid4 flex">
+        <div className="grid5 flex ">
             <div className="gap-plus center">
-                <div className="vertical gap margin-top">
+                <div className="flex vertical gap margin-top">
 
                     <h2 className='title left stroke'>Votre carte bancaire</h2>
                     <input className='background my-account' placeholder="Numéro de carte" type="text" id="card-numbers" />
                     <div className="flex gap-vw">
-                    <input className='background my-account' placeholder="Date d'éxpiration " type="text" id="expiration-date" />
+                        <input className='background my-account-' placeholder="Date d'éxpiration " type="text" id="expiration-date" />
                         <input className='background my-account-' placeholder="Cryptogramme" type="text" id="cryptogram" />
                     </div>
                     <input className='background my-account' placeholder="Titulaire" type="text" id="incumbent" />
