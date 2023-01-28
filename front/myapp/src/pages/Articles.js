@@ -34,7 +34,7 @@ export function Articles() {
                     <p className="text margin-top--">Récapitulatif du panier</p>
                     <p className="text center-text">'nom produit+quantité'</p>
                     <div className="margin-top-- flex center">
-                        <input className="padding-right-left" type="submit" value="Commander" />
+                        <input className="padding-right-left" type="submit" value="Valider mon panier" />
                     </div>
                 </div>
             </div>
