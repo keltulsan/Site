@@ -27,6 +27,8 @@ import { Sells } from './pages/Sells';
 import { EnvyList } from './pages/Envy-list';
 import { History } from './pages/History';
 import { Robot } from './components/Robot';
+import ChatBox from './pages/Chat-box';
+import { Articles } from './pages/Articles';
 
 function App(props){
   return <div className="root flex space-between vertical">
@@ -47,9 +49,9 @@ function App(props){
 
         <Route exact path="/payed-complete" component={PayComplete} />
 
-        <Route exact path="/thx-email" component={ThxEmail} />
+        <Route exact path="/payed-complete" component={Articles} />
 
-        {/* <Route exact path="/chat-bot" component={Robot} /> */}
+        <Route exact path="/thx-email" component={ThxEmail} />
 
         <Route exact path="/stocks" component={Stocks} />
         <Route exact path="/sells" component={Sells} />
@@ -58,6 +60,8 @@ function App(props){
         <Route exact path="/pay-choice" component={PayChoice} />
 
         <Route exact path="/history" component={History} />
+
+        <Route exact path="/chat-bot" component={ChatBox} />
 
         <Route exact path="/contact" component={ContactUs} />
         
