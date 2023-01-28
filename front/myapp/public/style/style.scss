@@ -111,7 +111,7 @@
             font-size: 30px;
 
             &.border{
-                border: 1100px solid $primaryColor5;
+                border: 4px solid $primaryColor5 !important;
                 border-radius: 20px;
                 width: fit-content;
                 padding: 20px;
