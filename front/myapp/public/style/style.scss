@@ -38,6 +38,10 @@
         background-color: $primaryColor5;
     }
 
+    .background-color-2-3{
+        background-color: $secondaryColor3;
+    }
+
     .background-color-2-4{
         background-color: $secondaryColor4;
     }
@@ -96,6 +100,11 @@
         padding-top: 30px;
     }
 
+    .padding-right-left{
+        padding-left: 20% !important;
+        padding-right: 20% !important;
+    }
+
     .default-size{
         min-width: 100px;
         min-height: 100px;
@@ -123,6 +132,13 @@
 
     .rotate-img{
         transform: rotateY(180deg);
+    }
+
+    .radius{
+        border-radius: 10px;
+    }
+    .radius-top{
+        border-radius: 10px 10px 0px 0px;
     }
 
     body div#root {
@@ -172,6 +188,9 @@
         p.text {
             font-family: $textFont;
             font-size: 20px;
+            &.center-text{
+                text-align: center;
+            }
         }
         div.center {
             text-align: center;
