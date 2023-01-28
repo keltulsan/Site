@@ -33,12 +33,12 @@
     img.paypal{
         width: 200px !important;
     }
-    
-    .background-color-5{
+
+    .background-color-1-5{
         background-color: $primaryColor5;
     }
 
-    .background-color-4{
+    .background-color-2-4{
         background-color: $secondaryColor4;
     }
 
@@ -82,6 +82,18 @@
 
     .margin-top-{
         margin-top: 40px;
+    }
+
+    .margin-top--{
+        margin-top: 20px;
+    }
+
+    .padding-top{
+        padding-top: 80px;
+    }
+
+    .padding-top-{
+        padding-top: 30px;
     }
 
     .default-size{

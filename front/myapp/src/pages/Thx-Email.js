@@ -1,4 +1,4 @@
-export function ThxEmail(props) {
+export function ThxEmail(props) {-4
     return <div className="flex vertical gap-plus">
         <h1 className="title top">Merci</h1>
         <p className='text align-center'>Nous vous recontacteront par mail dans les plus bref delais.</p>
