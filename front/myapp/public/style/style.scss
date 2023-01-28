@@ -86,7 +86,18 @@
         }
     }
 
+    .robot{
+        height: 80px;
+        width: 80px;
+    }
 
+    .max-height{
+        height: 85vh;
+    }
+
+    .fixed{
+        position: fixed;
+    }
 
     body div#root {
         overflow-x: hidden;
@@ -175,6 +186,9 @@
         }
         .flex.center {
             justify-content: center;
+        }
+        .flex.right {
+            justify-content: end;
         }
         .flex.gap {
             gap: 20px;
@@ -281,6 +295,12 @@
             .icon {
                 width: 30px;
                 height: 30px;
+                
+            }
+
+            .icon-plus {
+                width: 60px;
+                height: 60px;
                 
             }
 
@@ -421,6 +441,7 @@
 
             div.footer {
                 border-radius: 0px 0px 0px 0px;
+                z-index: 1;
 
                 div {
                     div {

@@ -26,6 +26,7 @@ import {Stocks } from './pages/Stocks';
 import { Sells } from './pages/Sells';
 import { EnvyList } from './pages/Envy-list';
 import { History } from './pages/History';
+import { Robot } from './components/Robot';
 
 function App(props){
   return <div className="root flex space-between vertical">
@@ -48,6 +49,8 @@ function App(props){
 
         <Route exact path="/thx-email" component={ThxEmail} />
 
+        {/* <Route exact path="/chat-bot" component={Robot} /> */}
+
         <Route exact path="/stocks" component={Stocks} />
         <Route exact path="/sells" component={Sells} />
         <Route exact path="/envy-list" component={EnvyList} />
@@ -67,6 +70,7 @@ function App(props){
         <Route exact path="*" component={Error404} />
         
       </Switch>
+      <Robot />
       <Footer />
     </Router>
     </div>
