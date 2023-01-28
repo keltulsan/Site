@@ -1,6 +1,6 @@
 export function History() {
     return <div className='container'>
-        <h1 className='title'>Votre historique sur Eko</h1>
+        <h1 className='title stroke'>Votre historique sur Eko</h1>
         <div className="gap-plus center">
             <div className="vertical gap">
                 <div className="gap grid2 margin-top flex">

@@ -1,6 +1,6 @@
 export function ContactUs() {
     return <div className="flex vertical"><form className="align-center">
-        <h1 className="title">Contactez-nous</h1>
+        <h1 className="title stroke">Contactez-nous</h1>
         <div className="flex vertical gap center">
             <p className="text">contact@eko.fr</p>
             <div className="flex gap-vw">

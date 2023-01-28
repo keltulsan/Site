@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function SignUp(){
     return <form>
         <div className="signup-background flex center vertical gap">
-            <h1 className='title'>SIGN UP</h1>
+            <h1 className='title stroke'>SIGN UP</h1>
             <div className="flex center gap">
                 <img src='./img/icon_email.png' alt="icon_email" className="icon align-center"/>
                 <div className='align-center flex vertical gap-'>

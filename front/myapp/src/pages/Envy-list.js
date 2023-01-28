@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export function EnvyList() {
     return <div className='container'>
-        <h1 className='title'> Liste d'envies</h1>
+        <h1 className='title stroke'> Liste d'envies</h1>
         <div className="flex gap-plus center">
             <div className="flex vertical">
                 <div className="flex gap box background-color-2-4">

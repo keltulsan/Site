@@ -29,6 +29,7 @@ import { History } from './pages/History';
 import { Robot } from './components/Robot';
 import ChatBox from './pages/Chat-box';
 import { Bag } from './pages/Bag';
+import { Articles } from './pages/Articles';
 
 function App(props){
   return <div className="root flex space-between vertical">
@@ -50,6 +51,8 @@ function App(props){
         <Route exact path="/payed-complete" component={PayComplete} />
 
         <Route exact path="/panier" component={Bag} />
+
+        <Route exact path="/articles" component={Articles} />
 
         <Route exact path="/thx-email" component={ThxEmail} />
 
