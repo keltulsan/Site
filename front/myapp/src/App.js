@@ -30,9 +30,12 @@ import { Robot } from './components/Robot';
 import ChatBox from './pages/Chat-box';
 import { Bag } from './pages/Bag';
 import { Articles } from './pages/Articles';
+import { UserPage } from './pages/UserPage';
+import Background from './components/background';
 
-function App(props){
-  return <div className="root flex space-between vertical">
+
+export default function App(props){
+  return <><Background /><div className="root flex space-between vertical">
     <Router>
       <Header />
       <Switch>
@@ -44,6 +47,7 @@ function App(props){
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         
+        <Route exact path="/account-user" component={UserPage} />
         <Route exact path="/account" component={ContactDetails} />
         <Route exact path="/eko-save" component={EkoSave} />
 
@@ -80,7 +84,5 @@ function App(props){
       <Robot />
       <Footer />
     </Router>
-    </div>
+    </div></>
 }
-
-export default App
