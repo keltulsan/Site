@@ -22,10 +22,11 @@ import { ContactUs } from './pages/Contact-Us';
 import { ThxEmail } from './pages/Thx-Email';
 import Actus from './pages/Actus';
 import { UserPage } from './pages/UserPage';
+import Background from './components/background';
 
 
 export default function App(props){
-  return <div className="root flex space-between vertical">
+  return <><Background /><div className="root flex space-between vertical">
     <Router>
       <Header />
       <Switch>
@@ -59,5 +60,5 @@ export default function App(props){
       </Switch>
       <Footer />
     </Router>
-    </div>
+    </div></>
 }
