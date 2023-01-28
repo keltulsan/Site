@@ -19,6 +19,14 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(100),
       allowNull: false
     },
+    link_name: {
+      type: DataTypes.STRING(100),
+      allowNull: false
+    },
+    img: {
+      type: DataTypes.STRING(1000),
+      allowNull: false,
+    },
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -36,8 +44,9 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     desc: {
-      type: DataTypes.TEXT,
-      allowNull: true
+      type: DataTypes.TEXT(1000),
+      allowNull: true,
+      defaultValue: null
     },
     label_name: {
       type: DataTypes.STRING(100),
