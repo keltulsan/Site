@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 -- Base de données :  `eko`
 --
 CREATE DATABASE IF NOT EXISTS `eko` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `eko`;
+USE `gweni2046036`;
 
 -- --------------------------------------------------------
 

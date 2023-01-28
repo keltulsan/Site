@@ -98,7 +98,7 @@ export function Header() {
             {labs}
         </ul></Collapse>
         <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='little'>
-            <Link to='/account-user'><p>Mon compte</p></Link>
+            <Link to='/account'><p>Mon compte</p></Link>
             <Link to='/historique'><p>Historique</p></Link>
             <Link to='/eko-save'><p>EKO Save</p></Link>
             </div></Collapse>

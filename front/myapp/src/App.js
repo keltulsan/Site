@@ -24,7 +24,7 @@ import Actus from './pages/Actus';
 import { UserPage } from './pages/UserPage';
 
 
-function App(props){
+export default function App(props){
   return <div className="root flex space-between vertical">
     <Router>
       <Header />
@@ -61,5 +61,3 @@ function App(props){
     </Router>
     </div>
 }
-
-export default App

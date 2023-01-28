@@ -37,7 +37,18 @@
 
         @for $i from 1 through 2 {
             h#{3 - $i}.title {
+                color: $primaryColor5;
+                &.stroke {
+                    -webkit-text-stroke: 0.5px $primaryColor4;
+                }
                 text-align: center;
+
+                &.invert {
+                    color: $primaryColor4;
+                    &.stroke {
+                        -webkit-text-stroke: 0.5px $primaryColor5;
+                    }
+                }
 
                 &.left {
                     text-align: start;
@@ -67,7 +78,7 @@
         }
         p.text {
             font-family: $textFont;
-            font-size: 20px;
+            font-size: 15px;
         }
         div.center {
             text-align: center;
@@ -84,45 +95,43 @@
         .flex {
             display: flex;
 
+            &.space-around {
+                justify-content: space-around;
+            }
+            &.space-between {
+                justify-content: space-between;
+            }
+            &.center {
+                justify-content: center;
+            }
+            &.gap {
+                gap: 20px;
+            }
+            &.gap- {
+                gap: 7px;
+            }
+            &.gap-plus {
+                gap: 200px;
+            }
+            &.gap-vw {
+                gap: 2.5vw;
+            }
+            &.vertical {
+                flex-direction: column;
+            }
+
             .align-top {
                 align-self: baseline;
                 margin: 0px;
             }
-
             .align-center {
                 align-self: center;
                 margin: 0px;
             }
-
             .align-bot {
                 align-self: end;
                 margin: 0px;
             }
-        }
-
-        .flex.space-around {
-            justify-content: space-around;
-        }
-        .flex.space-between {
-            justify-content: space-between;
-        }
-        .flex.center {
-            justify-content: center;
-        }
-        .flex.gap {
-            gap: 20px;
-        }
-        .flex.gap- {
-            gap: 7px;
-        }
-        .flex.gap-plus {
-            gap: 200px;
-        }
-        .flex.gap-vw {
-            gap: 2.5vw;
-        }
-        .flex.vertical {
-            flex-direction: column;
         }
 
         .root {
@@ -137,7 +146,7 @@
             textarea,
             textarea:focus-visible,
             textarea:focus,
-            textarea:active  {
+            textarea:active {
                 font-family: $textFont;
                 color: $primaryColor5;
                 min-width: 200px;
@@ -146,7 +155,6 @@
                 outline: none;
                 border: none;
                 font-size: 12px;
-                resize: none;
 
                 &.background {
                     background-color: $secondaryColor3;
