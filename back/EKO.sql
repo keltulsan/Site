@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 26 Janvier 2023 à 15:05
+-- Généré le :  Ven 27 Janvier 2023 à 13:41
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -92,6 +92,18 @@ CREATE TABLE `condition` (
 CREATE TABLE `envy_list` (
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `faq`
+--
+
+CREATE TABLE `faq` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `desc` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -239,6 +251,12 @@ ALTER TABLE `envy_list`
   ADD UNIQUE KEY `user_id` (`user_id`,`product_id`);
 
 --
+-- Index pour la table `faq`
+--
+ALTER TABLE `faq`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `labels`
 --
 ALTER TABLE `labels`
@@ -298,6 +316,11 @@ ALTER TABLE `business`
 ALTER TABLE `condition`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT pour la table `faq`
+--
+ALTER TABLE `faq`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT pour la table `labels`
 --
 ALTER TABLE `labels`
@@ -306,17 +329,17 @@ ALTER TABLE `labels`
 -- AUTO_INCREMENT pour la table `parainnage`
 --
 ALTER TABLE `parainnage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
