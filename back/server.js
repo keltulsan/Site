@@ -1,10 +1,10 @@
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(
- 'eko',
- 'root',
- 'root',
+ 'gweni2046036',
+ 'gweni2046036',
+ 'phpSql-Gtech1',
   {
-    host: 'localhost',
+    host: '91.216.107.186',
     dialect: 'mysql'
   }
 );

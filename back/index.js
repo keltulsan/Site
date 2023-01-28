@@ -6,9 +6,9 @@ const port = 4444;
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json;
 const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize('eko', 'root', 'root', {
-  host: 'localhost',
-  dialect: 'mysql' /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */
+const sequelize = new Sequelize('gweni2046036', 'gweni2046036', 'phpSql-Gtech1', {
+  host: '91.216.107.186',
+  dialect: 'mysql' 
 });
 try {
   sequelize.authenticate();
