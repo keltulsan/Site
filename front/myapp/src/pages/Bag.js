@@ -1,4 +1,4 @@
-export function Articles() {
+export function Bag() {
     return <div className='container'>
         <h1 className='title'>Mes articles sur Eko</h1>
         <div className="grid4 flex">
