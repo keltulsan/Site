@@ -34,6 +34,7 @@ import { UserPage } from './pages/UserPage';
 import Background from './components/background';
 import { ArticleClotheSell} from './pages/Article-clothe-sell';
 import { ArticleSell } from './pages/Article-sell';
+import { FAQ } from './pages/Faq';
 
 
 export default function App(props){
@@ -65,6 +66,8 @@ export default function App(props){
         
 
         <Route exact path="/thx-email" component={ThxEmail} />
+
+        <Route exact path="/faq" component={FAQ} />
 
         <Route exact path="/stocks" component={Stocks} />
         <Route exact path="/sells" component={Sells} />
