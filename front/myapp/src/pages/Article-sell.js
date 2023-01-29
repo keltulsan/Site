@@ -1,4 +1,4 @@
-export function Articles() {
+export function ArticleSell() {
     return <div className='container'>
         <h1 className='title stroke'>Mes articles sur Eko</h1>
         <div className="grid5 flex ">
@@ -25,7 +25,7 @@ export function Articles() {
                 <div className="background-color-1-5 padding-top- radius-top">
                 </div>
                 <div className="margin-top- flex vertical">
-                    <h2 className="title left">Prix global</h2>
+                    <h2 className="title left">Prix <img className="icon" src="./img/euro.png" alt="icone euro sur eko"></img></h2>
                     <h2 className="title left">TVA</h2>
                     <h2 className="title left">Code promotionel</h2>
                     <div className="background-color-2-3 flex center margin-top-">

@@ -32,6 +32,7 @@ import { Bag } from './pages/Bag';
 import { Articles } from './pages/Articles';
 import { UserPage } from './pages/UserPage';
 import Background from './components/background';
+import { ArticleSell } from './pages/Article-sell';
 
 
 export default function App(props){
@@ -57,6 +58,8 @@ export default function App(props){
         <Route exact path="/panier" component={Bag} />
 
         <Route exact path="/articles" component={Articles} />
+
+        <Route exact path="/article-sell" component={ArticleSell} />
 
         <Route exact path="/thx-email" component={ThxEmail} />
 
