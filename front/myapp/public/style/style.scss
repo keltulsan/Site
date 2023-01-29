@@ -30,10 +30,42 @@
     $subtitleFont: "raleway-bold";
     $textFont: "Barlow-SemiBold";
 
+    
+    
+    .carousel-root {
+        width: 300px;
+        height: 300px;
+        padding-bottom: 60%;
+        
+    }
+
+    .thumbs.animated{
+        display: flex;
+        justify-content: center;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .thumb{     
+        border-radius: 100% !important;
+    }
+
+    p.carousel-status{
+        font-size: 0px !important;
+    }
+
 
     .left{
         text-align: left;
-        padding-left: 15px;
+        margin-left: 15px;
+    }
+
+    .drop-down{
+        padding: 5px;
+        padding-right: 100px !important;
+        text-align: center;
+        font-family: $textFont;
+        font-size: 15px;
     }
 
     img.paypal{
