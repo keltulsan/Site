@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
-function SliderArticles(){
+function SliderVetements(){
         return (
             <Carousel>
                 <div className='left'>
@@ -27,14 +27,14 @@ function SliderArticles(){
 
 
 
-export function ArticleSell() {
+export function ArticleClotheSell() {
     return <div className='container'>
         <h1 className='title stroke'>Mes articles sur Eko</h1>
         <div className="grid5 flex ">
             <div className="gap-plus center">
                 <div className="flex vertical gap margin-top">
 
-                    <SliderArticles />
+                    <SliderVetements />
 
 
                     <div className='align-top flex gap-'>
@@ -71,6 +71,16 @@ export function ArticleSell() {
                                 <option value="20">20</option>
                             </select>
                         </div>
+                    </div>
+                    <div className="margin-top--">
+                        <h2 className="title left">Taille <img className="icon" src="./img/size-guide.png" alt="icone d'un guide des tailles sur Eko"></img></h2>
+                        <select className="left background-color-2-3 drop-down radius">
+                            <option value=""></option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        </select>
                     </div>
                     <div className="margin-top-- flex center margin-bottom---">
                         <div className="flex center">
