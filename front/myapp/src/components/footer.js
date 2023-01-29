@@ -20,7 +20,7 @@ export function Footer() {
     return <div className="footer">
         <div className={"flex space-between" + (dimensions.width <= 750 ? " vertical" : "")}>
             <Link to="/"><img className="logo" src="./img/logo.png" alt="Logo de Eko"/></Link>
-            <div>
+            <div >
                 <p><Link to="/faq">FAQ</Link> / <Link to="/contact">Contact</Link></p>
                 <p className="little"><Link to="/ml">Mention Legale</Link></p>
                 <p className="little"><Link to="/about-us">About us</Link></p>

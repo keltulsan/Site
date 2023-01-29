@@ -10,7 +10,7 @@ export function Stocks() {
                     <img className="align-center" src='./img/visa.png' alt='image de paiment mastercard sur Eko' />
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
-                <div className="flexcenter">
+                <div className="flex center">
                     <p><Link className="style-link stroke" to="/">Modifier </Link> / <Link className="style-link stroke" to="/"> Supprimer</Link></p>
                 </div>
             </div>
