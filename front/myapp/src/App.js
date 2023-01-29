@@ -19,8 +19,10 @@ import { EkoSave } from './pages/EKO-Save';
 import { PayComplete } from './pages/Pay-Complete';
 import { ContactUs } from './pages/Contact-Us';
 import { ThxEmail } from './pages/Thx-Email';
+import { ReactSession } from 'react-client-session';
 
 function App(props){
+  ReactSession.setStoreType("localStorage");
   return <div className="root flex space-between vertical">
     <Router>
       <Header />
