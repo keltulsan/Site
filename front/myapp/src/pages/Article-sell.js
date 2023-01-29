@@ -26,14 +26,21 @@ export function ArticleSell() {
                 </div>
                 <div className="margin-top- flex vertical">
                     <h2 className="title left">Prix <img className="icon" src="./img/euro.png" alt="icone euro sur eko"></img></h2>
-                    <h2 className="title left">TVA</h2>
-                    <h2 className="title left">Code promotionel</h2>
-                    <div className="background-color-2-3 flex center margin-top-">
-                        <h2 className="title">KIWI 69oooo</h2>
+                    <h2 className="title left margin-top--- ">Date de livraison <img className="icon" src="./img/calendrier.png" alt="icone de calendrier sur eko"></img></h2>
+                    <h2 className="title left margin-top--- ">Expéditeur <img className="icon" src="./img/groupe.png" alt="icone de groupe sur eko"></img></h2>
+                    <div className="flex vertical margin-top--- ">
+                        <h2 className="title left">Note de l'article </h2>
+                        <div className="left margin-top--- ">
+                            <img className="icon" src="./img/etoile.png" alt="icone d'étoile sur eko"></img>
+                            <img className="icon" src="./img/etoile.png" alt="icone d'étoile sur eko"></img>
+                            <img className="icon" src="./img/etoile.png" alt="icone d'étoile sur eko"></img>
+                            <img className="icon" src="./img/etoile.png" alt="icone d'étoile sur eko"></img>
+                            <img className="icon" src="./img/etoile.png" alt="icone d'étoile sur eko"></img>
+                        </div>
+                    <h2 className="title margin-top--- left">Récapitulatif du panier</h2>
                     </div>
-                    <h2 className="title margin-top- left">Récapitulatif du panier</h2>
-                    <h2 className="title margin-top-">'nom produit+quantité'</h2>
-                    <div className="margin-top- flex center">
+                    <h2 className="title margin-top--">'nom produit+quantité'</h2>
+                    <div className="margin-top-- flex center margin-bottom---">
                         <input className="padding-right-left" type="submit" value="Valider mon panier" />
                     </div>
                 </div>

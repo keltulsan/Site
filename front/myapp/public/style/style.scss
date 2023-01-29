@@ -30,6 +30,12 @@
     $subtitleFont: "raleway-bold";
     $textFont: "Barlow-SemiBold";
 
+
+    .left{
+        text-align: left;
+        padding-left: 15px;
+    }
+
     img.paypal{
         width: 200px !important;
     }
@@ -95,6 +101,14 @@
 
     .margin-top--{
         margin-top: 20px;
+    }
+
+    .margin-top---{
+        margin-top: 10px; 
+    }
+
+    .margin-bottom---{
+        margin-bottom: 10px
     }
 
     .padding-top{
@@ -199,10 +213,6 @@
                 padding: 20px;
                 padding-right: 60px;
                 padding-left: 60px;
-            }
-            &.left{
-                text-align: left;
-                padding-left: 15px;
             }
         }
 

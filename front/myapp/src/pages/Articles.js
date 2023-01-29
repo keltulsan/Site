@@ -26,14 +26,14 @@ export function Articles() {
                 </div>
                 <div className="margin-top- flex vertical">
                     <h2 className="title left">Prix global</h2>
-                    <h2 className="title left">TVA</h2>
-                    <h2 className="title left">Code promotionel</h2>
+                    <h2 className="title left margin-top--- ">TVA</h2>
+                    <h2 className="title left margin-top--- ">Code promotionel</h2>
                     <div className="background-color-2-3 flex center margin-top-">
                         <h2 className="title">KIWI 69oooo</h2>
                     </div>
-                    <h2 className="title margin-top- left">Récapitulatif du panier</h2>
-                    <h2 className="title margin-top-">'nom produit+quantité'</h2>
-                    <div className="margin-top- flex center">
+                    <h2 className="title margin-top-- left">Récapitulatif du panier</h2>
+                    <h2 className="title margin-top--">'nom produit+quantité'</h2>
+                    <div className="margin-top--- margin-bottom--- flex center">
                         <input className="padding-right-left" type="submit" value="Valider mon panier" />
                     </div>
                 </div>

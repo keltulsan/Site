@@ -40,15 +40,15 @@ export function Bag() {
                 <div className="background-color-1-5 padding-top- radius-top">
                 </div>
                 <div className="margin-top-- flex vertical">
-                    <h2 className="title left">Prix global</h2>
-                    <h2 className="title left">TVA</h2>
-                    <h2 className="title left">Code promotionel</h2>
-                    <div className="background-color-2-3 flex center">
+                    <h2 className="title left margin-top--- ">Prix global</h2>
+                    <h2 className="title left margin-top--- ">TVA</h2>
+                    <h2 className="title left margin-top--- ">Code promotionel</h2>
+                    <div className="background-color-2-3 margin-top--- flex center">
                         <h2 className="title align-center">KIWI 69oooo</h2>
                     </div>
-                    <h2 className="title left margin-top--">Récapitulatif du panier</h2>
+                    <h2 className="title left margin-top---">Récapitulatif du panier</h2>
                     <h2 className="title left center-text">'nom produit+quantité'</h2>
-                    <div className="margin-top-- flex center">
+                    <div className="margin-top-- margin-bottom---flex center">
                         <input className="padding-right-left" type="submit" value="Commander" />
                     </div>
                 </div>
