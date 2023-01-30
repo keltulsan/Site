@@ -229,7 +229,12 @@
         padding: 50px !important;
     }
 
+    .all{
+        width: 100% !important;
+    }
+
     // margin-padding //
+
     .margin-top {
         margin-top: 80px;
     }
@@ -285,9 +290,11 @@
         height: 80px;
         width: 80px;
     }
-
     .account-img{
-        width: 200px;
+        width: 30vw;
+    }
+    .min-account-img{
+        width: 80vw;
     }
     .commande{
         width: 400px;

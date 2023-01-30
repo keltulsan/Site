@@ -20,7 +20,7 @@ export function ContactDetails() {
             </div>
             <input className='background my-account align-center' placeholder="Téléphone" type="text" id="phone-number" />
             
-            <div className='align-top flex gap-'>
+            <div className='align-top flex center all gap-'>
                 <input type="checkbox" className="align-center" defaultChecked={true} />
                 <p className="text align-center stroke">Sauvegarder mes coordonnées pour la prochaine fois</p>
             </div>
