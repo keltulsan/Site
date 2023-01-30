@@ -31,6 +31,20 @@ export function ArticleSell() {
     const [star, setStar] = useState(0);
     const [stars, setStars] = useState(null);
 
+    const [dimensions, setDimensions] = React.useState({ 
+        height: window.innerHeight,
+        width: window.innerWidth
+        })
+    React.useEffect(() => {
+        function handleResize() {
+            setDimensions({
+            height: window.innerHeight,
+            width: window.innerWidth
+        })}
+    
+        window.addEventListener('resize', handleResize)
+    })
+
     useEffect(() => {
         setStars(() =>{
             return <div className="left margin-top--- ">
@@ -55,8 +69,8 @@ export function ArticleSell() {
 
     return <div className='container'>
         <h1 className='title stroke'>Mes articles sur Eko</h1>
-        <div className="grid5 flex ">
-            <div className="gap-plus center">
+        <div className={"flex "+(dimensions.width <= 750 ? " vertical " : "space-around ")}>
+            <div className={"gap-plus center "+(dimensions.width <= 750 ? " align-center " : "")}>
                 <div className="flex vertical gap margin-top">
 
                     <SliderArticles />
@@ -70,10 +84,10 @@ export function ArticleSell() {
 
                 </div>
             </div>
-            <div className="margin-top background-color-2-4 radius">
+            <div className={"background-color-2-4 radius "+(dimensions.width <= 750 ? " align-center margin-top-- min-commande " : " margin-top commande ")}>
                 <div className="background-color-1-5 padding-top- radius-top">
                 </div>
-                <div className="margin-top- flex vertical">
+                <div className="margin-top-- flex vertical">
                     <h2 className="title left">Prix <img className="icon" src="./img/euro.png" alt="icone euro sur Eko"></img></h2>
                     <h2 className="title left margin-top--- ">Date de livraison <img className="icon" src="./img/calendrier.png" alt="icone de calendrier sur Eko"></img></h2>
                     <h2 className="title left margin-top--- ">Expéditeur <img className="icon" src="./img/groupe.png" alt="icone de groupe sur Eko"></img></h2>

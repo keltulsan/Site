@@ -1,12 +1,28 @@
+import React, { Component, useEffect, useState } from 'react';
+
 export function Bag() {
+    const [dimensions, setDimensions] = React.useState({ 
+        height: window.innerHeight,
+        width: window.innerWidth
+        })
+    React.useEffect(() => {
+        function handleResize() {
+            setDimensions({
+            height: window.innerHeight,
+            width: window.innerWidth
+        })}
+    
+        window.addEventListener('resize', handleResize)
+    })
+
     return <div className='container'>
         <h1 className='title stroke'>Mes articles sur Eko</h1>
-        <div className="grid4 flex">
-            <div className="gap-plus center">
+        <div className={"flex gap "+(dimensions.width <= 750 ? " vertical " : "space-around ")}>
+            <div className={"center margin-top"+(dimensions.width <= 750 ? " align-center " : "")}>
                 <div className="vertical gap">
 
-                    <div className="gap grid3 margin-top flex">
-                        <div className="box background-color-2-4 default-size">
+                    <div className={"flex gap margin-top-- "+(dimensions.width <= 750 ? " vertical" : "space-around ")}>
+                        <div className={"box background-color-2-4 default-size "+(dimensions.width <= 750 ? " align-center margin-top--" : "")}>
                             <img className="full-width" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                         </div>
                         <div className="box background-color-2-4 flex align-center">
@@ -14,8 +30,8 @@ export function Bag() {
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
                         </div>
                     </div>
-                    <div className="gap grid3 margin-top- flex">
-                        <div className="box background-color-2-4 default-size">
+                    <div className={"flex gap margin-top-- "+(dimensions.width <= 750 ? " vertical " : "space-around ")}>
+                        <div className={"box background-color-2-4 default-size "+(dimensions.width <= 750 ? " align-center margin-top--" : "")}>
                             <img className="full-width" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                         </div>
                         <div className="box background-color-2-4 flex align-center">
@@ -23,8 +39,8 @@ export function Bag() {
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
                         </div>
                     </div>
-                    <div className="gap grid3 margin-top- flex">
-                        <div className="box background-color-2-4 default-size">
+                    <div className={"flex gap margin-top-- "+(dimensions.width <= 750 ? " vertical " : "space-around ")}>
+                        <div className={"box background-color-2-4 default-size "+(dimensions.width <= 750 ? " align-center margin-top--" : "")}>
                             <img className="full-width" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                         </div>
                         <div className="box background-color-2-4 flex align-center ">

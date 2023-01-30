@@ -1,8 +1,25 @@
+import React, { Component, useEffect, useState } from 'react';
+
 export function Articles() {
+    
+    const [dimensions, setDimensions] = React.useState({ 
+        height: window.innerHeight,
+        width: window.innerWidth
+        })
+    React.useEffect(() => {
+        function handleResize() {
+            setDimensions({
+            height: window.innerHeight,
+            width: window.innerWidth
+        })}
+    
+        window.addEventListener('resize', handleResize)
+    })
+
     return <div className='container'>
         <h1 className='title stroke'>Mes articles sur Eko</h1>
-        <div className="grid5 flex ">
-            <div className="gap-plus center">
+        <div className={"flex "+(dimensions.width <= 750 ? " vertical " : "space-around ")}>
+            <div className={"gap-plus center "+(dimensions.width <= 750 ? " align-center " : "")}>
                 <div className="flex vertical gap margin-top">
 
                     <h2 className='title left stroke'>Votre carte bancaire</h2>
@@ -21,7 +38,7 @@ export function Articles() {
 
                 </div>
             </div>
-            <div className="margin-top background-color-2-4 radius">
+            <div className={"background-color-2-4 radius "+(dimensions.width <= 750 ? " align-center margin-top-- min-commande " : " margin-top commande ")}>
                 <div className="background-color-1-5 padding-top- radius-top">
                 </div>
                 <div className="margin-top- flex vertical">

@@ -30,6 +30,24 @@
     $subtitleFont: "raleway-bold";
     $textFont: "Barlow-SemiBold";
 
+    .account-img{
+        width: 200px;
+    }
+    .commande{
+        width: 400px;
+    }
+
+    .min-commande{
+        width: 200px;
+    }
+
+    .min-chat-box{
+        width: 300px;
+    }
+
+    .min-contact{
+        width: 80%;
+    }
     .carousel {
         background-color: $primaryColor4;
 
@@ -165,11 +183,11 @@
     }
 
     .margin-top- {
-        margin-top: 40px;
+        margin-top: 60px;
     }
 
     .margin-top-- {
-        margin-top: 20px;
+        margin-top: 20px !important;
     }
 
     .margin-top--- {
@@ -191,6 +209,14 @@
     .padding-right-left {
         padding-left: 20% !important;
         padding-right: 20% !important;
+    }
+
+    .padding-right {
+        padding-right: 50px !important;
+    }
+
+    .padding-right-neg{
+        padding-right: -20px;
     }
 
     .default-size {
@@ -325,7 +351,7 @@
                 justify-content: right;
             }
             &.gap {
-                gap: 20px;
+                gap: 20px !important;
             }
             &.gap- {
                 gap: 7px;
@@ -335,6 +361,9 @@
             }
             &.gap-vw {
                 gap: 2.5vw;
+            }
+            &.gap-moy{
+                gap: 100px
             }
             &.vertical {
                 flex-direction: column;
@@ -527,6 +556,43 @@
                 background-repeat: no-repeat;
                 background-position: center;
             }
+
+            div.min-connect-background,
+            div.min-signup-background {
+                background-image: url(../img/cb2.png);
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            .min-create-account,
+            .min-connection {
+
+                a,
+                a:visited {
+                    color: $primaryColor4;
+                    text-decoration: none;
+                    font-size: 18px !important;
+
+                    &:hover {
+                        color: $primaryColor5;
+                    }
+
+                    &:after {
+                        display: block;
+                        content: "";
+                        border-bottom: 3px solid $primaryColor5;
+                        transform: scaleX(0);
+                        transition: transform 250ms ease-in-out;
+                        transform-origin: 100% 50%;
+                    }
+
+                    &:hover:after {
+                        transform: scaleX(1);
+                        transform-origin: 0% 50%;
+                    }
+                }
+            }
+
 
             .create-account,
             .connection {
