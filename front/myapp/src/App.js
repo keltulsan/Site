@@ -22,7 +22,7 @@ import { ContactUs } from './pages/Contact-Us';
 import { ThxEmail } from './pages/Thx-Email';
 import Actus from './pages/Actus';
 import PayChoice from './pages/PaymentChoice';
-import {Stocks } from './pages/Stocks';
+import { Stocks } from './pages/Stocks';
 import { Sells } from './pages/Sells';
 import { EnvyList } from './pages/Envy-list';
 import { History } from './pages/History';
@@ -32,67 +32,71 @@ import { Bag } from './pages/Bag';
 import { Articles } from './pages/Articles';
 import { UserPage } from './pages/UserPage';
 import Background from './components/background';
-import { ArticleClotheSell} from './pages/Article-clothe-sell';
+import { ArticleClotheSell } from './pages/Article-clothe-sell';
 import { ArticleSell } from './pages/Article-sell';
 import { FAQ } from './pages/Faq';
 
 
-export default function App(props){
-  return <>{/*<Background />*/}<div className="root flex space-between vertical">
+export default function App(props) {
+  return <>{/*<Background />*/}
     <Router>
-      <Header />
-      <Switch>
+      <div className="root flex space-between vertical" style={{
+        marginTop: "95px"
+      }}>
+        <Header />
+        <Switch>
 
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/actus" component={Actus} />
-        
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} />
-        
-        <Route exact path="/account-user" component={UserPage} />
-        <Route exact path="/account" component={ContactDetails} />
-        <Route exact path="/eko-save" component={EkoSave} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/actus" component={Actus} />
+
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+
+          <Route exact path="/account-user" component={UserPage} />
+          <Route exact path="/account" component={ContactDetails} />
+          <Route exact path="/eko-save" component={EkoSave} />
 
 
-        <Route exact path="/payed-complete" component={PayComplete} />
+          <Route exact path="/payed-complete" component={PayComplete} />
 
-        <Route exact path="/panier" component={Bag} />
+          <Route exact path="/panier" component={Bag} />
 
-        <Route exact path="/articles" component={Articles} />
+          <Route exact path="/articles" component={Articles} />
 
-        <Route exact path="/article-clothe-sell" component={ArticleClotheSell} />
-        <Route exact path="/article-sell" component={ArticleSell} />
-        
+          <Route exact path="/article-clothe-sell" component={ArticleClotheSell} />
+          <Route exact path="/article-sell" component={ArticleSell} />
 
-        <Route exact path="/thx-email" component={ThxEmail} />
 
-        <Route exact path="/faq" component={FAQ} />
+          <Route exact path="/thx-email" component={ThxEmail} />
 
-        <Route exact path="/stocks" component={Stocks} />
-        <Route exact path="/sells" component={Sells} />
-        <Route exact path="/envy-list" component={EnvyList} />
+          <Route exact path="/faq" component={FAQ} />
 
-        <Route exact path="/pay-choice" component={PayChoice} />
+          <Route exact path="/stocks" component={Stocks} />
+          <Route exact path="/sells" component={Sells} />
+          <Route exact path="/envy-list" component={EnvyList} />
 
-        <Route exact path="/history" component={History} />
+          <Route exact path="/pay-choice" component={PayChoice} />
 
-        <Route exact path="/chat-bot" component={ChatBox} />
+          <Route exact path="/history" component={History} />
 
-        <Route exact path="/contact" component={ContactUs} />
-        
-        <Route exact path="/cgu" component={CGU} />
-        <Route exact path="/cgv" component={CGV} />
-        <Route exact path="/cgr" component={CGR} />
-        <Route exact path="/ml" component={ML} />
-        <Route exact path="/about-us" component={AboutUs} />
+          <Route exact path="/chat-bot" component={ChatBox} />
 
-        <Route exact path="*" component={Error404} />
-        
-      </Switch>
-      <Robot />
-      <Footer />
+          <Route exact path="/contact" component={ContactUs} />
+
+          <Route exact path="/cgu" component={CGU} />
+          <Route exact path="/cgv" component={CGV} />
+          <Route exact path="/cgr" component={CGR} />
+          <Route exact path="/ml" component={ML} />
+          <Route exact path="/about-us" component={AboutUs} />
+
+          <Route exact path="*" component={Error404} />
+
+        </Switch>
+        <Robot />
+        <Footer />
+      </div>
     </Router>
-    </div></>
+  </>
 }
 
