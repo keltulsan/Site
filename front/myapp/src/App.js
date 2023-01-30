@@ -28,7 +28,7 @@ import { EnvyList } from './pages/Article/Envy-list';
 import { History } from './pages/Inform-user/History';
 import { Robot } from './components/Robot';
 import ChatBox from './pages/Chat-box';
-import { Bag } from './pages/Condition-generale/Bag';
+import { Bag } from './pages/Inform-user/Bag';
 import { Articles } from './pages/Article/Articles';
 import { UserPage } from './pages/Inform-user/UserPage';
 import Background from './components/background';
