@@ -1,4 +1,4 @@
-import AboutUs from './pages/AboutUs';
+import AboutUs from './pages/Us/AboutUs';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,34 +8,37 @@ import {
   Route
 } from "react-router-dom";
 import Home from "./pages/Home";
-import Error404 from "./pages/404";
-import SignUp from "./pages/SignUp";
-import Login from "./pages/Login";
-import { CGU } from "./pages/CGU";
-import { CGV } from "./pages/CGV";
-import { CGR } from "./pages/CGR";
-import { ML } from "./pages/ML";
-import { ContactDetails } from "./pages/ContactDetails";
+import Error404 from "./pages/Error/404";
+import SignUp from "./pages/Inform-user/SignUp";
+import Login from "./pages/Inform-user/Login";
+import { CGU } from "./pages/Condition-generale/CGU";
+import { CGV } from "./pages/Condition-generale/CGV";
+import { CGR } from "./pages/Condition-generale/CGR";
+import { ML } from "./pages/Condition-generale/ML";
+import { ContactDetails } from "./pages/Inform-user/ContactDetails";
 import { EkoSave } from './pages/EKO-Save';
-import { PayComplete } from './pages/Pay-Complete';
-import { ContactUs } from './pages/Contact-Us';
-import { ThxEmail } from './pages/Thx-Email';
-import Actus from './pages/Actus';
-import PayChoice from './pages/PaymentChoice';
-import {Stocks } from './pages/Stocks';
-import { Sells } from './pages/Sells';
-import { EnvyList } from './pages/Envy-list';
-import { History } from './pages/History';
+import { PayComplete } from './pages/Payment/Pay-Complete';
+import { ContactUs } from './pages/Us/Contact-Us';
+import { ThxEmail } from './pages/Us/Thx-Email';
+import Actus from './pages/Us/Actus';
+import PayChoice from './pages/Payment/PaymentChoice';
+import {Stocks } from './pages/Admin/Stocks';
+import { Sells } from './pages/Admin/Sells';
+import { EnvyList } from './pages/Article/Envy-list';
+import { History } from './pages/Inform-user/History';
 import { Robot } from './components/Robot';
 import ChatBox from './pages/Chat-box';
-import { Bag } from './pages/Bag';
-import { Articles } from './pages/Articles';
-import { UserPage } from './pages/UserPage';
+import { Bag } from './pages/Inform-user/Bag';
+import { Articles } from './pages/Article/Articles';
+import { UserPage } from './pages/Inform-user/UserPage';
 import Background from './components/background';
+import { ArticleClotheSell} from './pages/Article/Article-clothe-sell';
+import { ArticleSell } from './pages/Article/Article-sell';
+import { FAQ } from './pages/Us/Faq';
 
 
 export default function App(props){
-  return <><Background /><div className="root flex space-between vertical">
+  return <>{/*<Background />*/}<div className="root flex space-between vertical">
     <Router>
       <Header />
       <Switch>
@@ -58,7 +61,13 @@ export default function App(props){
 
         <Route exact path="/articles" component={Articles} />
 
+        <Route exact path="/article-clothe-sell" component={ArticleClotheSell} />
+        <Route exact path="/article-sell" component={ArticleSell} />
+        
+
         <Route exact path="/thx-email" component={ThxEmail} />
+
+        <Route exact path="/faq" component={FAQ} />
 
         <Route exact path="/stocks" component={Stocks} />
         <Route exact path="/sells" component={Sells} />
