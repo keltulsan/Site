@@ -38,7 +38,7 @@ import { FAQ } from './pages/Faq';
 
 
 export default function App(props){
-  return <><Background /><div className="root flex space-between vertical">
+  return <>{/*<Background />*/}<div className="root flex space-between vertical">
     <Router>
       <Header />
       <Switch>

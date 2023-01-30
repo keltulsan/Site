@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
@@ -28,6 +28,31 @@ function SliderArticles(){
 
 
 export function ArticleSell() {
+    const [star, setStar] = useState(0);
+    const [stars, setStars] = useState(null);
+
+    useEffect(() => {
+        setStars(() =>{
+            return <div className="left margin-top--- ">
+            <img className="icon" src={star < 1 ? "./img/etoile.png" : "./img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
+                setStar(1);
+            }}></img>
+            <img className="icon" src={star < 2 ? "./img/etoile.png" : "./img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
+                setStar(2);
+            }}></img>
+            <img className="icon" src={star < 3 ? "./img/etoile.png" : "./img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
+                setStar(3);
+            }}></img>
+            <img className="icon" src={star < 4 ? "./img/etoile.png" : "./img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
+                setStar(4);
+            }}></img>
+            <img className="icon" src={star < 5 ? "./img/etoile.png" : "./img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
+                setStar(5);
+            }}></img>
+        </div>
+        })
+    }, [star])
+
     return <div className='container'>
         <h1 className='title stroke'>Mes articles sur Eko</h1>
         <div className="grid5 flex ">
@@ -54,13 +79,7 @@ export function ArticleSell() {
                     <h2 className="title left margin-top--- ">Expéditeur <img className="icon" src="./img/groupe.png" alt="icone de groupe sur Eko"></img></h2>
                     <div className="flex vertical margin-top--- ">
                         <h2 className="title left">Note de l'article </h2>
-                        <div className="left margin-top--- ">
-                            <img className="icon" src="./img/etoile.png" alt="icone d'étoile sur Eko"></img>
-                            <img className="icon" src="./img/etoile.png" alt="icone d'étoile sur Eko"></img>
-                            <img className="icon" src="./img/etoile.png" alt="icone d'étoile sur Eko"></img>
-                            <img className="icon" src="./img/etoile.png" alt="icone d'étoile sur Eko"></img>
-                            <img className="icon" src="./img/etoile.png" alt="icone d'étoile sur Eko"></img>
-                        </div>
+                        {stars}
                         <div className="margin-top--">
                             <h2 className="title left">Quantité </h2>
                             <select className="left background-color-2-3 drop-down radius">
@@ -75,7 +94,7 @@ export function ArticleSell() {
                     <div className="margin-top-- flex center margin-bottom---">
                         <div className="flex center">
                             <input className="padding-right-left" type="submit" value="Ajouter au panier"></input>
-                            <img className="icon" src="./img/ajout-panier.png" alt="icone d'ajouter au panier sur Eko"></img>
+                            {/* <img className="icon" src="./img/ajout-panier.png" alt="icone d'ajouter au panier sur Eko"></img> */}
                         </div>
                     </div>
                 </div>

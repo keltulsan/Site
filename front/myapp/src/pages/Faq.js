@@ -5,26 +5,29 @@ function getRandomInt(max) {
 }
 
 export function FAQ() {
-    const [isClick, setIsClick] = useState(false);
+    const [isClick, setIsClick] = useState(0);
+    const [faqs, setFaqs] = useState(null);
+
+    useEffect(() => {
+        setFaqs(() => {
+            return <div className="gap margin-top flex">
+                <div onClick={() => isClick == 1 ? setIsClick(0) : setIsClick(1)} className="box background-color-2-4 flex align-center vertical">
+                    <h2 className='title'>Lorem ipsum</h2>
+                    <Collapse isOpened={isClick == 1}>
+                        <div><p className="text">What is Lorem Ipsum?
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                        </div>
+                    </Collapse>
+                </div>
+            </div>
+        })
+    }, [isClick])
 
     return <div className='container'>
         <h1 className='title stroke'>FAQ</h1>
         <div className="gap-plus center">
             <div className="vertical gap">
-                <div className="gap margin-top flex">
-                    <div className="box background-color-2-4 flex align-center vertical">
-                        <h2 className='title'>Lorem ipsum</h2>
-                        <Collapse isOpened={getRandomInt(2)}>
-                            <div><p className="text">What is Lorem Ipsum?
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-                            </div>
-                        </Collapse>
-                        {/* <div className="margin-top-- margin-bottom---flex center">
-                            <input className="padding-right-left" type="submit" value="Commander" onClick={setIsClick(true)} />
-                            </div> */}
-                        
-                    </div>
-                </div>
+                {faqs}
                 <div className="gap margin-top flex">
                     <div className="box background-color-2-4 flex align-center">
                         <p className="text">What is Lorem Ipsum?

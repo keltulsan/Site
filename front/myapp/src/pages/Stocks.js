@@ -10,8 +10,8 @@ export function Stocks() {
                     <img className="align-center" src='./img/visa.png' alt='image de paiment mastercard sur Eko' />
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
-                <div className="flex center">
-                    <p><Link className="style-link stroke" to="/">Modifier </Link> / <Link className="style-link stroke" to="/"> Supprimer</Link></p>
+                <div className="flex center gap-">
+                    <Link className="style-link stroke" to="/">Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to="/"> Supprimer</Link>
                 </div>
             </div>
             <div className="flex vertical">
@@ -20,8 +20,8 @@ export function Stocks() {
                     <img className="align-center" src='./img/visa.png' alt='image de paiment mastercard sur Eko' />
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
-                <div className="flex center">
-                    <p><Link className="style-link stroke" to="/">Modifier </Link> / <Link className="style-link stroke" to="/"> Supprimer</Link></p>
+                <div className="flex center gap-">
+                    <Link className="style-link stroke" to="/">Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to="/"> Supprimer</Link>
                 </div>
             </div>
             <div className="flex vertical">
@@ -30,8 +30,8 @@ export function Stocks() {
                     <img className="align-center" src='./img/visa.png' alt='image de paiment mastercard sur Eko' />
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
-                <div className="flex center">
-                    <p><Link className="style-link stroke" to="/">Modifier </Link> / <Link className="style-link stroke" to="/"> Supprimer</Link></p>
+                <div className="flex center gap-">
+                    <Link className="style-link stroke" to="/">Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to="/"> Supprimer</Link>
                 </div>
                 
             </div>
