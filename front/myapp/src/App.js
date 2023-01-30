@@ -20,12 +20,15 @@ import { PayComplete } from './pages/Pay-Complete';
 import { ContactUs } from './pages/Contact-Us';
 import { ThxEmail } from './pages/Thx-Email';
 import { ReactSession } from 'react-client-session';
-
+import { Toast_ } from './components/toast/toast';
+import { useState } from 'react';
 function App(props){
-  ReactSession.setStoreType("localStorage");
+  ReactSession.setStoreType("cookie");
+  const [show,setShow] = useState(false);
   return <div className="root flex space-between vertical">
     <Router>
-      <Header />
+      <Header setShow={setShow} />
+      <Toast_ show = {show} setShow={setShow}/>
       <Switch>
 
         <Route exact path="/home" component={Home} />

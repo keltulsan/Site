@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Collapse from '@mui/material/Collapse';
-
+import { ReactSession } from 'react-client-session';
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Toast from 'react-bootstrap/Toast';
 const getAllLabels = async () => {
     const response = await fetch(
         'http://localhost:4444/labels/list', {
@@ -16,13 +20,13 @@ const getAllLabels = async () => {
     return labels
 }
 
-export function Header() {
+export function Header(props) {
+    const [show1,setShow1] = useState(false);
     const [ menu, setMenu ] = useState(false);
     const [ isHover, setIsHover ] = useState(false);
     const [ isHover2, setIsHover2 ] = useState(false);
     const [ labs, setLabs ] = useState([]);
     const [ labels, setLabels ] = useState([]);
-
     const [dimensions, setDimensions] = React.useState({ 
         height: window.innerHeight,
         width: window.innerWidth
@@ -76,7 +80,6 @@ export function Header() {
                 <span className="glyphicon glyphicon-list align-center" onClick={() => setMenu(!menu)}></span>
             }
         </div>
-
         {dimensions.width <= 750 && <Collapse in={menu}><div className='mobile-menu'>
                 <Link to='#' onClick={() => {
                     setIsHover(!isHover)
@@ -97,10 +100,43 @@ export function Header() {
         <Collapse in={isHover && (menu || dimensions.width > 750)}><ul className={dimensions.width > 750 ? 'grid little' : 'little'}>
             {labs}
         </ul></Collapse>
-        <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='little'>
+         {ReactSession.get("username")?(
+
+            // console.log("salut");
+            <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='little'>
             <Link to='/account'><p>Mon compte</p></Link>
             <Link to='/historique'><p>Historique</p></Link>
             <Link to='/eko-save'><p>EKO Save</p></Link>
+            {ReactSession.get("username") && 
+                <Link to="#" onClick={()=>{ReactSession.remove('username');props.setShow(true)}}>Se déconnecter</Link>
+            }     
             </div></Collapse>
+        ):
+        <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='little'>
+            <Link to='/login'><p>Se connecter</p></Link>
+        </div></Collapse>
+        }
+        <div className='test'>(
+    <Row>
+      <Col xs={6}>
+        <Toast onClose={() => setShow1(false)} show={show1} delay={3000} position={'bottom-center'} autohide>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded me-2"
+              alt=""
+            />
+            <strong className="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+          </Toast.Header>
+          <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
+        </Toast>
+      </Col>
+      <Col xs={6}>
+        <Button onClick={() => setShow1(true)}>Show Toast</Button>
+      </Col>
+    </Row>
+  );
+  </div>
     </div>
 }

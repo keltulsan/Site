@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Login } from "../api/Login";
 import { ReactSession } from 'react-client-session';
 import md5 from "md5";
+import Toast from 'react-bootstrap/Toast';
 export default function LoginPage(){
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmitLogin = async (data) => {
@@ -16,6 +17,15 @@ export default function LoginPage(){
         if(userList.filter(userList=>userList.mail.match(data["mail"])).length>0 & password.length>0){
             ReactSession.set("username", userList[0]["nickname"]);
             console.log(ReactSession.get("username"));
+            window.location.replace('/');
+            // <Toast>
+            // <Toast.Header>
+            //     <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+            //     <strong className="me-auto">Bootstrap</strong>
+            //     <small>11 mins ago</small>
+            // </Toast.Header>
+            // <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+            // </Toast>
         };
       }
     // console.log(watch("email"));
