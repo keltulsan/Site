@@ -2,10 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Collapse from '@mui/material/Collapse';
 import { ReactSession } from 'react-client-session';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Toast from 'react-bootstrap/Toast';
 const getAllLabels = async () => {
     const response = await fetch(
         'http://localhost:4444/labels/list', {
@@ -54,7 +50,7 @@ export function Header(props) {
             ))
         }
     },[labels, dimensions.width]);
-
+    if(localStorage == null){ReactSession.set("username", "")};
     return <div className='navbar' onMouseLeave={() => {
         setIsHover(dimensions.width > 750 ? false : isHover)
         setIsHover2(dimensions.width > 750 ? false : isHover2)
@@ -101,8 +97,6 @@ export function Header(props) {
             {labs}
         </ul></Collapse>
          {ReactSession.get("username")?(
-
-            // console.log("salut");
             <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='little'>
             <Link to='/account'><p>Mon compte</p></Link>
             <Link to='/historique'><p>Historique</p></Link>
@@ -114,29 +108,6 @@ export function Header(props) {
         ):
         <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='little'>
             <Link to='/login'><p>Se connecter</p></Link>
-        </div></Collapse>
-        }
-        <div className='test'>(
-    <Row>
-      <Col xs={6}>
-        <Toast onClose={() => setShow1(false)} show={show1} delay={3000} position={'bottom-center'} autohide>
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded me-2"
-              alt=""
-            />
-            <strong className="me-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-          </Toast.Header>
-          <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
-        </Toast>
-      </Col>
-      <Col xs={6}>
-        <Button onClick={() => setShow1(true)}>Show Toast</Button>
-      </Col>
-    </Row>
-  );
-  </div>
+        </div></Collapse>}
     </div>
 }
