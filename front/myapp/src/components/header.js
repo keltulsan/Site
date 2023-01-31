@@ -65,7 +65,7 @@ export function Header() {
                 <Link to='/my-sellings'><p>Mes ventes</p></Link>
                 <Link to='/actus'><p>Actus</p></Link>
                 {/* <Link to='/login'><p>Login</p></Link> */}
-                <Link to='/account' onMouseEnter={() => {
+                <Link to='/account-user' onMouseEnter={() => {
                     setIsHover(false)
                     setIsHover2(true)
                 }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link>
