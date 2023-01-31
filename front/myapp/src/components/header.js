@@ -22,8 +22,6 @@ const getAllLabels = async () => {
 
 export function Header(props) {
     const link = links();
-    console.log(ReactSession.get("username"));
-    console.log(ReactSession.get("id"));
     const [menu, setMenu] = useState(false);
     const [search, setSearch] = useState(false);
     const [isHover, setIsHover] = useState(false);
@@ -134,6 +132,7 @@ export function Header(props) {
         {ReactSession.get("username") && <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='flex center little'>
             <div className='align-center'>
                 <Link to={link.userPage}><p>Mon compte</p></Link>
+                {ReactSession.get("seller") && <Link to={link.enterprisePage}><p>Mon entreprise</p></Link>}
                 <Link to={link.history}><p>Historique</p></Link>
                 <Link to={link.ekoSave}><p>EKO Save</p></Link>
                 {ReactSession.get("username") &&

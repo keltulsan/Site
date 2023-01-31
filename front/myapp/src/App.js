@@ -31,6 +31,7 @@ import ChatBox from './pages/Chat-box';
 import { Bag } from './pages/Inform-user/Bag';
 import { Articles } from './pages/Article/Articles';
 import { UserPage } from './pages/Inform-user/UserPage';
+import { EnterprisePage } from './pages/Inform-user/EnterprisePage';
 import Background from './components/background';
 import { ArticleClotheSell } from './pages/Article/Article-clothe-sell';
 import { ArticleSell } from './pages/Article/Article-sell';
@@ -48,6 +49,7 @@ export function links() {
     login: '/login',
     signup: '/signup',
     userPage: '/account-user',
+    enterprisePage:'/account-enterprise',
     contactDetails: '/account',
     bag: '/bag',
     history: '/history',
@@ -101,6 +103,7 @@ export function App(props) {
           <Route exact path={link.login} component={LoginPage} />
           <Route exact path={link.signup} component={SignUpPage} />
           <Route exact path={link.userPage} component={UserPage} />
+          <Route exact path={link.enterprisePage} component={EnterprisePage} />
           <Route exact path={link.contactDetails} component={ContactDetails} />
           <Route exact path={link.bag} component={Bag} />
           <Route exact path={link.history} component={History} />

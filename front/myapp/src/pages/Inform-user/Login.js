@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React, { Component, useEffect, useState } from 'react';
 import { links } from "../../App";
 import { useForm } from "react-hook-form";
-import { Login } from "../../api/Login";
+import { Login_ } from "../../components/login_signup/LogiN";
 import { ReactSession } from 'react-client-session';
 import md5 from "md5";
 
@@ -10,14 +10,16 @@ export default function LoginPage(){
     const link = links();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmitLogin = async (data) => {
-        const userList = await Login();
+        const userList = await Login_();
         const password = await userList.filter(userList=>userList.password.match(md5(data["password"])))
         if(userList.filter(user=>user.mail.match(data["mail"])).length>0 & password.length>0){
             userList.filter(user=>user.mail.match(data["mail"])).map((user,key) =>{
                 if(user.mail == data["mail"] & user.password == md5(data["password"])){
                     ReactSession.set("username",user.nickname);
                     ReactSession.set("id",user.id);
+                    ReactSession.set("seller",user.seller)
                 }
+            console.log(data)
             window.location.replace('/');
         })}}
     const [dimensions, setDimensions] = React.useState({ 
@@ -75,6 +77,10 @@ export default function LoginPage(){
             </div>
             <div className="flex center gap create-account">
                 <Link to={link.signup}>Créer un compte</Link>
+            </div>
+            <div className='align-top flex center all gap-'>
+                <input type="checkbox" className="align-center" defaultChecked={true} />
+                <p className="text align-center stroke">Rester connecté</p>
             </div>
             <div className="center">
                 <input type="submit" value="Se connecter"/>

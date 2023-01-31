@@ -176,7 +176,7 @@ app.post("/business/update", jsonParser, (req, res) => {
     },
       {
         where: {
-          id: req.body.id
+          user_id: req.body.user_id
         }
       })
       .then(result => res.json(result))
