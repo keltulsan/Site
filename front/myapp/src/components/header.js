@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Collapse from '@mui/material/Collapse';
 import { ReactSession } from 'react-client-session';
 import { links } from '../App';
+import { width } from '@mui/system';
 
 const getAllLabels = async () => {
     const response = await fetch(
@@ -69,24 +70,28 @@ export function Header(props) {
         <div className='flex space-between'>
             <Link to={link.homeFull}><img className='logo' src='./img/logo.png' alt='Logo de Eko' /></Link>
             {dimensions.width > 750 && <div className='flex align-center'>
-                <Link to={link.catégories} onMouseEnter={() => {
-                    setIsHover(true)
-                    setIsHover2(false)
-                    setIsHover3(false)
-                }}><p>Catégories</p></Link>
 
-                <Link to={link.sells}><p>Mes ventes</p></Link>
-                <Link to={link.actus}><p>Actus</p></Link>
-                {!ReactSession.get("username") && <Link to={link.login}><p>Login</p></Link>}
-                {ReactSession.get("username") && <Link to={link.account} onMouseEnter={() => {
-                    setIsHover(false)
-                    setIsHover2(true)
-                    setIsHover3(false)
-                }}><img src='./img/avatar.png' alt='ton avatar sur Eko' /></Link>}
-                <Link to={link.bag}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko' /></Link>
+                <Collapse in={!isHover3} orientation="horizontal" className='align-center'>
+                    <div className='flex nomargin'>
+                        <Link to={link.catégories} onMouseEnter={() => {
+                            setIsHover(true)
+                            setIsHover2(false)
+                            setIsHover3(false)
+                        }}><p>Catégories</p></Link>
 
-                <Collapse in={isHover3 && dimensions.width > 750} orientation="horizontal">
-                    <input className='align-top' type="text" placeholder="search here" style={{ marginRight: "30px" }} />
+                        <Link to={link.sells} style={{ minWidth: "107.27px" }}><p>Mes ventes</p></Link>
+                        <Link to={link.actus}><p>Actus</p></Link>
+                        {!ReactSession.get("username") && <Link to={link.login}><p>Login</p></Link>}
+                        {ReactSession.get("username") && <Link to={link.account} onMouseEnter={() => {
+                            setIsHover(false)
+                            setIsHover2(true)
+                            setIsHover3(false)
+                        }}><img src='./img/avatar.png' alt='ton avatar sur Eko' /></Link>}
+                        <Link to={link.bag}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko' /></Link>
+                    </div>
+                </Collapse>
+                <Collapse in={isHover3} orientation="horizontal" className='align-center'>
+                    <input type="text" placeholder="search here" />
                 </Collapse>
                 <Link to='#' onMouseEnter={() => {
                     setIsHover(false)
@@ -114,10 +119,10 @@ export function Header(props) {
                     setIsHover2(false)
                 }}><img src='./img/avatar.png' alt='ton avatar sur Eko' /></Link>
                 <Link to={link.bag}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko' /></Link>
-                <Link to='#' onMouseEnter={() => {
+                <Link to='#' onClick={() => {
                     setIsHover(false)
                     setIsHover2(false)
-                    setIsHover2(!isHover3)
+                    setIsHover3(!isHover3)
                 }}><img src='./img/search.png' alt='Logo de recherche de Eko' /></Link>
             </div>
         </div></Collapse>}
@@ -134,5 +139,10 @@ export function Header(props) {
                 }
             </div>
         </div></Collapse>}
+        <Collapse in={isHover3 && menu && dimensions.width <= 750}>
+            <div className='flex center margin-top--'>
+                <input type="text" placeholder="search here" />
+            </div>
+        </Collapse>
     </div>
 }
