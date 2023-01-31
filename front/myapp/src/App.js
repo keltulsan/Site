@@ -26,7 +26,7 @@ import { Stocks } from './pages/Admin/Stocks';
 import { Sells } from './pages/Admin/Sells';
 import { EnvyList } from './pages/Article/Envy-list';
 import { History } from './pages/Inform-user/History';
-import { Robot } from './components/Robot';
+// import { Robot } from './components/Robot';
 import ChatBox from './pages/Chat-box';
 import { Bag } from './pages/Inform-user/Bag';
 import { Articles } from './pages/Article/Articles';
@@ -143,7 +143,9 @@ export function App(props) {
           <Route exact path={link.err404} component={Error404} />
 
         </Switch>
-        <Robot />
+
+        {/* <Robot /> */}
+        
         <div></div>
       </div>
       <Footer />

@@ -4,6 +4,7 @@ import Collapse from '@mui/material/Collapse';
 import { ReactSession } from 'react-client-session';
 import { links } from '../App';
 import { width } from '@mui/system';
+import { Robot } from './Robot';
 
 const getAllLabels = async () => {
     const response = await fetch(
@@ -144,5 +145,6 @@ export function Header(props) {
                 <input type="text" placeholder="search here" />
             </div>
         </Collapse>
+    <Robot />
     </div>
 }

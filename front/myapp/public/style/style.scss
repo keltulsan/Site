@@ -309,8 +309,9 @@
     }
 
     .robot {
-        height: 80px;
-        width: 80px;
+        height: 80px !important;
+        width: 80px !important;
+        margin-top: 40px !important;
     }
 
     .account-img {
