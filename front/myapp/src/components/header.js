@@ -64,11 +64,11 @@ export function Header(props) {
                 }}><p>Catégories</p></Link>
                 <Link to='/my-sellings'><p>Mes ventes</p></Link>
                 <Link to='/actus'><p>Actus</p></Link>
-                {/* <Link to='/login'><p>Login</p></Link> */}
-                <Link to='/account' onMouseEnter={() => {
+                {!ReactSession.get("username")&&<Link to='/login'><p>Login</p></Link>}
+                {ReactSession.get("username")&&<Link to='/account' onMouseEnter={() => {
                     setIsHover(false)
                     setIsHover2(true)
-                }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link>
+                }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link>}
                 <Link to='/bag'><img src='./img/shopping-bag.png' alt='Logo du panier de Eko'/></Link>
                 <Link to='/research'><img src='./img/search.png' alt='Logo de recherche de Eko'/></Link>
             </div>}
@@ -96,7 +96,7 @@ export function Header(props) {
         <Collapse in={isHover && (menu || dimensions.width > 750)}><ul className={dimensions.width > 750 ? 'grid little' : 'little'}>
             {labs}
         </ul></Collapse>
-         {ReactSession.get("username")?(
+         {ReactSession.get("username")&&(
             <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='little'>
             <Link to='/account'><p>Mon compte</p></Link>
             <Link to='/historique'><p>Historique</p></Link>
@@ -105,9 +105,6 @@ export function Header(props) {
                 <Link to="#" onClick={()=>{ReactSession.remove('username');props.setShow(true)}}>Se déconnecter</Link>
             }     
             </div></Collapse>
-        ):
-        <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='little'>
-            <Link to='/login'><p>Se connecter</p></Link>
-        </div></Collapse>}
+        )}
     </div>
 }
