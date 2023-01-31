@@ -1,12 +1,12 @@
 import AboutUs from './pages/Us/AboutUs';
-import { Header } from './components/header';
-import { Footer } from './components/footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import { Header } from './components/header';
+import { Footer } from './components/footer';
 import Home from "./pages/Home";
 import Error404 from "./pages/Error/404";
 import SignUp from "./pages/Inform-user/SignUp";
@@ -38,7 +38,7 @@ import { FAQ } from './pages/Us/Faq';
 
 
 export default function App(props) {
-  return <>{/*<Background />*/}
+  return <><Background />
     <Router>
       <Header />
       <div className="root flex space-between vertical">
@@ -59,7 +59,7 @@ export default function App(props) {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/account-user" component={UserPage} />
           <Route exact path="/account" component={ContactDetails} />
-          <Route exact path="/panier" component={Bag} />
+          <Route exact path="/bag" component={Bag} />
           <Route exact path="/history" component={History} />
 
           {/* Article */}

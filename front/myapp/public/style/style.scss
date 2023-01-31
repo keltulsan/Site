@@ -29,7 +29,6 @@
     $titleFont: "Raleway-ExtraBold";
     $subtitleFont: "raleway-bold";
     $textFont: "Barlow-SemiBold";
- 
 
     // background //
 
@@ -48,7 +47,6 @@
     .background-button:hover {
         background-color: $buttonsColor;
     }
-
 
     div.connect-background,
     div.signup-background {
@@ -157,7 +155,6 @@
 
     .min-create-account,
     .min-connection {
-
         a,
         a:visited {
             color: $primaryColor4;
@@ -229,7 +226,7 @@
         padding: 50px !important;
     }
 
-    .all{
+    .all {
         width: 100% !important;
     }
 
@@ -272,7 +269,7 @@
         padding-right: 50px !important;
     }
 
-    .padding-right-neg{
+    .padding-right-neg {
         padding-right: -20px;
     }
 
@@ -290,25 +287,25 @@
         height: 80px;
         width: 80px;
     }
-    .account-img{
+    .account-img {
         width: 30vw;
     }
-    .min-account-img{
+    .min-account-img {
         width: 80vw;
     }
-    .commande{
+    .commande {
         width: 400px;
     }
 
-    .min-commande{
+    .min-commande {
         width: 200px;
     }
 
-    .min-chat-box{
+    .min-chat-box {
         width: 300px;
     }
 
-    .min-contact{
+    .min-contact {
         width: 80%;
     }
 
@@ -350,13 +347,12 @@
     div.profils-account {
         padding-top: 10%;
     }
-   
+
     // z-index //
 
     .z-index- {
         z-index: -90;
     }
-
 
     // Position //
 
@@ -372,8 +368,6 @@
     .radius-top {
         border-radius: 10px 10px 0px 0px;
     }
-
-
 
     // Title-text //
 
@@ -441,7 +435,7 @@
         div.center {
             text-align: center;
         }
-    
+
         .left {
             text-align: left;
             margin-left: 15px;
@@ -482,8 +476,8 @@
             &.gap-vw {
                 gap: 2.5vw;
             }
-            &.gap-moy{
-                gap: 100px
+            &.gap-moy {
+                gap: 100px;
             }
             &.vertical {
                 flex-direction: column;
@@ -646,7 +640,6 @@
                 grid-gap: 10px;
             }
 
-
             .err-qcq {
                 margin-top: -127px;
                 height: 70vh;
@@ -686,66 +679,128 @@
             .MuiCollapse-wrapper.MuiCollapse-vertical.css-smkl36-MuiCollapse-wrapper {
                 margin: 0px;
             }
+        }
+        // Navbar-Footer//
+        div.navbar,
+        div.footer {
+            padding: 10px;
+            width: 100vw;
+            background-color: $primaryColor5;
+            height: fit-content;
 
-            // Navbar-Footer//
-            div.navbar,
-            div.footer {
-                padding: 10px;
-                width: 100vw;
-                background-color: $primaryColor5;
-                height: fit-content;
+            img.logo {
+                height: 50px;
+            }
+
+            div {
+                margin-left: 20px;
+                margin-right: 20px;
+                gap: 30px;
 
                 img.logo {
                     height: 50px;
                 }
-
-                div {
-                    margin-left: 20px;
-                    margin-right: 20px;
-                    gap: 30px;
-
-                    img.logo {
-                        height: 50px;
-                    }
-                    img {
-                        height: 30px;
-                    }
-                }
-
-                div.mobile-menu {
-                    a {
-                        p {
-                            text-align: center;
-                        }
-                    }
-                }
-
-                span.glyphicon {
-                    color: $secondaryColor4;
-                    font-size: 40px;
+                img {
+                    height: 30px;
                 }
             }
 
-            div.navbar {
-                display: block;
-                position: fixed !important;
-                top: 0px;
-                border-radius: 0px 0px 0px 0px;
+            div.mobile-menu {
+                a {
+                    p {
+                        text-align: center;
+                    }
+                }
+            }
 
+            span.glyphicon {
+                color: $secondaryColor4;
+                font-size: 40px;
+            }
+        }
+
+        div.navbar {
+            display: block;
+            position: fixed !important;
+            top: 0px;
+            border-radius: 0px 0px 0px 0px;
+
+            div {
+                a {
+                    color: $primaryColor4;
+                    text-decoration: none;
+                    font-family: $subtitleFont;
+
+                    &:hover {
+                        color: $secondaryColor4;
+                    }
+
+                    &:after {
+                        display: block;
+                        content: "";
+                        border-bottom: solid 3px $secondaryColor4;
+                        transform: scaleX(0);
+                        transition: transform 250ms ease-in-out;
+                        transform-origin: 100% 50%;
+                    }
+
+                    &:hover:after {
+                        transform: scaleX(1);
+                        transform-origin: 0% 50%;
+                    }
+
+                    p {
+                        margin: 0px;
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            ul {
+                list-style-type: none;
+                margin: 0px;
+                margin-top: 20px;
+            }
+
+            div.MuiCollapse-root .little p {
+                font-size: 15px;
+                text-align: center;
+            }
+        }
+
+        div.footer {
+            border-radius: 0px 0px 0px 0px;
+
+            div {
                 div {
-                    a {
-                        color: $primaryColor4;
-                        text-decoration: none;
-                        font-family: $subtitleFont;
+                    margin: 0px !important;
+                    gap: 3px;
 
+                    p {
+                        margin: 0px;
+                        font-family: $subtitleFont;
+                        color: $primaryColor4;
+
+                        a {
+                            font-size: 20px;
+                            color: $primaryColor4;
+                            text-decoration: none;
+                        }
+                    }
+
+                    p.little a {
+                        font-size: 15px;
+                    }
+
+                    a {
                         &:hover {
-                            color: $secondaryColor4;
+                            color: $primaryColor4;
                         }
 
                         &:after {
                             display: block;
                             content: "";
-                            border-bottom: solid 3px $secondaryColor4;
+                            border-bottom: 3px solid $primaryColor4;
                             transform: scaleX(0);
                             transition: transform 250ms ease-in-out;
                             transform-origin: 100% 50%;
@@ -754,69 +809,6 @@
                         &:hover:after {
                             transform: scaleX(1);
                             transform-origin: 0% 50%;
-                        }
-
-                        p {
-                            margin: 0px;
-                            font-size: 20px;
-                        }
-                    }
-                }
-
-                ul {
-                    list-style-type: none;
-                    margin: 0px;
-                    margin-top: 20px;
-                }
-
-                div.MuiCollapse-root .little p {
-                    font-size: 15px;
-                    text-align: center;
-                }
-            }
-
-            div.footer {
-                border-radius: 0px 0px 0px 0px;
-
-                div {
-                    div {
-                        margin: 0px !important;
-                        gap: 3px;
-
-                        p {
-                            margin: 0px;
-                            font-family: $subtitleFont;
-                            color: $primaryColor4;
-
-                            a {
-                                font-size: 20px;
-                                color: $primaryColor4;
-                                text-decoration: none;
-                            }
-                        }
-
-                        p.little a {
-                            font-size: 15px;
-                        }
-
-                        a {
-                            &:hover {
-                                color: $primaryColor4;
-                            }
-
-                            &:after {
-                                display: block;
-                                content: "";
-                                border-bottom: 3px solid $primaryColor4;
-                                transform: scaleX(0);
-                                transition: transform 250ms ease-in-out;
-                                transform-origin: 100% 50%;
-                            }
-
-                            &:hover:after {
-                                transform: scaleX(1);
-                                transform-origin: 0% 50%;
-                            }
                         }
                     }
                 }
