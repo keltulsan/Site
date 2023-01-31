@@ -49,7 +49,7 @@ export function links() {
 export function App(props) {
   ReactSession.setStoreType("cookie");
   const [show,setShow] = useState(false);
-  return <><Background />
+  return <>{/*<Background />*/}
     <Router>
     <Header setShow={setShow} />
       <Toast_ show = {show} setShow={setShow}/>
