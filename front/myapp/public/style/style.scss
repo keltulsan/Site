@@ -2,10 +2,12 @@
     font-family: "Raleway-ExtraBold";
     src: url("../fonts/Raleway-ExtraBold.ttf") format("truetype");
 }
+
 @font-face {
     font-family: "raleway-bold";
     src: url("../fonts/raleway-bold.ttf") format("truetype");
 }
+
 @font-face {
     font-family: "Barlow-SemiBold";
     src: url("../fonts/Barlow-SemiBold.ttf") format("truetype");
@@ -76,6 +78,7 @@
             &.control-next:before {
                 border-left: 15px solid $primaryColor5 !important;
             }
+
             &.control-prev:before {
                 border-right: 15px solid $primaryColor5 !important;
             }
@@ -148,6 +151,7 @@
         font-family: $subtitleFont;
         font-size: 20px;
     }
+
     a:hover {
         text-decoration: none;
         color: $secondaryColor4;
@@ -217,6 +221,7 @@
         opacity: 1 !important;
         top: 95px;
     }
+
     .payCard {
         color: $primaryColor4;
         width: 210px;
@@ -237,45 +242,53 @@
 
     // margin-padding //
 
-    .margin-top {
-        margin-top: 80px;
+    .nomargin {
+        margin: 0px !important;
     }
 
-    .margin-top- {
-        margin-top: 60px;
+    .margin {
+        &-top {
+            margin-top: 80px;
+
+            &- {
+                margin-top: 60px;
+            }
+
+            &-- {
+                margin-top: 20px !important;
+            }
+
+            &--- {
+                margin-top: 10px;
+            }
+        }
+
+        &-bottom--- {
+            margin-bottom: 10px;
+        }
     }
 
-    .margin-top-- {
-        margin-top: 20px !important;
-    }
+    .padding {
+        &-top {
+            padding-top: 80px;
 
-    .margin-top--- {
-        margin-top: 10px;
-    }
+            &- {
+                padding-top: 30px;
+            }
+        }
 
-    .margin-bottom--- {
-        margin-bottom: 10px;
-    }
+        &-right {
+            padding-right: 50px !important;
 
-    .padding-top {
-        padding-top: 80px;
-    }
+            &-left {
+                padding-left: 20% !important;
+                padding-right: 20% !important;
+            }
 
-    .padding-top- {
-        padding-top: 30px;
-    }
-
-    .padding-right-left {
-        padding-left: 20% !important;
-        padding-right: 20% !important;
-    }
-
-    .padding-right {
-        padding-right: 50px !important;
-    }
-
-    .padding-right-neg {
-        padding-right: -20px;
+            &-neg {
+                padding-right: -20px;
+            }
+        }
     }
 
     // Position //
@@ -289,6 +302,7 @@
     .default-size {
         min-width: 100px;
         min-height: 100px;
+
         .full-width {
             width: 100% !important;
         }
@@ -298,12 +312,15 @@
         height: 80px;
         width: 80px;
     }
+
     .account-img {
         width: 30vw;
     }
+
     .min-account-img {
         width: 80vw;
     }
+
     .commande {
         width: 400px;
     }
@@ -337,6 +354,7 @@
     img.logo.half {
         width: 30vw;
     }
+
     @media (min-width: 1000px) {
         img.logo.half {
             width: 10vw;
@@ -376,6 +394,7 @@
     .radius {
         border-radius: 10px;
     }
+
     .radius-top {
         border-radius: 10px 10px 0px 0px;
     }
@@ -390,13 +409,16 @@
         @for $i from 1 through 2 {
             h#{3 - $i}.title {
                 color: $primaryColor5;
+
                 &.stroke {
                     -webkit-text-stroke: 0.5px $primaryColor4;
                 }
+
                 text-align: center;
 
                 &.invert {
                     color: $primaryColor4;
+
                     &.stroke {
                         -webkit-text-stroke: 0.5px $primaryColor5;
                     }
@@ -405,6 +427,7 @@
                 &.left {
                     text-align: start;
                 }
+
                 &.right {
                     text-align: end;
                 }
@@ -419,6 +442,7 @@
             font-family: $titleFont;
             font-size: 50px;
         }
+
         h2.title {
             font-family: $subtitleFont;
             font-size: 30px;
@@ -436,6 +460,7 @@
         p.text {
             font-family: $textFont;
             font-size: 20px;
+
             &.center-text {
                 text-align: center;
             }
@@ -460,39 +485,51 @@
             &.space-evenly {
                 justify-content: space-evenly;
             }
+
             &.space-around {
                 justify-content: space-around;
             }
+
             &.space-between {
                 justify-content: space-between;
             }
+
             &.center {
                 justify-content: center;
             }
+
             &.left-f {
                 justify-content: left;
             }
+
             &.right-f {
                 justify-content: right;
             }
+
             &.gap {
                 gap: 20px !important;
             }
+
             &.gap- {
                 gap: 7px;
             }
+
             &.gap-plus {
                 gap: 200px;
             }
+
             &.gap-vw {
                 gap: 2.5vw;
             }
+
             &.gap-moy {
                 gap: 100px;
             }
+
             &.vertical {
                 flex-direction: column;
             }
+
             &.lign {
                 flex-direction: row;
             }
@@ -501,10 +538,12 @@
                 align-self: baseline;
                 margin: 0px;
             }
+
             .align-center {
                 align-self: center;
                 margin: 0px;
             }
+
             .align-bot {
                 align-self: end;
                 margin: 0px;
@@ -514,30 +553,39 @@
         .flex.space-around {
             justify-content: space-around;
         }
+
         .flex.space-between {
             justify-content: space-between;
         }
+
         .flex.center {
             justify-content: center;
         }
+
         .flex.right {
             justify-content: end;
         }
+
         .flex.left {
             justify-content: flex-start;
         }
+
         .flex.gap {
             gap: 20px;
         }
+
         .flex.gap- {
             gap: 7px;
         }
+
         .flex.gap-plus {
             gap: 200px;
         }
+
         .flex.gap-vw {
             gap: 2.5vw;
         }
+
         .flex.vertical {
             flex-direction: column;
         }
@@ -560,100 +608,108 @@
         }
 
         // Input //
+        
+        input[type="text"],
+        input[type="text"]:focus-visible,
+        input[type="text"]:focus,
+        input[type="text"]:active,
+        input[type="password"],
+        input[type="password"]:focus-visible,
+        input[type="password"]:focus,
+        input[type="password"]:active,
+        textarea,
+        textarea:focus-visible,
+        textarea:focus,
+        textarea:active {
+            font-family: $textFont;
+            color: $primaryColor5;
+            min-width: 200px;
+            width: fit-content;
+            height: fit-content;
+            outline: none;
+            border: none;
+            font-size: 12px;
+
+            &.background {
+                background-color: $secondaryColor3;
+            }
+
+            &.my-account {
+                padding: 10px 5px;
+                min-width: unset;
+                width: 100vw;
+
+                &- {
+                    padding: 10px 5px;
+                    min-width: unset;
+                    width: 48.75vw;
+                }
+            }
+
+            @media (min-width: 750px) {
+                &.my-account {
+                    width: 30vw;
+
+                    &- {
+                        width: 13.75vw;
+                    }
+                }
+            }
+
+            &::placeholder {
+                color: $secondaryColor5;
+            }
+
+            &:-webkit-autofill {
+                -webkit-box-shadow: 0 0 0 30px $secondaryColor3 inset !important;
+            }
+        }
+
+        input[type="submit"] {
+            font-family: $textFont;
+            background-color: $buttonsColor;
+            color: $primaryColor5;
+            outline: none;
+            border: none;
+            font-size: 20px;
+            padding: 10px 25px;
+            border-radius: 10px;
+        }
+
+        input[type="checkbox"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            background-color: transparent;
+            border: 2px solid $primaryColor5 !important;
+            cursor: pointer;
+
+            &:checked:after {
+                position: relative;
+                top: -20px;
+                font-family: $textFont;
+                content: "\2713";
+                display: inline-block;
+                color: $primaryColor5;
+                font-weight: bolder;
+                font-size: 30px;
+            }
+        }
+
+        input:focus {
+            outline: none;
+            outline-offset: 0px;
+        }
+
+        // Root //
+
         .root {
             width: 100vw;
             min-height: 100vh;
             gap: 50px;
             margin-top: 95px;
 
-            input[type="text"],
-            input[type="text"]:focus-visible,
-            input[type="text"]:focus,
-            input[type="text"]:active,
-            input[type="password"],
-            input[type="password"]:focus-visible,
-            input[type="password"]:focus,
-            input[type="password"]:active,
-            textarea,
-            textarea:focus-visible,
-            textarea:focus,
-            textarea:active {
-                font-family: $textFont;
-                color: $primaryColor5;
-                min-width: 200px;
-                width: fit-content;
-                height: fit-content;
-                outline: none;
-                border: none;
-                font-size: 12px;
-
-                &.background {
-                    background-color: $secondaryColor3;
-                }
-                &.my-account {
-                    padding: 10px 5px;
-                    min-width: unset;
-                    width: 100vw;
-                    &- {
-                        padding: 10px 5px;
-                        min-width: unset;
-                        width: 48.75vw;
-                    }
-                }
-                @media (min-width: 750px) {
-                    &.my-account {
-                        width: 30vw;
-                        &- {
-                            width: 13.75vw;
-                        }
-                    }
-                }
-
-                &::placeholder {
-                    color: $secondaryColor5;
-                }
-
-                &:-webkit-autofill {
-                    -webkit-box-shadow: 0 0 0 30px $secondaryColor3 inset !important;
-                }
-            }
-
-            input[type="submit"] {
-                font-family: $textFont;
-                background-color: $buttonsColor;
-                color: $primaryColor5;
-                outline: none;
-                border: none;
-                font-size: 20px;
-                padding: 10px 25px;
-                border-radius: 10px;
-            }
-
-            input[type="checkbox"] {
-                appearance: none;
-                width: 20px;
-                height: 20px;
-                border-radius: 5px;
-                background-color: transparent;
-                border: 2px solid $primaryColor5 !important;
-                cursor: pointer;
-
-                &:checked:after {
-                    position: relative;
-                    top: -20px;
-                    font-family: $textFont;
-                    content: "\2713";
-                    display: inline-block;
-                    color: $primaryColor5;
-                    font-weight: bolder;
-                    font-size: 30px;
-                }
-
-                &:focus {
-                    outline: none;
-                    outline-offset: 0px;
-                }
-            }
 
             // err0r 404 //
 
@@ -690,16 +746,21 @@
                     }
                 }
             }
+        }
 
-            // Collapse //
+        // Collapse //
 
-            .MuiCollapse-wrapper.MuiCollapse-vertical.css-smkl36-MuiCollapse-wrapper {
-                margin: 0px;
+        .MuiCollapse-vertical,
+        .MuiCollapse-horizontal {
+            margin: 0px !important;
+
+            &.MuiCollapse-hidden {
+                display: none;
             }
         }
 
         // Navbar-Footer//
-        
+
         div.navbar,
         div.footer {
             padding: 10px;
@@ -719,6 +780,7 @@
                 img.logo {
                     height: 50px;
                 }
+
                 img {
                     height: 30px;
                 }
