@@ -66,7 +66,7 @@ export default function Chatbox() {
                         Avez vous essayez de le redemarrer ?
                     </p>
                         <div className='flex center space-evenly'>
-                            <Link onClick={() => option == 1 ? "" : setOption(1)} className="style-link" to="" >Oui </Link><p className="text"> / </p><Link onClick={() => option == 2 ? "" : setOption(2)} className="style-link" to=""> Non </Link>
+                            <Link onClick={() => option == 1 ? "" : setOption(1)} className="style-link" to={""} >Oui </Link><p className="text"> / </p><Link onClick={() => option == 2 ? "" : setOption(2)} className="style-link" to={""}  > Non </Link>
                         </div>
                         {option == 1 || option == 2 ?
                             option == 1 ?
