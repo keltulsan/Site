@@ -70,10 +70,12 @@ export function Header(props) {
                     setIsHover(true)
                     setIsHover2(false)
                 }}><p>Catégories</p></Link>
+
                 <Link to={link.sells}><p>Mes ventes</p></Link>
                 <Link to={link.actus}><p>Actus</p></Link>
                 {!ReactSession.get("username") && <Link to={link.login}><p>Login</p></Link>}
                 {ReactSession.get("username")&&<Link to={link.account} onMouseEnter={() => {
+
                     setIsHover(false)
                     setIsHover2(true)
                 }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link>}
