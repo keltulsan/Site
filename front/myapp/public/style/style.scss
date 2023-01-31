@@ -211,7 +211,12 @@
     }
 
     // Style //
-
+    .fade {
+        position: absolute;
+        z-index: 99;
+        opacity: 1 !important;
+        top: 95px;
+    }
     .payCard {
         color: $primaryColor4;
         width: 210px;
@@ -540,6 +545,14 @@
             font-size: 15px;
         }
 
+        // Grid //
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+
         // Input //
         .root {
             width: 100vw;
@@ -551,6 +564,10 @@
             input[type="text"]:focus-visible,
             input[type="text"]:focus,
             input[type="text"]:active,
+            input[type="password"],
+            input[type="password"]:focus-visible,
+            input[type="password"]:focus,
+            input[type="password"]:active,
             textarea,
             textarea:focus-visible,
             textarea:focus,
@@ -632,13 +649,7 @@
                 }
             }
 
-            // Grid //
-
-            .grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-gap: 10px;
-            }
+            // err0r 404 //
 
             .err-qcq {
                 margin-top: -127px;
@@ -680,7 +691,9 @@
                 margin: 0px;
             }
         }
+
         // Navbar-Footer//
+        
         div.navbar,
         div.footer {
             padding: 10px;

@@ -4,7 +4,7 @@ const app = express();
 app.use(cors())
 const port = 4444;
 const bodyParser = require('body-parser');
-const jsonParser = bodyParser.json;
+const jsonParser = bodyParser.json();
 const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize('eko', 'root', 'root', {
   host: 'localhost',
