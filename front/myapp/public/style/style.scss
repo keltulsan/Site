@@ -211,11 +211,11 @@
     }
 
     // Style //
-    .fade{
+    .fade {
         position: absolute;
         z-index: 99;
-        opacity:1 !important;
-        top:95px
+        opacity: 1 !important;
+        top: 95px;
     }
     .payCard {
         color: $primaryColor4;
@@ -545,6 +545,14 @@
             font-size: 15px;
         }
 
+        // Grid //
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+
         // Input //
         .root {
             width: 100vw;
@@ -641,13 +649,7 @@
                 }
             }
 
-            // Grid //
-
-            .grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-gap: 10px;
-            }
+            // err0r 404 //
 
             .err-qcq {
                 margin-top: -127px;
@@ -689,7 +691,9 @@
                 margin: 0px;
             }
         }
+
         // Navbar-Footer//
+        
         div.navbar,
         div.footer {
             padding: 10px;
