@@ -22,8 +22,6 @@ const getAllLabels = async () => {
 
 export function Header(props) {
     const link = links();
-    console.log(ReactSession.get("username"));
-    console.log(ReactSession.get("id"));
     const [menu, setMenu] = useState(false);
     const [search, setSearch] = useState(false);
     const [isHover, setIsHover] = useState(false);

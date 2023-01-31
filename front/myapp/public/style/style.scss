@@ -232,6 +232,7 @@
 
     .box {
         width: fit-content !important;
+        width: 100% !important;
         border-radius: 10px;
         padding: 50px !important;
     }
@@ -306,6 +307,10 @@
         .full-width {
             width: 100% !important;
         }
+    }
+
+    .chat-size{
+        width: 300px;
     }
 
     .robot {
