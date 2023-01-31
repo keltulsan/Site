@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import React, { Component, useEffect, useState } from 'react';
+import { links } from "../../App";
 
 export default function Login(){
+    const link = links();
 
     const [dimensions, setDimensions] = React.useState({ 
         height: window.innerHeight,
@@ -34,7 +36,7 @@ export default function Login(){
                 </div>
             </div>
             <div className="flex center gap min-create-account">
-                <Link to="/signup">Créer un compte</Link>
+                <Link to={link.signup}>Créer un compte</Link>
             </div>
             <div className="center">
                 <input type="submit" value="Se connecter"/>
@@ -58,7 +60,7 @@ export default function Login(){
                 </div>
             </div>
             <div className="flex center gap create-account">
-                <Link to="/signup">Créer un compte</Link>
+                <Link to={link.signup}>Créer un compte</Link>
             </div>
             <div className="center">
                 <input type="submit" value="Se connecter"/>

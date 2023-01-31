@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom"
 import React, { Component, useEffect, useState } from 'react';
+import { links } from "../../App";
 
 export function Sells() {
+    const link = links();
 
     const [dimensions, setDimensions] = React.useState({
         height: window.innerHeight,
@@ -27,7 +29,7 @@ export function Sells() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flex center gap-">
-                    <Link className="style-link stroke" to="/">Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to="/"> Supprimer</Link>
+                    <Link className="style-link stroke" to={link.homeFull}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.homeFull}> Supprimer</Link>
                 </div>
             </div>
             <div className="flex vertical gap- align-center">
@@ -37,7 +39,7 @@ export function Sells() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flex center gap-">
-                    <Link className="style-link stroke" to="/">Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to="/"> Supprimer</Link>
+                    <Link className="style-link stroke" to={link.homeFull}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.homeFull}> Supprimer</Link>
                 </div>
             </div>
             <div className="flex vertical align-center">
@@ -47,16 +49,16 @@ export function Sells() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flex center gap-">
-                    <Link className="style-link stroke" to="/">Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to="/"> Supprimer</Link>
+                    <Link className="style-link stroke" to={link.homeFull}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.homeFull}> Supprimer</Link>
                 </div>
 
             </div>
         </div>
         <div className="flex center margin-top">
-            <Link className="style-link-2" to="/"><h2 className="title border stroke background-button">Mes ventes</h2></Link>
+            <Link className="style-link-2" to={link.homeFull}><h2 className="title border stroke background-button">Mes ventes</h2></Link>
         </div>
         <div className="flex center margin-top">
-            <Link className="style-link-2" to="/"><img className="align-center icon-plus" src='./img/bouton play.png' alt='Bouton lancement de vidéo explicative sur les ventes sur Eko' /></Link>
+            <Link className="style-link-2" to={link.homeFull}><img className="align-center icon-plus" src='./img/bouton play.png' alt='Bouton lancement de vidéo explicative sur les ventes sur Eko' /></Link>
         </div>
     </div>
 }

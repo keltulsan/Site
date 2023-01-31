@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Collapse from '@mui/material/Collapse';
+import { links } from '../App';
 
 const getAllLabels = async () => {
     const response = await fetch(
@@ -17,6 +18,8 @@ const getAllLabels = async () => {
 }
 
 export function Header() {
+    const link = links();
+
     const [ menu, setMenu ] = useState(false);
     const [ isHover, setIsHover ] = useState(false);
     const [ isHover2, setIsHover2 ] = useState(false);
@@ -56,21 +59,21 @@ export function Header() {
         setIsHover2(dimensions.width > 750 ? false : isHover2)
     }}>
         <div className='flex space-between'>
-            <Link to='/'><img className='logo' src='./img/logo.png' alt='Logo de Eko'/></Link>
+            <Link to={link.homeFull}><img className='logo' src='./img/logo.png' alt='Logo de Eko'/></Link>
             {dimensions.width > 750 && <div className='flex align-center'>
-                <Link to='/categories' onMouseEnter={() => {
+                <Link to={link.catégories} onMouseEnter={() => {
                     setIsHover(true)
                     setIsHover2(false)
                 }}><p>Catégories</p></Link>
-                <Link to='/my-sellings'><p>Mes ventes</p></Link>
-                <Link to='/actus'><p>Actus</p></Link>
-                {/* <Link to='/login'><p>Login</p></Link> */}
-                <Link to='/account' onMouseEnter={() => {
+                <Link to={link.sells}><p>Mes ventes</p></Link>
+                <Link to={link.actus}><p>Actus</p></Link>
+                {/* <Link to={link.login}><p>Login</p></Link> */}
+                <Link to={link.account} onMouseEnter={() => {
                     setIsHover(false)
                     setIsHover2(true)
                 }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link>
-                <Link to='/bag'><img src='./img/shopping-bag.png' alt='Logo du panier de Eko'/></Link>
-                <Link to='/research'><img src='./img/search.png' alt='Logo de recherche de Eko'/></Link>
+                <Link to={link.bag}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko'/></Link>
+                <Link to='#research'><img src='./img/search.png' alt='Logo de recherche de Eko'/></Link>
             </div>}
             {dimensions.width <= 750 && 
                 <span className="glyphicon glyphicon-list align-center" onClick={() => setMenu(!menu)}></span>
@@ -82,25 +85,25 @@ export function Header() {
                     setIsHover(!isHover)
                     setIsHover2(false)
                 }}><p>Catégories</p></Link>
-                <Link to='/my-sellings'><p>Mes ventes</p></Link>
-                <Link to='/actus'><p>Actus</p></Link>
-                {/* <Link to='/login'><p>Login</p></Link> */}
+                <Link to={link.sells}><p>Mes ventes</p></Link>
+                <Link to={link.actus}><p>Actus</p></Link>
+                {/* <Link to={link.login}><p>Login</p></Link> */}
                 <div className='flex center'>
                     <Link to='#' onClick={() => {
                     setIsHover(false)
                     setIsHover2(!isHover2)
                 }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link>
-                    <Link to='/bag'><img src='./img/shopping-bag.png' alt='Logo du panier de Eko'/></Link>
-                    <Link to='/research'><img src='./img/search.png' alt='Logo de recherche de Eko'/></Link>
+                    <Link to={link.bag}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko'/></Link>
+                    <Link to='#research'><img src='./img/search.png' alt='Logo de recherche de Eko'/></Link>
                 </div>
         </div></Collapse>}
         <Collapse in={isHover && (menu || dimensions.width > 750)}><ul className={dimensions.width > 750 ? 'grid little' : 'little'}>
             {labs}
         </ul></Collapse>
         <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='little'>
-            <Link to='/account-user'><p>Mon compte</p></Link>
-            <Link to='/historique'><p>Historique</p></Link>
-            <Link to='/eko-save'><p>EKO Save</p></Link>
+            <Link to={link.userPage}><p>Mon compte</p></Link>
+            <Link to={link.history}><p>Historique</p></Link>
+            <Link to={link.ekoSave}><p>EKO Save</p></Link>
             </div></Collapse>
     </div>
 }
