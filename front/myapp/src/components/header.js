@@ -104,13 +104,15 @@ export function Header(props) {
         <Collapse in={isHover && (menu || dimensions.width > 750)}><ul className={dimensions.width > 750 ? 'grid little' : 'little'}>
             {labs}
         </ul></Collapse>
-        {ReactSession.get("username")&&<Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='little'>
+        {ReactSession.get("username")&&<Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='flex center little'>
+            <div className='align-center'>
             <Link to={link.userPage}><p>Mon compte</p></Link>
             <Link to={link.history}><p>Historique</p></Link>
             <Link to={link.ekoSave}><p>EKO Save</p></Link>
             {ReactSession.get("username") && 
                 <Link to="#" onClick={()=>{ReactSession.remove('username');props.setShow(true)}}><p>Se déconnecter</p></Link>
             }     
+            </div>
             </div></Collapse>}
     </div>
 }
