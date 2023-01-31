@@ -75,13 +75,14 @@ export function links() {
 
 export function App(props) {
   ReactSession.setStoreType("cookie");
-  const [show,setShow] = useState(false);
+  const [show, setShow] = useState(false);
   const link = links()
 
-  return <><Background />
+  return <>
+    {/* <Background /> */}
     <Router>
-    <Header setShow={setShow} />
-      <Toast_ show = {show} setShow={setShow}/>
+      <Header setShow={setShow} />
+      <Toast_ show={show} setShow={setShow} />
       <div className="root flex space-between vertical">
         <div></div>
 
@@ -142,7 +143,7 @@ export function App(props) {
           <Route exact path={link.err404} component={Error404} />
 
         </Switch>
-              <Robot />
+        <Robot />
         <div></div>
       </div>
       <Footer />
