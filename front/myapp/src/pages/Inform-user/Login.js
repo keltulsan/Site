@@ -5,11 +5,12 @@ import { useForm } from "react-hook-form";
 import { Login } from "../../api/Login";
 import { ReactSession } from 'react-client-session';
 import md5 from "md5";
+
 export default function LoginPage(){
     const link = links();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmitLogin = async (data) => {
-        const userList = await Login(data);
+        const userList = await Login();
         const password = await userList.filter(userList=>userList.password.match(md5(data["password"])))
         if(userList.filter(user=>user.mail.match(data["mail"])).length>0 & password.length>0){
             userList.filter(user=>user.mail.match(data["mail"])).map((user,key) =>{
