@@ -36,12 +36,20 @@ import { ArticleClotheSell } from './pages/Article/Article-clothe-sell';
 import { ArticleSell } from './pages/Article/Article-sell';
 import { FAQ } from './pages/Us/Faq';
 
+export function links() {
+  return {
+    home: '/',
+    ekoSave: '/eko-save'
+  }
+}
 
-export default function App(props) {
+export function App(props) {
+
   return <><Background />
     <Router>
       <Header />
       <div className="root flex space-between vertical">
+        <div></div>
         
         <Switch>
 
@@ -101,6 +109,7 @@ export default function App(props) {
 
         </Switch>
         <Robot />
+        <div></div>
       </div>
       <Footer />
     </Router>
