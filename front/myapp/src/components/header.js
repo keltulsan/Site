@@ -54,7 +54,11 @@ export function Header(props) {
             ))
         }
     },[labels, dimensions.width]);
-    if(localStorage == null){ReactSession.set("username", "")};
+    try {
+        ReactSession.get("username")
+    } catch (error) {
+        ReactSession.set("username", "")
+    }
     return <div className='navbar' onMouseLeave={() => {
         setIsHover(dimensions.width > 750 ? false : isHover)
         setIsHover2(dimensions.width > 750 ? false : isHover2)
