@@ -602,104 +602,108 @@
         }
 
         // Input //
+        
+        input[type="text"],
+        input[type="text"]:focus-visible,
+        input[type="text"]:focus,
+        input[type="text"]:active,
+        input[type="password"],
+        input[type="password"]:focus-visible,
+        input[type="password"]:focus,
+        input[type="password"]:active,
+        textarea,
+        textarea:focus-visible,
+        textarea:focus,
+        textarea:active {
+            font-family: $textFont;
+            color: $primaryColor5;
+            min-width: 200px;
+            width: fit-content;
+            height: fit-content;
+            outline: none;
+            border: none;
+            font-size: 12px;
+
+            &.background {
+                background-color: $secondaryColor3;
+            }
+
+            &.my-account {
+                padding: 10px 5px;
+                min-width: unset;
+                width: 100vw;
+
+                &- {
+                    padding: 10px 5px;
+                    min-width: unset;
+                    width: 48.75vw;
+                }
+            }
+
+            @media (min-width: 750px) {
+                &.my-account {
+                    width: 30vw;
+
+                    &- {
+                        width: 13.75vw;
+                    }
+                }
+            }
+
+            &::placeholder {
+                color: $secondaryColor5;
+            }
+
+            &:-webkit-autofill {
+                -webkit-box-shadow: 0 0 0 30px $secondaryColor3 inset !important;
+            }
+        }
+
+        input[type="submit"] {
+            font-family: $textFont;
+            background-color: $buttonsColor;
+            color: $primaryColor5;
+            outline: none;
+            border: none;
+            font-size: 20px;
+            padding: 10px 25px;
+            border-radius: 10px;
+        }
+
+        input[type="checkbox"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            background-color: transparent;
+            border: 2px solid $primaryColor5 !important;
+            cursor: pointer;
+
+            &:checked:after {
+                position: relative;
+                top: -20px;
+                font-family: $textFont;
+                content: "\2713";
+                display: inline-block;
+                color: $primaryColor5;
+                font-weight: bolder;
+                font-size: 30px;
+            }
+        }
+
+        input:focus {
+            outline: none;
+            outline-offset: 0px;
+        }
+
+        // Root //
+
         .root {
             width: 100vw;
             min-height: 100vh;
             gap: 50px;
             margin-top: 95px;
 
-            input[type="text"],
-            input[type="text"]:focus-visible,
-            input[type="text"]:focus,
-            input[type="text"]:active,
-            input[type="password"],
-            input[type="password"]:focus-visible,
-            input[type="password"]:focus,
-            input[type="password"]:active,
-            textarea,
-            textarea:focus-visible,
-            textarea:focus,
-            textarea:active {
-                font-family: $textFont;
-                color: $primaryColor5;
-                min-width: 200px;
-                width: fit-content;
-                height: fit-content;
-                outline: none;
-                border: none;
-                font-size: 12px;
-
-                &.background {
-                    background-color: $secondaryColor3;
-                }
-
-                &.my-account {
-                    padding: 10px 5px;
-                    min-width: unset;
-                    width: 100vw;
-
-                    &- {
-                        padding: 10px 5px;
-                        min-width: unset;
-                        width: 48.75vw;
-                    }
-                }
-
-                @media (min-width: 750px) {
-                    &.my-account {
-                        width: 30vw;
-
-                        &- {
-                            width: 13.75vw;
-                        }
-                    }
-                }
-
-                &::placeholder {
-                    color: $secondaryColor5;
-                }
-
-                &:-webkit-autofill {
-                    -webkit-box-shadow: 0 0 0 30px $secondaryColor3 inset !important;
-                }
-            }
-
-            input[type="submit"] {
-                font-family: $textFont;
-                background-color: $buttonsColor;
-                color: $primaryColor5;
-                outline: none;
-                border: none;
-                font-size: 20px;
-                padding: 10px 25px;
-                border-radius: 10px;
-            }
-
-            input[type="checkbox"] {
-                appearance: none;
-                width: 20px;
-                height: 20px;
-                border-radius: 5px;
-                background-color: transparent;
-                border: 2px solid $primaryColor5 !important;
-                cursor: pointer;
-
-                &:checked:after {
-                    position: relative;
-                    top: -20px;
-                    font-family: $textFont;
-                    content: "\2713";
-                    display: inline-block;
-                    color: $primaryColor5;
-                    font-weight: bolder;
-                    font-size: 30px;
-                }
-
-                &:focus {
-                    outline: none;
-                    outline-offset: 0px;
-                }
-            }
 
             // err0r 404 //
 
