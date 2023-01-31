@@ -78,7 +78,7 @@ export function App(props) {
   const [show,setShow] = useState(false);
   const link = links()
 
-  return <>{/*<Background />*/}
+  return <><Background />
     <Router>
     <Header setShow={setShow} />
       <Toast_ show = {show} setShow={setShow}/>
