@@ -46,7 +46,7 @@ export function Header(props) {
     useEffect(() => {
         if (labels.length > 0) {
             setLabs(labels.map(val => 
-                <li key={val["label_name"]}><Link to={"/"+val["label_name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}><p>{val["label_name"]}</p></Link></li>
+                <li className="flex center" key={val["label_name"]}><Link to={"/"+val["label_name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}><p>{val["label_name"]}</p></Link></li>
             ))
         }
     },[labels, dimensions.width]);
@@ -83,7 +83,6 @@ export function Header(props) {
                 }}><p>Catégories</p></Link>
                 <Link to='/my-sellings'><p>Mes ventes</p></Link>
                 <Link to='/actus'><p>Actus</p></Link>
-                {/* <Link to='/login'><p>Login</p></Link> */}
                 <div className='flex center'>
                     <Link to='#' onClick={() => {
                     setIsHover(false)
@@ -96,9 +95,8 @@ export function Header(props) {
         <Collapse in={isHover && (menu || dimensions.width > 750)}><ul className={dimensions.width > 750 ? 'grid little' : 'little'}>
             {labs}
         </ul></Collapse>
-         {ReactSession.get("username")&&(
-            <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='little'>
-            <Link to='/account'><p>Mon compte</p></Link>
+        <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='little'>
+            <Link to='/account-user'><p>Mon compte</p></Link>
             <Link to='/historique'><p>Historique</p></Link>
             <Link to='/eko-save'><p>EKO Save</p></Link>
             {ReactSession.get("username") && 
