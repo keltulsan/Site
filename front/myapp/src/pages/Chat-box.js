@@ -34,7 +34,7 @@ export default function Chatbox() {
         </div>
 
         <div className="gap margin-top flex">
-            <div onClick={() => isClick == 1 ? setIsClick(0) : setIsClick(1)} className="box background-color-2-4 flex align-center vertical">
+            <div onClick={() => isClick == 1 ? "" : setIsClick(1)} className="box background-color-2-4 flex align-center vertical">
                 <h2 className='title'>Comment devenir vendeur ?</h2>
                 <Collapse isOpened={isClick == 1}>
                     <div><p className={"text " + (dimensions.width <= 750 ? " padding-top-" : "")}>
@@ -48,46 +48,47 @@ export default function Chatbox() {
             </div>
         </div>
         <div className="gap margin-top flex">
-            <div onClick={() => isClick == 2 ? setIsClick(0) : setIsClick(2)} className="box background-color-2-4 flex align-center vertical">
+            <div onClick={() => isClick == 2 ? "" : setIsClick(2)} className="box background-color-2-4 flex align-center vertical">
                 <h2 className='title'>En quoi notre site est il écologique ?</h2>
                 <Collapse isOpened={isClick == 2}>
                     <div><p className={"text " + (dimensions.width <= 750 ? " padding-top-" : "")}>
-                        Notre site est écologique car nous avons pour objectif que notre site se répande à l'internationale. Et grâce à notre méthode de vente innovante qui ne vous proposes que les offres les plus proches de chez vous. Ce qui permettra de réduire les trajets réguliers pour faire tous vos achat. Et aussi car notre site marche pas.
+                        Notre site est écologique car nous avons pour objectif que notre site se répande à l'internationale. Et grâce à notre méthode de vente innovante qui ne vous proposes que les offres les plus proches de chez vous. Ce qui permettra de réduire les trajets réguliers pour faire tous vos achat.
                     </p>
-                        <div className='flex right-f'>
-                            <Link className="style-link" to={links.home}><p>Feur</p></Link>
-                        </div>
                     </div>
                 </Collapse>
             </div>
         </div>
         <div className="gap margin-top flex">
-            <div onClick={() => isClick == 3 ? setIsClick(0) : setIsClick(3)} className="box background-color-2-4 flex align-center vertical">
-                <h2 className='title'>Pourquoi votre site marche pas ?</h2>
+            <div onClick={() => isClick == 3 ? "" : setIsClick(3)} className="box background-color-2-4 flex align-center vertical">
+                <h2 className='title'>En cas de problème sur le site ?</h2>
                 <Collapse isOpened={isClick == 3}>
                     <div><p className={"text " + (dimensions.width <= 750 ? " padding-top-" : "")}>
                         Avez vous essayez de le redemarrer ?
                     </p>
                         <div className='flex center space-evenly'>
-                            <Link onClick={() => option == 1 ? setOption(0) : setOption(1)} className="style-link" to={links.home} >Oui </Link><p className="text"> / </p><Link onClick={() => option == 2 ? setOption(0) : setOption(2)} className="style-link" to={links.home}> Non </Link>
+                            <Link onClick={() => option == 1 ? "" : setOption(1)} className="style-link" to="" >Oui </Link><p className="text"> / </p><Link onClick={() => option == 2 ? "" : setOption(2)} className="style-link" to=""> Non </Link>
                         </div>
-                        {option == 1 ?
-                            <Collapse isOpened={isClick == 3}>
-                                <div><p className={"text " + (dimensions.width <= 750 ? " padding-top-" : "")}>
-                                    Dommage réessayez encore, cela peut peut être fonctionner. Si vous voulez de plus amples informations n'hésitez pas à nous contacter par mail.
-                                </p>
-                                    <div className='flex right-f'>
-                                        <Link className="style-link" to={links.contact}><p>Mail</p></Link>
+                        {option == 1 || option == 2 ?
+                            option == 1 ?
+                                <Collapse isOpened={isClick == 3}>
+                                    <div><p className={"text " + (dimensions.width <= 750 ? " padding-top-" : "")}>
+                                        Dommage réessayez encore, cela peut peut être fonctionner. Si vous voulez de plus amples informations n'hésitez pas à nous contacter par mail.
+                                    </p>
+                                        <div className='flex right-f'>
+                                            <Link className="style-link" to={links.contact}><p>Mail</p></Link>
+                                        </div>
                                     </div>
-                                </div>
-                            </Collapse>
+                                </Collapse>
+                                : ""
                             :
-                            <Collapse isOpened={isClick == 3}>
-                                <div><p className={"text " + (dimensions.width <= 750 ? " padding-top-" : "")}>
-                                    Dans ce cas n'hésitez pas à le faire pour pouvoir faire vos recherches sur nos site écologique
-                                </p>
-                                </div>
-                            </Collapse>
+                            option == 2 ?
+                                <Collapse isOpened={isClick == 3}>
+                                    <div><p className={"text " + (dimensions.width <= 750 ? " padding-top-" : "")}>
+                                        Dans ce cas n'hésitez pas à le faire pour pouvoir faire vos recherches sur Eko
+                                    </p>
+                                    </div>
+                                </Collapse>
+                                : ""
                         }
                     </div>
                 </Collapse>
