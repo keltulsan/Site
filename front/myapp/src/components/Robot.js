@@ -4,9 +4,9 @@ import { links } from "../App";
 
 export function Robot() {
     const link = links();
-    return<div className="container flex max-height fixed right z-index-">
-    <div className="flex align-bot">
+    return<div className=" fixed container flex right-f">
+  
         <Link to={link.homeFull}><img className="robot" src="./img/bot.png" alt="Image du chatbot sur Eko"/></Link>
-    </div>
+
     </div>
 }

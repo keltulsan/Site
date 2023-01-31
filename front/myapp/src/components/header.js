@@ -14,6 +14,12 @@ const getAllLabels = async () => {
             'Content-Type': 'application/json'
         }
     }
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }
     )
     const labels = await response.json()
     return labels
@@ -33,9 +39,15 @@ export function Header(props) {
         height: window.innerHeight,
         width: window.innerWidth
     })
+    })
     React.useEffect(() => {
         function handleResize() {
             setDimensions({
+                height: window.innerHeight,
+                width: window.innerWidth
+            })
+        }
+
                 height: window.innerHeight,
                 width: window.innerWidth
             })
@@ -50,12 +62,18 @@ export function Header(props) {
             .then(result => setLabels(result))
             .catch(error => console.error('Erreur avec notre API :', error.message));
     }, []);
+            .then(result => setLabels(result))
+            .catch(error => console.error('Erreur avec notre API :', error.message));
+    }, []);
     useEffect(() => {
         if (labels.length > 0) {
             setLabs(labels.map(val =>
                 <li className="flex center" key={val["label_name"]}><Link to={"/" + val["label_name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}><p>{val["label_name"]}</p></Link></li>
+            setLabs(labels.map(val =>
+                <li className="flex center" key={val["label_name"]}><Link to={"/" + val["label_name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}><p>{val["label_name"]}</p></Link></li>
             ))
         }
+    }, [labels, dimensions.width]);
     }, [labels, dimensions.width]);
     try {
         ReactSession.get("username")
@@ -66,8 +84,10 @@ export function Header(props) {
         setIsHover(dimensions.width > 750 ? false : isHover)
         setIsHover2(dimensions.width > 750 ? false : isHover2)
         setIsHover3(dimensions.width > 750 ? false : isHover3)
+        setIsHover3(dimensions.width > 750 ? false : isHover3)
     }}>
         <div className='flex space-between'>
+            <Link to={link.homeFull}><img className='logo' src='./img/logo.png' alt='Logo de Eko' /></Link>
             <Link to={link.homeFull}><img className='logo' src='./img/logo.png' alt='Logo de Eko' /></Link>
             {dimensions.width > 750 && <div className='flex align-center'>
 
@@ -101,10 +121,20 @@ export function Header(props) {
 
             </div>}
             {dimensions.width <= 750 &&
+            {dimensions.width <= 750 &&
                 <span className="glyphicon glyphicon-list align-center" onClick={() => setMenu(!menu)}></span>
             }
         </div>
         {dimensions.width <= 750 && <Collapse in={menu}><div className='mobile-menu'>
+            <Link to='#' onClick={() => {
+                setIsHover(!isHover)
+                setIsHover2(false)
+                setIsHover2(false)
+            }}><p>Catégories</p></Link>
+            <Link to={link.sells}><p>Mes ventes</p></Link>
+            <Link to={link.actus}><p>Actus</p></Link>
+            <div className='flex center'>
+                <Link to='#' onClick={() => {
             <Link to='#' onClick={() => {
                 setIsHover(!isHover)
                 setIsHover2(false)
@@ -130,7 +160,14 @@ export function Header(props) {
             {labs}
         </ul></Collapse>
         {ReactSession.get("username") && <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='flex center little'>
+        {ReactSession.get("username") && <Collapse in={isHover2 && (menu || dimensions.width > 750)}><div className='flex center little'>
             <div className='align-center'>
+                <Link to={link.userPage}><p>Mon compte</p></Link>
+                <Link to={link.history}><p>Historique</p></Link>
+                <Link to={link.ekoSave}><p>EKO Save</p></Link>
+                {ReactSession.get("username") &&
+                    <Link to="#" onClick={() => { ReactSession.remove('username'); props.setShow(true) }}><p>Se déconnecter</p></Link>
+                }
                 <Link to={link.userPage}><p>Mon compte</p></Link>
                 <Link to={link.history}><p>Historique</p></Link>
                 <Link to={link.ekoSave}><p>EKO Save</p></Link>

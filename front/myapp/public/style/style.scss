@@ -291,6 +291,12 @@
         }
     }
 
+    // Position //
+
+    .sticky{
+        position:sticky !important;
+    }
+
     // Image-size //
 
     .default-size {
@@ -356,7 +362,7 @@
     }
 
     .max-height {
-        height: 85vh;
+        height: -1vh;
     }
 
     // Image-rotate //

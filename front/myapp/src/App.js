@@ -142,7 +142,7 @@ export function App(props) {
           <Route exact path={link.err404} component={Error404} />
 
         </Switch>
-        <Robot />
+              <Robot />
         <div></div>
       </div>
       <Footer />
