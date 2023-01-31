@@ -19,7 +19,6 @@ const getAllLabels = async () => {
 }
 
 export function Header(props) {
-    const [show1,setShow1] = useState(false);
     const link = links();
 
     const [ menu, setMenu ] = useState(false);

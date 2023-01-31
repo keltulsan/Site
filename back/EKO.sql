@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 27 Janvier 2023 à 13:41
+-- Généré le :  Mar 31 Janvier 2023 à 09:16
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 -- Base de données :  `eko`
 --
 CREATE DATABASE IF NOT EXISTS `eko` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `gweni2046036`;
+USE `eko`;
 
 -- --------------------------------------------------------
 
@@ -191,27 +191,40 @@ CREATE TABLE `product_label` (
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
   `img` varchar(1000) NOT NULL DEFAULT 'icons-user.jpg',
   `nickname` varchar(100) NOT NULL,
   `mail` varchar(100) NOT NULL,
-  `phone_number` varchar(100) NOT NULL,
-  `adress` varchar(100) NOT NULL,
+  `phone_number` varchar(100) DEFAULT NULL,
+  `adress` varchar(100) DEFAULT NULL,
   `apartment` varchar(100) DEFAULT NULL,
-  `code_postal` varchar(10) NOT NULL,
-  `city` varchar(100) NOT NULL,
+  `code_postal` varchar(10) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
   `password` varchar(100) NOT NULL,
   `banking_informations` varchar(200) DEFAULT NULL,
   `acceptance_of_the_gtcu` tinyint(1) NOT NULL DEFAULT '0',
   `stay_connect` tinyint(1) NOT NULL DEFAULT '0',
   `newsletter` tinyint(1) NOT NULL DEFAULT '0',
-  `eko_experience` float NOT NULL,
-  `badges` varchar(100) NOT NULL,
+  `eko_experience` float DEFAULT NULL,
+  `badges` varchar(100) DEFAULT NULL,
   `admin` tinyint(1) NOT NULL DEFAULT '0',
   `seller` tinyint(1) NOT NULL DEFAULT '0',
   `eko_save` tinyint(1) NOT NULL DEFAULT '0',
-  `envy_id` int(11) DEFAULT NULL
+  `envy_id` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `img`, `nickname`, `mail`, `phone_number`, `adress`, `apartment`, `code_postal`, `city`, `password`, `banking_informations`, `acceptance_of_the_gtcu`, `stay_connect`, `newsletter`, `eko_experience`, `badges`, `admin`, `seller`, `eko_save`, `envy_id`) VALUES
+(1, NULL, 'icons-user.jpg', 'b', 'a', NULL, NULL, NULL, NULL, NULL, 'cc', NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL),
+(2, NULL, 'icons-user.jpg', 'b', 'a', NULL, NULL, NULL, NULL, NULL, 'e0323a9039add2978bf5b49550572c7c', NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL),
+(3, NULL, 'icons-user.jpg', 'bb', 'aa', NULL, NULL, NULL, NULL, NULL, 'e0323a9039add2978bf5b49550572c7c', NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL),
+(4, NULL, 'icons-user.jpg', 'it\'s a me', 'monmail', NULL, NULL, NULL, NULL, NULL, 'mdp', NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, 1),
+(5, NULL, 'icons-user.jpg', 'ewen', 'mail', NULL, NULL, NULL, NULL, NULL, '8f8ad28dd6debff410e630ae13436709', NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, 0),
+(6, NULL, 'icons-user.jpg', 'ewen1', 'mail', NULL, NULL, NULL, NULL, NULL, '8f8ad28dd6debff410e630ae13436709', NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, 0),
+(7, NULL, 'icons-user.jpg', 'admin', 'admin', NULL, NULL, NULL, NULL, NULL, '21232f297a57a5a743894a0e4a801fc3', NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, 0);
 
 --
 -- Index pour les tables exportées
@@ -289,7 +302,7 @@ ALTER TABLE `product_label`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `envy_id` (`envy_id`);
+  ADD KEY `envy_id` (`envy_id`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -339,7 +352,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
