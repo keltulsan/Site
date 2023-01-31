@@ -41,20 +41,14 @@ export function EnterprisePage() {
                 <h2 className='title top left align-center'>Information</h2>
                 <div className="flex gap-vw align-center">
                     <input type="hidden" {...register("id")} value={ReactSession.get("id")}/>
-                    <input className='background my-account-' {...register("business_name")} placeholder="Nom-Prénom" type="text" id="Nom-prenom" defaultValue={info[0]["business_name"]} />
+                    <input className='background my-account-' {...register("name")} placeholder="Nom-Prénom" type="text" id="Nom-prenom" defaultValue={info[0]["name"]} />
                     <input className='background my-account-' {...register("activity")} placeholder="Nom d'utilisateur" type="text" id="nickname" defaultValue={info?info[0]["activity"]:""} />
                 </div>
                 <div className="flex gap-vw align-center">
                     <input className='background my-account' {...register("business_email")} placeholder="Adresse E-mail" type="text" id="email" defaultValue={info[0]["business_email"]} />
                 </div>
-                <input className='background my-account align-center' {...register("country")} placeholder="Pays" type="text" id="country" defaultValue={info[0]["country"]} />
                 <input className='background my-account align-center' {...register("business_name")} placeholder="Entreprise" type="text" id="business" />
                 <input className='background my-account align-center' {...register("business_adress")} placeholder="Adresse" type="text" id="adress" defaultValue={info[0]["business_adress"]} />
-                <input className='background my-account align-center' {...register("apartement")} placeholder="Appartement (falcultatif)" type="text" id="apartment" defaultValue={info[0]["apartement"]} />
-                <div className="flex gap-vw align-center">
-                    <input className='background my-account-' {...register("code_postal")} placeholder="Code postal" type="text" id="code-postal" defaultValue={info[0]["code_postal"]} />
-                    <input className='background my-account-' {...register("city")} placeholder="Ville" type="text" id="city" defaultValue={info[0]["city"]}/>
-                </div>
                 <input className='background my-account align-center' {...register("business_phone")} placeholder="Téléphone" type="text" id="phone-number" defaultValue={info[0]["business_phone"]} />
 
                 <div>

@@ -1,6 +1,6 @@
 import Toast from 'react-bootstrap/Toast';
 export function Toast_(props){
-    const all_things=[]
+    const all_things=["Déconnexion effectué avec succès","Merci d'accepter les CGU"]
 return <Toast onClose={() => props.setShow(false)} show={props.show} delay={4000} autohide bg={'primary'}>
         <Toast.Header>
                     <img
@@ -10,6 +10,6 @@ return <Toast onClose={() => props.setShow(false)} show={props.show} delay={4000
                     />
                     <strong className="me-auto">Alerte</strong>
                 </Toast.Header>
-                <Toast.Body>Déconnexion effectuée avec succès</Toast.Body>
+                <Toast.Body>{all_things[props.alerts]}</Toast.Body>
     </Toast>
 }

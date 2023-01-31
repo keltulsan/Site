@@ -5,15 +5,19 @@ import { useForm } from "react-hook-form";
 import { Sign_up } from "../../components/login_signup/SignUp";
 import md5 from "md5";
 
-export default function SignUp() {
+export default function SignUp(props) {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmitNewUser = async (data) => {
         if(data["password"] == data["confirmpassword"]){
             data["password"] = await md5(data["password"]);
+            if(data["cgu"] == false){
+                props.setAlert(1)
+            }else{
             console.log(data)
             data["envy_id"]=0
             Sign_up(data)
-            window.location.replace('/login');
+            // window.location.replace('/login');
+        }
         }
     };    const link = links();
 
@@ -82,7 +86,7 @@ export default function SignUp() {
                     <Link className="stroke" to={link.login}>Se connecter</Link>
                 </div>
                 <div className='align-top flex center all gap-'>
-                <input type="checkbox" className="align-center" defaultChecked={true} />
+                <input {...register("cgu")} type="checkbox" className="align-center" defaultChecked={true} />
                 <p className="text align-center stroke">Accepter les <Link to={link.cgu} target="_blank" >CGU</Link></p>
             </div>
                 <div className='align-top flex center all gap-'>

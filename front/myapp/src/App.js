@@ -78,13 +78,14 @@ export function links() {
 export function App(props) {
   ReactSession.setStoreType("cookie");
   const [show, setShow] = useState(false);
+  const [alerts, setAlerts] = useState();
   const link = links()
 
   return <>
     {/* <Background /> */}
     <Router>
-      <Header setShow={setShow} />
-      <Toast_ show={show} setShow={setShow} />
+      <Header setShow={setShow} setAlerts={setAlerts} />
+      <Toast_ show={show} setShow={setShow} alerts={alerts}/>
       <div className="root flex space-between vertical">
         <div></div>
 
