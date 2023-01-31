@@ -1,8 +1,19 @@
 import React, { Component, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
+import { Update_ } from "../../components/update_acc/Update";
 import { ReactSession } from 'react-client-session';
-export function UserPage() {
+import { Login } from "../../api/Login";
 
+export function UserPage() {
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const test = async ()=>{
+        const userList = await Login();
+        setInfo(await userList.filter(user=>user.id===ReactSession.get("id")));
+    }
+    const [info,setInfo] = useState();
+    const onSubmitUpdateUser = async (data) => {
+        Update_(data)
+        window.location.replace('/');}
     const [dimensions, setDimensions] = React.useState({
         height: window.innerHeight,
         width: window.innerWidth
@@ -14,12 +25,14 @@ export function UserPage() {
                 width: window.innerWidth
             })
         }
-
         window.addEventListener('resize', handleResize)
-    })
-
-    return <div className="flex vertical">
-        <form className="align-center flex vertical center ">
+    });
+    useEffect(() => {
+        test()
+        console.log(info)
+    }, []);
+    return info?<div className="flex vertical"> {console.log(info)}
+        <form onSubmit={handleSubmit(onSubmitUpdateUser)} className="align-center flex vertical center" >
             <h1 className="title">Mon Compte</h1>
             <div className="flex vertical gap center">
                 <div className="profils-account flex vertical center">
@@ -27,30 +40,26 @@ export function UserPage() {
                 </div>
                 <h2 className='title top left align-center'>Information</h2>
                 <div className="flex gap-vw align-center">
-                    <input className='background my-account-' placeholder="Prénom" type="text" id="prenom" />
-                    <input className='background my-account-' placeholder="Nom" type="text" id="nom" />
+                    <input type="hidden" {...register("id")} value={ReactSession.get("id")}/>
+                    <input className='background my-account-' {...register("name")} placeholder="Nom-Prénom" type="text" id="Nom-prenom" defaultValue={info[0]["name"]} />
+                    <input className='background my-account-' {...register("nickname")} placeholder="Nom d'utilisateur" type="text" id="nickname" defaultValue={info?info[0]["nickname"]:""} />
                 </div>
                 <div className="flex gap-vw align-center">
-                    <input className='background my-account' placeholder="Adresse E-mail" type="text" id="email" />
+                    <input className='background my-account' {...register("mail")} placeholder="Adresse E-mail" type="text" id="email" defaultValue={info[0]["mail"]} />
                 </div>
-                <h2 className='title left align-center'>Adresse de livraison</h2>
-                <input className='background my-account align-center' placeholder="Pays" type="text" id="pays" />
-                <input className='background my-account align-center' placeholder="Entreprise (falcultatif)" type="text" id="business" />
-                <input className='background my-account align-center' placeholder="Adresse" type="text" id="adress" />
-                <input className='background my-account align-center' placeholder="Appartement (falcultatif)" type="text" id="apartment" />
+                <input className='background my-account align-center' {...register("country")} placeholder="Pays" type="text" id="country" defaultValue={info[0]["country"]} />
+                <input className='background my-account align-center' {...register("business_name")} placeholder="Entreprise" type="text" id="business" />
+                <input className='background my-account align-center' {...register("adress")} placeholder="Adresse" type="text" id="adress" defaultValue={info[0]["adress"]} />
+                <input className='background my-account align-center' {...register("apartement")} placeholder="Appartement (falcultatif)" type="text" id="apartment" defaultValue={info[0]["apartement"]} />
                 <div className="flex gap-vw align-center">
-                    <input className='background my-account-' placeholder="Code postal" type="text" id="code-postal" />
-                    <input className='background my-account-' placeholder="Ville" type="text" id="city" />
+                    <input className='background my-account-' {...register("code_postal")} placeholder="Code postal" type="text" id="code-postal" defaultValue={info[0]["code_postal"]} />
+                    <input className='background my-account-' {...register("city")} placeholder="Ville" type="text" id="city" defaultValue={info[0]["city"]}/>
                 </div>
-                <input className='background my-account align-center' placeholder="Téléphone" type="text" id="phone-number" />
+                <input className='background my-account align-center' {...register("phone_number")} placeholder="Téléphone" type="text" id="phone-number" defaultValue={info[0]["phone_number"]} />
 
-                <div className='align-top flex gap- align-center'>
-                    <input type="checkbox" className="align-center" defaultChecked={true} />
-                    <p className="text align-center">Sauvegarder mes coordonnées pour la prochaine fois</p>
-                </div>
                 <div>
-                    <input type="submit" value="Poursuivre vers l'achat" />
+                    <input type="submit" value="Enregistrer mes changements" />
                 </div>
             </div>
-        </form></div>
+        </form></div>:<div><p>oops</p></div>
 }

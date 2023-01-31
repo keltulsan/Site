@@ -5,15 +5,21 @@ import { useForm } from "react-hook-form";
 import { Login } from "../../api/Login";
 import { ReactSession } from 'react-client-session';
 import md5 from "md5";
+
 export default function LoginPage(){
     const link = links();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmitLogin = async (data) => {
-        const userList = await Login(data);
-        const password = await md5(userList.filter(userList=>userList.password.match(data["password"])))
-        if(userList.filter(userList=>userList.mail.match(data["mail"])).length>0 & password.length>0){
-            ReactSession.set("username", userList[0]["nickname"]);
-            window.location.replace('/');};}
+        const userList = await Login();
+        const password = await userList.filter(userList=>userList.password.match(md5(data["password"])))
+        if(userList.filter(user=>user.mail.match(data["mail"])).length>0 & password.length>0){
+            userList.filter(user=>user.mail.match(data["mail"])).map((user,key) =>{
+                if(user.mail == data["mail"] & user.password == md5(data["password"])){
+                    ReactSession.set("username",user.nickname);
+                    ReactSession.set("id",user.id);
+                }
+            window.location.replace('/');
+        })}}
     const [dimensions, setDimensions] = React.useState({ 
         height: window.innerHeight,
         width: window.innerWidth
