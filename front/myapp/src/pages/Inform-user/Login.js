@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import React, { Component, useEffect, useState } from 'react';
+import { links } from "../../App";
 import { useForm } from "react-hook-form";
 import { Login } from "../../api/Login";
 import { ReactSession } from 'react-client-session';
 import md5 from "md5";
 export default function LoginPage(){
+    const link = links();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmitLogin = async (data) => {
         const userList = await Login(data);
@@ -42,7 +44,7 @@ export default function LoginPage(){
                 </div>
             </div>
             <div className="flex center gap min-create-account">
-                <Link to="/signup">Créer un compte</Link>
+                <Link to={link.signup}>Créer un compte</Link>
             </div>
             <div className="center">
                 <input type="submit" value="Se connecter"/>
@@ -66,7 +68,7 @@ export default function LoginPage(){
                 </div>
             </div>
             <div className="flex center gap create-account">
-                <Link to="/signup">Créer un compte</Link>
+                <Link to={link.signup}>Créer un compte</Link>
             </div>
             <div className="center">
                 <input type="submit" value="Se connecter"/>

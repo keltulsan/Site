@@ -41,76 +41,105 @@ import { useState } from 'react';
 
 export function links() {
   return {
+    homeFull: '/home',
     home: '/',
-    ekoSave: '/eko-save'
+    ekoSave: '/eko-save',
+    chatBot: '/chat-bot',
+    login: '/login',
+    signup: '/signup',
+    userPage: '/account-user',
+    contactDetails: '/account',
+    bag: '/bag',
+    history: '/history',
+    articles: '/articles',
+    clotheSell: '/clothe-sell',
+    itemSell: '/item-sell',
+    likes: '/likes-list',
+    catégories: '/categories',
+    paymentComplete: '/payed',
+    payChoice: '/payment-choice',
+    stocks: '/stocks',
+    sells: '/sells',
+    cgu: '/general-conditions-of-use',
+    cgv: '/general-conditions-of-sell',
+    cgr: '/general-conditions-of-retractation',
+    ml: '/legal-metions',
+    aboutUs: '/about-us',
+    thxEmail: '/thanks-for-email',
+    contact: '/contact',
+    faq: '/faq',
+    actus: '/actus',
+    err404: '*'
   }
 }
 
 export function App(props) {
   ReactSession.setStoreType("cookie");
   const [show,setShow] = useState(false);
+  const link = links()
+
   return <>{/*<Background />*/}
     <Router>
     <Header setShow={setShow} />
       <Toast_ show = {show} setShow={setShow}/>
       <div className="root flex space-between vertical">
         <div></div>
-        
+
         <Switch>
 
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/" component={Home} />
+          <Route exact path={link.homeFull} component={Home} />
+          <Route exact path={link.home} component={Home} />
 
-          <Route exact path="/eko-save" component={EkoSave} />
+          <Route exact path={link.ekoSave} component={EkoSave} />
 
-          <Route exact path="/chat-bot" component={ChatBox} />
-          
+          <Route exact path={link.chatBot} component={ChatBox} />
+
 
           {/* Inform user */}
 
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/signup" component={SignUpPage} />
-          <Route exact path="/account-user" component={UserPage} />
-          <Route exact path="/account" component={ContactDetails} />
-          <Route exact path="/bag" component={Bag} />
-          <Route exact path="/history" component={History} />
+          <Route exact path={link.login} component={LoginPage} />
+          <Route exact path={link.signup} component={SignUpPage} />
+          <Route exact path={link.userPage} component={UserPage} />
+          <Route exact path={link.contactDetails} component={ContactDetails} />
+          <Route exact path={link.bag} component={Bag} />
+          <Route exact path={link.history} component={History} />
 
           {/* Article */}
 
-          <Route exact path="/articles" component={Articles} />
-          <Route exact path="/article-clothe-sell" component={ArticleClotheSell} />
-          <Route exact path="/article-sell" component={ArticleSell} />
-          <Route exact path="/envy-list" component={EnvyList} />
+          <Route exact path={link.articles} component={Articles} />
+          <Route exact path={link.clotheSell} component={ArticleClotheSell} />
+          <Route exact path={link.itemSell} component={ArticleSell} />
+          <Route exact path={link.likes} component={EnvyList} />
 
           {/* Payment */}
 
-          <Route exact path="/payed-complete" component={PayComplete} />
-          <Route exact path="/pay-choice" component={PayChoice} />
+          <Route exact path={link.paymentComplete} component={PayComplete} />
+          <Route exact path={link.payChoice} component={PayChoice} />
 
           {/* Admin */}
 
-          <Route exact path="/stocks" component={Stocks} />
-          <Route exact path="/sells" component={Sells} />
+          <Route exact path={link.stocks} component={Stocks} />
+          <Route exact path={link.sells} component={Sells} />
 
 
           {/* Condition générale */}
 
-          <Route exact path="/cgu" component={CGU} />
-          <Route exact path="/cgv" component={CGV} />
-          <Route exact path="/cgr" component={CGR} />
-          <Route exact path="/ml" component={ML} />
+          <Route exact path={link.cgu} component={CGU} />
+          <Route exact path={link.cgv} component={CGV} />
+          <Route exact path={link.cgr} component={CGR} />
+          <Route exact path={link.ml} component={ML} />
 
           {/* Us */}
 
-          <Route exact path="/about-us" component={AboutUs} />
-          <Route exact path="/thx-email" component={ThxEmail} />
-          <Route exact path="/contact" component={ContactUs} />
-          <Route exact path="/faq" component={FAQ} />
-          <Route exact path="/actus" component={Actus} />
+          <Route exact path={link.aboutUs} component={AboutUs} />
+          <Route exact path={link.thxEmail} component={ThxEmail} />
+          <Route exact path={link.contact} component={ContactUs} />
+          <Route exact path={link.faq} component={FAQ} />
+          <Route exact path={link.actus} component={Actus} />
 
           {/* Error */}
 
-          <Route exact path="*" component={Error404} />
+          <Route exact path={link.err404} component={Error404} />
 
         </Switch>
         <Robot />

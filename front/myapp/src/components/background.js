@@ -14,7 +14,7 @@ export default function Background() {
       return () => window.removeEventListener('scroll', onScroll);
     }, [scrollValue]);
 
-    const [mousePos, setMousePos] = useState({});
+    const [mousePos, setMousePos] = useState({x:0, y:0});
 
     useEffect(() => {
         const handleMouseMove = (event) => {
