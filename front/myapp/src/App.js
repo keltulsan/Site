@@ -9,8 +9,8 @@ import { Header } from './components/header';
 import { Footer } from './components/footer';
 import Home from "./pages/Home";
 import Error404 from "./pages/Error/404";
-import SignUp from "./pages/Inform-user/SignUp";
-import Login from "./pages/Inform-user/Login";
+import SignUpPage from "./pages/Inform-user/SignUp";
+import LoginPage from "./pages/Inform-user/Login";
 import { CGU } from "./pages/Condition-generale/CGU";
 import { CGV } from "./pages/Condition-generale/CGV";
 import { CGR } from "./pages/Condition-generale/CGR";
@@ -35,6 +35,9 @@ import Background from './components/background';
 import { ArticleClotheSell } from './pages/Article/Article-clothe-sell';
 import { ArticleSell } from './pages/Article/Article-sell';
 import { FAQ } from './pages/Us/Faq';
+import { ReactSession } from 'react-client-session';
+import { Toast_ } from './components/toast/toast';
+import { useState } from 'react';
 
 export function links() {
   return {
@@ -44,10 +47,12 @@ export function links() {
 }
 
 export function App(props) {
-
+  ReactSession.setStoreType("cookie");
+  const [show,setShow] = useState(false);
   return <><Background />
     <Router>
-      <Header />
+    <Header setShow={setShow} />
+      <Toast_ show = {show} setShow={setShow}/>
       <div className="root flex space-between vertical">
         <div></div>
         
@@ -63,8 +68,8 @@ export function App(props) {
 
           {/* Inform user */}
 
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/signup" component={SignUpPage} />
           <Route exact path="/account-user" component={UserPage} />
           <Route exact path="/account" component={ContactDetails} />
           <Route exact path="/bag" component={Bag} />

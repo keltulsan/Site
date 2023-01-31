@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Collapse from '@mui/material/Collapse';
-
+import { ReactSession } from 'react-client-session';
 const getAllLabels = async () => {
     const response = await fetch(
         'http://localhost:4444/labels/list', {
@@ -16,13 +16,13 @@ const getAllLabels = async () => {
     return labels
 }
 
-export function Header() {
+export function Header(props) {
+    const [show1,setShow1] = useState(false);
     const [ menu, setMenu ] = useState(false);
     const [ isHover, setIsHover ] = useState(false);
     const [ isHover2, setIsHover2 ] = useState(false);
     const [ labs, setLabs ] = useState([]);
     const [ labels, setLabels ] = useState([]);
-
     const [dimensions, setDimensions] = React.useState({ 
         height: window.innerHeight,
         width: window.innerWidth
@@ -50,7 +50,7 @@ export function Header() {
             ))
         }
     },[labels, dimensions.width]);
-
+    if(localStorage == null){ReactSession.set("username", "")};
     return <div className='navbar' onMouseLeave={() => {
         setIsHover(dimensions.width > 750 ? false : isHover)
         setIsHover2(dimensions.width > 750 ? false : isHover2)
@@ -64,11 +64,11 @@ export function Header() {
                 }}><p>Catégories</p></Link>
                 <Link to='/my-sellings'><p>Mes ventes</p></Link>
                 <Link to='/actus'><p>Actus</p></Link>
-                {/* <Link to='/login'><p>Login</p></Link> */}
-                <Link to='/account' onMouseEnter={() => {
+                {!ReactSession.get("username")&&<Link to='/login'><p>Login</p></Link>}
+                {ReactSession.get("username")&&<Link to='/account' onMouseEnter={() => {
                     setIsHover(false)
                     setIsHover2(true)
-                }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link>
+                }}><img src='./img/avatar.png' alt='ton avatar sur Eko'/></Link>}
                 <Link to='/bag'><img src='./img/shopping-bag.png' alt='Logo du panier de Eko'/></Link>
                 <Link to='/research'><img src='./img/search.png' alt='Logo de recherche de Eko'/></Link>
             </div>}
@@ -76,7 +76,6 @@ export function Header() {
                 <span className="glyphicon glyphicon-list align-center" onClick={() => setMenu(!menu)}></span>
             }
         </div>
-
         {dimensions.width <= 750 && <Collapse in={menu}><div className='mobile-menu'>
                 <Link to='#' onClick={() => {
                     setIsHover(!isHover)
@@ -84,7 +83,6 @@ export function Header() {
                 }}><p>Catégories</p></Link>
                 <Link to='/my-sellings'><p>Mes ventes</p></Link>
                 <Link to='/actus'><p>Actus</p></Link>
-                {/* <Link to='/login'><p>Login</p></Link> */}
                 <div className='flex center'>
                     <Link to='#' onClick={() => {
                     setIsHover(false)
@@ -101,6 +99,10 @@ export function Header() {
             <Link to='/account-user'><p>Mon compte</p></Link>
             <Link to='/historique'><p>Historique</p></Link>
             <Link to='/eko-save'><p>EKO Save</p></Link>
+            {ReactSession.get("username") && 
+                <Link to="#" onClick={()=>{ReactSession.remove('username');props.setShow(true)}}>Se déconnecter</Link>
+            }     
             </div></Collapse>
+        )}
     </div>
 }
