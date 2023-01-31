@@ -9,7 +9,7 @@ function AboutUs(props) {
                     <div className="center top" >
                         <h1 className="title stroke"> A propos de Eko.</h1>
                     </div>
-                    <p className="margin-top- text"> D. </p>
+                    <p className="margin-top- text box background-color-2-4 flex align-center"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
                 </div>
             </div>
         </div>
