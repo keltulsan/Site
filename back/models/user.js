@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     name: {
       type: DataTypes.STRING(100),
-      allowNull: false
+      allowNull: true
     },
     img: {
       type: DataTypes.STRING(1000),
@@ -26,11 +26,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     phone_number: {
       type: DataTypes.STRING(100),
-      allowNull: false
+      allowNull: true
     },
     adress: {
       type: DataTypes.STRING(100),
-      allowNull: false
+      allowNull: true
     },
     apartment: {
       type: DataTypes.STRING(100),
@@ -39,11 +39,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     code_postal: {
       type: DataTypes.STRING(10),
-      allowNull: false
+      allowNull: true
     },
     city: {
       type: DataTypes.STRING(100),
-      allowNull: false
+      allowNull: true
     },
     password: {
       type: DataTypes.STRING(100),
@@ -70,11 +70,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     eko_experience: {
       type: DataTypes.FLOAT,
-      allowNull: false
+      allowNull: true
     },
     badges: {
       type: DataTypes.STRING(100),
-      allowNull: false
+      allowNull: true
     },
     admin: {
       type: DataTypes.BOOLEAN,
