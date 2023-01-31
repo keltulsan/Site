@@ -551,6 +551,7 @@
             width: 100vw;
             min-height: 100vh;
             gap: 50px;
+            margin-top: 95px;
 
             input[type="text"],
             input[type="text"]:focus-visible,
@@ -727,7 +728,7 @@
 
             div.navbar {
                 display: block;
-                position: sticky !important;
+                position: fixed !important;
                 top: 0px;
                 border-radius: 0px 0px 0px 0px;
 
