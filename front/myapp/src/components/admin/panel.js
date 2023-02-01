@@ -19,5 +19,8 @@ export function PanelAdmin(props){
           <p variant="primary" onClick={()=>{props.handleCloseModal();props.handleShowModalBusiness();InputComponent.click()}}>
             Business list
             </p>
+            <p variant="primary" onClick={()=>{props.handleCloseModal();props.handleShowModalFaq();InputComponent.click()}}>
+            FAQ list
+            </p>
       </Modal>
 }
