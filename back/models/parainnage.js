@@ -9,8 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     parain_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      unique: "parain_id"
+      allowNull: false
     },
     parainated_id: {
       type: DataTypes.INTEGER,
@@ -26,14 +25,6 @@ module.exports = function(sequelize, DataTypes) {
     tableName: 'parainnage',
     timestamps: false,
     indexes: [
-      {
-        name: "PRIMARY",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "id" },
-        ]
-      },
       {
         name: "parain_id",
         unique: true,

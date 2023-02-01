@@ -9,12 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     name: {
       type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    img: {
-      type: DataTypes.STRING(1000),
-      allowNull: false,
-      defaultValue: "icons-user.jpg"
+      allowNull: false
     },
     nickname: {
       type: DataTypes.STRING(100),
@@ -26,23 +21,24 @@ module.exports = function(sequelize, DataTypes) {
     },
     phone_number: {
       type: DataTypes.STRING(100),
-      allowNull: true
+      allowNull: false
     },
     adress: {
       type: DataTypes.STRING(100),
-      allowNull: true
+      allowNull: false
     },
     apartment: {
       type: DataTypes.STRING(100),
-      allowNull: true
+      allowNull: true, 
+      defaultValue: null
     },
     code_postal: {
       type: DataTypes.STRING(10),
-      allowNull: true
+      allowNull: false
     },
     city: {
       type: DataTypes.STRING(100),
-      allowNull: true
+      allowNull: false
     },
     password: {
       type: DataTypes.STRING(100),
@@ -69,11 +65,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     eko_experience: {
       type: DataTypes.FLOAT,
-      allowNull: true
+      allowNull: false
     },
     badges: {
       type: DataTypes.STRING(100),
-      allowNull: true
+      allowNull: false
     },
     admin: {
       type: DataTypes.BOOLEAN,
@@ -85,15 +81,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: 0
     },
-    eko_save: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: 0
-    },
     envy_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      defaultValue: 0
+      defaultValue: "icons-user.jpg",
+      unique: "envy_id"
     }
   }, {
     sequelize,
@@ -110,6 +102,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       {
         name: "envy_id",
+        unique: true,
         using: "BTREE",
         fields: [
           { name: "envy_id" },
