@@ -22,5 +22,8 @@ export function PanelAdmin(props){
             <p variant="primary" onClick={()=>{props.handleCloseModal();props.handleShowModalFaq();InputComponent.click()}}>
             FAQ list
             </p>
+            <p variant="primary" onClick={()=>{props.handleCloseModal();props.handleShowModalCondition();InputComponent.click()}}>
+            Condition list
+            </p>
       </Modal>
 }
