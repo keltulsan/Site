@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 01 Février 2023 à 10:42
+-- Généré le :  Mer 01 Février 2023 à 11:23
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -237,12 +237,33 @@ CREATE TABLE `product` (
   `img` varchar(1000) NOT NULL,
   `link_name` varchar(100) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `price` float NOT NULL,
+  `price` int(11) NOT NULL,
   `seller_name` varchar(100) NOT NULL,
-  `eko_score` float NOT NULL,
+  `eko_score` int(11) NOT NULL,
   `desc` text,
   `label_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `img`, `link_name`, `quantity`, `price`, `seller_name`, `eko_score`, `desc`, `label_name`) VALUES
+(3, 'Petite cuillère', 'https://th.bing.com/th/id/OIP.C_Tr3nS7Qbw06XfW26xfEQHaFO?w=279&h=197&c=7&r=0&o=5&pid=1.7', 'petite-cuillère', 14, 5, 'Eko', 1, NULL, 'les-meilleurs-produits'),
+(8, 'Pied de biche', 'https://th.bing.com/th/id/OIP.g4spheUMT2y8V23UMGMIHwHaHa?w=183&h=183&c=7&r=0&o=5&pid=1.7', 'pied-de-biche', 2, 100, 'Eko', -100, NULL, 'les-nouveautes'),
+(9, 'Pc Gaming', 'https://media.materiel.net/r550/products/MN0005865298_1_0005888236_0005932147.jpg', 'pc-gaming', 1, 199, 'Eko', 999, NULL, 'les-offres'),
+(10, 'Tshirt Ecologie ', 'https://image.spreadshirtmedia.net/image-server/v1/products/T812A2PA5886PT17X34Y57D178226855W27788H27788/views/1,width=378,height=378,appearanceId=2,backgroundColor=F2F2F2/ecolo-a-velo-cadeau-humour-ecologie.jpg', 'tshirt-ecologie', 20, 20, 'Eko', 10, NULL, 'mode-et-beauté'),
+(11, 'Souris', 'https://m.media-amazon.com/images/I/61Y6W7BNhkL._AC_SX679_.jpg', 'souris', 100, 15, 'Eko', 3, NULL, 'informatique'),
+(12, 'Pot de peinture noir', 'https://th.bing.com/th?id=OPE.v10qqdKTqTSfNA300C300&w=592&h=550&pid=21.1', 'pot-de-peinture-noir', 3, 75, 'Eko', 0, NULL, 'maison-et-bricolage'),
+(13, 'Grille pain', 'https://th.bing.com/th?id=OPE.0rFk3GKf%2fQwCMg300C300&w=200&h=150&c=17&pid=21.1', 'grille-pain', 666, 15, 'Eko', 9, NULL, 'electromenager'),
+(14, 'Tchoupi à l\'école', 'https://th.bing.com/th/id/OIP.8eu-raBh9OzemC9Q0dOXIwHaHt?pid=ImgDet&rs=1', 'tchoupi-à-l\'ecole', 3, 9, 'Eko', 15, NULL, 'livres-et-multimedia'),
+(15, 'Peluche de martine', 'https://i.pinimg.com/474x/bb/58/b8/bb58b8d4cf1b6c859e83ad8e0c4b3125.jpg', 'peluche-de-martine', 50, 199, 'Eko', 2, NULL, 'enfant'),
+(16, 'Ballon de foot', 'https://www.casalsport.com/fstrz/r/s/www.casalsport.com/img/W/CAS/ST/FB/31/09/FB3109/FB3109_ST.jpg?frz-v=74', 'ballon-de-foot', 9, 100, 'Eko', 12, NULL, 'sport'),
+(17, 'BMV', 'https://th.bing.com/th/id/R.a82823e630302aecaf68b676ddde7e77?rik=TLr1q6h0FyO9uA&pid=ImgRaw&r=0', 'bmv', 1, 3, 'Eko', 8, NULL, 'auto-moto'),
+(18, 'Taille mine', 'https://m.media-amazon.com/images/I/51x3L4cIwML._AC_SX679_.jpg', 'taille-mine', 14, 35, 'Eko', -10, NULL, 'fournitures-de-bureau'),
+(19, 'Graine de paquerette', 'https://th.bing.com/th/id/OIP.eQxTYqUc1b5S_hCB52iTEwHaHa?w=166&h=180&c=7&r=0&o=5&pid=1.7', 'graine-de-paquerette', 100, 2, 'Eko', 101, NULL, 'jardin-et-animalerie'),
+(20, 'Arbre', 'https://actys-coaching.fr/wp-content/uploads/2016/12/Fotolia_139830511_M.jpg', 'arbre', 25000, 1, 'Eko', 9999, NULL, 'abonnement-eko-save'),
+(21, 'V-tech', 'https://th.bing.com/th/id/OIP.OsoVLQX09HnTrpN44VWZGAHaHa?pid=ImgDet&rs=1', 'v-tech', 489, 10, 'Eko', -2, NULL, 'produits-recommandes-pour-vous');
 
 -- --------------------------------------------------------
 
@@ -361,7 +382,9 @@ ALTER TABLE `parainnage`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `labbel_name` (`label_name`);
+  ADD UNIQUE KEY `labbel_name` (`label_name`),
+  ADD KEY `label_name` (`label_name`),
+  ADD KEY `label_name_2` (`label_name`);
 
 --
 -- Index pour la table `product_label`
@@ -425,7 +448,7 @@ ALTER TABLE `parainnage`
 -- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
