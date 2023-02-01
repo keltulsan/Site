@@ -1,10 +1,10 @@
-import AboutUs from './pages/Us/AboutUs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import AboutUs from './pages/Us/AboutUs';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import Home from "./pages/Home";
@@ -38,6 +38,7 @@ import { FAQ } from './pages/Us/Faq';
 import { ReactSession } from 'react-client-session';
 import { Toast_ } from './components/toast/toast';
 import { useState } from 'react';
+import { Cookies } from './components/cookies';
 
 export function links() {
   return {
@@ -80,6 +81,7 @@ export function App(props) {
 
   return <>
     {/* <Background /> */}
+    <Cookies />
     <Router>
       <Header setShow={setShow} />
       <Toast_ show={show} setShow={setShow} />
