@@ -191,6 +191,7 @@
 
     .min-create-account,
     .min-connection {
+
         a,
         a:visited {
             color: $primaryColor4;
@@ -282,7 +283,7 @@
     .margin {
         &-top {
             margin-top: 80px;
- 
+
             &- {
                 margin-top: 60px;
             }
@@ -292,7 +293,7 @@
             }
 
             &--- {
-                margin-top: 10px;
+                margin-top: 10px !important;
             }
         }
 
@@ -417,6 +418,16 @@
         padding-top: 10%;
     }
 
+    // Modal //
+
+    .img-modal {
+        width: 150px !important;
+    }
+
+    .img-modal- {
+        width: 200px !important;
+    }
+
     // z-index //
 
     .z-index- {
@@ -437,6 +448,79 @@
 
     .radius-top {
         border-radius: 10px 10px 0px 0px;
+    }
+
+    // Flex //
+
+    .flex2 {
+        display: flex;
+
+        &.space-evenly {
+            justify-content: space-evenly;
+        }
+
+        &.space-around {
+            justify-content: space-around;
+        }
+
+        &.space-between {
+            justify-content: space-between;
+        }
+
+        &.center {
+            justify-content: center;
+        }
+
+        &.left-f {
+            justify-content: left;
+        }
+
+        &.right-f {
+            justify-content: right;
+        }
+
+        &.gap {
+            gap: 20px !important;
+        }
+
+        &.gap- {
+            gap: 7px;
+        }
+
+        &.gap-plus {
+            gap: 200px;
+        }
+
+        &.gap-vw {
+            gap: 2.5vw;
+        }
+
+        &.gap-moy {
+            gap: 100px;
+        }
+
+        &.vertical {
+            flex-direction: column;
+        }
+
+        &.lign {
+            flex-direction: row;
+        }
+
+        .align-top {
+            align-self: baseline;
+            margin: 0px;
+        }
+
+        .align-center {
+            align-self: center;
+            margin: 0px;
+        }
+
+        .align-bot {
+            align-self: end;
+            margin: 0px;
+        }
     }
 
     // Title-text //
@@ -515,79 +599,6 @@
         .left {
             text-align: left;
             margin-left: 15px;
-        }
-
-        // Flex //
-
-        .flex {
-            display: flex;
-
-            &.space-evenly {
-                justify-content: space-evenly;
-            }
-
-            &.space-around {
-                justify-content: space-around;
-            }
-
-            &.space-between {
-                justify-content: space-between;
-            }
-
-            &.center {
-                justify-content: center;
-            }
-
-            &.left-f {
-                justify-content: left;
-            }
-
-            &.right-f {
-                justify-content: right;
-            }
-
-            &.gap {
-                gap: 20px !important;
-            }
-
-            &.gap- {
-                gap: 7px;
-            }
-
-            &.gap-plus {
-                gap: 200px;
-            }
-
-            &.gap-vw {
-                gap: 2.5vw;
-            }
-
-            &.gap-moy {
-                gap: 100px;
-            }
-
-            &.vertical {
-                flex-direction: column;
-            }
-
-            &.lign {
-                flex-direction: row;
-            }
-
-            .align-top {
-                align-self: baseline;
-                margin: 0px;
-            }
-
-            .align-center {
-                align-self: center;
-                margin: 0px;
-            }
-
-            .align-bot {
-                align-self: end;
-                margin: 0px;
-            }
         }
 
         // Dropdown-menu //
@@ -669,7 +680,8 @@
             }
         }
 
-        input[type="submit"], button.button {
+        input[type="submit"],
+        button.button {
             font-family: $textFont;
             background-color: $buttonsColor;
             color: $primaryColor5;
@@ -681,12 +693,15 @@
 
             &.accept-color {
                 background-color: $primaryColor1;
+
                 &:hover {
                     color: $primaryColor4;
                 }
             }
+
             &.refuse-color {
                 background-color: $primaryColor2;
+
                 &:hover {
                     color: $primaryColor4;
                 }
@@ -764,6 +779,79 @@
             }
         }
 
+         // Flex //
+
+    .flex {
+        display: flex;
+
+        &.space-evenly {
+            justify-content: space-evenly;
+        }
+
+        &.space-around {
+            justify-content: space-around;
+        }
+
+        &.space-between {
+            justify-content: space-between;
+        }
+
+        &.center {
+            justify-content: center;
+        }
+
+        &.left-f {
+            justify-content: left;
+        }
+
+        &.right-f {
+            justify-content: right;
+        }
+
+        &.gap {
+            gap: 20px !important;
+        }
+
+        &.gap- {
+            gap: 7px;
+        }
+
+        &.gap-plus {
+            gap: 200px;
+        }
+
+        &.gap-vw {
+            gap: 2.5vw;
+        }
+
+        &.gap-moy {
+            gap: 100px;
+        }
+
+        &.vertical {
+            flex-direction: column;
+        }
+
+        &.lign {
+            flex-direction: row;
+        }
+
+        .align-top {
+            align-self: baseline;
+            margin: 0px;
+        }
+
+        .align-center {
+            align-self: center;
+            margin: 0px;
+        }
+
+        .align-bot {
+            align-self: end;
+            margin: 0px;
+        }
+    }
+
         // Collapse //
 
         .MuiCollapse-vertical,
@@ -774,6 +862,7 @@
                 display: none;
             }
         }
+
 
         // Navbar-Footer//
 

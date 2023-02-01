@@ -24,25 +24,27 @@ export function EnterprisePage(props) {
     });     
     return props.info?<div className="flex vertical">
         <form onSubmit={handleSubmit(onSubmitUpdateUser)} className="align-center flex vertical center" >
-            <h1 className="title">Mon Entreprise</h1>
+            <h1 className="title flex center margin-top--">Mon Entreprise</h1>
             <div className="flex vertical gap center">
-                <div className="profils-account flex vertical center">
-                    <img className={"align-center"+(dimensions.width <= 750 ? " min-account-img " : " account-img")} src='./img/avatar.png' alt='ton avatar sur Eko' />
+                <div className='flex2 center vertical'>
+                <div className="profils-account align-center ">
+                    <img className={"img-modal "+(dimensions.width <= 750 ? " img-modal- " : "")} src='./img/avatar.png' alt='ton avatar sur Eko' />
                 </div>
                 <h2 className='title top left align-center'>Information</h2>
                 <div className="flex gap-vw align-center">
                     <input type="hidden" {...register("id")} value={props.info.id}/>
-                    <input className='background my-account-' {...register("name")} placeholder="Nom" type="text" id="Nom-prenom" defaultValue={props.info.name} />
-                    <input className='background my-account-' {...register("activity")} placeholder="Activité" type="text" id="nickname" defaultValue={props.info.activity} />
+                    <input className='background my-account- margin-top---' {...register("name")} placeholder="Nom" type="text" id="Nom-prenom" defaultValue={props.info.name} />
+                    <input className='background my-account- margin-top---' {...register("activity")} placeholder="Activité" type="text" id="nickname" defaultValue={props.info.activity} />
                 </div>
                 <div className="flex gap-vw align-center">
-                    <input className='background my-account' {...register("business_email")} placeholder="Adresse E-mail" type="text" id="email" defaultValue={props.info.business_email} />
+                    <input className='background my-account margin-top---' {...register("business_email")} placeholder="Adresse E-mail" type="text" id="email" defaultValue={props.info.business_email} />
                 </div>
-                <input className='background my-account align-center' {...register("business_adress")} placeholder="Adresse" type="text" id="adress" defaultValue={props.info.business_adress} />
-                <input className='background my-account align-center' {...register("business_phone")} placeholder="Téléphone" type="text" id="phone-number" defaultValue={props.info.business_phone} />
+                <input className='background my-account align-center margin-top---' {...register("business_adress")} placeholder="Adresse" type="text" id="adress" defaultValue={props.info.business_adress} />
+                <input className='background my-account align-center margin-top---' {...register("business_phone")} placeholder="Téléphone" type="text" id="phone-number" defaultValue={props.info.business_phone} />
 
-                <div>
+                <div className='flex2 center margin-top--'>
                     <input type="submit" value="Enregistrer mes changements" />
+                </div>
                 </div>
             </div>
         </form></div>:<div><p>oops</p></div>
