@@ -6,7 +6,7 @@ import { Login_ } from "../../components/login_signup/LogiN";
 import { ReactSession } from 'react-client-session';
 import md5 from "md5";
 
-export default function LoginPage(){
+export default function LoginPage(props){
     const link = links();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmitLogin = async (data) => {
@@ -18,10 +18,13 @@ export default function LoginPage(){
                     ReactSession.set("username",user.nickname);
                     ReactSession.set("id",user.id);
                     ReactSession.set("seller",user.seller)
+                    window.location.replace('/');
+        }})}else{
+                    props.setAlerts(2)
+                    props.setShow(1)
+                    props.setColors(1)
                 }
-            console.log(data)
-            window.location.replace('/');
-        })}}
+        }
     const [dimensions, setDimensions] = React.useState({ 
         height: window.innerHeight,
         width: window.innerWidth

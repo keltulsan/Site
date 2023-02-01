@@ -3,21 +3,48 @@ import React, { Component, useEffect, useState } from 'react';
 import { links } from "../../App";
 import { useForm } from "react-hook-form";
 import { Sign_up } from "../../components/login_signup/SignUp";
+import { Login_ } from "../../components/login_signup/LogiN";
 import md5 from "md5";
 
 export default function SignUp(props) {
+    var regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmitNewUser = async (data) => {
-        if(data["password"] == data["confirmpassword"]){
-            data["password"] = await md5(data["password"]);
-            if(data["cgu"] == false){
-                props.setAlert(1)
+        const userList = await Login_();
+        console.log(userList.filter(user=>user.mail.match(data["mail"])))
+        if(userList.filter(user=>user.mail.match(data["mail"])).length == 0){
+            if(userList.filter(user=>user.nickname.match("")).length > 0){
+                if(regularExpression.test(data["password"])){
+                if(data["password"] == data["confirmpassword"] & data["password"].length>0){
+                    data["password"] = await md5(data["password"]);
+                    if(data["cgu"] == false){
+                        props.setAlerts(2)
+                        props.setShow(1)
+                        props.setColors(1)
+                    }else{
+                    console.log(data)
+                    data["envy_id"]=0
+                    Sign_up(data)
+                    // window.location.replace('/login');
+                }}else{
+                    props.setAlerts(5)
+                    props.setShow(1)
+                    props.setColors(1)
+                }
             }else{
-            console.log(data)
-            data["envy_id"]=0
-            Sign_up(data)
-            // window.location.replace('/login');
-        }
+                props.setAlerts(7)
+                props.setShow(1)
+                props.setColors(1)
+            }
+        }else{
+                    props.setAlerts(4)
+                    props.setShow(1)
+                    props.setColors(1)
+                }
+        }else{
+            props.setAlerts(6)
+            props.setShow(1)
+            props.setColors(1)
         }
     };    const link = links();
 
