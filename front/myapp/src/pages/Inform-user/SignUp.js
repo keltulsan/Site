@@ -25,7 +25,7 @@ export default function SignUp(props) {
                     console.log(data)
                     data["envy_id"]=0
                     Sign_up(data)
-                    // window.location.replace('/login');
+                    window.location.replace('/login');
                 }}else{
                     props.setAlerts(5)
                     props.setShow(1)

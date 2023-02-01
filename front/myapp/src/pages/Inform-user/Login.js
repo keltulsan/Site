@@ -17,13 +17,16 @@ export default function LoginPage(props){
                 if(user.mail == data["mail"] & user.password == md5(data["password"])){
                     ReactSession.set("username",user.nickname);
                     ReactSession.set("id",user.id);
-                    ReactSession.set("seller",user.seller)
-                    ReactSession.set("admin",user.admin)
+                    ReactSession.set("seller",user.seller);
+                    ReactSession.set("admin",user.admin);
+                    props.setAlerts(8)
+                    props.setShow(1)
+                    props.setColors(0)
                     window.location.replace('/');
         }})}else{
                     props.setAlerts(2)
                     props.setShow(1)
-                    props.setColors(1)
+                    props.setColors(0)
                 }
         }
     const [dimensions, setDimensions] = React.useState({ 
