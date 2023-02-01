@@ -4,13 +4,13 @@ export default function Background() {
     const [scrollValue, setScrollValue] = useState(0);
     const [mousePos, setMousePos] = useState({x:0, y:0});
     useEffect(() => {
-
+  
       const onScroll = (e) => {
         setScrollValue(e.target.documentElement.scrollTop);
       };
-
+  
       window.addEventListener('scroll', onScroll);
-
+  
       return () => window.removeEventListener('scroll', onScroll);
     }, []);
     useEffect(() => {
@@ -72,8 +72,8 @@ export default function Background() {
                                 zIndex: -999,
                                 rotation: val.rot + 'deg',
                                 width: val.size.toString() + 'px',
-                                top: (val.pos_x + (val.size/2 * -(mousePos.y +1) + val.size/2 * -(scrollValue75 +1)) / 5000).toString() + 'px',
-                                left: (val.pos_y + (val.size -(mousePos.x +1)) / 5000).toString() + 'px'
+                                top: (val.pos_x + (val.size/2 * -(mousePos.y +1) + val.size/2 * -(scrollValue*75 +1)) / 5000).toString() + 'px',
+                                left: (val.pos_y + (val.size * -(mousePos.x +1)) / 5000).toString() + 'px'
                             }}
                             alt="Une des images du background d'Eko"
                         />
