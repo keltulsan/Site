@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     name: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(1000),
       allowNull: false
     },
     link_name: {
@@ -16,12 +16,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     desc: {
-      type: DataTypes.STRING(1000),
-      allowNull: true
+      type: DataTypes.TEXT(1000),
+      allowNull: true,
+      defaultValue: null
     }
+    
   }, {
     sequelize,
-    tableName: 'condition',
+    tableName: 'action',
     timestamps: false,
     indexes: [
       {

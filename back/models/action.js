@@ -17,8 +17,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     img: {
       type: DataTypes.STRING(1000),
-      allowNull: true
+      allowNull: true,
+      defaultValue: null
     }
+    
   }, {
     sequelize,
     tableName: 'action',
