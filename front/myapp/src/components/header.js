@@ -90,18 +90,34 @@ export function Header(props) {
         if (val = "") {
             setSearch(false)
         }
-        try{clearTimeout(timer)}
-        catch(err){}
+        try { clearTimeout(timer) }
+        catch (err) { }
         setTimer(setTimeout((res) => {
+            var val = ReactSession.get("searchbar")
             if (val != "") {
                 setSearch(true)
-                setProductsMap(product.map(() => {
-                    
-                }))
+                setProductsMap(<div>{product.map((val2) => {
+                    var verif = false
+                    for (const key in val2) {
+                        try {
+                            verif = verif || val2[key].toString().toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "").includes(val.toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, ""))
+                        } catch (err) { }
+                    };
+                    if (verif) {
+                        return <div className='flex vertical'>
+                            <div className='logo-categories align-center'>
+                                <img className='logoCategorie' src={val2.img} />
+                                <div className='fadedbox'>
+                                    <p className='titre text'>{val2.name}</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                })}</div>)
             } else {
                 setSearch(false)
             }
-        }, 3000))
+        }, 500))
     }
 
     return <div className='navbar' onMouseLeave={() => {
@@ -135,7 +151,7 @@ export function Header(props) {
                         } catch (err) {
                             return ""
                         }
-                }} />
+                    }} />
                 </Collapse>
                 <Link to='#' onMouseEnter={() => {
                     setIsHover(false)

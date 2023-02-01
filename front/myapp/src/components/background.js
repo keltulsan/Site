@@ -49,12 +49,6 @@ export default function Background() {
     useEffect(() => {
         var newImgs = imgs
 
-        // if (newImgs.length > 0) {
-        //     newImgs.forEach(element => {
-
-        //     });
-        // });
-
         if (imgs.length < Math.floor(dimensions.width * dimensions.height / 50000)) {
             for (let i = imgs.length; i < Math.floor(dimensions.width * dimensions.height / 50000); i++) {
                 var newImg = {
