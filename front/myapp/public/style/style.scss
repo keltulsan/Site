@@ -310,10 +310,11 @@
         min-width: 100px;
         min-height: 100px;
 
-        .full-width {
+        &.full-width {
             width: 100% !important;
         }
     }
+
 
     .chat-size{
         width: 300px;
