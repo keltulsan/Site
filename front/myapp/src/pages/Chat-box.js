@@ -42,7 +42,7 @@ export default function Chatbox() {
                         Pour ce faire il vous sera nécessaire de nous envoyez un mail dans la page ci-jointe en y inscrivant dans la zone demande : Devenir un vendeur.
                     </p>
                         <div className='flex right-f'>
-                            <Link className="style-link" to={link.thxEmail}><p>Mail</p></Link>
+                            <Link className="style-link" to={link.contact}><p>Mail</p></Link>
                         </div>
                     </div>
                 </Collapse>
@@ -76,7 +76,7 @@ export default function Chatbox() {
                                         Dommage réessayez encore, cela peut peut être fonctionner. Si vous voulez de plus amples informations n'hésitez pas à nous contacter par mail.
                                     </p>
                                         <div className='flex right-f'>
-                                            <Link className="style-link" to={link.thxEmail}><p>Mail</p></Link>
+                                            <Link className="style-link" to={link.contact}><p>Mail</p></Link>
                                         </div>
                                     </div>
                                 </Collapse>

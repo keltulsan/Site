@@ -1,10 +1,10 @@
-import AboutUs from './pages/Us/AboutUs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import AboutUs from './pages/Us/AboutUs';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import Home from "./pages/Home";
@@ -39,6 +39,7 @@ import { FAQ } from './pages/Us/Faq';
 import { ReactSession } from 'react-client-session';
 import { Toast_ } from './components/toast/toast';
 import { useState } from 'react';
+import { Cookies } from './components/cookies';
 import{ PanelAdmin } from "./components/admin/panel";
 import{ UserListAdmin } from "./components/admin/userList";
 import{ BusinessListAdmin } from "./components/admin/businessList";
@@ -97,6 +98,7 @@ export function App(props) {
 
   return <>
     {/* <Background /> */}
+    <Cookies />
     <Router>
       <Header setColors={setColors} setShow={setShow} setAlerts={setAlerts} handleShowModal={handleShowModal} />
       <PanelAdmin handleShowModalUser={handleShowModalUser} handleShowModalBusiness={handleShowModalBusiness} showModal={showModal} handleCloseModal={handleCloseModal}/>
