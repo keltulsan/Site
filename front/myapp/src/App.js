@@ -31,6 +31,7 @@ import ChatBox from './pages/Chat-box';
 import { Bag } from './pages/Inform-user/Bag';
 import { Articles } from './pages/Article/Articles';
 import { UserPage } from './pages/Inform-user/UserPage';
+import { EnterprisePage } from './pages/Inform-user/EnterprisePage';
 import Background from './components/background';
 import { ArticleClotheSell } from './pages/Article/Article-clothe-sell';
 import { ArticleSell } from './pages/Article/Article-sell';
@@ -48,6 +49,7 @@ export function links() {
     login: '/login',
     signup: '/signup',
     userPage: '/account-user',
+    enterprisePage:'/account-enterprise',
     contactDetails: '/account',
     bag: '/bag',
     history: '/history',
@@ -76,13 +78,15 @@ export function links() {
 export function App(props) {
   ReactSession.setStoreType("cookie");
   const [show, setShow] = useState(false);
+  const [alerts, setAlerts] = useState();
+  const [colors, setColors] = useState();
   const link = links()
 
   return <>
     {/* <Background /> */}
     <Router>
-      <Header setShow={setShow} />
-      <Toast_ show={show} setShow={setShow} />
+      <Header setShow={setShow} setAlerts={setAlerts} />
+      <Toast_ show={show} setShow={setShow} colors={colors} alerts={alerts}/>
       <div className="root flex space-between vertical">
         <div></div>
 
@@ -98,10 +102,21 @@ export function App(props) {
 
           {/* Inform user */}
 
-          <Route exact path={link.login} component={LoginPage} />
-          <Route exact path={link.signup} component={SignUpPage} />
-          <Route exact path={link.userPage} component={UserPage} />
-          <Route exact path={link.contactDetails} component={ContactDetails} />
+          <Route exact path={link.login}>
+            <LoginPage setAlerts={setAlerts} setShow={setShow} setColors={setColors}/>
+          </Route>
+          <Route exact path={link.signup}>
+            <SignUpPage setAlerts={setAlerts} setShow={setShow} setColors={setColors}/>
+          </Route>
+          <Route exact path={link.userPage}>
+            <UserPage setAlerts={setAlerts}/>
+          </Route>
+          <Route exact path={link.enterprisePage} >
+            <EnterprisePage setAlerts={setAlerts}/>
+          </Route>
+          <Route exact path={link.contactDetails}>
+            <ContactDetails setAlerts={setAlerts}/>
+          </Route>
           <Route exact path={link.bag} component={Bag} />
           <Route exact path={link.history} component={History} />
 

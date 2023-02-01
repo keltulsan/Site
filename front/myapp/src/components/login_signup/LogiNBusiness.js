@@ -1,5 +1,5 @@
-import { LoginBusiness } from "../../api/Login";   
+import { LoginBusiness } from "../../api/LoginBusiness";   
        
-export async function Login_Business(user){
+export async function Login_Business_(user){
     return await LoginBusiness(user) ; 
 }
