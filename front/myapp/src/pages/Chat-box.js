@@ -5,6 +5,7 @@ import { links } from '../App';
 
 
 export default function Chatbox() {
+    const link = links()
 
     const [isClick, setIsClick] = useState(0);
     const [option, setOption] = useState(0);
@@ -41,7 +42,7 @@ export default function Chatbox() {
                         Pour ce faire il vous sera nécessaire de nous envoyez un mail dans la page ci-jointe en y inscrivant dans la zone demande : Devenir un vendeur.
                     </p>
                         <div className='flex right-f'>
-                            <Link className="style-link" to={links.contact}><p>Mail</p></Link>
+                            <Link className="style-link" to={link.thxEmail}><p>Mail</p></Link>
                         </div>
                     </div>
                 </Collapse>
@@ -66,7 +67,7 @@ export default function Chatbox() {
                         Avez vous essayez de le redemarrer ?
                     </p>
                         <div className='flex center space-evenly'>
-                            <Link onClick={() => option == 1 ? "" : setOption(1)} className="style-link" to={""} >Oui </Link><p className="text"> / </p><Link onClick={() => option == 2 ? "" : setOption(2)} className="style-link" to={""}  > Non </Link>
+                            <Link onClick={() => option == 1 ? "" : setOption(1)} className="style-link">Oui </Link><p className="text"> / </p><Link onClick={() => option == 2 ? "" : setOption(2)} className="style-link" > Non </Link>
                         </div>
                         {option == 1 || option == 2 ?
                             option == 1 ?
@@ -75,12 +76,12 @@ export default function Chatbox() {
                                         Dommage réessayez encore, cela peut peut être fonctionner. Si vous voulez de plus amples informations n'hésitez pas à nous contacter par mail.
                                     </p>
                                         <div className='flex right-f'>
-                                            <Link className="style-link" to={links.contact}><p>Mail</p></Link>
+                                            <Link className="style-link" to={link.thxEmail}><p>Mail</p></Link>
                                         </div>
                                     </div>
                                 </Collapse>
-                                : ""
-                            :
+                                : 
+                            
                             option == 2 ?
                                 <Collapse isOpened={isClick == 3}>
                                     <div><p className={"text " + (dimensions.width <= 750 ? " padding-top-" : "")}>
@@ -88,7 +89,7 @@ export default function Chatbox() {
                                     </p>
                                     </div>
                                 </Collapse>
-                                : ""
+                            : "" : ""
                         }
                     </div>
                 </Collapse>
