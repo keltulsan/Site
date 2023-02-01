@@ -38,6 +38,8 @@ return <form onSubmit={handleSubmit(onSubmitUpdateUser)} className="align-center
                     <input className='background my-account- margin-top---' {...register("city")} placeholder="Ville" type="text" id="city" defaultValue={props.info.city}/>
                 </div>
                 <input className='background my-account align-center margin-top---' {...register("phone_number")} placeholder="Téléphone" type="text" id="phone-number" defaultValue={props.info.phone_number} />
+                <input className='background my-account align-center margin-top---' {...register("seller")} placeholder="seller (true, false)" type="text" id="seller" defaultValue={props.info.seller} />
+                <input className='background my-account align-center margin-top---' {...register("admin")} placeholder="admin (true, false)" type="text" id="admin" defaultValue={props.info.admin} />
 
                 <div className="flex2 center margin-top--">
                     <input type="submit" value="Modifier l'utilisateur" />
