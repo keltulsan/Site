@@ -108,16 +108,17 @@ export function Header(props) {
             <Link to='#' onClick={() => {
                 setIsHover(!isHover)
                 setIsHover2(false)
-                setIsHover2(false)
+                setIsHover3(false)
             }}><p>Catégories</p></Link>
             <Link to={link.sells}><p>Mes ventes</p></Link>
             <Link to={link.actus}><p>Actus</p></Link>
+            {!ReactSession.get("username") && <Link to={link.login}><p>Login</p></Link>}
             <div className='flex center'>
-                <Link to='#' onClick={() => {
+                {ReactSession.get("username") && <Link to='#' onClick={() => {
                     setIsHover(false)
                     setIsHover2(!isHover2)
-                    setIsHover2(false)
-                }}><img src='./img/avatar.png' alt='ton avatar sur Eko' /></Link>
+                    setIsHover3(false)
+                }}><img src='./img/avatar.png' alt='ton avatar sur Eko' /></Link>}
                 <Link to={link.bag}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko' /></Link>
                 <Link to='#' onClick={() => {
                     setIsHover(false)
@@ -126,6 +127,7 @@ export function Header(props) {
                 }}><img src='./img/search.png' alt='Logo de recherche de Eko' /></Link>
             </div>
         </div></Collapse>}
+
         <Collapse in={isHover && (menu || dimensions.width > 750)}><ul className={dimensions.width > 750 ? 'grid little' : 'little'}>
             {labs}
         </ul></Collapse>
@@ -136,7 +138,7 @@ export function Header(props) {
                 <Link to={link.history}><p>Historique</p></Link>
                 <Link to={link.ekoSave}><p>EKO Save</p></Link>
                 {ReactSession.get("username") &&
-                    <Link to="#" onClick={() => { ReactSession.remove('username');ReactSession.remove('id');props.setAlerts(0); props.setShow(true) }}><p>Se déconnecter</p></Link>
+                    <Link to="#" onClick={() => { ReactSession.remove('username'); ReactSession.remove('id'); props.setAlerts(0); props.setShow(true) }}><p>Se déconnecter</p></Link>
                 }
             </div>
         </div></Collapse>}
@@ -145,6 +147,7 @@ export function Header(props) {
                 <input type="text" placeholder="search here" />
             </div>
         </Collapse>
-    <Robot />
+
+        <Robot />
     </div>
 }
