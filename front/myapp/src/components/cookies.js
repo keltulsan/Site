@@ -7,22 +7,25 @@ export function Cookies() {
     const link = links()
     const [cookies, setCookies] = useState(false)
     const [cookie, setCookie] = useState("null")
-    ReactSession.remove("cookies");
 
     useEffect(() => {
+        console.log(cookie)
         if (cookie != "null") {
             ReactSession.set("cookies", cookie);
-            console.log(ReactSession.get("cookies"))
+            setCookies(false)
             return
         }
 
         try {
-            ReactSession.get("cookies");
-            setCookies(true)
-            console.log(ReactSession.get("cookies"))
+            ReactSession.get("cookies")
+            if (ReactSession.get("cookies") == undefined) {
+                setCookies(true)
+            } else {
+                setCookie(ReactSession.get("cookies"));
+                setCookies(false)
+            }
         } catch (err) {
-            setCookies(false)
-            console.log(ReactSession.get("cookies"))
+            setCookies(true)
         }
 
     }, [cookies])
