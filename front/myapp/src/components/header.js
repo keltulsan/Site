@@ -71,7 +71,7 @@ export function Header(props) {
             <Link to={link.homeFull}><img className='logo' src='./img/logo.png' alt='Logo de Eko' /></Link>
             {dimensions.width > 750 && <div className='flex align-center'>
             <Button variant="primary" onClick={props.handleShowModal}>
-                Launch demo modal
+                Admin
             </Button>
                 <Collapse in={!isHover3} orientation="horizontal" className='align-center'>
                     <div className='flex nomargin'>

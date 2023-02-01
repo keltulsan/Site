@@ -16,7 +16,7 @@ export function BusinessListAdmin(props){
         console.log(info)
     }, []);
     return <Modal show={props.showModalBusiness} onHide={props.handleCloseModalBusiness}>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         {console.log(info)}
@@ -26,9 +26,6 @@ export function BusinessListAdmin(props){
         
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary">
-            salut
-          </Button>
         </Modal.Footer>
       </Modal>
 }

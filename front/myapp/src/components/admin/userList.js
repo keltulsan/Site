@@ -15,20 +15,10 @@ export function UserListAdmin(props){
             .catch(error => console.error("Erreur avec notre API :", error.message));
         console.log(info)
     }, []);
-    return <Modal show={props.showModalUser} onHide={props.handleCloseModalUser}>
-        <Modal.Header closeButton>
+    return <Modal animation={true} show={props.showModalUser} onHide={props.handleCloseModalUser}>
           <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
         {console.log(info)}
         <Modal.Body>{info && info.map((info,key)=>{
-            return <div key={info.id}><UserListInfo info={info}/></div>
-        })}
-        
+            return <div key={info.id}><UserListInfo info={info}/></div>})}
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary">
-            salut
-          </Button>
-        </Modal.Footer>
-      </Modal>
-}
+        </Modal>}
