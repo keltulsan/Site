@@ -1,8 +1,5 @@
 import { Collapse } from 'react-collapse';
 import React, { Component, useEffect, useState } from 'react';
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
 
 export function FAQ() {
     const [isClick, setIsClick] = useState(0);

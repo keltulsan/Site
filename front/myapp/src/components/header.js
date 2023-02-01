@@ -4,6 +4,7 @@ import Collapse from '@mui/material/Collapse';
 import { ReactSession } from 'react-client-session';
 import { links } from '../App';
 import { width } from '@mui/system';
+import { Robot } from './Robot';
 
 const getAllLabels = async () => {
     const response = await fetch(
@@ -21,7 +22,6 @@ const getAllLabels = async () => {
 
 export function Header(props) {
     const link = links();
-
     const [menu, setMenu] = useState(false);
     const [search, setSearch] = useState(false);
     const [isHover, setIsHover] = useState(false);
@@ -135,7 +135,7 @@ export function Header(props) {
                 <Link to={link.history}><p>Historique</p></Link>
                 <Link to={link.ekoSave}><p>EKO Save</p></Link>
                 {ReactSession.get("username") &&
-                    <Link to="#" onClick={() => { ReactSession.remove('username'); props.setShow(true) }}><p>Se déconnecter</p></Link>
+                    <Link to="#" onClick={() => { ReactSession.remove('username');ReactSession.remove('id'); props.setShow(true) }}><p>Se déconnecter</p></Link>
                 }
             </div>
         </div></Collapse>}
@@ -144,5 +144,6 @@ export function Header(props) {
                 <input type="text" placeholder="search here" />
             </div>
         </Collapse>
+    <Robot />
     </div>
 }

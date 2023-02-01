@@ -118,6 +118,12 @@
         font-size: 0px !important;
     }
 
+    // Size //
+
+    textarea{
+        resize: none !important;
+    }
+
     // Style-link
 
     .style-link {
@@ -232,6 +238,7 @@
 
     .box {
         width: fit-content !important;
+        width: 100% !important;
         border-radius: 10px;
         padding: 50px !important;
     }
@@ -308,9 +315,14 @@
         }
     }
 
+    .chat-size{
+        width: 300px;
+    }
+
     .robot {
-        height: 80px;
-        width: 80px;
+        height: 80px !important;
+        width: 80px !important;
+        margin-top: 40px !important;
     }
 
     .account-img {
@@ -613,6 +625,10 @@
         input[type="text"]:focus-visible,
         input[type="text"]:focus,
         input[type="text"]:active,
+        input[type="email"],
+        input[type="email"]:focus-visible,
+        input[type="email"]:focus,
+        input[type="email"]:active,
         input[type="password"],
         input[type="password"]:focus-visible,
         input[type="password"]:focus,

@@ -6,7 +6,7 @@ export function Robot() {
     const link = links();
     return<div className=" fixed container flex right-f">
   
-        <Link to={link.homeFull}><img className="robot" src="./img/bot.png" alt="Image du chatbot sur Eko"/></Link>
+        <Link to={link.chatBot}><img className="robot" src="./img/bot.png" alt="Image du chatbot sur Eko"/></Link>
 
     </div>
 }
