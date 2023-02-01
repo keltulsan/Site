@@ -5,7 +5,7 @@ import { ReactSession } from 'react-client-session';
 import { links } from '../App';
 import { width } from '@mui/system';
 import { Robot } from './Robot';
-
+import Button from 'react-bootstrap/Button';
 const getAllLabels = async () => {
     const response = await fetch(
         'http://localhost:4444/labels/list', {
@@ -70,7 +70,9 @@ export function Header(props) {
         <div className='flex space-between'>
             <Link to={link.homeFull}><img className='logo' src='./img/logo.png' alt='Logo de Eko' /></Link>
             {dimensions.width > 750 && <div className='flex align-center'>
-
+            <Button variant="primary" onClick={props.handleShowModal}>
+                Launch demo modal
+            </Button>
                 <Collapse in={!isHover3} orientation="horizontal" className='align-center'>
                     <div className='flex nomargin'>
                         <Link to={link.catégories} onMouseEnter={() => {

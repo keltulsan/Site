@@ -39,6 +39,10 @@ import { FAQ } from './pages/Us/Faq';
 import { ReactSession } from 'react-client-session';
 import { Toast_ } from './components/toast/toast';
 import { useState } from 'react';
+import{ PanelAdmin } from "./components/admin/panel";
+import{ UserListAdmin } from "./components/admin/userList";
+import{ BusinessListAdmin } from "./components/admin/businessList";
+
 
 export function links() {
   return {
@@ -80,12 +84,24 @@ export function App(props) {
   const [show, setShow] = useState(false);
   const [alerts, setAlerts] = useState();
   const [colors, setColors] = useState();
+  const [showModalBusiness,setShowModalBusiness]=useState(false);
+  const [showModalUser,setShowModalUser]=useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const handleShowModalBusiness = () => setShowModalBusiness(true);
+  const handleCloseModalBusiness = () => setShowModalBusiness(false);
+  const handleShowModalUser = () => setShowModalUser(true);
+  const handleCloseModalUser = () => setShowModalUser(false);
+  const handleCloseModal = () => setShowModal(false);
+  const handleShowModal = () => setShowModal(true);
   const link = links()
 
   return <>
     {/* <Background /> */}
     <Router>
-      <Header setShow={setShow} setAlerts={setAlerts} />
+      <Header setShow={setShow} setAlerts={setAlerts} handleShowModal={handleShowModal} />
+      <PanelAdmin handleShowModalUser={handleShowModalUser} handleShowModalBusiness={handleShowModalBusiness} showModal={showModal} handleCloseModal={handleCloseModal}/>
+      <BusinessListAdmin showModalBusiness={showModalBusiness} handleCloseModalBusiness={handleCloseModalBusiness}/>
+      <UserListAdmin showModalUser={showModalUser} handleCloseModalUser={handleCloseModalUser}/>
       <Toast_ show={show} setShow={setShow} colors={colors} alerts={alerts}/>
       <div className="root flex space-between vertical">
         <div></div>
