@@ -84,7 +84,7 @@ export function App(props) {
   const link = links()
 
   return <>
-    {/* <Background /> */}
+    <Background /> 
     <Cookies />
     <Router>
       <Header setShow={setShow} setAlerts={setAlerts} />
