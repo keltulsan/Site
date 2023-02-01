@@ -43,6 +43,7 @@ import { Cookies } from './components/cookies';
 import{ PanelAdmin } from "./components/admin/panel";
 import{ UserListAdmin } from "./components/admin/userList";
 import{ BusinessListAdmin } from "./components/admin/businessList";
+import { Product } from './pages/Article/Product';
 
 
 export function links() {
@@ -60,6 +61,7 @@ export function links() {
     history: '/history',
     articles: '/articles',
     clotheSell: '/clothe-sell',
+    product: '/product',
     itemSell: '/item-sell',
     likes: '/likes-list',
     catégories: '/categories',
@@ -144,6 +146,7 @@ export function App(props) {
           <Route exact path={link.clotheSell} component={ArticleClotheSell} />
           <Route exact path={link.itemSell} component={ArticleSell} />
           <Route exact path={link.likes} component={EnvyList} />
+          <Route exact path={link.product} component={Product} />
 
           {/* Payment */}
 
