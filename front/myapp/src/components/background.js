@@ -3,30 +3,30 @@ import React, { useEffect, useState, useCallback } from "react";
 export default function Background() {
     const [scrollValue, setScrollValue] = useState(0);
     const [mousePos, setMousePos] = useState({x:0, y:0});
-    // useEffect(() => {
-  
-    //   const onScroll = (e) => {
-    //     setScrollValue(e.target.documentElement.scrollTop);
-    //   };
-  
-    //   window.addEventListener('scroll', onScroll);
-  
-    //   return () => window.removeEventListener('scroll', onScroll);
-    // }, []);
-    // useEffect(() => {
-    //     const handleMouseMove = (e) => {
-    //         setMousePos({ x: e.clientX, y: e.clientY });
-    //     };
+    useEffect(() => {
 
-    //     window.addEventListener('mousemove', handleMouseMove);
+      const onScroll = (e) => {
+        setScrollValue(e.target.documentElement.scrollTop);
+      };
 
-    //     return () => {
-    //         window.removeEventListener(
-    //             'mousemove',
-    //             handleMouseMove
-    //         );
-    //     };
-    // }, []);
+      window.addEventListener('scroll', onScroll);
+
+      return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            setMousePos({ x: e.clientX, y: e.clientY });
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+
+        return () => {
+            window.removeEventListener(
+                'mousemove',
+                handleMouseMove
+            );
+        };
+    }, []);
 
     const [imgsMap, setImgsMap] = useState([]);
     const [imgs, setImgs] = useState([]);
@@ -72,8 +72,8 @@ export default function Background() {
                                 zIndex: -999,
                                 rotation: val.rot + 'deg',
                                 width: val.size.toString() + 'px',
-                                top: (val.pos_x + (val.size/2 * -(mousePos.y +1) + val.size/2 * -(scrollValue*75 +1)) / 5000).toString() + 'px',
-                                left: (val.pos_y + (val.size * -(mousePos.x +1)) / 5000).toString() + 'px'
+                                top: (val.pos_x + (val.size/2 * -(mousePos.y +1) + val.size/2 * -(scrollValue75 +1)) / 5000).toString() + 'px',
+                                left: (val.pos_y + (val.size -(mousePos.x +1)) / 5000).toString() + 'px'
                             }}
                             alt="Une des images du background d'Eko"
                         />
@@ -81,7 +81,7 @@ export default function Background() {
                 )
             }
         }
-    },[]);
+    });
 
     return <div
         style={{
