@@ -18,6 +18,7 @@ export default function LoginPage(props){
                     ReactSession.set("username",user.nickname);
                     ReactSession.set("id",user.id);
                     ReactSession.set("seller",user.seller)
+                    ReactSession.set("admin",user.admin)
                     window.location.replace('/');
         }})}else{
                     props.setAlerts(2)
