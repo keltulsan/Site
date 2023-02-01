@@ -17,17 +17,31 @@ const getAllLabels = async () => {
     const labels = await response.json()
     return labels
 }
+const getAllProducts = async () => {
+    const response = await fetch(
+        'http://localhost:4444/product/list', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }
+    )
+    const labels = await response.json()
+    return labels
+}
 
 export function Header(props) {
     const link = links();
 
     const [menu, setMenu] = useState(false);
-    const [search, setSearch] = useState(false);
     const [isHover, setIsHover] = useState(false);
     const [isHover2, setIsHover2] = useState(false);
     const [isHover3, setIsHover3] = useState(false);
     const [labs, setLabs] = useState([]);
     const [labels, setLabels] = useState([]);
+    const [product, setProduct] = useState([]);
+    const [productsMap, setProductsMap] = useState([]);
     const [dimensions, setDimensions] = React.useState({
         height: window.innerHeight,
         width: window.innerWidth
@@ -50,6 +64,12 @@ export function Header(props) {
             .catch(error => console.error('Erreur avec notre API :', error.message));
     }, []);
     useEffect(() => {
+        const labelsFetched = getAllProducts();
+        labelsFetched
+            .then(result => setProduct(result))
+            .catch(error => console.error('Erreur avec notre API :', error.message));
+    }, []);
+    useEffect(() => {
         if (labels.length > 0) {
             setLabs(labels.map(val =>
                 <li className="flex center" key={val["label_name"]}><Link to={"/" + val["label_name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}><p>{val["label_name"]}</p></Link></li>
@@ -61,6 +81,29 @@ export function Header(props) {
     } catch (error) {
         ReactSession.set("username", "")
     }
+
+    const [timer, setTimer] = useState();
+    const [search, setSearch] = useState();
+    function detectChange(e) {
+        var val = e.target.value
+        ReactSession.set("searchbar", val)
+        if (val = "") {
+            setSearch(false)
+        }
+        try{clearTimeout(timer)}
+        catch(err){}
+        setTimer(setTimeout((res) => {
+            if (val != "") {
+                setSearch(true)
+                setProductsMap(product.map(() => {
+                    
+                }))
+            } else {
+                setSearch(false)
+            }
+        }, 3000))
+    }
+
     return <div className='navbar' onMouseLeave={() => {
         setIsHover(dimensions.width > 750 ? false : isHover)
         setIsHover2(dimensions.width > 750 ? false : isHover2)
@@ -86,7 +129,13 @@ export function Header(props) {
                 <Link to={link.bag}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko' /></Link>
 
                 <Collapse in={isHover3 && dimensions.width > 750} orientation="horizontal">
-                    <input className='align-top' type="text" placeholder="search here" style={{ marginRight: "30px" }} />
+                    <input className='align-top' type="text" placeholder="search here" style={{ marginRight: "30px" }} onChange={detectChange} defaultValue={() => {
+                        try {
+                            return ReactSession.get("searchbar")
+                        } catch (err) {
+                            return ""
+                        }
+                }} />
                 </Collapse>
                 <Link to='#' onMouseEnter={() => {
                     setIsHover(false)
@@ -134,5 +183,8 @@ export function Header(props) {
                 }
             </div>
         </div></Collapse>}
+        <Collapse in={isHover3 && search && (menu || dimensions.width > 750)}>
+            {productsMap}
+        </Collapse>
     </div>
 }

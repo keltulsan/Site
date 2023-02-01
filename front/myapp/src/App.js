@@ -56,6 +56,7 @@ export function links() {
     itemSell: '/item-sell',
     likes: '/likes-list',
     catégories: '/categories',
+    product: '/product',
     paymentComplete: '/payed',
     payChoice: '/payment-choice',
     stocks: '/stocks',

@@ -737,6 +737,9 @@
             position: fixed !important;
             top: 0px;
             border-radius: 0px 0px 0px 0px;
+            max-height: 70vh;
+            overflow: scroll;
+            
 
             div {
                 a {
