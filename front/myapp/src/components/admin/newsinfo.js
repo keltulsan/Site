@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { News_ } from "../Update_news/news";
+import { News_ } from "../update_news/news";
 import React, { Component, useEffect, useState } from 'react';
 
 export function NewsListInfo(props) {
