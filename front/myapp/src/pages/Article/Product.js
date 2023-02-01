@@ -31,11 +31,11 @@ export function Product() {
 
     return product ? <div className='container'>
         {product.filter(product=>product.label_name.match(product["label_name"])).map((product, key) => {
-            return <div><h1 className='title stroke' {...register("label_name")} > {product[key]["label_name"]} sur Eko</h1>
+            return <div><h1 className='title stroke' > {product[key]["label_name"]} sur Eko</h1>
                 <div className={"flex center " + (dimensions.width <= 750 ? " vertical margin-top- gap" : " gap-plus margin-top")}>
                     <div className="flex vertical gap-">
                         <div className="flex gap box background-color-2-4 align-center">
-                            <img className="align-center" {...register("img")} src={product[key]["img"]} {...register("denamesc")} alt={'image de' + (product[key]["name"]) + 'sur Eko'} />
+                            <img className="align-center" src={product[key]["img"]} alt={'image de' + (product[key]["name"]) + 'sur Eko'} />
 
                         </div>
                     </div>
