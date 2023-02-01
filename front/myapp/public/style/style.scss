@@ -67,6 +67,32 @@
         background-position: center;
     }
 
+    // Cookies //
+
+    .cookies {
+        padding: 20px;
+        position: fixed;
+        bottom: 2.5vw;
+        left: 2.5vw;
+        background-color: $primaryColor4;
+        width: 95vw;
+
+        img {
+            width: 10vw;
+            height: 10vw;
+        }
+
+        @media (max-width: 750px) {
+            img {
+                display: none;
+            }
+        }
+
+        p {
+            font-size: 30px;
+        }
+    }
+
     // Carousel //
 
     .carousel {
@@ -120,7 +146,7 @@
 
     // Size //
 
-    textarea{
+    textarea {
         resize: none !important;
     }
 
@@ -300,8 +326,8 @@
 
     // Position //
 
-    .sticky{
-        position:sticky !important;
+    .sticky {
+        position: sticky !important;
     }
 
     // Image-size //
@@ -316,7 +342,8 @@
     }
 
 
-    .chat-size{
+
+    .chat-size {
         width: 300px;
     }
 
@@ -563,46 +590,6 @@
             }
         }
 
-        .flex.space-around {
-            justify-content: space-around;
-        }
-
-        .flex.space-between {
-            justify-content: space-between;
-        }
-
-        .flex.center {
-            justify-content: center;
-        }
-
-        .flex.right {
-            justify-content: end;
-        }
-
-        .flex.left {
-            justify-content: flex-start;
-        }
-
-        .flex.gap {
-            gap: 20px;
-        }
-
-        .flex.gap- {
-            gap: 7px;
-        }
-
-        .flex.gap-plus {
-            gap: 200px;
-        }
-
-        .flex.gap-vw {
-            gap: 2.5vw;
-        }
-
-        .flex.vertical {
-            flex-direction: column;
-        }
-
         // Dropdown-menu //
         .drop-down {
             padding: 5px;
@@ -621,7 +608,7 @@
         }
 
         // Input //
-        
+
         input[type="text"],
         input[type="text"]:focus-visible,
         input[type="text"]:focus,
@@ -682,7 +669,7 @@
             }
         }
 
-        input[type="submit"] {
+        input[type="submit"], button.button {
             font-family: $textFont;
             background-color: $buttonsColor;
             color: $primaryColor5;
@@ -691,6 +678,19 @@
             font-size: 20px;
             padding: 10px 25px;
             border-radius: 10px;
+
+            &.accept-color {
+                background-color: $primaryColor1;
+                &:hover {
+                    color: $primaryColor4;
+                }
+            }
+            &.refuse-color {
+                background-color: $primaryColor2;
+                &:hover {
+                    color: $primaryColor4;
+                }
+            }
         }
 
         input[type="checkbox"] {
@@ -726,7 +726,6 @@
             min-height: 100vh;
             gap: 50px;
             margin-top: 95px;
-
 
             // err0r 404 //
 
