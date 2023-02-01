@@ -4,16 +4,16 @@ import { Update_ } from "../../components/update_acc/Update";
 import { ReactSession } from 'react-client-session';
 import { Login_ } from "../../components/login_signup/LogiN";
 
-export function UserPage() {
+export function UserPage(props) {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const test = async ()=>{
         const userList = await Login_();
         setInfo(await userList.filter(user=>user.id===ReactSession.get("id")));
     }
     const [info,setInfo] = useState();
+    const[time,setTime] = useState();
     const onSubmitUpdateUser = async (data) => {
-        Update_(data)
-        window.location.replace('/');}
+        Update_(data)}
     const [dimensions, setDimensions] = React.useState({
         height: window.innerHeight,
         width: window.innerWidth
@@ -29,8 +29,11 @@ export function UserPage() {
     });
     useEffect(() => {
         test()
-        console.log(info)
-    }, []);
+        const timer = setTimeout(() => {
+            window.location.replace('/')
+          }, 3000);
+          return () => clearTimeout(timer);
+    }, [time]);
     return info?<div className="flex vertical"> {console.log(info)}
         <form onSubmit={handleSubmit(onSubmitUpdateUser)} className="align-center flex vertical center" >
             <h1 className="title">Mon Compte</h1>
@@ -58,7 +61,7 @@ export function UserPage() {
                 <input className='background my-account align-center' {...register("phone_number")} placeholder="Téléphone" type="text" id="phone-number" defaultValue={info[0]["phone_number"]} />
 
                 <div>
-                    <input type="submit" value="Enregistrer mes changements" />
+                    <input type="submit" value="Enregistrer mes changements" onClick={()=>{props.setColors(0);props.setShow(true);props.setAlerts(9);setTime(1)}}/>
                 </div>
             </div>
         </form></div>:<div><p>oops</p></div>

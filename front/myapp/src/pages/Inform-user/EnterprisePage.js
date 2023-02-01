@@ -4,7 +4,7 @@ import { UpdateBusiness_ } from "../../components/update_acc/UpdateBusiness";
 import { ReactSession } from 'react-client-session';
 import { Login_Business_ } from "../../components/login_signup/LogiNBusiness";
 
-export function EnterprisePage() {
+export function EnterprisePage(props) {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const test = async ()=>{
         const businessList = await Login_Business_();
@@ -52,7 +52,7 @@ export function EnterprisePage() {
                 <input className='background my-account align-center' {...register("business_phone")} placeholder="Téléphone" type="text" id="phone-number" defaultValue={info[0]["business_phone"]} />
 
                 <div>
-                    <input type="submit" value="Enregistrer mes changements" />
+                    <input type="submit" value="Enregistrer mes changements" onClick={()=>{props.setColors(0);props.setShow(true);props.setAlerts(9)}}/>
                 </div>
             </div>
         </form></div>:<div><p>oops</p></div>

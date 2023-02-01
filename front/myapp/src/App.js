@@ -127,13 +127,13 @@ export function App(props) {
             <SignUpPage setAlerts={setAlerts} setShow={setShow} setColors={setColors}/>
           </Route>
           <Route exact path={link.userPage}>
-            <UserPage setAlerts={setAlerts}/>
+            <UserPage setAlerts={setAlerts} setColors={setColors} setShow={setShow}/>
           </Route>
           <Route exact path={link.enterprisePage} >
-            <EnterprisePage setAlerts={setAlerts}/>
+            <EnterprisePage setAlerts={setAlerts} setColors={setColors}/>
           </Route>
           <Route exact path={link.contactDetails}>
-            <ContactDetails setAlerts={setAlerts}/>
+            <ContactDetails/>
           </Route>
           <Route exact path={link.bag} component={Bag} />
           <Route exact path={link.history} component={History} />
