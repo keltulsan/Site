@@ -16,7 +16,7 @@ export const envyListAddProduct = async (user) => {
 
 export const envyListGet = async () => {
     const response = await fetch(
-        'http://localhost:4444/user/list', {
+        'http://localhost:4444/envy_list/list', {
             method: 'GET', 
             headers: {
                 'Accept': 'application/json', 
