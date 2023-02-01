@@ -98,7 +98,7 @@ export function App(props) {
   return <>
     {/* <Background /> */}
     <Router>
-      <Header setShow={setShow} setAlerts={setAlerts} handleShowModal={handleShowModal} />
+      <Header setColors={setColors} setShow={setShow} setAlerts={setAlerts} handleShowModal={handleShowModal} />
       <PanelAdmin handleShowModalUser={handleShowModalUser} handleShowModalBusiness={handleShowModalBusiness} showModal={showModal} handleCloseModal={handleCloseModal}/>
       <BusinessListAdmin showModalBusiness={showModalBusiness} handleCloseModalBusiness={handleCloseModalBusiness}/>
       <UserListAdmin showModalUser={showModalUser} handleCloseModalUser={handleCloseModalUser}/>
