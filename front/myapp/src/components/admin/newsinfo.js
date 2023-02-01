@@ -1,18 +1,18 @@
 import { useForm } from "react-hook-form";
-import { GetCondition_ } from "../../api/GetCondition";
+import { News_ } from "../Update_news/news";
 import React, { Component, useEffect, useState } from 'react';
 
-export function ConditionListInfo(props) {
+export function NewsListInfo(props) {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmitUpdateCondition = async (data) => {
-        GetCondition_(data)
+    const onSubmitUpdateNews = async (data) => {
+        News_(data)
         window.location.replace('/');
     }
     const [dimensions, setDimensions] = React.useState({
         height: window.innerHeight,
         width: window.innerWidth
     })
-    return <form onSubmit={handleSubmit(onSubmitUpdateCondition)} className="align-center flex vertical center" >
+    return <form onSubmit={handleSubmit(onSubmitUpdateNews)} className="align-center flex vertical center" >
         <h1 className="title flex2 center margin-top--">Mon Compte</h1>
         <div className="flex2 vertical center">
             <div className="profils-account flex vertical center">
@@ -25,12 +25,13 @@ export function ConditionListInfo(props) {
                 <input type="hidden" {...register("id")} value={props.info.id} />
                 <input className='background my-account- margin-top---' {...register("name")} placeholder="Nom-Prénom" type="text" id="Nom-prenom" defaultValue={props.info.name} />
             </div>
-            <div className="flex2 margin-top--- vertical align-center">
+            <div className="flex2 margin-top--- align-center">
                 <input className='background my-account- margin-top---' {...register("link_name")} placeholder="Lien de la condition" type="text" id="Link-name" defaultValue={props.info.link_name} />
                 <textarea className='background my-account' {...register("desc")} placeholder="Description" type="textarea" id="message" name="message" defaultValue={props.info.desc} />
+                <input className='background my-account- margin-top---' {...register("img")} placeholder="Lien de l'image" type="text" id="Link-img" defaultValue={props.info.img} />
             </div>
             <div className="flex2 center margin-top--">
-                <input type="submit" value="Modifier la condition" />
+                <input type="submit" value="Modifier l'actualité" />
             </div>
         </div>
     </form>

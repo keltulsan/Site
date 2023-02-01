@@ -25,5 +25,8 @@ export function PanelAdmin(props){
             <p variant="primary" onClick={()=>{props.handleCloseModal();props.handleShowModalCondition();InputComponent.click()}}>
             Condition list
             </p>
+            <p variant="primary" onClick={()=>{props.handleCloseModal();props.handleShowModalNews();InputComponent.click()}}>
+            News list
+            </p>
       </Modal>
 }
