@@ -104,10 +104,12 @@ export function Header(props) {
                         } catch (err) { }
                     };
                     if (verif) {
-                        return <div className='flex'>
-                            <img className='align-center width-50px' src={val2.img} />
-                            <p className='text white align-center'>{val2.name}</p>
-                        </div>
+                        return <Link to={link.itemSell + "/" + val2.link_name}>
+                            <div className='flex'>
+                                <img className='align-center width-50px' src={val2.img} />
+                                <p className='text white align-center'>{val2.name}</p>
+                            </div>
+                        </Link>
                     }
                 }))
             } else {
