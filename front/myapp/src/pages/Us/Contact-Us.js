@@ -9,7 +9,6 @@ export function ContactUs() {
         emailjs.sendForm('eko', 'template_bk4anr4', form.current, 'JL73NshV9YyNy9964')
             .then((result) => {
                 window.location.replace('/');
-                console.log(result.text);
             }, (error) => {
                 
                 console.log(error.text);

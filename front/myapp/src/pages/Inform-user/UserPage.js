@@ -34,7 +34,7 @@ export function UserPage(props) {
           }, 3000);
           return () => clearTimeout(timer);
     }, [time]);
-    return info?<div className="flex vertical"> {console.log(info)}
+    return info?<div className="flex vertical"> {}
         <form onSubmit={handleSubmit(onSubmitUpdateUser)} className="align-center flex vertical center" >
             <h1 className="title">Mon Compte</h1>
             <div className="flex vertical gap center">

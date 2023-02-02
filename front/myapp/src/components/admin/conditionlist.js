@@ -13,10 +13,8 @@ export function ConditionListAdmin(props){
         info
             .then(result => setInfo(result))
             .catch(error => console.error("Erreur avec notre API :", error.message));
-        console.log(info)
     }, []);
     return <Modal animation={true} show={props.showModalCondition} onHide={props.handleCloseModalCondition}>
-        {console.log(info)}
         <Modal.Body>{info && info.map((info,key)=>{
             return <div key={info.id}><ConditionListInfo info={info}/></div>})}
         </Modal.Body>
