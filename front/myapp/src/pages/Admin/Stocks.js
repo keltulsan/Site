@@ -4,11 +4,17 @@ import { link } from "@mui/material";
 import { links } from "../../App";
 import { DeleteProduct_ } from "../../api/DeleteProduct"
 
-export function Stocks() {
+export function Stocks(props) {
     const link = links();
     const onSubmitDeleteProduct = async (data) => {
         DeleteProduct_(data)
         window.location.replace('/sells');}
+    const InputComponent = () => {
+        const inputElement = React.useRef()
+    
+        return <input ref={inputElement} />
+    }
+    
 
     const [dimensions, setDimensions] = React.useState({
         height: window.innerHeight,
@@ -34,7 +40,7 @@ export function Stocks() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flex center gap-">
-                    <Link className="style-link stroke" to={link.stocks}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.stocks} onClick={()=>{onSubmitDeleteProduct();}}> Supprimer</Link>
+                    <Link className="style-link stroke" to={link.stocks} onClick={()=>{props.handleShowModalProductQuantity();InputComponent.click()}}>Modifier </Link>
                 </div>
             </div>
             <div className="flex vertical gap- align-center">
@@ -44,7 +50,7 @@ export function Stocks() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flex center gap-">
-                    <Link className="style-link stroke" to={link.stocks}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.stocks}> Supprimer</Link>
+                    <Link className="style-link stroke" to={link.stocks}>Modifier </Link>
                 </div>
             </div>
             <div className="flex vertical gap- align-center">
@@ -54,7 +60,7 @@ export function Stocks() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flex center gap-">
-                    <Link className="style-link stroke" to={link.stocks}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.stocks}> Supprimer</Link>
+                    <Link className="style-link stroke" to={link.stocks}>Modifier </Link>
                 </div>
 
             </div>

@@ -30,12 +30,6 @@ export function Sells(props) {
         return <input ref={inputElement} />
     }
 
-    const InputComponentInsert = () => {
-        const inputElement = React.useRef()
-    
-        return <input ref={inputElement} />
-    }
-
     return <div className='container'>
         <h1 className='title stroke'> Mes ventes sur Eko</h1>
         <div className={"flex center " + (dimensions.width <= 750 ? " vertical margin-top- gap" : " gap-plus margin-top")}>
