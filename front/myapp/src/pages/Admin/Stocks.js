@@ -3,9 +3,13 @@ import React, { Component, useEffect, useState } from 'react';
 import { link } from "@mui/material";
 import { links } from "../../App";
 import { DeleteProduct_ } from "../../api/DeleteProduct"
+import { ProductList } from "../../api/Product";
 
 export function Stocks(props) {
     const link = links();
+    const [produit, setProduit] = useState([])
+    const [produitMap, setProduitMap] = useState(false)
+
     const onSubmitDeleteProduct = async (data) => {
         DeleteProduct_(data)
         window.location.replace('/sells');}
@@ -15,6 +19,12 @@ export function Stocks(props) {
         return <input ref={inputElement} />
     }
     
+    useEffect(() => {
+        const labelsFetched = ProductList();
+        labelsFetched
+            .then(result => setProduit(result))
+            .catch(error => console.error('Erreur avec notre API :', error.message));
+    }, []);
 
     const [dimensions, setDimensions] = React.useState({
         height: window.innerHeight,
@@ -30,41 +40,25 @@ export function Stocks(props) {
         window.addEventListener('resize', handleResize)
     })
 
+    useEffect(() => {
+        console.log(produit)
+        setProduitMap(produit.map((produits, key) => {
+            return <div className="flex vertical gap- align-center">
+                <div className="flex center gap box2 background-color-2-4">
+                    <img className="align-center prod-img" src={produits.img} alt={'image de' + (produits.name) + 'sur Eko'} />
+                </div>
+                <div className="flex center gap-">
+                    <Link className="style-link stroke" to={link.sells} onClick={() => { props.handleShowModalProduct(); InputComponent.click() }}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.sells} onClick={() => { onSubmitDeleteProduct(); }}> Supprimer</Link>
+                </div>
+            </div>
+        }))
+    })
+
     return <div className='container'>
         <h1 className='title stroke'> Mes stocks sur Eko</h1>
-        <div className={"flex center "+(dimensions.width <= 750 ? " vertical margin-top- gap" : " gap-plus margin-top")}>
-            <div className="flex vertical gap-">
-                <div className="flex gap box background-color-2-4 align-center">
-                    <img className="align-center" src='./img/mastercard.png' alt='image de paiment mastercard sur Eko' />
-                    <img className="align-center" src='./img/visa.png' alt='image de paiment mastercard sur Eko' />
-                    <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
-                </div>
-                <div className="flex center gap-">
-                    <Link className="style-link stroke" to={link.stocks} onClick={()=>{props.handleShowModalProductQuantity();InputComponent.click()}}>Modifier </Link>
-                </div>
-            </div>
-            <div className="flex vertical gap- align-center">
-                <div className="flex gap box background-color-2-4">
-                    <img className="align-center" src='./img/mastercard.png' alt='image de paiment mastercard sur Eko' />
-                    <img className="align-center" src='./img/visa.png' alt='image de paiment mastercard sur Eko' />
-                    <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
-                </div>
-                <div className="flex center gap-">
-                    <Link className="style-link stroke" to={link.stocks}>Modifier </Link>
-                </div>
-            </div>
-            <div className="flex vertical gap- align-center">
-                <div className="flex gap box background-color-2-4">
-                    <img className="align-center" src='./img/mastercard.png' alt='image de paiment mastercard sur Eko' />
-                    <img className="align-center" src='./img/visa.png' alt='image de paiment mastercard sur Eko' />
-                    <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
-                </div>
-                <div className="flex center gap-">
-                    <Link className="style-link stroke" to={link.stocks}>Modifier </Link>
-                </div>
-
-            </div>
-        </div>
+        <div className={" "+(dimensions.width <= 750 ? "flex vertical margin-top- gap" : " grid2 gap-plus margin-top")}>
+        {produitMap}
+        </div> 
         <div className="flex center margin-top">
             <Link className="style-link-2" to={link.sells}><h2 className="title border stroke background-button">Mes ventes</h2></Link>
         </div>

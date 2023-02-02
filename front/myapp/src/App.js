@@ -128,7 +128,7 @@ export function App(props) {
   const link = links()
 
   return <>
-    <Background /> 
+    {/* <Background />  */}
     <Cookies />
     <Router>
       <Header setColors={setColors} setShow={setShow} setAlerts={setAlerts} handleShowModal={handleShowModal} />
