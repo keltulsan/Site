@@ -64,7 +64,7 @@ export function Bag(props){
                     <h2 className="title left margin-top---">Récapitulatif du panier</h2>
                     <h2 className="title left center-text">{panier}</h2>
                     <h2 className="title left center-text">{price}€</h2>
-                    <div className='flex'>
+                    <div className='flex center'>
                     <Link className='style-link' to={link.buy}>Effectuer le paiement</Link>
                     {props.setPrice(price)}
                     </div>
