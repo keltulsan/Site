@@ -6,7 +6,6 @@ export function ProductInsert(props) {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmitUpdateProduct = async (data) => {
         InsertProduct_(data)
-        console.log(data)
         // window.location.replace('/sells');
     }
     const [dimensions, setDimensions] = React.useState({
