@@ -5,7 +5,7 @@ import React, { Component, useEffect, useState } from 'react';
 
 export function Product() {
     const link = links();
-    const [product, setProduct] = useState(falsefalse);
+    const [product, setProduct] = useState(false);
 
     useEffect(() => {
         const productFetched = Product_();
