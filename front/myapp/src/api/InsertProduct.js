@@ -1,4 +1,4 @@
-export const InsertProduct_ = async () => {
+export const InsertProduct = async () => {
     const response = await fetch(
         'http://localhost:4444/product/insert', {
             method: 'POST', 

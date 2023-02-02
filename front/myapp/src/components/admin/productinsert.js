@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import {InsertProduct_ } from "../../api/InsertProduct";
+import {InsertProduct_ } from "../../components/InsertProduct/product";
 import React, { Component, useEffect, useState } from 'react';
 
 export function ProductInsert(props) {
@@ -28,13 +28,13 @@ export function ProductInsert(props) {
             <div className="flex2 margin-top--- align-center">
                 <input className='background my-account- margin-top---' {...register("price")} placeholder="Prix" type="text" id="Price" />
                 <input className='background my-account- margin-top---' {...register("quantity")} placeholder="Quantité" type="text" id="Quantity" />
-                <input className='background my-account- margin-top---' {...register("link_name")} placeholder="Lien de la condition" type="hidden" id="Link-name"/>
+                <input className='background my-account- margin-top---' {...register("link_name")} placeholder="Lien de la condition" type="hidden" id="Link-name" defaultValue="bonjour"/>
                 <input className='background my-account- margin-top---' {...register("img")} placeholder="Lien de l'image" type="text" id="Link-img" />
                 <input className='background my-account- margin-top---' {...register("seller_name")} placeholder="seller_name" type="text" id="seller_name"/>
                 <input className='background my-account- margin-top---' {...register("label_name")} placeholder="label_name" type="text" id="label_name"/>
                 <input className='background my-account- margin-top---' {...register("eko_score")} placeholder="eko_score" type="text" id="eko_score"/>
             </div>
-            <textarea className='background my-account margin-top--- ' {...register("desc")} placeholder="Description" type="textarea" id="message" name="message" />
+            <input className='background my-account- margin-top---'  {...register("desc")} placeholder="Description" type="text" id="Description"/>
             <div className="flex2 center margin-top--">
                 <input type="submit" value="Sauvegarder les changements" />
             </div>
