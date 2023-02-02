@@ -2,37 +2,51 @@ import React, { Component, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-
-
-
-function Test() {
-    return <Carousel className='slide' width="1000px"  >
-        <div className='flex center '>
-            <img className="icon-carousel" src="../img/blackfriday.jpg" alt="Image d'article sur Eko" />
-        </div>
-        <div>
-            <img className="icon-carousel" src="./img/logo.png" alt="Image d'article sur Eko" />
-        </div>
-        <div>
-            <img className="icon-carousel" src="./img/jme.jpg" alt="Image d'article sur Eko" />
-        </div>
-    </Carousel>
+const getAllNews = async () => {
+    const response = await fetch(
+        'http://localhost:4444/news/list', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }
+    )
+    const news = await response.json()
+    return news
 }
-
 export default function News() {
+    const [news, setNews] = useState([]);
+    const [res, setRes] = useState([]);
+
+
+    useEffect(() => {
+        const newsFetched = getAllNews();
+        newsFetched
+            .then(result => setNews(result))
+            .catch(error => console.error('Erreur avec notre API :', error.message));
+    }, []);
+    useEffect(() => {
+        console.log(res)
+        setRes(news.map((val, key) => {
+            return <div key={key}>
+                <div className='flex center '>
+                    <img className="icon-carousel" src={val.img} alt="Image d'article sur Eko" />
+                </div>
+            </div>
+        }))
+
+    }, [news]);
     return <div className="container">
         <h1 className="title top stroke">News</h1>
         <p className="text"></p>
         <div className='flex center'>
-            <Test />
+            <Carousel className='slide' width="1000px"  >
+                {res}
+            </Carousel>
         </div>
-        <h2 className="title">Derniéres Nouvelles</h2>
-            <img className='imgHydro' src="./img/img2023.jpg" alt="Recente Actualité sur Eko" />
-            <p className="text">Hyvolution est un salon organisé par plus de 200 manifestations grand public ou professionnelles à travers le monde.
-            Elle regroupe un grand nombre de personne cherchant à améliorer nos condition de vie et une alternative dans la vie de tout les jours grâce au simple fait de
-            l énergie hydraulique. Ce salon se déroule à Paris le 1 et le 2 Février 2023, Porte de Versailles.
-            Pour plus d’information sur cet événement écologique veuillez vous renseigner sur le site suivant :<a>https://paris.hyvolution.com/fr</a>
-        </p>
+
     </div>
+
 }
 
