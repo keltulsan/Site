@@ -4,7 +4,7 @@ const app = express();
 app.use(cors())
 const port = 4444;
 const bodyParser = require('body-parser');
-const jsonParser = bodyParser.json;
+const jsonParser = bodyParser.json();
 const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize('eko', 'root', 'root', {
   host: 'localhost',
@@ -176,7 +176,7 @@ app.post("/business/update", jsonParser, (req, res) => {
     },
       {
         where: {
-          id: req.body.id
+          user_id: req.body.user_id
         }
       })
       .then(result => res.json(result))
@@ -620,7 +620,9 @@ app.post("/condition/delete", jsonParser, (req, res) => {
     .catch(err => res.send(JSON.stringify(err.message)));
   })();
 });
+
 // CRUD faq
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/faq/insert", jsonParser, (req, res) => {
   (async () => {
@@ -657,6 +659,53 @@ app.post("/faq/delete", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
     await models.faq.destroy({
+      where: {
+        id: req.body.id
+      }
+    })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
+  })();
+});
+
+//CRUD news 
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.post("/news/insert", jsonParser, (req, res) => {
+  (async () => {
+    await sequelize.sync();
+    await models.news.create({ name: req.body.name, link_name: req.body.link_name, desc: req.body.desc, img: req.body.img})
+      .then(result => res.json(result))
+      .catch(err => res.send(JSON.stringify(err.message)));
+  })();
+});
+
+app.get("/news/list", function (req, res) {
+  (async () => {
+    await sequelize.sync();
+    const body = await models.news.findAll({});
+    res.send(body)
+  })();
+});
+
+app.post("/news/update", jsonParser, (req, res) => {
+  (async () => {
+    await sequelize.sync();
+    await models.news.update({name: req.body.name, link_name: req.body.link_name, desc: req.body.desc, img: req.body.img},
+      {
+        where: {
+          id: req.body.id
+        }
+      })
+    .then(result => res.json(result))
+    .catch(err => res.send(JSON.stringify(err.message)));
+  })();
+});
+
+app.post("/news/delete", jsonParser, (req, res) => {
+  (async () => {
+    await sequelize.sync();
+    await models.news.destroy({
       where: {
         id: req.body.id
       }

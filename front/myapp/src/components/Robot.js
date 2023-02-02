@@ -1,10 +1,12 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { links } from "../App";
 
 export function Robot() {
-    return<div className="container flex max-height fixed right z-index-">
-    <div className="flex align-bot">
-        <Link to="/"><img className="robot" src="./img/bot.png" alt="Image du chatbot sur Eko"/></Link>
-    </div>
+    const link = links();
+    return<div className=" fixed container flex right-f">
+  
+        <Link to={link.chatBot}><img className="robot" src="./img/bot.png" alt="Image du chatbot sur Eko"/></Link>
+
     </div>
 }
