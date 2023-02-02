@@ -125,7 +125,7 @@ export function App(props) {
   const link = links()
 
   return <>
-    <Background /> 
+    <Background />
     <Cookies />
     <Router>
       <Header setColors={setColors} setShow={setShow} setAlerts={setAlerts} handleShowModal={handleShowModal} />
@@ -183,7 +183,7 @@ export function App(props) {
 
           {/* Payment */}
           <Route exact path={link.buy}>
-            <Buy quantityList={quantityList} price={price} ids={ids}/>
+            <Buy setAlerts={setAlerts} setColors={setColors} setShow={setShow} quantityList={quantityList} price={price} ids={ids}/>
           </Route>
           <Route exact path={link.paymentComplete} component={PayComplete} />
           <Route exact path={link.payChoice} component={PayChoice} />

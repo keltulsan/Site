@@ -136,11 +136,6 @@ export function Header(props) {
                                 Admin
                             </p>
                         </Link>}
-                        {ReactSession.get("admin") && <Link onClick={props.handleShowModal}>
-                            <p>
-                                Admin
-                            </p>
-                        </Link>}
                         <Link to={link.catégories} onMouseEnter={() => {
                             setIsHover(true)
                             setIsHover2(false)
