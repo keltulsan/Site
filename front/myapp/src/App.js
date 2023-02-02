@@ -51,6 +51,7 @@ import { Product } from './pages/Article/Product';
 import { Buy } from "./components/shopping/Buy";
 import { ProductInsertAdmin } from './components/admin/productInfoInsert';
 import { ProductQuantitytAdmin } from './components/admin/productQuantityInfo';
+import { Categorie } from './pages/category';
 
 
 export function links() {
@@ -184,6 +185,7 @@ export function App(props) {
           <Route exact path={link.itemSell+"/:product_name"} component={ArticleSell} />
           <Route exact path={link.likes} component={EnvyList} />
           <Route exact path={link.product} component={Product} />
+          <Route exact path={link.catégories} component={Categorie} />
 
           {/* Payment */}
           <Route exact path={link.buy}>
