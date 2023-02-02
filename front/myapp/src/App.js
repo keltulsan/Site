@@ -48,6 +48,7 @@ import{ ConditionListAdmin } from "./components/admin/conditionlist";
 import{ NewsListAdmin } from "./components/admin/newslist";
 import{ ProductListAdmin } from "./components/admin/productlist";
 import { Product } from './pages/Article/Product';
+import{ Buy } from "./components/shopping/Buy";
 import { ProductInsertAdmin } from './components/admin/productInfoInsert';
 
 
@@ -70,6 +71,7 @@ export function links() {
     itemSell: '/item-sell',
     likes: '/likes-list',
     catégories: '/categories',
+    product: '/product',
     paymentComplete: '/payed',
     payChoice: '/payment-choice',
     stocks: '/stocks',
@@ -83,14 +85,18 @@ export function links() {
     contact: '/contact',
     faq: '/faq',
     actus: '/actus',
+    buy: '/buy',
     err404: '*'
   }
 }
 
 export function App(props) {
   ReactSession.setStoreType("cookie");
+  const [ids,setIds] = useState([]);
+  const [quantityList,setquantityList]=useState([]);
   const [show, setShow] = useState(false);
   const [alerts, setAlerts] = useState();
+  const [price, setPrice] = useState();
   const [colors, setColors] = useState();
   const [showModalProduct,setShowModalProduct]=useState(false);
   const [showModalProductInsert,setShowModalProductInsert]=useState(false);
@@ -119,7 +125,7 @@ export function App(props) {
   const link = links()
 
   return <>
-    {/* <Background />  */}
+    <Background /> 
     <Cookies />
     <Router>
       <Header setColors={setColors} setShow={setShow} setAlerts={setAlerts} handleShowModal={handleShowModal} />
@@ -162,7 +168,9 @@ export function App(props) {
           <Route exact path={link.contactDetails}>
             <ContactDetails/>
           </Route>
-          <Route exact path={link.bag} component={Bag} />
+          <Route exact path={link.bag}>
+            <Bag setquantityList={setquantityList} setIds={setIds} setPrice={setPrice}/>
+          </Route>
           <Route exact path={link.history} component={History} />
 
           {/* Article */}
@@ -174,7 +182,9 @@ export function App(props) {
           <Route exact path={link.product} component={Product} />
 
           {/* Payment */}
-
+          <Route exact path={link.buy}>
+            <Buy quantityList={quantityList} price={price} ids={ids}/>
+          </Route>
           <Route exact path={link.paymentComplete} component={PayComplete} />
           <Route exact path={link.payChoice} component={PayChoice} />
 
@@ -206,8 +216,6 @@ export function App(props) {
           <Route exact path={link.err404} component={Error404} />
 
         </Switch>
-
-        {/* <Robot /> */}
         
         <div></div>
       </div>

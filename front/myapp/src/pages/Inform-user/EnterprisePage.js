@@ -29,9 +29,8 @@ export function EnterprisePage(props) {
     });
     useEffect(() => {
         test()
-        console.log(info)
     }, []);
-    return info?<div className="flex vertical"> {console.log(info)}
+    return info?<div className="flex vertical"> {}
         <form onSubmit={handleSubmit(onSubmitUpdateUser)} className="align-center flex vertical center" >
             <h1 className="title">Mon Entreprise</h1>
             <div className="flex vertical gap center">

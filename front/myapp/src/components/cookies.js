@@ -9,7 +9,6 @@ export function Cookies() {
     const [cookie, setCookie] = useState("null")
 
     useEffect(() => {
-        console.log(cookie)
         if (cookie != "null") {
             ReactSession.set("cookies", cookie);
             setCookies(false)

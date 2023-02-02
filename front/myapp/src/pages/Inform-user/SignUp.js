@@ -11,7 +11,6 @@ export default function SignUp(props) {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmitNewUser = async (data) => {
         const userList = await Login_();
-        console.log(userList.filter(user=>user.mail.match(data["mail"])))
         if(userList.filter(user=>user.mail.match(data["mail"])).length == 0){
             if(userList.filter(user=>user.nickname.match("")).length > 0){
                 if(regularExpression.test(data["password"])){
@@ -22,7 +21,6 @@ export default function SignUp(props) {
                         props.setShow(1)
                         props.setColors(1)
                     }else{
-                    console.log(data)
                     data["envy_id"]=0
                     Sign_up(data)
                     window.location.replace('/login');

@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 01 Février 2023 à 11:23
+-- Généré le :  Jeu 02 Février 2023 à 14:22
 -- Version du serveur :  5.7.11
--- Version de PHP :  7.0.3
+-- Version de PHP :  5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -311,8 +311,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `img`, `nickname`, `mail`, `phone_number`, `adress`, `apartment`, `code_postal`, `city`, `password`, `banking_informations`, `acceptance_of_the_gtcu`, `stay_connect`, `newsletter`, `eko_experience`, `badges`, `admin`, `seller`, `eko_save`, `envy_id`) VALUES
-(1, 'ewen', 'icons-user.jpg', 'Keltulsan', 'ebeaufils@gaming.tech', '0676967586', '11 rue d\'Hanoï', '102', '69100', 'Lyon', 'ewen', NULL, 1, 1, 1, NULL, NULL, 1, 1, 1, NULL),
-(2, 'Gwendal', 'icons-user.jpg', 'Gwenitora', 'gacquart-reylans@gaming.tech', NULL, NULL, NULL, NULL, NULL, '', NULL, 0, 0, 0, NULL, NULL, 1, 1, 1, 0);
+(1, 'ewen', 'icons-user.jpg', 'Keltulsan', 'ebeaufils@gaming.tech', '0676967586', '11 rue d\'Hanoï', '102', '69100', 'Lyon', '1ef791d8c8919c64d63bb4574baf1542', NULL, 1, 1, 1, NULL, NULL, 1, 1, 1, NULL),
+(2, 'Gwendal', 'icons-user.jpg', 'Gwenitora', 'perso@gwenitora.com', '+33767934493', '', NULL, '69100', 'Lyon', 'b6f959661e049b0b5a510d6284984421', NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, 0);
 
 --
 -- Index pour les tables exportées
@@ -453,7 +453,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
