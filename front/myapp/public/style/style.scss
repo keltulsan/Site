@@ -154,7 +154,7 @@
         width: 100px;
     }
 
-    // Style-link
+    // Style-link //
 
     .style-link {
         text-decoration: none;
@@ -1054,5 +1054,150 @@
         .slide{
             width: fit-content;
         }
+    }
+    img.logoCategorie{
+        width: 360px;
+        height: 250px;
+        cursor: pointer;
+        overflow: hidden;
+        text-align: center;
+    }
+    .logoCategorie .fadedbox {
+        background-color: #666666;
+        top: 0;
+        left: 0;
+        color: #fff;
+        -webkit-transition: all 300ms ease-out;
+        -moz-transition: all 300ms ease-out;
+        -o-transition: all 300ms ease-out;
+        -ms-transition: all 300ms ease-out;
+        transition: all 300ms ease-out;
+        opacity: 0;
+        width: 360px;
+        height: 100px;
+        padding: 130px 20px;
+        border-radius: 10%;
+      }
+      .logos-categories:hover .fadedbox {
+        opacity: 0.8;
+      }
+      .logos-categories .text {
+        -webkit-transition: all 300ms ease-out;
+        -moz-transition: all 300ms ease-out;
+        -o-transition: all 300ms ease-out;
+        -ms-transition: all 300ms ease-out;
+        transition: all 300ms ease-out;
+        transform: translateY(30px);
+        -webkit-transform: translateY(30px);
+        text-align: center;
+      }
+      .logos-categories .title {
+        font-size: 2.5em;
+        text-transform: uppercase;
+        opacity: 0;
+        transition-delay: 0.2s;
+        transition-duration: 0.3s;
+        text-align: center;
+      }
+      .logos-categories:hover .title,
+      .logos-categories:focus .title {
+        opacity: 1;
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        text-align: center;
+      }.row {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 4px;
+        align-items: center;
+    
+    }
+      
+    .column {
+        flex: 25%;
+        max-width: 25%;
+        padding: 0 4px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 20px;
+        align-items: center;
+        margin: 4% ;
+    }
+      
+    .column img {
+        margin-top: 8px;
+        width: 100%;
+        align-items: stretch;
+        border-radius: 10%;
+        border: 5px solid black ;
+   
+    }
+      
+    @media screen and (max-width: 800px) {
+        .column {
+          flex: 50%;
+          max-width: 50%;
+        }
+    }
+      
+    @media screen and (max-width: 600px) {
+        .column {
+          flex: 100%;
+          max-width: 100%;
+        }
+    }
+    
+    img.logoCategorie{
+        width: 360px;
+        height: 250px;
+        cursor: pointer;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 10%;
+        border: 5px solid black ;
+    }
+    .logoCategorie .fadedbox {
+        background-color: #666666;
+        top: 0;
+        left: 0;
+        color: #fff;
+        -webkit-transition: all 300ms ease-out;
+        -moz-transition: all 300ms ease-out;
+        -o-transition: all 300ms ease-out;
+        -ms-transition: all 300ms ease-out;
+        transition: all 300ms ease-out;
+        opacity: 0;
+        width: 360px;
+        height: 100px;
+        padding: 130px 20px;
+        border-radius: 10%;
+      }
+      .logos-categories:hover .fadedbox {
+        opacity: 0.8;
+      }
+      .logos-categories .text {
+        -webkit-transition: all 300ms ease-out;
+        -moz-transition: all 300ms ease-out;
+        -o-transition: all 300ms ease-out;
+        -ms-transition: all 300ms ease-out;
+        transition: all 300ms ease-out;
+        transform: translateY(30px);
+        -webkit-transform: translateY(30px);
+        text-align: center;
+      }
+      .logos-categories .title {
+        font-size: 2.5em;
+        text-transform: uppercase;
+        opacity: 0;
+        transition-delay: 0.2s;
+        transition-duration: 0.3s;
+        text-align: center;
+      }
+      .logos-categories:hover .title,
+      .logos-categories:focus .title {
+        opacity: 1;
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        text-align: center;
     }
 }
