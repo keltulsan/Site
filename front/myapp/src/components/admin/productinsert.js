@@ -6,7 +6,7 @@ export function ProductInsert(props) {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmitUpdateProduct = async (data) => {
         InsertProduct_(data)
-        // window.location.replace('/sells');
+        window.location.replace('/sells');
     }
     const [dimensions, setDimensions] = React.useState({
         height: window.innerHeight,
@@ -24,7 +24,7 @@ export function ProductInsert(props) {
             <div className="flex2 margin-top--- vertical align-center">
                 <input className='background my-account- margin-top---' {...register("link_name")} placeholder="Lien de la condition" type="hidden" id="Link-name" defaultValue="bonjour" />
                 <div className="flex gap">
-                    <input className='background my-account- margin-top--- margin-right--' {...register("name")} placeholder="Nom-Prénom" type="text" id="Nom-prenom" />
+                    <input className='background my-account- margin-top--- margin-right--' {...register("name")} placeholder="Nom" type="text" id="Nom-prenom" />
                     <input className='background my-account- margin-top---' {...register("price")} placeholder="Prix" type="text" id="Price" />
                 </div>
                 <div className="flex gap">

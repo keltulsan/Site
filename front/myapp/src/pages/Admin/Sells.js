@@ -2,12 +2,23 @@ import { Link } from "react-router-dom"
 import React, { Component, useEffect, useState } from 'react';
 import { links } from "../../App";
 import { DeleteProduct_ } from "../../api/DeleteProduct"
+import { ProductList } from "../../api/Product";
 
 export function Sells(props) {
     const link = links();
+    const [produit, setProduit] = useState([])
+    const [produitMap, setProduitMap] = useState(false)
     const onSubmitDeleteProduct = async (data) => {
         DeleteProduct_(data)
-        window.location.replace('/sells');}
+        window.location.replace('/sells');
+    }
+
+    useEffect(() => {
+        const labelsFetched = ProductList();
+        labelsFetched
+            .then(result => setProduit(result))
+            .catch(error => console.error('Erreur avec notre API :', error.message));
+    }, []);
 
     const [dimensions, setDimensions] = React.useState({
         height: window.innerHeight,
@@ -24,48 +35,33 @@ export function Sells(props) {
         window.addEventListener('resize', handleResize)
     })
 
+    useEffect(() => {
+        console.log(produit)
+        setProduitMap(produit.map((produits, key) => {
+            return <div className="flex vertical gap- align-center">
+                <div className="flex center gap box2 background-color-2-4">
+                    <img className="align-center prod-img" src={produits.img} alt={'image de' + (produits.name) + 'sur Eko'} />
+                </div>
+                <div className="flex center gap-">
+                    <Link className="style-link stroke" to={link.sells} onClick={() => { props.handleShowModalProduct(); InputComponent.click() }}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.sells} onClick={() => { onSubmitDeleteProduct(); }}> Supprimer</Link>
+                </div>
+            </div>
+        }))
+    })
+
     const InputComponent = () => {
         const inputElement = React.useRef()
-    
+
         return <input ref={inputElement} />
     }
 
     return <div className='container'>
         <h1 className='title stroke'> Mes ventes sur Eko</h1>
-        <div className={"flex center " + (dimensions.width <= 750 ? " vertical margin-top- gap" : " gap-plus margin-top")}>
-            <div className="flex vertical gap- align-center">
-                <div className="flex gap box background-color-2-4">
-                    <img className="align-center" src='./img/mastercard.png' alt='image de paiment mastercard sur Eko' />
-                    <img className="align-center" src='./img/visa.png' alt='image de paiment mastercard sur Eko' />
-                    <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
-                </div>
-                <div className="flex center gap-">
-                    <Link className="style-link stroke" to={link.sells}  onClick={()=>{props.handleShowModalProduct();InputComponent.click()}}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.sells} onClick={()=>{onSubmitDeleteProduct();}}> Supprimer</Link>
-                </div>
-            </div>
-            <div className="flex vertical gap- align-center">
-                <div className="flex gap box background-color-2-4">
-                    <img className="align-center" src='./img/mastercard.png' alt='image de paiment mastercard sur Eko' />
-                    <img className="align-center" src='./img/visa.png' alt='image de paiment mastercard sur Eko' />
-                    <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
-                </div>
-                <div className="flex center gap-">
-                    <Link className="style-link stroke" to={link.sells}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.sells}> Supprimer</Link>
-                </div>
-            </div>
-            <div className="flex vertical gap- align-center">
-                <div className="flex gap box background-color-2-4">
-                    <img className="align-center" src='./img/mastercard.png' alt='image de paiment mastercard sur Eko' />
-                    <img className="align-center" src='./img/visa.png' alt='image de paiment mastercard sur Eko' />
-                    <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
-                </div>
-                <div className="flex center gap-">
-                    <Link className="style-link stroke" to={link.sells}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.sells}> Supprimer</Link>
-                </div>
-            </div>
+        <div className={"" + (dimensions.width <= 750 ? " flex center vertical margin-top- gap" : " grid2 gap-plus margin-top")}>
+            {produitMap}
         </div>
         <div className="flex center margin-top ">
-            <input className="padding-right-left" type="submit" value="Ajouter un produit" onClick={()=>{props.handleShowModalProductInsert()}} ></input>
+            <input className="padding-right-left" type="submit" value="Ajouter un produit" onClick={() => { props.handleShowModalProductInsert() }} ></input>
         </div>
         <div className="flex center margin-top">
             <Link className="style-link-2" to={link.stocks}><h2 className="title border stroke background-button">Mes stocks</h2></Link>

@@ -651,6 +651,12 @@
             grid-gap: 10px;
         }
 
+        .grid2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 100px;
+        }
+
         // Input //
 
         input[type="text"],
