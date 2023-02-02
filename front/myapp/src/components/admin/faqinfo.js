@@ -12,7 +12,7 @@ export function FaqListInfo(props){
         width: window.innerWidth
     })
 return <form onSubmit={handleSubmit(onSubmitUpdateFaq)} className="align-center flex vertical center" >
-            <h1 className="title flex2 center margin-top--">Mon Compte</h1>
+            <h1 className="title flex2 center margin-top--">FAQ</h1>
             <div className="flex2 vertical center">
                 <div className="profils-account flex vertical center">
                     <div className="flex2 center">

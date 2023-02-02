@@ -16,7 +16,6 @@ export function FaqListAdmin(props){
         console.log(info)
     }, []);
     return <Modal animation={true} show={props.showModalFaq} onHide={props.handleCloseModalFaq}>
-          <Modal.Title>Modal heading</Modal.Title>
         {console.log(info)}
         <Modal.Body>{info && info.map((info,key)=>{
             return <div key={info.id}><FaqListInfo info={info}/></div>})}

@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { News_ } from "../update_news/news";
+import { News_ } from "../Update_news/news";
 import React, { Component, useEffect, useState } from 'react';
 
 export function NewsListInfo(props) {
@@ -13,7 +13,7 @@ export function NewsListInfo(props) {
         width: window.innerWidth
     })
     return <form onSubmit={handleSubmit(onSubmitUpdateNews)} className="align-center flex vertical center" >
-        <h1 className="title flex2 center margin-top--">Mon Compte</h1>
+        <h1 className="title flex2 center margin-top--">Actualité</h1>
         <div className="flex2 vertical center">
             <div className="profils-account flex vertical center">
                 <div className="flex2 center">
@@ -26,10 +26,10 @@ export function NewsListInfo(props) {
                 <input className='background my-account- margin-top---' {...register("name")} placeholder="Nom-Prénom" type="text" id="Nom-prenom" defaultValue={props.info.name} />
             </div>
             <div className="flex2 margin-top--- align-center">
-                <input className='background my-account- margin-top---' {...register("link_name")} placeholder="Lien de la condition" type="text" id="Link-name" defaultValue={props.info.link_name} />
-                <textarea className='background my-account' {...register("desc")} placeholder="Description" type="textarea" id="message" name="message" defaultValue={props.info.desc} />
+                <input className='background my-account- margin-top---' {...register("link_name")} placeholder="Lien de la condition" type="hidden" id="Link-name" defaultValue={props.info.name.toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")} />
                 <input className='background my-account- margin-top---' {...register("img")} placeholder="Lien de l'image" type="text" id="Link-img" defaultValue={props.info.img} />
             </div>
+            <textarea className='background my-account margin-top--- ' {...register("desc")} placeholder="Description" type="textarea" id="message" name="message" defaultValue={props.info.desc} />
             <div className="flex2 center margin-top--">
                 <input type="submit" value="Modifier l'actualité" />
             </div>

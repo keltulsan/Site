@@ -17,7 +17,6 @@ export function BusinessListAdmin(props){
     }, []);
     return <Modal show={props.showModalBusiness} onHide={props.handleCloseModalBusiness}>
         <Modal.Header>
-          <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         {console.log(info)}
         <Modal.Body>{info && info.map((info,key)=>{
