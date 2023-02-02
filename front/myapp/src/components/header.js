@@ -96,7 +96,7 @@ export function Header(props) {
             var val = ReactSession.get("searchbar")
             if (val != "") {
                 setSearch(true)
-                setProductsMap(<div>{product.map((val2) => {
+                setProductsMap(product.map((val2) => {
                     var verif = false
                     for (const key in val2) {
                         try {
@@ -104,16 +104,12 @@ export function Header(props) {
                         } catch (err) { }
                     };
                     if (verif) {
-                        return <div className='flex vertical'>
-                            <div className='logo-categories align-center'>
-                                <img className='logoCategorie' src={val2.img} />
-                                <div className='fadedbox'>
-                                    <p className='titre text'>{val2.name}</p>
-                                </div>
-                            </div>
+                        return <div className='flex'>
+                            <img className='align-center width-50px' src={val2.img} />
+                            <p className='text white align-center'>{val2.name}</p>
                         </div>
                     }
-                })}</div>)
+                }))
             } else {
                 setSearch(false)
             }
@@ -200,7 +196,9 @@ export function Header(props) {
             </div>
         </div></Collapse>}
         <Collapse in={isHover3 && search && (menu || dimensions.width > 750)}>
-            {productsMap}
+            <div className='grid'>
+                {productsMap}
+            </div>
         </Collapse>
     </div>
 }

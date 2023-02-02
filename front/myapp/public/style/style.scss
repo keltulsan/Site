@@ -341,6 +341,11 @@
         height: 85vh;
     }
 
+    img.width-50px {
+        width: 50px !important;
+        height: auto !important;
+    }
+
     // Image-rotate //
 
     .rotate-img {
@@ -432,6 +437,10 @@
             font-size: 20px;
             &.center-text {
                 text-align: center;
+            }
+
+            &.white {
+                color: $primaryColor4;
             }
         }
 
@@ -709,6 +718,10 @@
                 margin-left: 20px;
                 margin-right: 20px;
                 gap: 30px;
+                div {
+                    margin-left: 0px !important;
+                    margin-right: 0px !important;
+                }
 
                 img.logo {
                     height: 50px;
@@ -832,118 +845,6 @@
                     }
                 }
             }
-        }
-        img.logoCategorie {
-            width: 360px;
-            height: 250px;
-            cursor: pointer;
-            overflow: hidden;
-            text-align: center;
-            clip: rect(0px, 0px, 360px, 250px)
-        }
-        .logoCategorie .fadedbox {
-            background-color: #666666;
-            top: 0;
-            left: 0;
-            color: #fff;
-            -webkit-transition: all 300ms ease-out;
-            -moz-transition: all 300ms ease-out;
-            -o-transition: all 300ms ease-out;
-            -ms-transition: all 300ms ease-out;
-            transition: all 300ms ease-out;
-            opacity: 0;
-            width: 360px;
-            height: 100px;
-            padding: 130px 20px;
-            border-radius: 10%;
-            clip: rect(0px, 0px, 360px, 250px)
-        }
-        .logos-categories:hover .fadedbox {
-            opacity: 0.8;
-        }
-        .logos-categories .text {
-            -webkit-transition: all 300ms ease-out;
-            -moz-transition: all 300ms ease-out;
-            -o-transition: all 300ms ease-out;
-            -ms-transition: all 300ms ease-out;
-            transition: all 300ms ease-out;
-            transform: translateY(30px);
-            -webkit-transform: translateY(30px);
-            text-align: center;
-        }
-        .logos-categories .title {
-            font-size: 2.5em;
-            text-transform: uppercase;
-            opacity: 0;
-            transition-delay: 0.2s;
-            transition-duration: 0.3s;
-            text-align: center;
-        }
-        .logos-categories:hover .title,
-        .logos-categories:focus .title {
-            opacity: 1;
-            transform: translateY(0px);
-            -webkit-transform: translateY(0px);
-            text-align: center;
-        }
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 0 4px;
-            align-items: center;
-        }
-
-        img.logoCategorie {
-            height: 250px;
-            cursor: pointer;
-            overflow: hidden;
-            text-align: center;
-            border-radius: 10%;
-            border: 5px solid black;
-            clip: rect(0px, 0px, 360px, 250px)
-        }
-        .logoCategorie .fadedbox {
-            background-color: #666666;
-            top: 0;
-            left: 0;
-            color: #fff;
-            -webkit-transition: all 300ms ease-out;
-            -moz-transition: all 300ms ease-out;
-            -o-transition: all 300ms ease-out;
-            -ms-transition: all 300ms ease-out;
-            transition: all 300ms ease-out;
-            opacity: 0;
-            height: 250px;
-            padding: 130px 20px;
-            border-radius: 10%;
-        }
-        .logos-categories:hover .fadedbox {
-            opacity: 0.8;
-        }
-        .logos-categories .text {
-            -webkit-transition: all 300ms ease-out;
-            -moz-transition: all 300ms ease-out;
-            -o-transition: all 300ms ease-out;
-            -ms-transition: all 300ms ease-out;
-            transition: all 300ms ease-out;
-            transform: translateY(30px);
-            -webkit-transform: translateY(30px);
-            text-align: center;
-        }
-        .logos-categories .titre {
-            font-size: 2.5em;
-            text-transform: uppercase;
-            opacity: 0;
-            transition-delay: 0.2s;
-            transition-duration: 0.3s;
-            text-align: center;
-        }
-        .logos-categories:hover .titre,
-        .logos-categories:focus .titre {
-            opacity: 1;
-            transform: translateY(0px);
-            -webkit-transform: translateY(0px);
-            text-align: center;
         }
     }
 }
