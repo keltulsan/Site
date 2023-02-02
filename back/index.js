@@ -346,6 +346,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/product/insert", jsonParser, (req, res) => {
   (async () => {
     await sequelize.sync();
+    console.log("debug",
+    {name: req.body.name,
+    link_name: req.body.link_name,
+    img: req.body.img,
+    quantity: req.body.quantity,
+    price: req.body.price,
+    seller_name: req.body.seller_name,
+    eko_score: req.body.eko_score,
+    description: req.body.description,
+    label_name: req.body.label_name
+  })
     await models.product.create({
       name: req.body.name,
       link_name: req.body.link_name,
@@ -354,7 +365,7 @@ app.post("/product/insert", jsonParser, (req, res) => {
       price: req.body.price,
       seller_name: req.body.seller_name,
       eko_score: req.body.eko_score,
-      desc: req.body.desc,
+      description: req.body.description,
       label_name: req.body.label_name
     })
       .then(result => res.json(result))
@@ -382,7 +393,7 @@ app.post("/product/update", jsonParser, (req, res) => {
       price: req.body.price,
       seller_name: req.body.seller_name,
       eko_score: req.body.eko_score,
-      desc: req.body.desc,
+      description: req.body.description,
       label_name: req.body.label_name
     },
       {

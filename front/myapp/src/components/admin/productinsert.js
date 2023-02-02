@@ -6,7 +6,9 @@ export function ProductInsert(props) {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmitUpdateProduct = async (data) => {
         InsertProduct_(data)
-        window.location.replace('/sells');
+        console.log(data)
+        // window.location.replace('/sells');
+        console.log(data["name"])
     }
     const [dimensions, setDimensions] = React.useState({
         height: window.innerHeight,

@@ -36,7 +36,6 @@ export function Sells(props) {
     })
 
     useEffect(() => {
-        console.log(produit)
         setProduitMap(produit.map((produits, key) => {
             return <div className="flex vertical gap- align-center">
                 <div className="flex center gap box2 background-color-2-4">
@@ -47,7 +46,7 @@ export function Sells(props) {
                 </div>
             </div>
         }))
-    })
+    },[produit])
 
     const InputComponent = () => {
         const inputElement = React.useRef()

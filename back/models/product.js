@@ -35,8 +35,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    desc: {
-      type: DataTypes.TEXT,
+    description: {
+      type: DataTypes.STRING(1000),
       allowNull: true
     },
     label_name: {

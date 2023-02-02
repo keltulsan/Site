@@ -52,7 +52,7 @@ export function Stocks(props) {
                 </div>
             </div>
         }))
-    })
+    },[produit])
 
     return <div className='container'>
         <h1 className='title stroke'> Mes stocks sur Eko</h1>
