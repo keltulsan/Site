@@ -13,13 +13,11 @@ export function BusinessListAdmin(props){
         info
             .then(result => setInfo(result))
             .catch(error => console.error("Erreur avec notre API :", error.message));
-        console.log(info)
     }, []);
     return <Modal show={props.showModalBusiness} onHide={props.handleCloseModalBusiness}>
         <Modal.Header>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
-        {console.log(info)}
         <Modal.Body>{info && info.map((info,key)=>{
             return <div key={info.id}><EnterprisePage info={info}/></div>
         })}

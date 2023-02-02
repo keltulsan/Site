@@ -26,7 +26,7 @@ export default function LoginPage(props){
         }})}else{
                     props.setAlerts(2)
                     props.setShow(1)
-                    props.setColors(0)
+                    props.setColors(1)
                 }
         }
     const [dimensions, setDimensions] = React.useState({ 

@@ -1,8 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Envy_ } from "../../components/envy_list/EnvyGet";
 import { ReactSession } from 'react-client-session';
-import { ProductList_ } from "../../components/product/productlist";
-import { Buy } from "../../components/shopping/Buy";
+import { ProductList_ } from "../../components/product/productList";
 import { Link } from "react-router-dom";
 import { links } from '../../App';
 
@@ -11,6 +10,8 @@ export function Bag(props){
     const [products,setProducts]=useState();
     const panier = [];
     const link = links();
+    const idList=[];
+    const quantityList=[];
     let price = 0;
     const [dimensions, setDimensions] = React.useState({ 
         height: window.innerHeight,
@@ -42,6 +43,7 @@ export function Bag(props){
                 <div className="vertical gap">
                     {}
                     {liste && liste.filter(liste => String(liste.user_id).match(ReactSession.get("id"))).map((liste,key)=>{
+                        {idList.push(liste.product_id);props.setIds(idList)}
                         return products && products.filter(products => String(products.id).match(liste.product_id)).map((products,key)=>{
                             if(products.id == liste.product_id){
                             return <div className={"flex gap margin-top-- "+(dimensions.width <= 750 ? " vertical" : "space-around ")}>
@@ -51,7 +53,7 @@ export function Bag(props){
                         <div className="box background-color-2-4 flex align-center">
                             <p className="text">{products.name}<br></br>{products.price}€</p>
                         </div>
-                        <div style={{opacity:0}}>{panier.push(products.name + " ")}{price+=products.price}</div>
+                        <div style={{opacity:0}}>{quantityList.push(products.quantity)}{props.setquantityList(quantityList)}{panier.push(products.name + " ")}{price+=products.price}</div>
                     </div>}})})}
                 </div>
             </div>
@@ -59,12 +61,6 @@ export function Bag(props){
                 <div className="background-color-1-5 padding-top- radius-top">
                 </div>
                 <div className="margin-top-- flex vertical">
-                    <h2 className="title left margin-top--- ">Prix global</h2>
-                    <h2 className="title left margin-top--- ">TVA</h2>
-                    <h2 className="title left margin-top--- ">Code promotionel</h2>
-                    <div className="background-color-2-3 margin-top--- flex center">
-                        <h2 className="title align-center">KIWI 69oooo</h2>
-                    </div>
                     <h2 className="title left margin-top---">Récapitulatif du panier</h2>
                     <h2 className="title left center-text">{panier}</h2>
                     <h2 className="title left center-text">{price}€</h2>

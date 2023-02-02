@@ -84,6 +84,8 @@ export function links() {
 
 export function App(props) {
   ReactSession.setStoreType("cookie");
+  const [ids,setIds] = useState([]);
+  const [quantityList,setquantityList]=useState([]);
   const [show, setShow] = useState(false);
   const [alerts, setAlerts] = useState();
   const [price, setPrice] = useState();
@@ -139,7 +141,7 @@ export function App(props) {
             <ContactDetails/>
           </Route>
           <Route exact path={link.bag}>
-            <Bag setPrice={setPrice}/>
+            <Bag setquantityList={setquantityList} setIds={setIds} setPrice={setPrice}/>
           </Route>
           <Route exact path={link.history} component={History} />
 
@@ -152,7 +154,7 @@ export function App(props) {
 
           {/* Payment */}
           <Route exact path={link.buy}>
-            <Buy price={price}/>
+            <Buy quantityList={quantityList} price={price} ids={ids}/>
           </Route>
           <Route exact path={link.paymentComplete} component={PayComplete} />
           <Route exact path={link.payChoice} component={PayChoice} />
