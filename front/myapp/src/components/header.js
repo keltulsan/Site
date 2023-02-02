@@ -127,9 +127,9 @@ export function Header(props) {
         <div className='flex space-between'>
             <Link to={link.homeFull}><img className='logo' src='./img/logo.png' alt='Logo de Eko' /></Link>
             {dimensions.width > 750 && <div className='flex align-center'>
-            <Button variant="primary" onClick={props.handleShowModal}>
-                Admin
-            </Button>
+                <Button variant="primary" onClick={props.handleShowModal}>
+                    Admin
+                </Button>
                 <Collapse in={!isHover3} orientation="horizontal" className='align-center'>
                     <div className='flex nomargin'>
                         <Link to={link.catégories} onMouseEnter={() => {
@@ -138,31 +138,32 @@ export function Header(props) {
                             setIsHover3(false)
                         }}><p>Catégories</p></Link>
 
-                <Link to={link.sells} style={{ minWidth: "107.27px" }}><p>Mes ventes</p></Link>
-                <Link to={link.actus}><p>Actus</p></Link>
-                {!ReactSession.get("username") && <Link to={link.login}><p>Login</p></Link>}
-                {ReactSession.get("username") && <Link to={link.account} onMouseEnter={() => {
-                    setIsHover(false)
-                    setIsHover2(true)
-                    setIsHover3(false)
-                }}><img src='./img/avatar.png' alt='ton avatar sur Eko' /></Link>}
-                <Link to={link.bag}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko' /></Link>
+                        <Link to={link.sells} style={{ minWidth: "107.27px" }}><p>Mes ventes</p></Link>
+                        <Link to={link.actus}><p>Actus</p></Link>
+                        {!ReactSession.get("username") && <Link to={link.login}><p>Login</p></Link>}
+                        {ReactSession.get("username") && <Link to={link.account} onMouseEnter={() => {
+                            setIsHover(false)
+                            setIsHover2(true)
+                            setIsHover3(false)
+                        }}><img src='./img/avatar.png' alt='ton avatar sur Eko' /></Link>}
+                        <Link to={link.bag}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko' /></Link>
 
-                <Collapse in={isHover3 && dimensions.width > 750} orientation="horizontal">
-                <input className='align-center' type="text" placeholder="search here" style={{ marginRight: "30px" }} onChange={detectChange} defaultValue={() => {
-                        try {
-                            return ReactSession.get("searchbar")
-                        } catch (err) {
-                            return ""
-                        }
-                    }} />
+                        <Collapse in={isHover3 && dimensions.width > 750} orientation="horizontal">
+                            <input className='align-center' type="text" placeholder="search here" style={{ marginRight: "30px" }} onChange={detectChange} defaultValue={() => {
+                                try {
+                                    return ReactSession.get("searchbar")
+                                } catch (err) {
+                                    return ""
+                                }
+                            }} />
+                        </Collapse>
+                        <Link to='#' onMouseEnter={() => {
+                            setIsHover(false)
+                            setIsHover2(false)
+                            setIsHover3(true)
+                        }}><img src='./img/search.png' alt='Logo de recherche de Eko' /></Link>
+                    </div>
                 </Collapse>
-                <Link to='#' onMouseEnter={() => {
-                    setIsHover(false)
-                    setIsHover2(false)
-                    setIsHover3(true)
-                }}><img src='./img/search.png' alt='Logo de recherche de Eko' /></Link>
-
             </div>}
             {dimensions.width <= 750 &&
                 <span className="glyphicon glyphicon-list align-center" onClick={() => setMenu(!menu)}></span>
@@ -202,7 +203,7 @@ export function Header(props) {
                 <Link to={link.history}><p>Historique</p></Link>
                 <Link to={link.ekoSave}><p>EKO Save</p></Link>
                 {ReactSession.get("username") &&
-                    <Link to="#" onClick={() => { ReactSession.remove('username');ReactSession.remove('id');props.setAlerts(0);props.setColors(0); props.setShow(true) }}><p>Se déconnecter</p></Link>
+                    <Link to="#" onClick={() => { ReactSession.remove('username'); ReactSession.remove('id'); props.setAlerts(0); props.setColors(0); props.setShow(true) }}><p>Se déconnecter</p></Link>
                 }
             </div>
         </div></Collapse>}

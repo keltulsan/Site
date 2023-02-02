@@ -196,8 +196,6 @@ export function App(props) {
           <Route exact path={link.err404} component={Error404} />
 
         </Switch>
-
-        {/* <Robot /> */}
         
         <div></div>
       </div>
