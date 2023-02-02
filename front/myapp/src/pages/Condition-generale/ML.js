@@ -1,3 +1,17 @@
+import { useEffect, useState } from 'react'
+const getAllML = async () => {
+    const response = await fetch(
+        'http://localhost:4444/condition/list', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }
+    )
+}
+
+
 export function ML(props) {
     return <div className="container">
         <h1 className="title top stroke">Mention légale</h1>
