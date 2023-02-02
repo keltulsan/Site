@@ -3,30 +3,30 @@ import React, { useEffect, useState, useCallback } from "react";
 export default function Background() {
     const [scrollValue, setScrollValue] = useState(0);
     const [mousePos, setMousePos] = useState({x:0, y:0});
-    // useEffect(() => {
+    useEffect(() => {
   
-    //   const onScroll = (e) => {
-    //     setScrollValue(e.target.documentElement.scrollTop);
-    //   };
+      const onScroll = (e) => {
+        setScrollValue(e.target.documentElement.scrollTop);
+      };
   
-    //   window.addEventListener('scroll', onScroll);
+      window.addEventListener('scroll', onScroll);
   
-    //   return () => window.removeEventListener('scroll', onScroll);
-    // }, []);
-    // useEffect(() => {
-    //     const handleMouseMove = (e) => {
-    //         setMousePos({ x: e.clientX, y: e.clientY });
-    //     };
+      return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            setMousePos({ x: e.clientX, y: e.clientY });
+        };
 
-    //     window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mousemove', handleMouseMove);
 
-    //     return () => {
-    //         window.removeEventListener(
-    //             'mousemove',
-    //             handleMouseMove
-    //         );
-    //     };
-    // }, []);
+        return () => {
+            window.removeEventListener(
+                'mousemove',
+                handleMouseMove
+            );
+        };
+    }, []);
 
     const [imgsMap, setImgsMap] = useState([]);
     const [imgs, setImgs] = useState([]);
@@ -81,7 +81,7 @@ export default function Background() {
                 )
             }
         }
-    },[]);
+    });
 
     return <div
         style={{

@@ -40,6 +40,14 @@ import { ReactSession } from 'react-client-session';
 import { Toast_ } from './components/toast/toast';
 import { useState } from 'react';
 import { Cookies } from './components/cookies';
+import{ PanelAdmin } from "./components/admin/panel";
+import{ UserListAdmin } from "./components/admin/userList";
+import{ BusinessListAdmin } from "./components/admin/businessList";
+import{ FaqListAdmin } from "./components/admin/faqlist";
+import{ ConditionListAdmin } from "./components/admin/conditionlist";
+import{ NewsListAdmin } from "./components/admin/newslist";
+import { Product } from './pages/Article/Product';
+
 
 export function links() {
   return {
@@ -56,6 +64,7 @@ export function links() {
     history: '/history',
     articles: '/articles',
     clotheSell: '/clothe-sell',
+    product: '/product',
     itemSell: '/item-sell',
     likes: '/likes-list',
     catégories: '/categories',
@@ -81,13 +90,38 @@ export function App(props) {
   const [show, setShow] = useState(false);
   const [alerts, setAlerts] = useState();
   const [colors, setColors] = useState();
+  const [showModalNews,setShowModalNews]=useState(false);
+  const [showModalCondition,setShowModalCondition]=useState(false);
+  const [showModalFaq, setShowModalFaq] = useState(false);
+  const [showModalBusiness,setShowModalBusiness]=useState(false);
+  const [showModalUser,setShowModalUser]=useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const handleShowModalBusiness = () => setShowModalBusiness(true);
+  const handleCloseModalBusiness = () => setShowModalBusiness(false);
+  const handleShowModalUser = () => setShowModalUser(true);
+  const handleCloseModalUser = () => setShowModalUser(false);
+  const handleCloseModal = () => setShowModal(false);
+  const handleShowModal = () => setShowModal(true);
+
+  const handleShowModalNews = () => setShowModalNews(true);
+  const handleCloseModalNews = () => setShowModalNews(false);
+  const handleShowModalCondition = () => setShowModalCondition(true);
+  const handleCloseModalCondition = () => setShowModalCondition(false);
+  const handleCloseModalFaq = () => setShowModalFaq (false);
+  const handleShowModalFaq  = () => setShowModalFaq (true);
   const link = links()
 
   return <>
-    {/* <Background /> */}
+    {/* <Background />  */}
     <Cookies />
     <Router>
-      <Header setShow={setShow} setAlerts={setAlerts} />
+      <Header setColors={setColors} setShow={setShow} setAlerts={setAlerts} handleShowModal={handleShowModal} />
+      <PanelAdmin handleShowModalUser={handleShowModalUser} handleShowModalBusiness={handleShowModalBusiness} handleShowModalNews={handleShowModalNews} handleShowModalCondition={handleShowModalCondition} handleShowModalFaq={handleShowModalFaq} showModal={showModal} handleCloseModal={handleCloseModal}/>
+      <BusinessListAdmin showModalBusiness={showModalBusiness} handleCloseModalBusiness={handleCloseModalBusiness}/>
+      <UserListAdmin showModalUser={showModalUser} handleCloseModalUser={handleCloseModalUser}/>
+      <FaqListAdmin showModalFaq ={showModalFaq } handleCloseModaFaq ={handleCloseModalFaq }/>
+      <ConditionListAdmin showModalCondition={showModalCondition} handleCloseModalCondition={handleCloseModalCondition}/>
+      <NewsListAdmin showModalNews={showModalNews} handleCloseModalNews={handleCloseModalNews}/>
       <Toast_ show={show} setShow={setShow} colors={colors} alerts={alerts}/>
       <div className="root flex space-between vertical">
         <div></div>
@@ -111,13 +145,13 @@ export function App(props) {
             <SignUpPage setAlerts={setAlerts} setShow={setShow} setColors={setColors}/>
           </Route>
           <Route exact path={link.userPage}>
-            <UserPage setAlerts={setAlerts}/>
+            <UserPage setAlerts={setAlerts} setColors={setColors} setShow={setShow}/>
           </Route>
           <Route exact path={link.enterprisePage} >
-            <EnterprisePage setAlerts={setAlerts}/>
+            <EnterprisePage setAlerts={setAlerts} setColors={setColors}/>
           </Route>
           <Route exact path={link.contactDetails}>
-            <ContactDetails setAlerts={setAlerts}/>
+            <ContactDetails/>
           </Route>
           <Route exact path={link.bag} component={Bag} />
           <Route exact path={link.history} component={History} />
@@ -128,6 +162,7 @@ export function App(props) {
           <Route exact path={link.clotheSell} component={ArticleClotheSell} />
           <Route exact path={link.itemSell} component={ArticleSell} />
           <Route exact path={link.likes} component={EnvyList} />
+          <Route exact path={link.product} component={Product} />
 
           {/* Payment */}
 
