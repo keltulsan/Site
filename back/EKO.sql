@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 02 Février 2023 à 22:27
+-- Généré le :  Jeu 02 Février 2023 à 23:07
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.4.31
 
@@ -166,21 +166,21 @@ CREATE TABLE IF NOT EXISTS `labels` (
 --
 
 INSERT INTO `labels` (`id`, `label_name`, `link_name`, `img`) VALUES
-(1, 'Le meilleur des produits', 'le-meilleur-des-produits', ''),
-(2, 'Les nouveautés', 'les-nouveautes', ''),
-(3, 'Les offres', 'les-offres', ''),
-(4, 'Mode et beauté', 'mode-et-beaute', ''),
-(5, 'Informatique', 'informatique', ''),
-(6, 'Maison et bricolage', 'maison-et-bricolage', ''),
-(7, 'Electroménager', 'electromenager', ''),
-(8, 'Livres et multimédia', 'livres-et-multimedia', ''),
-(9, 'Enfants', 'enfants', ''),
-(10, 'Sport', 'sport', ''),
-(11, 'Auto-moto', 'auto-moto', ''),
-(12, 'Fournitures de bureau', 'fournitures-de-bureau', ''),
-(13, 'Jardin et animalerie', 'jardin-et-animalerie', ''),
-(14, 'Abonnement Eko-save', 'abonnement-eko-save', ''),
-(15, 'Produits recommandés pour vous', 'produits-recommandes-pour-vous', '');
+(1, 'Le meilleur des produits', 'le-meilleur-des-produits', 'https://cdn.discordapp.com/attachments/1030456470678016000/1070341422030520340/bestseller.png'),
+(2, 'Les nouveautés', 'les-nouveautes', 'https://media.istockphoto.com/id/1254219019/vector/new-comic-speech-bubble-vector-flat-illustrations-color-phrase-lettering-with-explosive.jpg?s=170667a&w=0&k=20&c=6sstWGF25-aLurTH4FTu2FOCPVaLTGos3bG3tC4cLoM='),
+(3, 'Les offres', 'les-offres', 'https://img.freepik.com/vecteurs-premium/icone-offre-limitee-compte-rebours-temps-offre-limitee-ruban-banniere-vectorielle-moderne-chronometre_349999-979.jpg'),
+(4, 'Mode et beauté', 'mode-et-beaute', 'https://www.malemodelscene.net/wp-content/uploads/2022/08/Mikkel-Jensen-Rag-Bone-Icons-00-364x205.jpg'),
+(5, 'Informatique', 'informatique', 'https://i.notretemps.com/1400x787/smart/2022/04/14/homme-ordinateur.jpg'),
+(6, 'Maison et bricolage', 'maison-et-bricolage', 'https://www.viepratique.fr/wp-content/uploads/sites/4/2019/04/bricolage-et-diy-quels-outils-avoir-chez-soi-750x410.jpg'),
+(7, 'Electroménager', 'electromenager', 'https://www.maisonapart.com/images/normal/20100429_120006_montage.jpg'),
+(8, 'Livres et multimédia', 'livres-et-multimedia', 'https://cdn.pixabay.com/photo/2015/06/02/12/59/book-794978__340.jpg'),
+(9, 'Enfants', 'enfants', 'https://www.educatout.com/images/medium/Trucs-et-conseils-pour-valoriser-l-enfant.jpg'),
+(10, 'Sport', 'sport', 'https://www.latranchesurmer.fr/medias/2022/08/db77d79aad_50173706_depenses-caloriques-sport-julien-eichinger-adobe-stock.jpg'),
+(11, 'Auto-moto', 'auto-moto', 'https://photos.tf1.fr/396/222/audi-r8-spyder-essai-automoto-2016-1-aa76db-0@1x.jpg'),
+(12, 'Fournitures de bureau', 'fournitures-de-bureau', 'https://www.professionnels.ma/sites/default/files/2020-03/pub-4.png.jpeg'),
+(13, 'Jardin et animalerie', 'jardin-et-animalerie', 'https://www.gammvert.fr/conseils/sites/default/files/styles/main_image/public/fotolia_47825735_s_chien.jpg?itok=h0i1ASE2'),
+(14, 'Abonnement Eko-save', 'abonnement-eko-save', 'https://cdn.discordapp.com/attachments/1065997658306662411/1070837545484685362/eko_save.png'),
+(15, 'Produits recommandés pour vous', 'produits-recommandes-pour-vous', 'https://img.freepik.com/premium-photo/woman-hand-writing-recommendation-blank-transparent-board-with-marker-isolated-white-background-business-concept-stock-photo_179068-3061.jpg?w=2000');
 
 -- --------------------------------------------------------
 
@@ -240,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `price` int(11) NOT NULL,
   `seller_name` varchar(100) NOT NULL,
   `eko_score` int(11) NOT NULL,
-  `desc` varchar(1000) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
   `label_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
@@ -248,7 +248,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 -- Contenu de la table `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `img`, `link_name`, `quantity`, `price`, `seller_name`, `eko_score`, `desc`, `label_name`) VALUES
+INSERT INTO `product` (`id`, `name`, `img`, `link_name`, `quantity`, `price`, `seller_name`, `eko_score`, `description`, `label_name`) VALUES
 (3, 'Petite cuillère', 'https://th.bing.com/th/id/OIP.C_Tr3nS7Qbw06XfW26xfEQHaFO?w=279&h=197&c=7&r=0&o=5&pid=1.7', 'petite-cuillère', 14, 5, 'Eko', 1, NULL, 'les-meilleurs-produits'),
 (8, 'Pied de biche', 'https://th.bing.com/th/id/OIP.g4spheUMT2y8V23UMGMIHwHaHa?w=183&h=183&c=7&r=0&o=5&pid=1.7', 'pied-de-biche', 2, 100, 'Eko', -100, NULL, 'les-nouveautes'),
 (9, 'Pc Gaming', 'https://media.materiel.net/r550/products/MN0005865298_1_0005888236_0005932147.jpg', 'pc-gaming', 1, 199, 'Eko', 999, NULL, 'les-offres'),
