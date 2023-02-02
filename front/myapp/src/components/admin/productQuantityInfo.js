@@ -4,9 +4,9 @@ import { Login_ } from "../login_signup/LogiN";
 import { useForm } from "react-hook-form";
 import { GetProduct_ } from "../../api/GetProduct";
 import React, { Component, useEffect, useState } from 'react';
-import { ProductListInfo } from "./productinfo"
+import { ProductQuantity } from "./productQuantity"
 
-export function ProductListAdmin(props){
+export function ProductQuantitytAdmin(props){
     const [info,setInfo]=useState([]);
     useEffect(() => {
         const info = GetProduct_();
@@ -14,8 +14,8 @@ export function ProductListAdmin(props){
             .then(result => setInfo(result))
             .catch(error => console.error("Erreur avec notre API :", error.message));
     }, []);
-    return <Modal animation={true} show={props.showModalProduct} onHide={props.handleCloseModalProduct}>
-        <Modal.Body>{info && info.map((info,key)=>{
-            return <div key={info.id}><ProductListInfo info={info}/></div>})}
+    return <Modal animation={true} show={props.showModalProductQuantity} onHide={props.handleCloseModalProductQuantity}>
+        <Modal.Body>
+            <ProductQuantity info={info}/>
         </Modal.Body>
         </Modal>}

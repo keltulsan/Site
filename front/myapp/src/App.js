@@ -50,6 +50,8 @@ import { ProductListAdmin } from "./components/admin/productlist";
 import { Product } from './pages/Article/Product';
 import { Buy } from "./components/shopping/Buy";
 import { ProductInsertAdmin } from './components/admin/productInfoInsert';
+import { ProductQuantitytAdmin } from './components/admin/productQuantityInfo';
+
 
 export function links() {
   return {
@@ -98,6 +100,7 @@ export function App(props) {
   const [colors, setColors] = useState();
   const [showModalProduct, setShowModalProduct] = useState(false);
   const [showModalProductInsert, setShowModalProductInsert] = useState(false);
+  const [showModalProductQuantity,setShowModalProductQuantity]=useState(false);
   const [showModalNews, setShowModalNews] = useState(false);
   const [showModalCondition, setShowModalCondition] = useState(false);
   const [showModalFaq, setShowModalFaq] = useState(false);
@@ -114,6 +117,8 @@ export function App(props) {
   const handleCloseModalProduct = () => setShowModalProduct(false);
   const handleShowModalProductInsert = () => setShowModalProductInsert(true);
   const handleCloseModalProductInsert = () => setShowModalProductInsert(false);
+  const handleShowModalProductQuantity = () => setShowModalProductQuantity(true);
+  const handleCloseModalProductQuantity = () => setShowModalProductQuantity(false);
   const handleShowModalNews = () => setShowModalNews(true);
   const handleCloseModalNews = () => setShowModalNews(false);
   const handleShowModalCondition = () => setShowModalCondition(true);
@@ -123,11 +128,11 @@ export function App(props) {
   const link = links()
 
   return <>
-    {/*<Background />*/}
+    <Background /> 
     <Cookies />
     <Router>
       <Header setColors={setColors} setShow={setShow} setAlerts={setAlerts} handleShowModal={handleShowModal} />
-      <PanelAdmin handleShowModalUser={handleShowModalUser} handleShowModalBusiness={handleShowModalBusiness} handleShowModalNews={handleShowModalNews} handleShowModalCondition={handleShowModalCondition} handleShowModalFaq={handleShowModalFaq} handleShowModalProduct={handleShowModalProduct} handleShowModalProductInsert={handleShowModalProductInsert} showModal={showModal} handleCloseModal={handleCloseModal} />
+      <PanelAdmin handleShowModalUser={handleShowModalUser} handleShowModalBusiness={handleShowModalBusiness} handleShowModalNews={handleShowModalNews} handleShowModalCondition={handleShowModalCondition} handleShowModalFaq={handleShowModalFaq} handleShowModalProduct={handleShowModalProduct} handleShowModalProductInsert={handleShowModalProductInsert} handleShowModalProductQuantity={handleShowModalProductQuantity} showModal={showModal} handleCloseModal={handleCloseModal} />
       <BusinessListAdmin showModalBusiness={showModalBusiness} handleCloseModalBusiness={handleCloseModalBusiness} />
       <UserListAdmin showModalUser={showModalUser} handleCloseModalUser={handleCloseModalUser} />
       <FaqListAdmin showModalFaq={showModalFaq} handleCloseModaFaq={handleCloseModalFaq} />
@@ -135,6 +140,7 @@ export function App(props) {
       <NewsListAdmin showModalNews={showModalNews} handleCloseModalNews={handleCloseModalNews} />
       <ProductListAdmin showModalProduct={showModalProduct} handleCloseModalProduct={handleCloseModalProduct} />
       <ProductInsertAdmin showModalProductInsert={showModalProductInsert} handleCloseModalProductInsert={handleCloseModalProductInsert} />
+      <ProductQuantitytAdmin showModalProductQuantity={showModalProductQuantity} handleCloseModalProductQuantity={handleCloseModalProductQuantity}/>
       <Toast_ show={show} setShow={setShow} colors={colors} alerts={alerts} />
       <div className="root flex space-between vertical">
         <div></div>
@@ -188,7 +194,9 @@ export function App(props) {
 
           {/* Admin */}
 
-          <Route exact path={link.stocks} component={Stocks} />
+          <Route exact path={link.stocks} component={Stocks}>
+            <Stocks handleShowModalProductQuantity={handleShowModalProductQuantity}/>
+          </Route>
           <Route exact path={link.sells} >
             <Sells handleShowModalProduct={handleShowModalProduct} handleShowModalProductInsert={handleShowModalProductInsert} />
           </Route>

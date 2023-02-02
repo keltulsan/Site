@@ -174,6 +174,11 @@ export function Header(props) {
             }
         </div>
         {dimensions.width <= 750 && <Collapse in={menu}><div className='mobile-menu'>
+            {ReactSession.get("admin") && <Link onClick={props.handleShowModal}>
+                <p>
+                    Admin
+                </p>
+            </Link>}
             <Link to='#' onClick={() => {
                 setIsHover(!isHover)
                 setIsHover2(false)

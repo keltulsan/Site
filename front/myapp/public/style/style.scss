@@ -274,6 +274,13 @@
         padding: 50px !important;
     }
 
+    .box2 {
+        width: fit-content !important;
+        width: 100% !important;
+        border-radius: 10px;
+        padding: 10px !important;
+    }
+
     .all {
         width: 100% !important;
     }
@@ -303,6 +310,12 @@
 
         &-bottom--- {
             margin-bottom: 10px;
+        }
+         &-right-- {
+            margin-right: 10px !important;
+        }
+        &-left-- {
+            margin-left: 10px !important;
         }
     }
 
@@ -410,6 +423,11 @@
 
     .max-height {
         height: -1vh;
+    }
+    .prod-img{
+        width: 100%;
+        max-width: 300px !important;
+        max-height: 300px !important;
     }
 
     img.width-50px {
@@ -631,6 +649,12 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 10px;
+        }
+
+        .grid2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 100px;
         }
 
         // Input //

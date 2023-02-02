@@ -13,10 +13,8 @@ export function ProductInsertAdmin(props){
         info
             .then(result => setInfo(result))
             .catch(error => console.error("Erreur avec notre API :", error.message));
-        console.log(info)
     }, []);
     return <Modal animation={true} show={props.showModalProductInsert} onHide={props.handleCloseModalProductInsert}>
-        {console.log(info)}
         <Modal.Body>
             <ProductInsert info={info}/>
         </Modal.Body>
