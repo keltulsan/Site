@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Envy_ } from "../../components/envy_list/EnvyGet";
 import { ReactSession } from 'react-client-session';
-import { ProductList_ } from "../../components/product/productList";
+import { ProductList_ } from "../../components/product/productlist";
 import { Link } from "react-router-dom";
 import { links } from '../../App';
 

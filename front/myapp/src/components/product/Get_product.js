@@ -1,5 +1,5 @@
-import { Product_list } from "../../api/Product";   
+import { ProductList } from "../../api/product";   
        
 export async function Product_(user){
-    return await Product_list(user) ; 
+    return await ProductList(user) ; 
 }

@@ -134,9 +134,11 @@ export function Header(props) {
             </Link>}
                 <Collapse in={!isHover3} orientation="horizontal" className='align-center'>
                     <div className='flex nomargin'>
-                        <Button variant="primary" onClick={props.handleShowModal}>
-                            Admin
-                        </Button>
+                    {ReactSession.get("admin") &&<Link onClick={props.handleShowModal}>
+                <p>
+                Admin
+                </p>
+            </Link>}
                         <Link to={link.catégories} onMouseEnter={() => {
                             setIsHover(true)
                             setIsHover2(false)
