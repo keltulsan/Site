@@ -71,7 +71,6 @@ export function links() {
     itemSell: '/item-sell',
     likes: '/likes-list',
     catégories: '/categories',
-    product: '/product',
     paymentComplete: '/payed',
     payChoice: '/payment-choice',
     stocks: '/stocks',
@@ -125,7 +124,7 @@ export function App(props) {
   const link = links()
 
   return <>
-    <Background />
+    {/*<Background />*/}
     <Cookies />
     <Router>
       <Header setColors={setColors} setShow={setShow} setAlerts={setAlerts} handleShowModal={handleShowModal} />
@@ -177,7 +176,7 @@ export function App(props) {
 
           <Route exact path={link.articles} component={Articles} />
           <Route exact path={link.clotheSell} component={ArticleClotheSell} />
-          <Route exact path={link.itemSell} component={ArticleSell} />
+          <Route exact path={link.itemSell+"/:product_name"} component={ArticleSell} />
           <Route exact path={link.likes} component={EnvyList} />
           <Route exact path={link.product} component={Product} />
 
