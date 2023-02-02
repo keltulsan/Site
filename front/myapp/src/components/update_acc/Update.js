@@ -1,5 +1,5 @@
-import { updateUserInfo } from "../../api/envy";   
+import { updateUserInfo } from "../../api/Update";   
        
-export async function Update(user){
+export async function Update_(user){
     return await updateUserInfo(user) ; 
 }

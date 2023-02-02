@@ -3,18 +3,48 @@ import React, { Component, useEffect, useState } from 'react';
 import { links } from "../../App";
 import { useForm } from "react-hook-form";
 import { Sign_up } from "../../components/login_signup/SignUp";
+import { Login_ } from "../../components/login_signup/LogiN";
 import md5 from "md5";
 
-export default function SignUp() {
+export default function SignUp(props) {
+    var regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmitNewUser = async (data) => {
-        console.log(data);
-        if(data["password"] == data["confirmpassword"]){
-            data["password"] = await md5(data["password"]);
-            console.log(data)
-            data["envy_id"]=0
-            Sign_up(data)
-            window.location.replace('/login');
+        const userList = await Login_();
+        console.log(userList.filter(user=>user.mail.match(data["mail"])))
+        if(userList.filter(user=>user.mail.match(data["mail"])).length == 0){
+            if(userList.filter(user=>user.nickname.match("")).length > 0){
+                if(regularExpression.test(data["password"])){
+                if(data["password"] == data["confirmpassword"] & data["password"].length>0){
+                    data["password"] = await md5(data["password"]);
+                    if(data["cgu"] == false){
+                        props.setAlerts(2)
+                        props.setShow(1)
+                        props.setColors(1)
+                    }else{
+                    console.log(data)
+                    data["envy_id"]=0
+                    Sign_up(data)
+                    window.location.replace('/login');
+                }}else{
+                    props.setAlerts(5)
+                    props.setShow(1)
+                    props.setColors(1)
+                }
+            }else{
+                props.setAlerts(7)
+                props.setShow(1)
+                props.setColors(1)
+            }
+        }else{
+                    props.setAlerts(4)
+                    props.setShow(1)
+                    props.setColors(1)
+                }
+        }else{
+            props.setAlerts(6)
+            props.setShow(1)
+            props.setColors(1)
         }
     };    const link = links();
 
@@ -82,6 +112,14 @@ export default function SignUp() {
                 <div className="flex center gap connection">
                     <Link className="stroke" to={link.login}>Se connecter</Link>
                 </div>
+                <div className='align-top flex center all gap-'>
+                <input {...register("cgu")} type="checkbox" className="align-center" defaultChecked={true} />
+                <p className="text align-center stroke">Accepter les <Link to={link.cgu} target="_blank" >CGU</Link></p>
+            </div>
+                <div className='align-top flex center all gap-'>
+                <input type="checkbox" className="align-center" {...register("newsletter")} defaultChecked={true} />
+                <p className="text align-center stroke">S'abonner à la newsletter</p>
+            </div>
                 <div className="center">
                     <input type="submit" value="Créer un compte" />
                 </div>

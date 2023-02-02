@@ -34,8 +34,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     apartment: {
       type: DataTypes.STRING(100),
-      allowNull: true, 
-      defaultValue: null
+      allowNull: true
     },
     code_postal: {
       type: DataTypes.STRING(10),
@@ -94,8 +93,7 @@ module.exports = function(sequelize, DataTypes) {
     envy_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      defaultValue: "icons-user.jpg",
-      unique: "envy_id"
+      defaultValue: 0
     }
   }, {
     sequelize,
@@ -112,7 +110,6 @@ module.exports = function(sequelize, DataTypes) {
       },
       {
         name: "envy_id",
-        unique: true,
         using: "BTREE",
         fields: [
           { name: "envy_id" },

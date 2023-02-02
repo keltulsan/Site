@@ -1,10 +1,10 @@
-import AboutUs from './pages/Us/AboutUs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import AboutUs from './pages/Us/AboutUs';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import Home from "./pages/Home";
@@ -26,11 +26,12 @@ import { Stocks } from './pages/Admin/Stocks';
 import { Sells } from './pages/Admin/Sells';
 import { EnvyList } from './pages/Article/Envy-list';
 import { History } from './pages/Inform-user/History';
-import { Robot } from './components/Robot';
+// import { Robot } from './components/Robot';
 import ChatBox from './pages/Chat-box';
 import { Bag } from './pages/Inform-user/Bag';
 import { Articles } from './pages/Article/Articles';
 import { UserPage } from './pages/Inform-user/UserPage';
+import { EnterprisePage } from './pages/Inform-user/EnterprisePage';
 import Background from './components/background';
 import { ArticleClotheSell } from './pages/Article/Article-clothe-sell';
 import { ArticleSell } from './pages/Article/Article-sell';
@@ -38,6 +39,15 @@ import { FAQ } from './pages/Us/Faq';
 import { ReactSession } from 'react-client-session';
 import { Toast_ } from './components/toast/toast';
 import { useState } from 'react';
+import { Cookies } from './components/cookies';
+import{ PanelAdmin } from "./components/admin/panel";
+import{ UserListAdmin } from "./components/admin/userList";
+import{ BusinessListAdmin } from "./components/admin/businessList";
+import{ FaqListAdmin } from "./components/admin/faqlist";
+import{ ConditionListAdmin } from "./components/admin/conditionlist";
+import{ NewsListAdmin } from "./components/admin/newslist";
+import { Product } from './pages/Article/Product';
+
 
 export function links() {
   return {
@@ -48,11 +58,13 @@ export function links() {
     login: '/login',
     signup: '/signup',
     userPage: '/account-user',
+    enterprisePage:'/account-enterprise',
     contactDetails: '/account',
     bag: '/bag',
     history: '/history',
     articles: '/articles',
     clotheSell: '/clothe-sell',
+    product: '/product',
     itemSell: '/item-sell',
     likes: '/likes-list',
     catégories: '/categories',
@@ -76,14 +88,42 @@ export function links() {
 
 export function App(props) {
   ReactSession.setStoreType("cookie");
-  const [show,setShow] = useState(false);
+  const [show, setShow] = useState(false);
+  const [alerts, setAlerts] = useState();
+  const [colors, setColors] = useState();
+  const [showModalNews,setShowModalNews]=useState(false);
+  const [showModalCondition,setShowModalCondition]=useState(false);
+  const [showModalFaq, setShowModalFaq] = useState(false);
+  const [showModalBusiness,setShowModalBusiness]=useState(false);
+  const [showModalUser,setShowModalUser]=useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const handleShowModalBusiness = () => setShowModalBusiness(true);
+  const handleCloseModalBusiness = () => setShowModalBusiness(false);
+  const handleShowModalUser = () => setShowModalUser(true);
+  const handleCloseModalUser = () => setShowModalUser(false);
+  const handleCloseModal = () => setShowModal(false);
+  const handleShowModal = () => setShowModal(true);
+
+  const handleShowModalNews = () => setShowModalNews(true);
+  const handleCloseModalNews = () => setShowModalNews(false);
+  const handleShowModalCondition = () => setShowModalCondition(true);
+  const handleCloseModalCondition = () => setShowModalCondition(false);
+  const handleCloseModalFaq = () => setShowModalFaq (false);
+  const handleShowModalFaq  = () => setShowModalFaq (true);
   const link = links()
 
   return <>
-  {/* <Background /> */}
+    {/* <Background />  */}
+    <Cookies />
     <Router>
-    <Header setShow={setShow} />
-      <Toast_ show = {show} setShow={setShow}/>
+      <Header setColors={setColors} setShow={setShow} setAlerts={setAlerts} handleShowModal={handleShowModal} />
+      <PanelAdmin handleShowModalUser={handleShowModalUser} handleShowModalBusiness={handleShowModalBusiness} handleShowModalNews={handleShowModalNews} handleShowModalCondition={handleShowModalCondition} handleShowModalFaq={handleShowModalFaq} showModal={showModal} handleCloseModal={handleCloseModal}/>
+      <BusinessListAdmin showModalBusiness={showModalBusiness} handleCloseModalBusiness={handleCloseModalBusiness}/>
+      <UserListAdmin showModalUser={showModalUser} handleCloseModalUser={handleCloseModalUser}/>
+      <FaqListAdmin showModalFaq ={showModalFaq } handleCloseModaFaq ={handleCloseModalFaq }/>
+      <ConditionListAdmin showModalCondition={showModalCondition} handleCloseModalCondition={handleCloseModalCondition}/>
+      <NewsListAdmin showModalNews={showModalNews} handleCloseModalNews={handleCloseModalNews}/>
+      <Toast_ show={show} setShow={setShow} colors={colors} alerts={alerts}/>
       <div className="root flex space-between vertical">
         <div></div>
 
@@ -99,10 +139,21 @@ export function App(props) {
 
           {/* Inform user */}
 
-          <Route exact path={link.login} component={LoginPage} />
-          <Route exact path={link.signup} component={SignUpPage} />
-          <Route exact path={link.userPage} component={UserPage} />
-          <Route exact path={link.contactDetails} component={ContactDetails} />
+          <Route exact path={link.login}>
+            <LoginPage setAlerts={setAlerts} setShow={setShow} setColors={setColors}/>
+          </Route>
+          <Route exact path={link.signup}>
+            <SignUpPage setAlerts={setAlerts} setShow={setShow} setColors={setColors}/>
+          </Route>
+          <Route exact path={link.userPage}>
+            <UserPage setAlerts={setAlerts} setColors={setColors} setShow={setShow}/>
+          </Route>
+          <Route exact path={link.enterprisePage} >
+            <EnterprisePage setAlerts={setAlerts} setColors={setColors}/>
+          </Route>
+          <Route exact path={link.contactDetails}>
+            <ContactDetails/>
+          </Route>
           <Route exact path={link.bag} component={Bag} />
           <Route exact path={link.history} component={History} />
 
@@ -112,6 +163,7 @@ export function App(props) {
           <Route exact path={link.clotheSell} component={ArticleClotheSell} />
           <Route exact path={link.itemSell} component={ArticleSell} />
           <Route exact path={link.likes} component={EnvyList} />
+          <Route exact path={link.product} component={Product} />
 
           {/* Payment */}
 
@@ -144,7 +196,9 @@ export function App(props) {
           <Route exact path={link.err404} component={Error404} />
 
         </Switch>
-        <Robot />
+
+        {/* <Robot /> */}
+        
         <div></div>
       </div>
       <Footer />
