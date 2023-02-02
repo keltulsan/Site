@@ -209,15 +209,22 @@ export function Header(props) {
         </div></Collapse>}
         <Collapse in={isHover3 && menu && dimensions.width <= 750}>
             <div className='flex center margin-top--'>
-                <input type="text" placeholder="search here" />
+                <input type="text" placeholder="search here" onChange={detectChange} defaultValue={() => {
+                    try {
+                        return ReactSession.get("searchbar")
+                    } catch (err) {
+                        return ""
+                    }
+                }} />
             </div>
         </Collapse>
 
-        <Robot />
         <Collapse in={isHover3 && search && (menu || dimensions.width > 750)}>
             <div className='grid'>
                 {productsMap}
             </div>
         </Collapse>
+
+        <Robot />
     </div>
 }
