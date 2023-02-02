@@ -55,6 +55,9 @@ export function Stocks() {
 
             </div>
         </div>
+        <div className="flex center margin-top ">
+            <input className="padding-right-left" type="submit" value="Ajouter un produit"></input>
+        </div>
         <div className="flex center margin-top">
             <Link className="style-link-2" to={link.sells}><h2 className="title border stroke background-button">Mes ventes</h2></Link>
         </div>
