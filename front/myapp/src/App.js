@@ -40,17 +40,16 @@ import { ReactSession } from 'react-client-session';
 import { Toast_ } from './components/toast/toast';
 import { useState } from 'react';
 import { Cookies } from './components/cookies';
-import{ PanelAdmin } from "./components/admin/panel";
-import{ UserListAdmin } from "./components/admin/userList";
-import{ BusinessListAdmin } from "./components/admin/businessList";
-import{ FaqListAdmin } from "./components/admin/faqlist";
-import{ ConditionListAdmin } from "./components/admin/conditionlist";
-import{ NewsListAdmin } from "./components/admin/newslist";
-import{ ProductListAdmin } from "./components/admin/productlist";
+import { PanelAdmin } from "./components/admin/panel";
+import { UserListAdmin } from "./components/admin/userList";
+import { BusinessListAdmin } from "./components/admin/businessList";
+import { FaqListAdmin } from "./components/admin/faqlist";
+import { ConditionListAdmin } from "./components/admin/conditionlist";
+import { NewsListAdmin } from "./components/admin/newslist";
+import { ProductListAdmin } from "./components/admin/productlist";
 import { Product } from './pages/Article/Product';
-import{ Buy } from "./components/shopping/Buy";
+import { Buy } from "./components/shopping/Buy";
 import { ProductInsertAdmin } from './components/admin/productInfoInsert';
-
 
 export function links() {
   return {
@@ -61,7 +60,7 @@ export function links() {
     login: '/login',
     signup: '/signup',
     userPage: '/account-user',
-    enterprisePage:'/account-enterprise',
+    enterprisePage: '/account-enterprise',
     contactDetails: '/account',
     bag: '/bag',
     history: '/history',
@@ -92,19 +91,19 @@ export function links() {
 
 export function App(props) {
   ReactSession.setStoreType("cookie");
-  const [ids,setIds] = useState([]);
-  const [quantityList,setquantityList]=useState([]);
+  const [ids, setIds] = useState([]);
+  const [quantityList, setquantityList] = useState([]);
   const [show, setShow] = useState(false);
   const [alerts, setAlerts] = useState();
   const [price, setPrice] = useState();
   const [colors, setColors] = useState();
-  const [showModalProduct,setShowModalProduct]=useState(false);
-  const [showModalProductInsert,setShowModalProductInsert]=useState(false);
-  const [showModalNews,setShowModalNews]=useState(false);
-  const [showModalCondition,setShowModalCondition]=useState(false);
+  const [showModalProduct, setShowModalProduct] = useState(false);
+  const [showModalProductInsert, setShowModalProductInsert] = useState(false);
+  const [showModalNews, setShowModalNews] = useState(false);
+  const [showModalCondition, setShowModalCondition] = useState(false);
   const [showModalFaq, setShowModalFaq] = useState(false);
-  const [showModalBusiness,setShowModalBusiness]=useState(false);
-  const [showModalUser,setShowModalUser]=useState(false);
+  const [showModalBusiness, setShowModalBusiness] = useState(false);
+  const [showModalUser, setShowModalUser] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const handleShowModalBusiness = () => setShowModalBusiness(true);
   const handleCloseModalBusiness = () => setShowModalBusiness(false);
@@ -120,8 +119,8 @@ export function App(props) {
   const handleCloseModalNews = () => setShowModalNews(false);
   const handleShowModalCondition = () => setShowModalCondition(true);
   const handleCloseModalCondition = () => setShowModalCondition(false);
-  const handleCloseModalFaq = () => setShowModalFaq (false);
-  const handleShowModalFaq  = () => setShowModalFaq (true);
+  const handleCloseModalFaq = () => setShowModalFaq(false);
+  const handleShowModalFaq = () => setShowModalFaq(true);
   const link = links()
 
   return <>
@@ -129,15 +128,15 @@ export function App(props) {
     <Cookies />
     <Router>
       <Header setColors={setColors} setShow={setShow} setAlerts={setAlerts} handleShowModal={handleShowModal} />
-      <PanelAdmin handleShowModalUser={handleShowModalUser} handleShowModalBusiness={handleShowModalBusiness} handleShowModalNews={handleShowModalNews} handleShowModalCondition={handleShowModalCondition} handleShowModalFaq={handleShowModalFaq} handleShowModalProduct={handleShowModalProduct} handleShowModalProductInsert={handleShowModalProductInsert} showModal={showModal} handleCloseModal={handleCloseModal}/>
-      <BusinessListAdmin showModalBusiness={showModalBusiness} handleCloseModalBusiness={handleCloseModalBusiness}/>
-      <UserListAdmin showModalUser={showModalUser} handleCloseModalUser={handleCloseModalUser}/>
-      <FaqListAdmin showModalFaq ={showModalFaq } handleCloseModaFaq ={handleCloseModalFaq }/>
-      <ConditionListAdmin showModalCondition={showModalCondition} handleCloseModalCondition={handleCloseModalCondition}/>
-      <NewsListAdmin showModalNews={showModalNews} handleCloseModalNews={handleCloseModalNews}/>
-      <ProductListAdmin showModalProduct={showModalProduct} handleCloseModalProduct={handleCloseModalProduct}/>
-      <ProductInsertAdmin showModalProductInsert={showModalProductInsert} handleCloseModalProductInsert={handleCloseModalProductInsert}/>
-      <Toast_ show={show} setShow={setShow} colors={colors} alerts={alerts}/>
+      <PanelAdmin handleShowModalUser={handleShowModalUser} handleShowModalBusiness={handleShowModalBusiness} handleShowModalNews={handleShowModalNews} handleShowModalCondition={handleShowModalCondition} handleShowModalFaq={handleShowModalFaq} handleShowModalProduct={handleShowModalProduct} handleShowModalProductInsert={handleShowModalProductInsert} showModal={showModal} handleCloseModal={handleCloseModal} />
+      <BusinessListAdmin showModalBusiness={showModalBusiness} handleCloseModalBusiness={handleCloseModalBusiness} />
+      <UserListAdmin showModalUser={showModalUser} handleCloseModalUser={handleCloseModalUser} />
+      <FaqListAdmin showModalFaq={showModalFaq} handleCloseModaFaq={handleCloseModalFaq} />
+      <ConditionListAdmin showModalCondition={showModalCondition} handleCloseModalCondition={handleCloseModalCondition} />
+      <NewsListAdmin showModalNews={showModalNews} handleCloseModalNews={handleCloseModalNews} />
+      <ProductListAdmin showModalProduct={showModalProduct} handleCloseModalProduct={handleCloseModalProduct} />
+      <ProductInsertAdmin showModalProductInsert={showModalProductInsert} handleCloseModalProductInsert={handleCloseModalProductInsert} />
+      <Toast_ show={show} setShow={setShow} colors={colors} alerts={alerts} />
       <div className="root flex space-between vertical">
         <div></div>
 
@@ -154,22 +153,22 @@ export function App(props) {
           {/* Inform user */}
 
           <Route exact path={link.login}>
-            <LoginPage setAlerts={setAlerts} setShow={setShow} setColors={setColors}/>
+            <LoginPage setAlerts={setAlerts} setShow={setShow} setColors={setColors} />
           </Route>
           <Route exact path={link.signup}>
-            <SignUpPage setAlerts={setAlerts} setShow={setShow} setColors={setColors}/>
+            <SignUpPage setAlerts={setAlerts} setShow={setShow} setColors={setColors} />
           </Route>
           <Route exact path={link.userPage}>
-            <UserPage setAlerts={setAlerts} setColors={setColors} setShow={setShow}/>
+            <UserPage setAlerts={setAlerts} setColors={setColors} setShow={setShow} />
           </Route>
           <Route exact path={link.enterprisePage} >
-            <EnterprisePage setAlerts={setAlerts} setColors={setColors}/>
+            <EnterprisePage setAlerts={setAlerts} setColors={setColors} />
           </Route>
           <Route exact path={link.contactDetails}>
-            <ContactDetails/>
+            <ContactDetails />
           </Route>
           <Route exact path={link.bag}>
-            <Bag setquantityList={setquantityList} setIds={setIds} setPrice={setPrice}/>
+            <Bag setquantityList={setquantityList} setIds={setIds} setPrice={setPrice} />
           </Route>
           <Route exact path={link.history} component={History} />
 
@@ -183,7 +182,7 @@ export function App(props) {
 
           {/* Payment */}
           <Route exact path={link.buy}>
-            <Buy setAlerts={setAlerts} setColors={setColors} setShow={setShow} quantityList={quantityList} price={price} ids={ids}/>
+            <Buy setAlerts={setAlerts} setColors={setColors} setShow={setShow} quantityList={quantityList} price={price} ids={ids} />
           </Route>
           <Route exact path={link.paymentComplete} component={PayComplete} />
           <Route exact path={link.payChoice} component={PayChoice} />
@@ -192,7 +191,7 @@ export function App(props) {
 
           <Route exact path={link.stocks} component={Stocks} />
           <Route exact path={link.sells} >
-            <Sells handleShowModalProduct={handleShowModalProduct} handleShowModalProductInsert={handleShowModalProductInsert}/>
+            <Sells handleShowModalProduct={handleShowModalProduct} handleShowModalProductInsert={handleShowModalProductInsert} />
           </Route>
 
 
@@ -216,11 +215,10 @@ export function App(props) {
           <Route exact path={link.err404} component={Error404} />
 
         </Switch>
-        
+
         <div></div>
       </div>
       <Footer />
     </Router>
   </>
 }
-
