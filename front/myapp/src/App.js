@@ -47,6 +47,7 @@ import{ FaqListAdmin } from "./components/admin/faqlist";
 import{ ConditionListAdmin } from "./components/admin/conditionlist";
 import{ NewsListAdmin } from "./components/admin/newslist";
 import { Product } from './pages/Article/Product';
+import{ Buy } from "./components/shopping/Buy";
 
 
 export function links() {
@@ -82,14 +83,18 @@ export function links() {
     contact: '/contact',
     faq: '/faq',
     actus: '/actus',
+    buy: '/buy',
     err404: '*'
   }
 }
 
 export function App(props) {
   ReactSession.setStoreType("cookie");
+  const [ids,setIds] = useState([]);
+  const [quantityList,setquantityList]=useState([]);
   const [show, setShow] = useState(false);
   const [alerts, setAlerts] = useState();
+  const [price, setPrice] = useState();
   const [colors, setColors] = useState();
   const [showModalNews,setShowModalNews]=useState(false);
   const [showModalCondition,setShowModalCondition]=useState(false);
@@ -154,7 +159,9 @@ export function App(props) {
           <Route exact path={link.contactDetails}>
             <ContactDetails/>
           </Route>
-          <Route exact path={link.bag} component={Bag} />
+          <Route exact path={link.bag}>
+            <Bag setquantityList={setquantityList} setIds={setIds} setPrice={setPrice}/>
+          </Route>
           <Route exact path={link.history} component={History} />
 
           {/* Article */}
@@ -166,7 +173,9 @@ export function App(props) {
           <Route exact path={link.product} component={Product} />
 
           {/* Payment */}
-
+          <Route exact path={link.buy}>
+            <Buy quantityList={quantityList} price={price} ids={ids}/>
+          </Route>
           <Route exact path={link.paymentComplete} component={PayComplete} />
           <Route exact path={link.payChoice} component={PayChoice} />
 

@@ -127,6 +127,11 @@ export function Header(props) {
         <div className='flex space-between'>
             <Link to={link.homeFull}><img className='logo' src='./img/logo.png' alt='Logo de Eko' /></Link>
             {dimensions.width > 750 && <div className='flex align-center'>
+            {ReactSession.get("admin") &&<Link onClick={props.handleShowModal}>
+                <p>
+                Admin
+                </p>
+            </Link>}
                 <Collapse in={!isHover3} orientation="horizontal" className='align-center'>
                     <div className='flex nomargin'>
                         <Button variant="primary" onClick={props.handleShowModal}>
@@ -146,7 +151,7 @@ export function Header(props) {
                             setIsHover2(true)
                             setIsHover3(false)
                         }}><img src='./img/avatar.png' alt='ton avatar sur Eko' /></Link>}
-                        <Link to={link.bag}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko' /></Link>
+                        {ReactSession.get("username") && <Link to={link.bag}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko' /></Link>}
                     </div>
                 </Collapse>
                 <Collapse in={isHover3 && dimensions.width > 750} orientation="horizontal">
@@ -184,7 +189,7 @@ export function Header(props) {
                     setIsHover2(!isHover2)
                     setIsHover3(false)
                 }}><img src='./img/avatar.png' alt='ton avatar sur Eko' /></Link>}
-                <Link to={link.bag}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko' /></Link>
+                {ReactSession.get("username") && <Link to={link.bag}><img src='./img/shopping-bag.png' alt='Logo du panier de Eko' /></Link>}
                 <Link to='#' onClick={() => {
                     setIsHover(false)
                     setIsHover2(false)
