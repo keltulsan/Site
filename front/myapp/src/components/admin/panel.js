@@ -11,22 +11,34 @@ export function PanelAdmin(props){
     }
     return <Modal  onExit={props.handleCloseModal}
     keyboard={true} show={props.showModal} onHide={props.handleCloseModal}>
-          <Modal.Title>Panel Admin</Modal.Title>
-
-          <p variant="primary" onClick={()=>{props.handleCloseModal();props.handleShowModalUser()}}>
+          <Modal.Title><h1>Panel Admin</h1></Modal.Title>
+          <div className='flex center margin-top-- margin-left--'>
+            <div>
+          <Link className='style-link'><p variant="primary" className='text' onClick={()=>{props.handleCloseModal();props.handleShowModalUser()}}>
             User list
           </p>
-          <p variant="primary" onClick={()=>{props.handleCloseModal();props.handleShowModalBusiness();InputComponent.click()}}>
+          </Link>
+          <Link className='style-link'>
+          <p variant="primary" className='text' onClick={()=>{props.handleCloseModal();props.handleShowModalBusiness();InputComponent.click()}}>
             Business list
             </p>
-            <p variant="primary" onClick={()=>{props.handleCloseModal();props.handleShowModalFaq();InputComponent.click()}}>
+            </Link>
+            <Link className='style-link'>
+            <p variant="primary" className='text' onClick={()=>{props.handleCloseModal();props.handleShowModalFaq();InputComponent.click()}}>
             FAQ list
             </p>
-            <p variant="primary" onClick={()=>{props.handleCloseModal();props.handleShowModalCondition();InputComponent.click()}}>
+            </Link>
+            <Link className='style-link'>
+            <p variant="primary" className='text' onClick={()=>{props.handleCloseModal();props.handleShowModalCondition();InputComponent.click()}}>
             Condition list
             </p>
-            <p variant="primary" onClick={()=>{props.handleCloseModal();props.handleShowModalNews();InputComponent.click()}}>
+            </Link>
+            <Link className='style-link'>
+            <p variant="primary" className='text' onClick={()=>{props.handleCloseModal();props.handleShowModalNews();InputComponent.click()}}>
             News list
             </p>
+            </Link>
+            </div>
+            </div>
       </Modal>
 }
