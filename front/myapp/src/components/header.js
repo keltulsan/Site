@@ -101,7 +101,9 @@ export function Header(props) {
                     var verif = false
                     for (const key in val2) {
                         try {
-                            verif = verif || val2[key].toString().toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "").includes(val.toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, ""))
+                            if (key != "img") {
+                                verif = verif || val2[key].toString().toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "").includes(val.toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, ""))
+                            }
                         } catch (err) { }
                     };
                     if (verif) {
@@ -127,18 +129,18 @@ export function Header(props) {
         <div className='flex space-between'>
             <Link to={link.homeFull}><img className='logo' src='./img/logo.png' alt='Logo de Eko' /></Link>
             {dimensions.width > 750 && <div className='flex align-center'>
-            {ReactSession.get("admin") &&<Link onClick={props.handleShowModal}>
-                <p>
-                Admin
-                </p>
-            </Link>}
                 <Collapse in={!isHover3} orientation="horizontal" className='align-center'>
                     <div className='flex nomargin'>
-                    {ReactSession.get("admin") &&<Link onClick={props.handleShowModal}>
-                <p>
-                Admin
-                </p>
-            </Link>}
+                        {ReactSession.get("admin") && <Link onClick={props.handleShowModal}>
+                            <p>
+                                Admin
+                            </p>
+                        </Link>}
+                        {ReactSession.get("admin") && <Link onClick={props.handleShowModal}>
+                            <p>
+                                Admin
+                            </p>
+                        </Link>}
                         <Link to={link.catégories} onMouseEnter={() => {
                             setIsHover(true)
                             setIsHover2(false)
