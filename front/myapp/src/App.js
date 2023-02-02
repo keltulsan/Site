@@ -43,11 +43,9 @@ import { Cookies } from './components/cookies';
 import{ PanelAdmin } from "./components/admin/panel";
 import{ UserListAdmin } from "./components/admin/userList";
 import{ BusinessListAdmin } from "./components/admin/businessList";
-
 import{ FaqListAdmin } from "./components/admin/faqlist";
 import{ ConditionListAdmin } from "./components/admin/conditionlist";
 import{ NewsListAdmin } from "./components/admin/newslist";
-
 import { Product } from './pages/Article/Product';
 
 
