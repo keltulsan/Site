@@ -1,5 +1,7 @@
 import { ProductUpdate_ } from "../product/productUpdate";
 import { useForm } from "react-hook-form";
+import { Envy_ } from "../../components/envy_list/EnvyDel";
+import { ReactSession } from 'react-client-session';
 import React from "react";
 
 export function Buy(props){
@@ -11,6 +13,7 @@ export function Buy(props){
         c+=1
         console.log({"id":String(data["id"+String(c)]),"quantity":String(([props.quantityList[c]]-1))})
         ProductUpdate_({"id":String(data["id"+String(c)]),"quantity":String(([props.quantityList[c]]-1))})
+        Envy_({"user_id":ReactSession.get("id"),"product_id":String(data["id"+String(c)])})
         })
         // window.location.replace('/');
     }
