@@ -15,9 +15,6 @@ return <form onSubmit={handleSubmit(onSubmitUpdateFaq)} className="align-center 
             <h1 className="title flex2 center margin-top--">FAQ</h1>
             <div className="flex2 vertical center">
                 <div className="profils-account flex vertical center">
-                    <div className="flex2 center">
-                    <img className={"img-modal "+(dimensions.width <= 750 ? " img-modal- " : "")} src='./img/avatar.png' alt='ton avatar sur Eko' />
-                </div>
                 </div>
                 <h2 className='title top left align-center'>Information</h2>
                 <div className="flex2 margin-top--- align-center">

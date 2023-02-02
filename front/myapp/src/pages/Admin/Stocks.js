@@ -30,7 +30,7 @@ export function Stocks() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flex center gap-">
-                    <Link className="style-link stroke" to={link.homeFull}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.homeFull}> Supprimer</Link>
+                    <Link className="style-link stroke" to={link.stocks}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.stocks}> Supprimer</Link>
                 </div>
             </div>
             <div className="flex vertical gap- align-center">
@@ -40,7 +40,7 @@ export function Stocks() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flex center gap-">
-                    <Link className="style-link stroke" to={link.homeFull}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.homeFull}> Supprimer</Link>
+                    <Link className="style-link stroke" to={link.stocks}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.stocks}> Supprimer</Link>
                 </div>
             </div>
             <div className="flex vertical gap- align-center">
@@ -50,7 +50,7 @@ export function Stocks() {
                     <img className="align-center" src='./img/paypal.png' alt='image de paiment paypal sur Eko' />
                 </div>
                 <div className="flex center gap-">
-                    <Link className="style-link stroke" to={link.homeFull}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.homeFull}> Supprimer</Link>
+                    <Link className="style-link stroke" to={link.stocks}>Modifier </Link><p className="text"> / </p><Link className="style-link stroke" to={link.stocks}> Supprimer</Link>
                 </div>
 
             </div>

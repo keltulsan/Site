@@ -46,7 +46,9 @@ import{ BusinessListAdmin } from "./components/admin/businessList";
 import{ FaqListAdmin } from "./components/admin/faqlist";
 import{ ConditionListAdmin } from "./components/admin/conditionlist";
 import{ NewsListAdmin } from "./components/admin/newslist";
+import{ ProductListAdmin } from "./components/admin/productlist";
 import { Product } from './pages/Article/Product';
+import { ProductInsertAdmin } from './components/admin/productInfoInsert';
 
 
 export function links() {
@@ -90,6 +92,8 @@ export function App(props) {
   const [show, setShow] = useState(false);
   const [alerts, setAlerts] = useState();
   const [colors, setColors] = useState();
+  const [showModalProduct,setShowModalProduct]=useState(false);
+  const [showModalProductInsert,setShowModalProductInsert]=useState(false);
   const [showModalNews,setShowModalNews]=useState(false);
   const [showModalCondition,setShowModalCondition]=useState(false);
   const [showModalFaq, setShowModalFaq] = useState(false);
@@ -102,7 +106,10 @@ export function App(props) {
   const handleCloseModalUser = () => setShowModalUser(false);
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
-
+  const handleShowModalProduct = () => setShowModalProduct(true);
+  const handleCloseModalProduct = () => setShowModalProduct(false);
+  const handleShowModalProductInsert = () => setShowModalProductInsert(true);
+  const handleCloseModalProductInsert = () => setShowModalProductInsert(false);
   const handleShowModalNews = () => setShowModalNews(true);
   const handleCloseModalNews = () => setShowModalNews(false);
   const handleShowModalCondition = () => setShowModalCondition(true);
@@ -116,12 +123,14 @@ export function App(props) {
     <Cookies />
     <Router>
       <Header setColors={setColors} setShow={setShow} setAlerts={setAlerts} handleShowModal={handleShowModal} />
-      <PanelAdmin handleShowModalUser={handleShowModalUser} handleShowModalBusiness={handleShowModalBusiness} handleShowModalNews={handleShowModalNews} handleShowModalCondition={handleShowModalCondition} handleShowModalFaq={handleShowModalFaq} showModal={showModal} handleCloseModal={handleCloseModal}/>
+      <PanelAdmin handleShowModalUser={handleShowModalUser} handleShowModalBusiness={handleShowModalBusiness} handleShowModalNews={handleShowModalNews} handleShowModalCondition={handleShowModalCondition} handleShowModalFaq={handleShowModalFaq} handleShowModalProduct={handleShowModalProduct} handleShowModalProductInsert={handleShowModalProductInsert} showModal={showModal} handleCloseModal={handleCloseModal}/>
       <BusinessListAdmin showModalBusiness={showModalBusiness} handleCloseModalBusiness={handleCloseModalBusiness}/>
       <UserListAdmin showModalUser={showModalUser} handleCloseModalUser={handleCloseModalUser}/>
       <FaqListAdmin showModalFaq ={showModalFaq } handleCloseModaFaq ={handleCloseModalFaq }/>
       <ConditionListAdmin showModalCondition={showModalCondition} handleCloseModalCondition={handleCloseModalCondition}/>
       <NewsListAdmin showModalNews={showModalNews} handleCloseModalNews={handleCloseModalNews}/>
+      <ProductListAdmin showModalProduct={showModalProduct} handleCloseModalProduct={handleCloseModalProduct}/>
+      <ProductInsertAdmin showModalProductInsert={showModalProductInsert} handleCloseModalProductInsert={handleCloseModalProductInsert}/>
       <Toast_ show={show} setShow={setShow} colors={colors} alerts={alerts}/>
       <div className="root flex space-between vertical">
         <div></div>
@@ -172,7 +181,9 @@ export function App(props) {
           {/* Admin */}
 
           <Route exact path={link.stocks} component={Stocks} />
-          <Route exact path={link.sells} component={Sells} />
+          <Route exact path={link.sells} >
+            <Sells handleShowModalProduct={handleShowModalProduct} handleShowModalProductInsert={handleShowModalProductInsert}/>
+          </Route>
 
 
           {/* Condition générale */}
