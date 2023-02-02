@@ -68,6 +68,7 @@ export function links() {
     itemSell: '/item-sell',
     likes: '/likes-list',
     catégories: '/categories',
+    product: '/product',
     paymentComplete: '/payed',
     payChoice: '/payment-choice',
     stocks: '/stocks',
@@ -195,8 +196,6 @@ export function App(props) {
           <Route exact path={link.err404} component={Error404} />
 
         </Switch>
-
-        {/* <Robot /> */}
         
         <div></div>
       </div>
