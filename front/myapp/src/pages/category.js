@@ -26,12 +26,14 @@ export function Categorie(props) {
     }, []);
     useEffect(() => {
         setRes(img.map((val) => {
-            return <div className='logos-categories'>
-                <img className='logoCategorie' src={val.img} alt={"Catégorie " + val.label_name + " d Eko"}></img>
-                <div className="fadedbox">
-                    <div className="title text">{val.label_name}</div>
+            return <Link to={"/" + val["label_name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}>
+                <div className='logos-categories'>
+                    <img className='logoCategorie' src={val.img} alt={"Catégorie " + val.label_name + " d Eko"}></img>
+                    <div className="fadedbox">
+                        <div className="text">{val.label_name}</div>
+                    </div>
                 </div>
-            </div>
+            </Link>
         }))
     }, [img]);
     return <div className='flex center'>
