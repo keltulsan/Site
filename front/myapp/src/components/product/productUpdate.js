@@ -1,4 +1,4 @@
-import { ProductUpdate } from "../../api/product"
+import { ProductUpdate } from "../../api/Product"
 
 export async function ProductUpdate_(user){
     return await ProductUpdate(user) ; 
