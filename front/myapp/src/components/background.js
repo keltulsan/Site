@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 
 export default function Background() {
     const [scrollValue, setScrollValue] = useState(0);
-    const [mousePos, setMousePos] = useState({x:0, y:0});
+  
     useEffect(() => {
   
       const onScroll = (e) => {
@@ -12,10 +12,13 @@ export default function Background() {
       window.addEventListener('scroll', onScroll);
   
       return () => window.removeEventListener('scroll', onScroll);
-    }, []);
+    }, [scrollValue]);
+
+    const [mousePos, setMousePos] = useState({});
+
     useEffect(() => {
-        const handleMouseMove = (e) => {
-            setMousePos({ x: e.clientX, y: e.clientY });
+        const handleMouseMove = (event) => {
+            setMousePos({ x: event.clientX, y: event.clientY });
         };
 
         window.addEventListener('mousemove', handleMouseMove);
@@ -49,11 +52,20 @@ export default function Background() {
     useEffect(() => {
         var newImgs = imgs
 
+        // if (newImgs.length > 0) {
+        //     newImgs.forEach(element => {
+
+        //     });
+        // });
+
         if (imgs.length < Math.floor(dimensions.width * dimensions.height / 50000)) {
             for (let i = imgs.length; i < Math.floor(dimensions.width * dimensions.height / 50000); i++) {
                 var newImg = {
                     dir: "./img/background/" + (Math.floor(Math.random() * 47)).toString() + ".png",
                     rot: (Math.random() * 360).toString(),
+                    speed_rot: (Math.random() * 0.1).toString(),
+                    direct: (Math.random() * 360).toString(),
+                    speed_direct: (Math.random() * 0.1).toString(),
                     size: Math.random() * 125 + 50,
                     pos_x: Math.random() * (dimensions.height + 200) - 100,
                     pos_y: Math.random() * (dimensions.width + 200) - 100
