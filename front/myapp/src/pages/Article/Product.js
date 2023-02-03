@@ -31,9 +31,9 @@ export function Product() {
     return product ? <div className='container'>
         {product.filter(product => product.label_name.match(product.label_name)).map((product, key) => {
             return <div><h1 className='title stroke' > {product.label_name} sur Eko</h1>{console.log(product)}
-                <div className={"flex center " + (dimensions.width <= 750 ? " vertical margin-top- gap" : " gap-plus margin-top")}>
+                <div className={"flex center " + (dimensions.width <= 750 ? " vertical margin-top- gap margin-bottom--" : " margin-top- margin-bottom--")}>
                     <div className="flex vertical gap-">
-                        <div className="flex gap box background-color-2-4 align-center">
+                        <div className="flex gap box2 background-color-2-4 align-center">
                             <img className="align-center" src={product.img} alt={'image de' + (product.name) + 'sur Eko'} />
 
                         </div>
