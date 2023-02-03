@@ -312,7 +312,9 @@
                 margin-top: 10px !important;
             }
         }
-
+        &-bottom-- {
+            margin-bottom: 40px !important;
+        }
         &-bottom--- {
             margin-bottom: 10px;
         }
@@ -449,6 +451,8 @@
     div.profils-account {
         padding-top: 10%;
     }
+
+
 
     // Modal //
 
@@ -934,8 +938,11 @@
                 img {
                     height: 30px;
                 }
-                img.logoCategorie {
+                img.logoCategorie- {
                     height: 250px !important;
+                }
+                img.logoCategorie {
+                    height: 360px !important;
                 }
             }
 
@@ -1056,6 +1063,9 @@
             width: fit-content;
         }
     }
+
+    // logo catégorie //
+    
     img.logoCategorie {
         width: 360px;
         height: 250px;
@@ -1063,7 +1073,18 @@
         overflow: hidden;
         text-align: center;
     }
-    .logoCategorie .fadedbox {
+
+    img.logoCategorie- {
+        width: 250px;
+        height: 140px;
+        cursor: pointer;
+        overflow: hidden;
+        text-align: center;
+        border: $primaryColor5 2px solid;
+        border-radius: 10px;
+    }
+
+    .logoCategorie .fadedbox {  
         background-color: #666666;
         top: 0;
         left: 0;
@@ -1146,4 +1167,15 @@
         -webkit-transform: translateY(0px);
         text-align: center;
     }
+}
+
+@media (max-width: 750px){
+    .logos-categories .text {
+        opacity: 1;
+        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+        text-align: center;
+    }
+    
+    
 }

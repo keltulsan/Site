@@ -31,4 +31,4 @@ export function ConditionListInfo(props) {
             </div>
         </div>
     </form>
-}
+} 

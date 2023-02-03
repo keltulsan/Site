@@ -1,22 +1,41 @@
 import { useEffect, useState } from 'react'
-const getAllML = async () => {
+const getAllMl = async () => {
     const response = await fetch(
         'http://localhost:4444/condition/list', {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
         }
-    }
     )
+    const ml = await response.json()
+    return ml
 }
 
 
-export function ML(props) {
+export function ML() {
+    const [ml, setMl] = useState([]);
+    const [res, setRes] = useState([]);
+
+
+    useEffect(() => {
+        const mlFetched = getAllMl();
+        mlFetched
+            .then(result => setMl(result))
+            .catch(error => console.error('Erreur avec notre API :', error.message));
+    }, []);
+
+    useEffect(() => {
+        try{
+            console.log(ml)
+            setRes(<>{ml[3].desc}</>)
+        }catch(err){}
+    },[ml])
+
+
     return <div className="container">
-        <h1 className="title top stroke">Mention légale</h1>
-        <div className="col-md-10 offset-md-1 col-12">
-            <p className='text stroke'></p>
-        </div>
+        <h1 className="title top stroke">Mention Legale</h1>
+        <p className='text stroke'>{res}</p>
     </div>
 }

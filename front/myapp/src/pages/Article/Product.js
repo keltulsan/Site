@@ -6,7 +6,8 @@ import { useParams } from 'react-router-dom';
 
 export function Product() {
     const link = links();
-    const [product, setProduct] = useState(false);
+    const [product, setProduct] = useState([]);
+    const [res, setRes] = useState([]);
     let { label } = useParams();
     useEffect(() => {
         const productFetched = Product_();
@@ -40,11 +41,11 @@ export function Product() {
                         </div>
                     </div>
                 </div>
+            </Link>
             </div>
             </Link>
         </div>
         })}
     </div>
-    : <></>
         
 }
