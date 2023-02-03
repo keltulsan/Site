@@ -36,6 +36,6 @@ export function ML() {
 
     return <div className="container">
         <h1 className="title top stroke">Mention Legale</h1>
-        <p className='text stroke'>{res}</p>
+        <p className='text stroke center-text margin-top--'>{res}</p>
     </div>
 }

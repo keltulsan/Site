@@ -36,6 +36,6 @@ export function CGV() {
 
     return <div className="container">
         <h1 className="title top stroke">Condition Générale de Ventes</h1>
-        <p className='text stroke'>{res}</p>
+        <p className='text stroke margin-top-- center-text'>{res}</p>
     </div>
 }

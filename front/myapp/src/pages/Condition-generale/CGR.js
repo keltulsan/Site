@@ -36,6 +36,6 @@ export function CGR() {
 
     return <div className="container">
         <h1 className="title top stroke">Condition Générale Rétractation</h1>
-        <p className='text stroke'>{res}</p>
+        <p className='text stroke center-text margin-top--'>{res}</p>
     </div>
 }
