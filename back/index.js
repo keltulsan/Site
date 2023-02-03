@@ -589,7 +589,7 @@ app.post("/condition/insert", jsonParser, (req, res) => {
 app.get("/condition/list", function (req, res) {
   (async () => {
     await sequelize.sync();
-    const body = await models.desc.findAll({});
+    const body = await models.condition.findAll({});
     res.send(body)
   })();
 });
