@@ -1,3 +1,4 @@
+/* #region imports */
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
@@ -26,7 +27,6 @@ import { Stocks } from './pages/Admin/Stocks';
 import { Sells } from './pages/Admin/Sells';
 import { EnvyList } from './pages/Article/Envy-list';
 import { History } from './pages/Inform-user/History';
-// import { Robot } from './components/Robot';
 import ChatBox from './pages/Chat-box';
 import { Bag } from './pages/Inform-user/Bag';
 import { Articles } from './pages/Article/Articles';
@@ -69,7 +69,7 @@ export function links() {
     history: '/history',
     articles: '/articles',
     clotheSell: '/clothe-sell',
-    product: '/product',
+    product: '/product/:label',
     itemSell: '/item-sell',
     likes: '/likes-list',
     catégories: '/categories',
@@ -127,6 +127,8 @@ export function App(props) {
   const handleCloseModalFaq = () => setShowModalFaq(false);
   const handleShowModalFaq = () => setShowModalFaq(true);
   const link = links()
+
+  /* #endregion */
 
   return <>
     {/* <Background />  */}

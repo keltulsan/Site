@@ -73,7 +73,7 @@ export function Header(props) {
     useEffect(() => {
         if (labels.length > 0) {
             setLabs(labels.map(val =>
-                <li className="flex center" key={val["label_name"]}><Link to={"/" + val["label_name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}><p>{val["label_name"]}</p></Link></li>
+                <li className="flex center" key={val["label_name"]}><Link to={"/product/" + val["label_name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}><p>{val["label_name"]}</p></Link></li>
             ))
         }
     }, [labels, dimensions.width]);

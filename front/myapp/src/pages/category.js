@@ -25,8 +25,8 @@ export function Categorie(props) {
             .catch(error => console.error('Erreur avec notre API :', error.message));
     }, []);
     useEffect(() => {
-        setRes(img.map((val) => {
-            return <Link to={"/" + val["label_name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}>
+        setRes(img.map((val,key) => {
+            return <div key={key}><Link to={"/product/" + val["label_name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}>
                 <div className='logos-categories'>
                     <img className='logoCategorie' src={val.img} alt={"Catégorie " + val.label_name + " d Eko"}></img>
                     <div className="fadedbox">
@@ -34,6 +34,7 @@ export function Categorie(props) {
                     </div>
                 </div>
             </Link>
+            </div>
         }))
     }, [img]);
     return <div className='flex center'>
