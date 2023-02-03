@@ -35,8 +35,8 @@ export function Product() {
             return <div><Link to={"/page/" + product["name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}><h1 className='title stroke' > {product.label_name} sur Eko</h1>{console.log(product)}
                 <div className={"flex center " + (dimensions.width <= 750 ? " vertical margin-top- gap" : " gap-plus margin-top")}>
                     <div className="flex vertical gap-">
-                        <div className="flex gap box background-color-2-4 align-center">
-                            <img className="align-center" src={product.img} alt={'image de' + (product.name) + 'sur Eko'} />
+                        <div className="flex gap box2 background-color-2-4 center">
+                            <img className={"" + (dimensions.width <= 750 ? "size-img- flex vertical center " : 'size-img align-center grid')} src={product.img} alt={'image de' + (product.name) + 'sur Eko'} />
 
                         </div>
                     </div>
