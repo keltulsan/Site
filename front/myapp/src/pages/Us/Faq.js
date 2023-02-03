@@ -44,9 +44,6 @@ export function FAQ() {
         setFaqs(faq.map((val, key) => {
             return <div key={key + 1} className="gap margin-top flex">
                 <div onClick={() => {
-                    console.log(isClick)
-                    console.log(key)
-                    console.log(isClick === key ? -1 : key)
                     setIsClick(isClick === key ? -1 : key)
                 }} className="box background-color-2-4 flex align-center vertical">
                     <h2 className='title'>{val.name}</h2>
