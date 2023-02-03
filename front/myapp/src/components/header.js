@@ -210,7 +210,7 @@ export function Header(props) {
                 <Link to={link.userPage}><p>Mon compte</p></Link>
                 {ReactSession.get("seller") && <Link to={link.enterprisePage}><p>Mon entreprise</p></Link>}
                 {/* <Link to={link.history}><p>Historique</p></Link> */}
-                <Link to={link.ekoSave}><p>EKO Save</p></Link>
+                {/* <Link to={link.ekoSave}><p>EKO Save</p></Link> */}
                 {ReactSession.get("username") &&
                     <Link to="#" onClick={() => { ReactSession.remove('username'); ReactSession.remove('id'); props.setAlerts(0); props.setColors(0); props.setShow(true) }}><p>Se déconnecter</p></Link>
                 }
