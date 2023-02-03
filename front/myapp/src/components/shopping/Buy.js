@@ -9,9 +9,7 @@ export function Buy(props){
     let c = -1;
     const onSubmitUpdateProduct = async (data) => {
         props.ids.map((ids,key)=>{
-        console.log(data)
         c+=1
-        console.log({"id":String(data["id"+String(c)]),"quantity":String(([props.quantityList[c]]-1))})
         ProductUpdate_({"id":String(data["id"+String(c)]),"quantity":String(([props.quantityList[c]]-1))})
         Envy_({"user_id":ReactSession.get("id"),"product_id":String(data["id"+String(c)])})}
         )
@@ -20,26 +18,31 @@ export function Buy(props){
             props.setColors(1);
             props.setShow(true)
         }else if(data["cryptogram"].length!=3){
-            props.setAlerts(11);
-            props.setColors(1);
-            props.setShow(true)
-        }else if(data["expire1"]=="" & data["expire2"]==""){
             props.setAlerts(12);
             props.setColors(1);
             props.setShow(true)
-            alert("numéro de carte"+data["card-number"]+"\nmois:"+data["expire1"]+"\nannée:"+data["expire2"]+"\ncryptogram:"+data["cryptogram"])
+        }else if(data["expire_m"]=="" || data["expire_y"]==""){
+            props.setAlerts(14);
+            props.setColors(1);
+            props.setShow(true)
         }else if(data["save"]==true){
             ReactSession.set("card-number",data["card-number"])
-            ReactSession.set("expire1",data["expire1"])
-            ReactSession.set("expire2",data["expire2"])
+            ReactSession.set("expire_m",data["expire_m"])
+            ReactSession.set("expire_y",data["expire_y"])
             ReactSession.set("cryptogram",data["cryptogram"])
-            props.setAlerts(13)
+            props.setAlerts(14)
             props.setColors(0)
-            props.setShow(true)}else{
+            props.setShow(true)
+            alert("numéro de carte"+data["card-number"]+"\nmois:"+data["expire_m"]+"\nannée:"+data["expire_y"]+"\ncryptogram:"+data["cryptogram"])
+        }else if(data["save"]!=true){
+            ReactSession.set("card-number",data["card-number"])
+            ReactSession.set("expire_m",data["expire_m"])
+            ReactSession.set("expire_y",data["expire_y"])
+            ReactSession.set("cryptogram",data["cryptogram"])
             props.setAlerts(13);
             props.setColors(0);
-            props.setShow(true)}
-            alert("numéro de carte"+data["card-number"]+"\nmois:"+data["expire1"]+"\nannée:"+data["expire2"]+"\ncryptogram:"+data["cryptogram"])
+            props.setShow(true)
+            alert("numéro de carte"+data["card-number"]+"\nmois:"+data["expire_m"]+"\nannée:"+data["expire_y"]+"\ncryptogram:"+data["cryptogram"])}
         // window.location.replace('/');
     }
 
@@ -60,7 +63,7 @@ return <form onSubmit={handleSubmit(onSubmitUpdateProduct)} className="align-cen
                 <h2 className='title top left align-center'>Informations bancaire</h2>
                 <div className="flex gap-vw align-center">
                     <input className='background my-account-' {...register("card-number")} placeholder="Numéro de carte" type="text" id="Nom-prenom" defaultValue={ReactSession.get("card-number")} />
-                    <select {...register("expire1")} name='expireMM' id='expireMM' defaultValue={ReactSession.get("expire1")}>
+                    <select {...register("expire_m")} name='expireMM' id='expireMM' defaultValue={ReactSession.get("expire_m")}>
                         <option value=''>Mois</option>
                         <option value='01'>Janvier</option>
                         <option value='02'>Février</option>
@@ -75,7 +78,7 @@ return <form onSubmit={handleSubmit(onSubmitUpdateProduct)} className="align-cen
                         <option value='11'>Novembre</option>
                         <option value='12'>Décembre</option>
                     </select>
-                    <select {...register("expire2")} name='expireYY' id='expireYY' defaultValue={ReactSession.get("expire2")}>
+                    <select {...register("expire_y")} name='expireYY' id='expireYY' defaultValue={ReactSession.get("expire_y")}>
                         <option value=''>Année</option>
                         <option value='20'>2020</option>
                         <option value='21'>2021</option>

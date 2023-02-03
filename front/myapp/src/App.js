@@ -70,7 +70,7 @@ export function links() {
     articles: '/articles',
     clotheSell: '/clothe-sell',
     product: '/product/:label',
-    itemSell: '/item-sell',
+    itemSell: "/page/:product_name",
     likes: '/likes-list',
     catégories: '/categories',
     paymentComplete: '/payed',
@@ -182,7 +182,7 @@ export function App(props) {
 
           <Route exact path={link.articles} component={Articles} />
           <Route exact path={link.clotheSell} component={ArticleClotheSell} />
-          <Route exact path={link.itemSell+"/:product_name"} component={ArticleSell} />
+          <Route exact path={link.itemSell} component={ArticleSell} />
           <Route exact path={link.likes} component={EnvyList} />
           <Route exact path={link.product} component={Product} />
           <Route exact path={link.catégories} component={Categorie} />

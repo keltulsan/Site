@@ -31,7 +31,7 @@ export function Product() {
     })
     return product ? <div className='container'>
         {product.filter(product => product.label_name.match(label)).map((product, key) => {
-            return <div><h1 className='title stroke' > {product.label_name} sur Eko</h1>{console.log(product)}
+            return <div><Link to={"/page/" + product["name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}><div><h1 className='title stroke' > {product.label_name} sur Eko</h1>{console.log(product)}
                 <div className={"flex center " + (dimensions.width <= 750 ? " vertical margin-top- gap" : " gap-plus margin-top")}>
                     <div className="flex vertical gap-">
                         <div className="flex gap box background-color-2-4 align-center">
@@ -41,6 +41,8 @@ export function Product() {
                     </div>
                 </div>
             </div>
+            </Link>
+        </div>
         })}
     </div>
     : <></>
