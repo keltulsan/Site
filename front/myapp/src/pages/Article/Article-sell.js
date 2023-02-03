@@ -115,7 +115,7 @@ export function ArticleSell() {
                         <div className="background-color-1-5 padding-top- radius-top">
                         </div>
                         <div className="margin-top-- flex vertical">
-                            <h2 className="title left">Prix <img className="icon" src="/img/euro.png" alt="icone euro sur Eko"></img></h2>
+                            <h2 className="title left">Prix {info.price} <img className="icon" src="/img/euro.png" alt="icone euro sur Eko"></img></h2>
                             <h2 className="title left margin-top--- ">Date de livraison: <br></br> Dans pas trop longtemps promis<img className="icon" src="/img/calendrier.png" alt="icone de calendrier sur Eko"></img></h2>
                             <h2 className="title left margin-top--- ">Expéditeur: <br></br> Lettrissimo<img className="icon" src="/img/groupe.png" alt="icone de groupe sur Eko"></img></h2>
                             <div className="flex vertical margin-top--- ">
