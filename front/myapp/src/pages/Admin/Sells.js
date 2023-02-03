@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import React, { Component, useEffect, useState } from 'react';
 import { links } from "../../App";
 import { DeleteProduct_ } from "../../api/DeleteProduct"
-import { ProductList } from "../../api/Product";
+import { Product_} from "../../components/product/Get_product";
 
 export function Sells(props) {
     const link = links();
@@ -14,7 +14,7 @@ export function Sells(props) {
     }
 
     useEffect(() => {
-        const labelsFetched = ProductList();
+        const labelsFetched = Product_();
         labelsFetched
             .then(result => setProduit(result))
             .catch(error => console.error('Erreur avec notre API :', error.message));
