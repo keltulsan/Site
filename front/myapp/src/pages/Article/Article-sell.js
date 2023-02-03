@@ -7,19 +7,19 @@ function SliderArticles(){
         return (
             <Carousel>
                 <div className='left'>
-                    <img className="icon-carousel" src="./img/fichier 4.png" alt="Image d'article sur Eko" />
+                    <img className="icon-carousel" src="/img/fichier 4.png" alt="Image d'article sur Eko" />
                 </div>
                 <div>
-                    <img className="icon-carousel" src="./img/dot single 1.png" alt="Image d'article sur Eko"/>
+                    <img className="icon-carousel" src="/img/dot single 1.png" alt="Image d'article sur Eko"/>
                 </div>
                 <div>
-                    <img className="icon-carousel" src="./img/fichier 3.png" alt="Image d'article sur Eko"/>
+                    <img className="icon-carousel" src="/img/fichier 3.png" alt="Image d'article sur Eko"/>
                 </div>
                 <div>
-                    <img className="icon-carousel" src="./img/fichier 5.png" alt="Image d'article sur Eko"/>
+                    <img className="icon-carousel" src="/img/fichier 5.png" alt="Image d'article sur Eko"/>
                 </div>
                 <div>
-                    <img className="icon-carousel" src="./img/fichier 6.png" alt="Image d'article sur Eko"/>
+                    <img className="icon-carousel" src="/img/fichier 6.png" alt="Image d'article sur Eko"/>
                 </div>
             </Carousel>
         );
@@ -48,19 +48,19 @@ export function ArticleSell() {
     useEffect(() => {
         setStars(() =>{
             return <div className="left margin-top--- ">
-            <img className="icon" src={star < 1 ? "./img/etoile.png" : "./img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
+            <img className="icon" src={star < 1 ? "/img/etoile.png" : "/img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
                 setStar(1);
             }}></img>
-            <img className="icon" src={star < 2 ? "./img/etoile.png" : "./img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
+            <img className="icon" src={star < 2 ? "/img/etoile.png" : "/img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
                 setStar(2);
             }}></img>
-            <img className="icon" src={star < 3 ? "./img/etoile.png" : "./img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
+            <img className="icon" src={star < 3 ? "/img/etoile.png" : "/img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
                 setStar(3);
             }}></img>
-            <img className="icon" src={star < 4 ? "./img/etoile.png" : "./img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
+            <img className="icon" src={star < 4 ? "/img/etoile.png" : "/img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
                 setStar(4);
             }}></img>
-            <img className="icon" src={star < 5 ? "./img/etoile.png" : "./img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
+            <img className="icon" src={star < 5 ? "/img/etoile.png" : "/img/etoile_fill.png"} alt="icone d'étoile sur Eko" onClick={() => {
                 setStar(5);
             }}></img>
         </div>
@@ -88,9 +88,9 @@ export function ArticleSell() {
                 <div className="background-color-1-5 padding-top- radius-top">
                 </div>
                 <div className="margin-top-- flex vertical">
-                    <h2 className="title left">Prix <img className="icon" src="./img/euro.png" alt="icone euro sur Eko"></img></h2>
-                    <h2 className="title left margin-top--- ">Date de livraison <img className="icon" src="./img/calendrier.png" alt="icone de calendrier sur Eko"></img></h2>
-                    <h2 className="title left margin-top--- ">Expéditeur <img className="icon" src="./img/groupe.png" alt="icone de groupe sur Eko"></img></h2>
+                    <h2 className="title left">Prix <img className="icon" src="/img/euro.png" alt="icone euro sur Eko"></img></h2>
+                    <h2 className="title left margin-top--- ">Date de livraison <img className="icon" src="/img/calendrier.png" alt="icone de calendrier sur Eko"></img></h2>
+                    <h2 className="title left margin-top--- ">Expéditeur <img className="icon" src="/img/groupe.png" alt="icone de groupe sur Eko"></img></h2>
                     <div className="flex vertical margin-top--- ">
                         <h2 className="title left">Note de l'article </h2>
                         {stars}
@@ -108,7 +108,7 @@ export function ArticleSell() {
                     <div className="margin-top-- flex center margin-bottom---">
                         <div className="flex center">
                             <input className="padding-right-left" type="submit" value="Ajouter au panier"></input>
-                            {/* <img className="icon" src="./img/ajout-panier.png" alt="icone d'ajouter au panier sur Eko"></img> */}
+                            {/* <img className="icon" src="/img/ajout-panier.png" alt="icone d'ajouter au panier sur Eko"></img> */}
                         </div>
                     </div>
                 </div>
