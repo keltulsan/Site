@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1
+-- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 02 Février 2023 à 14:22
--- Version du serveur :  5.7.11
--- Version de PHP :  5.6.18
+-- Généré le :  Jeu 02 Février 2023 à 23:07
+-- Version du serveur :  5.6.20-log
+-- Version de PHP :  5.4.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de données :  `eko`
@@ -28,12 +28,12 @@ USE `eko`;
 -- Structure de la table `action`
 --
 
-CREATE TABLE `action` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `action` (
+`id` int(11) NOT NULL,
   `name` varchar(1000) NOT NULL,
   `link_name` varchar(100) NOT NULL,
   `img` varchar(1000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Contenu de la table `action`
@@ -44,7 +44,7 @@ INSERT INTO `action` (`id`, `name`, `link_name`, `img`) VALUES
 (2, 'Vente', 'vente', NULL),
 (3, 'Recherche', 'recherche', NULL),
 (4, 'Modification du profil', 'modification-du-profil', NULL),
-(5, 'Modification de l\'entreprise', 'modification-de-l\'entreprise', NULL),
+(5, 'Modification de l''entreprise', 'modification-de-l''entreprise', NULL),
 (6, 'Nouveau vendeur', 'nouveau-vendeur', NULL),
 (7, 'Remove vendeur', 'remove-vendeur', NULL),
 (8, 'Ban', 'ban', NULL),
@@ -57,13 +57,13 @@ INSERT INTO `action` (`id`, `name`, `link_name`, `img`) VALUES
 -- Structure de la table `analytics`
 --
 
-CREATE TABLE `analytics` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `analytics` (
+`id` int(11) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `product_id` int(11) NOT NULL,
   `action_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -71,8 +71,8 @@ CREATE TABLE `analytics` (
 -- Structure de la table `business`
 --
 
-CREATE TABLE `business` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `business` (
+`id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `img` varchar(1000) NOT NULL DEFAULT 'icons-user.jpg',
   `activity` text NOT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE `business` (
   `business_name` varchar(100) NOT NULL,
   `business_banking_informations` varchar(100) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `business`
@@ -99,22 +99,22 @@ INSERT INTO `business` (`id`, `name`, `img`, `activity`, `creation_date`, `busin
 -- Structure de la table `condition`
 --
 
-CREATE TABLE `condition` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `condition` (
+`id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `link_name` varchar(100) NOT NULL,
   `desc` varchar(1000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `condition`
 --
 
 INSERT INTO `condition` (`id`, `name`, `link_name`, `desc`) VALUES
-(1, 'utilisation', 'utilisation', 'En acceptant les conditions générales d\'utilisation, l\'utilisateur accepte que : eko récupère et conserve les ses coordonnées bancaire et leurs utilisations. Il accepte aussi que eko utilise ses données comme bon luii semble. L\'utilisateur accepte que eko puisse voler ses biens matériels grâce à leur adresse'),
-(2, 'vente', 'vente', 'En acceptant les conditions générales de ventes, l\'utilisateur accepte de ne pas être remboursé dans le cas où sont achat n\'est jamais arrivé à destination. Il accepte de donner l\'entièreté de ses gains fait sur eko en faisant un don à l\'entreprise eko.'),
-(3, 'rétractation', 'retractation', 'En acceptant les générales de rétractations l\'utilisateur accepte de ne pas pouvoir se rétracter lors des achats.'),
-(4, 'Mention l\'égale', 'mention-l\'egale', 'En vertu de l’article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique, il est précisé aux utilisateurs du site https:/eko.com/ l’identité des différents intervenant dans le cadre de sa réalisation et de son suivi. L\'utilisateur accepte de fournir tout ses biens moraux et matériels et virtuels à Eko.');
+(1, 'utilisation', 'utilisation', 'En acceptant les conditions générales d''utilisation, l''utilisateur accepte que : eko récupère et conserve les ses coordonnées bancaire et leurs utilisations. Il accepte aussi que eko utilise ses données comme bon luii semble. L''utilisateur accepte que eko puisse voler ses biens matériels grâce à leur adresse'),
+(2, 'vente', 'vente', 'En acceptant les conditions générales de ventes, l''utilisateur accepte de ne pas être remboursé dans le cas où sont achat n''est jamais arrivé à destination. Il accepte de donner l''entièreté de ses gains fait sur eko en faisant un don à l''entreprise eko.'),
+(3, 'rétractation', 'retractation', 'En acceptant les générales de rétractations l''utilisateur accepte de ne pas pouvoir se rétracter lors des achats.'),
+(4, 'Mention légale', 'mention-legale', 'En vertu de l’article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique, il est précisé aux utilisateurs du site https:/eko.com/ l’identité des différents intervenant dans le cadre de sa réalisation et de son suivi. L''utilisateur accepte de fournir tout ses biens moraux et matériels et virtuels à Eko.');
 
 -- --------------------------------------------------------
 
@@ -122,7 +122,7 @@ INSERT INTO `condition` (`id`, `name`, `link_name`, `desc`) VALUES
 -- Structure de la table `envy_list`
 --
 
-CREATE TABLE `envy_list` (
+CREATE TABLE IF NOT EXISTS `envy_list` (
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -133,20 +133,20 @@ CREATE TABLE `envy_list` (
 -- Structure de la table `faq`
 --
 
-CREATE TABLE `faq` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `faq` (
+`id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `desc` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `faq`
 --
 
 INSERT INTO `faq` (`id`, `name`, `desc`) VALUES
-(1, 'Qu\'est ce que Eko ?', 'Eko est un site de vente de biens eko-responable.'),
-(2, 'Depuis quand Eko existe-t\'il ?', 'Eko existe depuis le 6 août 2021'),
-(3, 'Quel est l\'obejectif de Eko ?', 'Nous cherchons à révolutionner l’e-commerce en prenant\r\ncompte des problématiques sociétales actuelles à savoir la\r\npollution de la planète et la défavorisation du commerce local.');
+(1, 'Qu''est ce que Eko ?', 'Eko est un site de vente de biens eko-responable.'),
+(2, 'Depuis quand Eko existe-t''il ?', 'Eko existe depuis le 6 août 2021'),
+(3, 'Quel est l''obejectif de Eko ?', 'Nous cherchons à révolutionner l’e-commerce en prenant\r\ncompte des problématiques sociétales actuelles à savoir la\r\npollution de la planète et la défavorisation du commerce local.');
 
 -- --------------------------------------------------------
 
@@ -154,33 +154,33 @@ INSERT INTO `faq` (`id`, `name`, `desc`) VALUES
 -- Structure de la table `labels`
 --
 
-CREATE TABLE `labels` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `labels` (
+`id` int(11) NOT NULL,
   `label_name` varchar(100) NOT NULL,
   `link_name` varchar(100) NOT NULL,
   `img` varchar(1000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Contenu de la table `labels`
 --
 
 INSERT INTO `labels` (`id`, `label_name`, `link_name`, `img`) VALUES
-(1, 'Le meilleur des produits', 'le-meilleur-des-produits', ''),
-(2, 'Les nouveautés', 'les-nouveautes', ''),
-(3, 'Les offres', 'les-offres', ''),
-(4, 'Mode et beauté', 'mode-et-beaute', ''),
-(5, 'Informatique', 'informatique', ''),
-(6, 'Maison et bricolage', 'maison-et-bricolage', ''),
-(7, 'Electroménager', 'electromenager', ''),
-(8, 'Livres et multimédia', 'livres-et-multimedia', ''),
-(9, 'Enfants', 'enfants', ''),
-(10, 'Sport', 'sport', ''),
-(11, 'Auto-moto', 'auto-moto', ''),
-(12, 'Fournitures de bureau', 'fournitures-de-bureau', ''),
-(13, 'Jardin et animalerie', 'jardin-et-animalerie', ''),
-(14, 'Abonnement Eko-save', 'abonnement-eko-save', ''),
-(15, 'Produits recommandés pour vous', 'produits-recommandes-pour-vous', '');
+(1, 'Le meilleur des produits', 'le-meilleur-des-produits', 'https://cdn.discordapp.com/attachments/1030456470678016000/1070341422030520340/bestseller.png'),
+(2, 'Les nouveautés', 'les-nouveautes', 'https://media.istockphoto.com/id/1254219019/vector/new-comic-speech-bubble-vector-flat-illustrations-color-phrase-lettering-with-explosive.jpg?s=170667a&w=0&k=20&c=6sstWGF25-aLurTH4FTu2FOCPVaLTGos3bG3tC4cLoM='),
+(3, 'Les offres', 'les-offres', 'https://img.freepik.com/vecteurs-premium/icone-offre-limitee-compte-rebours-temps-offre-limitee-ruban-banniere-vectorielle-moderne-chronometre_349999-979.jpg'),
+(4, 'Mode et beauté', 'mode-et-beaute', 'https://www.malemodelscene.net/wp-content/uploads/2022/08/Mikkel-Jensen-Rag-Bone-Icons-00-364x205.jpg'),
+(5, 'Informatique', 'informatique', 'https://i.notretemps.com/1400x787/smart/2022/04/14/homme-ordinateur.jpg'),
+(6, 'Maison et bricolage', 'maison-et-bricolage', 'https://www.viepratique.fr/wp-content/uploads/sites/4/2019/04/bricolage-et-diy-quels-outils-avoir-chez-soi-750x410.jpg'),
+(7, 'Electroménager', 'electromenager', 'https://www.maisonapart.com/images/normal/20100429_120006_montage.jpg'),
+(8, 'Livres et multimédia', 'livres-et-multimedia', 'https://cdn.pixabay.com/photo/2015/06/02/12/59/book-794978__340.jpg'),
+(9, 'Enfants', 'enfants', 'https://www.educatout.com/images/medium/Trucs-et-conseils-pour-valoriser-l-enfant.jpg'),
+(10, 'Sport', 'sport', 'https://www.latranchesurmer.fr/medias/2022/08/db77d79aad_50173706_depenses-caloriques-sport-julien-eichinger-adobe-stock.jpg'),
+(11, 'Auto-moto', 'auto-moto', 'https://photos.tf1.fr/396/222/audi-r8-spyder-essai-automoto-2016-1-aa76db-0@1x.jpg'),
+(12, 'Fournitures de bureau', 'fournitures-de-bureau', 'https://www.professionnels.ma/sites/default/files/2020-03/pub-4.png.jpeg'),
+(13, 'Jardin et animalerie', 'jardin-et-animalerie', 'https://www.gammvert.fr/conseils/sites/default/files/styles/main_image/public/fotolia_47825735_s_chien.jpg?itok=h0i1ASE2'),
+(14, 'Abonnement Eko-save', 'abonnement-eko-save', 'https://cdn.discordapp.com/attachments/1065997658306662411/1070837545484685362/eko_save.png'),
+(15, 'Produits recommandés pour vous', 'produits-recommandes-pour-vous', 'https://img.freepik.com/premium-photo/woman-hand-writing-recommendation-blank-transparent-board-with-marker-isolated-white-background-business-concept-stock-photo_179068-3061.jpg?w=2000');
 
 -- --------------------------------------------------------
 
@@ -188,22 +188,22 @@ INSERT INTO `labels` (`id`, `label_name`, `link_name`, `img`) VALUES
 -- Structure de la table `news`
 --
 
-CREATE TABLE `news` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `news` (
+`id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `link_name` varchar(100) NOT NULL,
   `desc` varchar(1000) NOT NULL,
   `img` varchar(1000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `news`
 --
 
 INSERT INTO `news` (`id`, `name`, `link_name`, `desc`, `img`) VALUES
-(1, 'Nouveau nombre d\'utilisateur', 'nouveau-nombre-d\'utilisateur ', 'Merci à vous, grâce à vous nous venons de comptabilisé nombre premier visiteur sur notre site.', NULL),
-(2, 'Arnaque', 'arnaque', 'Nous n\'arnaquons pas nos utilisateurs, bienvenue sur Eko', NULL),
-(3, 'On a choisi l\'e-commerce', 'on-a-choisi-l\'e-commerce', 'Pourquoi, feur', NULL);
+(1, 'Nouveau nombre d''utilisateur', 'nouveau-nombre-d''utilisateur ', 'Merci à vous, grâce à vous nous venons de comptabilisé nombre premier visiteur sur notre site.', NULL),
+(2, 'Arnaque', 'arnaque', 'Nous n''arnaquons pas nos utilisateurs, bienvenue sur Eko', NULL),
+(3, 'On a choisi l''e-commerce', 'on-a-choisi-l''e-commerce', 'Pourquoi, feur', NULL);
 
 -- --------------------------------------------------------
 
@@ -211,12 +211,12 @@ INSERT INTO `news` (`id`, `name`, `link_name`, `desc`, `img`) VALUES
 -- Structure de la table `parainnage`
 --
 
-CREATE TABLE `parainnage` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `parainnage` (
+`id` int(11) NOT NULL,
   `parain_id` int(11) NOT NULL,
   `parainated_id` int(11) NOT NULL,
   `link_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `parainnage`
@@ -231,8 +231,8 @@ INSERT INTO `parainnage` (`id`, `parain_id`, `parainated_id`, `link_name`) VALUE
 -- Structure de la table `product`
 --
 
-CREATE TABLE `product` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `product` (
+`id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `img` varchar(1000) NOT NULL,
   `link_name` varchar(100) NOT NULL,
@@ -240,15 +240,15 @@ CREATE TABLE `product` (
   `price` int(11) NOT NULL,
   `seller_name` varchar(100) NOT NULL,
   `eko_score` int(11) NOT NULL,
-  `desc` text,
+  `description` varchar(1000) DEFAULT NULL,
   `label_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Contenu de la table `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `img`, `link_name`, `quantity`, `price`, `seller_name`, `eko_score`, `desc`, `label_name`) VALUES
+INSERT INTO `product` (`id`, `name`, `img`, `link_name`, `quantity`, `price`, `seller_name`, `eko_score`, `description`, `label_name`) VALUES
 (3, 'Petite cuillère', 'https://th.bing.com/th/id/OIP.C_Tr3nS7Qbw06XfW26xfEQHaFO?w=279&h=197&c=7&r=0&o=5&pid=1.7', 'petite-cuillère', 14, 5, 'Eko', 1, NULL, 'les-meilleurs-produits'),
 (8, 'Pied de biche', 'https://th.bing.com/th/id/OIP.g4spheUMT2y8V23UMGMIHwHaHa?w=183&h=183&c=7&r=0&o=5&pid=1.7', 'pied-de-biche', 2, 100, 'Eko', -100, NULL, 'les-nouveautes'),
 (9, 'Pc Gaming', 'https://media.materiel.net/r550/products/MN0005865298_1_0005888236_0005932147.jpg', 'pc-gaming', 1, 199, 'Eko', 999, NULL, 'les-offres'),
@@ -256,7 +256,7 @@ INSERT INTO `product` (`id`, `name`, `img`, `link_name`, `quantity`, `price`, `s
 (11, 'Souris', 'https://m.media-amazon.com/images/I/61Y6W7BNhkL._AC_SX679_.jpg', 'souris', 100, 15, 'Eko', 3, NULL, 'informatique'),
 (12, 'Pot de peinture noir', 'https://th.bing.com/th?id=OPE.v10qqdKTqTSfNA300C300&w=592&h=550&pid=21.1', 'pot-de-peinture-noir', 3, 75, 'Eko', 0, NULL, 'maison-et-bricolage'),
 (13, 'Grille pain', 'https://th.bing.com/th?id=OPE.0rFk3GKf%2fQwCMg300C300&w=200&h=150&c=17&pid=21.1', 'grille-pain', 666, 15, 'Eko', 9, NULL, 'electromenager'),
-(14, 'Tchoupi à l\'école', 'https://th.bing.com/th/id/OIP.8eu-raBh9OzemC9Q0dOXIwHaHt?pid=ImgDet&rs=1', 'tchoupi-à-l\'ecole', 3, 9, 'Eko', 15, NULL, 'livres-et-multimedia'),
+(14, 'Tchoupi à l''école', 'https://th.bing.com/th/id/OIP.8eu-raBh9OzemC9Q0dOXIwHaHt?pid=ImgDet&rs=1', 'tchoupi-à-l''ecole', 3, 9, 'Eko', 15, NULL, 'livres-et-multimedia'),
 (15, 'Peluche de martine', 'https://i.pinimg.com/474x/bb/58/b8/bb58b8d4cf1b6c859e83ad8e0c4b3125.jpg', 'peluche-de-martine', 50, 199, 'Eko', 2, NULL, 'enfant'),
 (16, 'Ballon de foot', 'https://www.casalsport.com/fstrz/r/s/www.casalsport.com/img/W/CAS/ST/FB/31/09/FB3109/FB3109_ST.jpg?frz-v=74', 'ballon-de-foot', 9, 100, 'Eko', 12, NULL, 'sport'),
 (17, 'BMV', 'https://th.bing.com/th/id/R.a82823e630302aecaf68b676ddde7e77?rik=TLr1q6h0FyO9uA&pid=ImgRaw&r=0', 'bmv', 1, 3, 'Eko', 8, NULL, 'auto-moto'),
@@ -271,7 +271,7 @@ INSERT INTO `product` (`id`, `name`, `img`, `link_name`, `quantity`, `price`, `s
 -- Structure de la table `product_label`
 --
 
-CREATE TABLE `product_label` (
+CREATE TABLE IF NOT EXISTS `product_label` (
   `product_id` int(11) NOT NULL,
   `labels_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -282,8 +282,8 @@ CREATE TABLE `product_label` (
 -- Structure de la table `user`
 --
 
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `user` (
+`id` int(11) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `img` varchar(1000) NOT NULL DEFAULT 'icons-user.jpg',
   `nickname` varchar(100) NOT NULL,
@@ -304,14 +304,14 @@ CREATE TABLE `user` (
   `seller` tinyint(1) NOT NULL DEFAULT '0',
   `eko_save` tinyint(1) NOT NULL DEFAULT '0',
   `envy_id` int(11) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `img`, `nickname`, `mail`, `phone_number`, `adress`, `apartment`, `code_postal`, `city`, `password`, `banking_informations`, `acceptance_of_the_gtcu`, `stay_connect`, `newsletter`, `eko_experience`, `badges`, `admin`, `seller`, `eko_save`, `envy_id`) VALUES
-(1, 'ewen', 'icons-user.jpg', 'Keltulsan', 'ebeaufils@gaming.tech', '0676967586', '11 rue d\'Hanoï', '102', '69100', 'Lyon', '1ef791d8c8919c64d63bb4574baf1542', NULL, 1, 1, 1, NULL, NULL, 1, 1, 1, NULL),
+(1, 'ewen', 'icons-user.jpg', 'Keltulsan', 'ebeaufils@gaming.tech', '0676967586', '11 rue d''Hanoï', '102', '69100', 'Lyon', '1ef791d8c8919c64d63bb4574baf1542', NULL, 1, 1, 1, NULL, NULL, 1, 1, 1, NULL),
 (2, 'Gwendal', 'icons-user.jpg', 'Gwenitora', 'perso@gwenitora.com', '+33767934493', '', NULL, '69100', 'Lyon', 'b6f959661e049b0b5a510d6284984421', NULL, 0, 0, 0, NULL, NULL, 0, 0, 0, 0);
 
 --
@@ -322,83 +322,73 @@ INSERT INTO `user` (`id`, `name`, `img`, `nickname`, `mail`, `phone_number`, `ad
 -- Index pour la table `action`
 --
 ALTER TABLE `action`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `analytics`
 --
 ALTER TABLE `analytics`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `product_id` (`product_id`,`action_id`,`user_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `product_id` (`product_id`,`action_id`,`user_id`);
 
 --
 -- Index pour la table `business`
 --
 ALTER TABLE `business`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `user_id` (`user_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- Index pour la table `condition`
 --
 ALTER TABLE `condition`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `envy_list`
 --
 ALTER TABLE `envy_list`
-  ADD PRIMARY KEY (`user_id`,`product_id`),
-  ADD UNIQUE KEY `user_id` (`user_id`,`product_id`);
+ ADD PRIMARY KEY (`user_id`,`product_id`), ADD UNIQUE KEY `user_id` (`user_id`,`product_id`);
 
 --
 -- Index pour la table `faq`
 --
 ALTER TABLE `faq`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `labels`
 --
 ALTER TABLE `labels`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `news`
 --
 ALTER TABLE `news`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `parainnage`
 --
 ALTER TABLE `parainnage`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `parain_id` (`parain_id`),
-  ADD UNIQUE KEY `parainated_id` (`parainated_id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `parain_id` (`parain_id`), ADD UNIQUE KEY `parainated_id` (`parainated_id`);
 
 --
 -- Index pour la table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `labbel_name` (`label_name`),
-  ADD KEY `label_name` (`label_name`),
-  ADD KEY `label_name_2` (`label_name`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `labbel_name` (`label_name`), ADD KEY `label_name` (`label_name`), ADD KEY `label_name_2` (`label_name`);
 
 --
 -- Index pour la table `product_label`
 --
 ALTER TABLE `product_label`
-  ADD PRIMARY KEY (`product_id`,`labels_id`),
-  ADD UNIQUE KEY `product_id` (`product_id`,`labels_id`);
+ ADD PRIMARY KEY (`product_id`,`labels_id`), ADD UNIQUE KEY `product_id` (`product_id`,`labels_id`);
 
 --
 -- Index pour la table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `envy_id` (`envy_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `envy_id` (`envy_id`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -408,52 +398,52 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `action`
 --
 ALTER TABLE `action`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `analytics`
 --
 ALTER TABLE `analytics`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `business`
 --
 ALTER TABLE `business`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `condition`
 --
 ALTER TABLE `condition`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `faq`
 --
 ALTER TABLE `faq`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `labels`
 --
 ALTER TABLE `labels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT pour la table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `parainnage`
 --
 ALTER TABLE `parainnage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

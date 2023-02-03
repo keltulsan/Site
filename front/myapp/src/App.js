@@ -1,3 +1,4 @@
+/* #region imports */
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
@@ -26,7 +27,6 @@ import { Stocks } from './pages/Admin/Stocks';
 import { Sells } from './pages/Admin/Sells';
 import { EnvyList } from './pages/Article/Envy-list';
 import { History } from './pages/Inform-user/History';
-// import { Robot } from './components/Robot';
 import ChatBox from './pages/Chat-box';
 import { Bag } from './pages/Inform-user/Bag';
 import { Articles } from './pages/Article/Articles';
@@ -51,6 +51,7 @@ import { Product } from './pages/Article/Product';
 import { Buy } from "./components/shopping/Buy";
 import { ProductInsertAdmin } from './components/admin/productInfoInsert';
 import { ProductQuantitytAdmin } from './components/admin/productQuantityInfo';
+import { Categorie } from './pages/category';
 
 
 export function links() {
@@ -68,7 +69,7 @@ export function links() {
     history: '/history',
     articles: '/articles',
     clotheSell: '/clothe-sell',
-    product: '/product',
+    product: '/product/:label',
     itemSell: '/item-sell',
     likes: '/likes-list',
     catégories: '/categories',
@@ -127,6 +128,8 @@ export function App(props) {
   const handleShowModalFaq = () => setShowModalFaq(true);
   const link = links()
 
+  /* #endregion */
+
   return <>
     {/* <Background />  */}
     <Cookies />
@@ -184,6 +187,7 @@ export function App(props) {
           <Route exact path={link.itemSell+"/:product_name"} component={ArticleSell} />
           <Route exact path={link.likes} component={EnvyList} />
           <Route exact path={link.product} component={Product} />
+          <Route exact path={link.catégories} component={Categorie} />
 
           {/* Payment */}
           <Route exact path={link.buy}>

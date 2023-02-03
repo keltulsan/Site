@@ -57,7 +57,6 @@ export default function SignUp(props) {
                 width: window.innerWidth
             })
         }
-
         window.addEventListener('resize', handleResize)
     })
 
