@@ -179,7 +179,7 @@ export function Header(props) {
                     Admin
                 </p>
             </Link>}
-            <Link to='#' onClick={() => {
+            <Link to={link.catégories} onClick={() => {
                 setIsHover(!isHover)
                 setIsHover2(false)
                 setIsHover3(false)

@@ -42,8 +42,8 @@ export function Categorie(props) {
     useEffect(() => {
         setRes(img.map((val,key) => {
             return <div key={key}><Link to={"/product/" + val["label_name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}>
-                <div className='logos-categories'>
-                    <img className='logoCategorie' src={val.img} alt={"Catégorie " + val.label_name + " d Eko"}></img>
+                <div className={"logos-categories " +(dimensions.width <= 750 ? 'margin-bottom--': "")} >
+                    <img className={"logoCategorie" + (dimensions.width <= 750 ? "-" : '')} src={val.img} alt={"Catégorie " + val.label_name + " d Eko"}></img>
                     <div className="fadedbox">
                         <div className="text">{val.label_name}</div>
                     </div>
@@ -51,9 +51,9 @@ export function Categorie(props) {
             </Link>
             </div>
         }))
-    }, [img]);
+    }, [img, dimensions]);
     return <div className='flex center'>
-        <div className={"" + (dimensions.width <= 750 ? "flex vertical center " : ' grid')}>
+        <div className={"" + (dimensions.width <= 750 ? "flex vertical center " : 'grid')}>
             {res}
         </div>
     </div>
