@@ -382,7 +382,7 @@ app.post("/product/update", jsonParser, (req, res) => {
       price: req.body.price,
       seller_name: req.body.seller_name,
       eko_score: req.body.eko_score,
-      desc: req.body.desc,
+      description: req.body.desc,
       label_name: req.body.label_name
     },
       {
