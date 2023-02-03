@@ -6,7 +6,8 @@ import { useParams } from 'react-router-dom';
 
 export function Product() {
     const link = links();
-    const [product, setProduct] = useState(false);
+    const [product, setProduct] = useState([]);
+    const [res, setRes] = useState([]);
     let { label } = useParams();
     useEffect(() => {
         const productFetched = Product_();
@@ -29,20 +30,24 @@ export function Product() {
 
         window.addEventListener('resize', handleResize)
     })
-    return product ? <div className='container'>
-        {product.filter(product => product.label_name.match(label)).map((product, key) => {
-            return <div><h1 className='title stroke' > {product.label_name} sur Eko</h1>{console.log(product)}
-                <div className={"flex center " + (dimensions.width <= 750 ? " vertical margin-top- gap" : " gap-plus margin-top")}>
-                    <div className="flex vertical gap-">
-                        <div className="flex gap box background-color-2-4 align-center">
-                            <img className="align-center" src={product.img} alt={'image de' + (product.name) + 'sur Eko'} />
-
-                        </div>
+    useEffect(() => {
+        console.log(product)
+        setRes(product.filter(product => product.label_name.match(label)).map((val,key) => {
+            return <div key={key}><Link to={"/item-sell/" + val["name"].toLowerCase().replaceAll(" ", "-").normalize("NFD").replace(/\p{Diacritic}/gu, "")}>
+                <div className='logos-categories'>
+                    <img className='logoCategorie' src={val.img} alt={"Produit " + val.name + " d Eko"}></img>
+                    <div className="fadedbox">
+                        <div className="text">{val.name}</div>
                     </div>
                 </div>
+            </Link>
             </div>
-        })}
+        }))
+    }, [product]);
+    return <div className='flex center'>
+        <div className={"" + (dimensions.width <= 750 ? "flex vertical center " : ' grid')}>
+            {res}
+        </div>
     </div>
-    : <></>
         
 }
