@@ -35,7 +35,7 @@ export function CGU() {
 
 
     return <div className="container">
-        <h1 className="title top stroke">Condition générale d'utilisation</h1>
+        <h1 className="title top stroke">Condition Générale d'Utilisation</h1>
         <p className='text stroke'>{res}</p>
     </div>
 }
