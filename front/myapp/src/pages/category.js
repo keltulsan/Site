@@ -18,6 +18,21 @@ export function Categorie(props) {
     const [img, setImg] = useState([]);
     const [res, setRes] = useState([]);
 
+    const [dimensions, setDimensions] = React.useState({
+        height: window.innerHeight,
+        width: window.innerWidth
+    })
+    React.useEffect(() => {
+        function handleResize() {
+            setDimensions({
+                height: window.innerHeight,
+                width: window.innerWidth
+            })
+        }
+
+        window.addEventListener('resize', handleResize)
+    })
+
     useEffect(() => {
         const labelsFetched = getAllLabels();
         labelsFetched
@@ -38,7 +53,7 @@ export function Categorie(props) {
         }))
     }, [img]);
     return <div className='flex center'>
-        <div className='grid'>
+        <div className={"" + (dimensions.width <= 750 ? "flex vertical center " : ' grid')}>
             {res}
         </div>
     </div>
