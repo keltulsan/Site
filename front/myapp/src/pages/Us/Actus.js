@@ -19,6 +19,21 @@ export default function News() {
     const [news, setNews] = useState([]);
     const [res, setRes] = useState([]);
 
+    const [dimensions, setDimensions] = React.useState({
+        height: window.innerHeight,
+        width: window.innerWidth
+    })
+    React.useEffect(() => {
+        function handleResize() {
+            setDimensions({
+                height: window.innerHeight,
+                width: window.innerWidth
+            })
+        }
+
+        window.addEventListener('resize', handleResize)
+    })
+
 
     useEffect(() => {
         const newsFetched = getAllNews();
@@ -27,12 +42,13 @@ export default function News() {
             .catch(error => console.error('Erreur avec notre API :', error.message));
     }, []);
     useEffect(() => {
-        console.log(res)
         setRes(news.map((val, key) => {
-            return <div key={key}>
-                <div className='flex center '>
-                    <img className="icon-carousel" src={val.img} alt="Image d'article sur Eko" />
+            return <div key={key} className="flex vertical align-vertical">
+                <h2 className='title flex center align-center'>{val.desc} </h2>
+                <div className='flex center align-center '>
+                    <img className="icon-carousel " src={val.img} alt="Image d'article sur Eko" />
                 </div>
+                <p className='text flex center align-center'>{val.desc} </p>
             </div>
         }))
 
@@ -41,7 +57,7 @@ export default function News() {
         <h1 className="title top stroke">News</h1>
         <p className="text"></p>
         <div className='flex center'>
-            <Carousel className='slide' width="1000px"  >
+            <Carousel className='slide' width={dimensions.width <= 750 ? "300px" : "1000px"}>
                 {res}
             </Carousel>
         </div>
