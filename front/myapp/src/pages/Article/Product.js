@@ -2,11 +2,12 @@ import { Link } from "react-router-dom"
 import { links } from "../../App";
 import { Product_ } from "../../components/product/Get_product";
 import React, { Component, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 export function Product() {
     const link = links();
     const [product, setProduct] = useState(false);
-
+    let { label } = useParams();
     useEffect(() => {
         const productFetched = Product_();
         productFetched
@@ -29,7 +30,7 @@ export function Product() {
         window.addEventListener('resize', handleResize)
     })
     return product ? <div className='container'>
-        {product.filter(product => product.label_name.match(product.label_name)).map((product, key) => {
+        {product.filter(product => product.label_name.match(label)).map((product, key) => {
             return <div><h1 className='title stroke' > {product.label_name} sur Eko</h1>{console.log(product)}
                 <div className={"flex center " + (dimensions.width <= 750 ? " vertical margin-top- gap" : " gap-plus margin-top")}>
                     <div className="flex vertical gap-">
