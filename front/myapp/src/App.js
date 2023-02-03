@@ -69,7 +69,7 @@ export function links() {
     history: '/history',
     articles: '/articles',
     clotheSell: '/clothe-sell',
-    product: '/product',
+    product: '/product/:label',
     itemSell: '/item-sell',
     likes: '/likes-list',
     catégories: '/categories',
@@ -129,7 +129,7 @@ export function App(props) {
   const link = links()
 
   return <>
-    <Background /> 
+    {/* <Background />  */}
     <Cookies />
     <Router>
       <Header setColors={setColors} setShow={setShow} setAlerts={setAlerts} handleShowModal={handleShowModal} />
