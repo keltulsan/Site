@@ -40,7 +40,7 @@ export function ProductInsert(props) {
                 </div>
                 <div className="flex gap">
                     <input className='background my-account- margin-top--- margin-right--' {...register("eko_score")} placeholder="eko_score" type="text" id="eko_score" />
-                    <input className='background my-account- margin-top---'  {...register("desc")} placeholder="Description" type="text" id="Description" />
+                    <input className='background my-account- margin-top---'  {...register("description")} placeholder="Description" type="text" id="Description" />
                 </div>
             </div>
             <div className="flex2 center margin-top--">

@@ -142,7 +142,7 @@ export function Header(props) {
                             setIsHover3(false)
                         }}><p>Catégories</p></Link>
 
-                        {ReactSession.get("admin") ?
+                        {ReactSession.get("seller") || ReactSession.get("admin") ?
                         <Link to={link.sells} style={{ minWidth: "107.27px" }}><p>Mes ventes</p></Link>
                         :<></>}
                         <Link to={link.actus}><p>Actus</p></Link>
@@ -186,7 +186,7 @@ export function Header(props) {
                 setIsHover2(false)
                 setIsHover3(false)
             }}><p>Catégories</p></Link>
-            {ReactSession.get("admin") ? <Link to={link.sells}><p>Mes ventes</p></Link>:<></>}
+            {ReactSession.get("seller") || ReactSession.get("admin") ? <Link to={link.sells}><p>Mes ventes</p></Link>:<></>}
             <Link to={link.actus}><p>Actus</p></Link>
             {!ReactSession.get("username") && <Link to={link.login}><p>Login</p></Link>}
             <div className='flex center'>
